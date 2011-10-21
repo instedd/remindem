@@ -85,9 +85,9 @@ ul.vertical li { list-style: none; }
 }
 
 .LocalGatewayArrow {
-    background: url(http://theme.instedd.org/theme/images/interface/logos/nuntiumLocalGateway.png);
+    background: url(http://theme.instedd.org/theme/images/interface/arrow.png);
     background-repeat: no-repeat;
-    width: 6px;
+    width: 9px;
     height: 40px;
     padding-top: 0px;
 }
