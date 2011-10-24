@@ -3,7 +3,7 @@
 <% end %>
 
 <%= form_for @schedule, :validate => true do |f| %>
-  <%= errors_for @schedule, :as => :schedule %>
+  <%= errors_for @schedule, :as => :reminder %>
 
   <div class="field w60">
     <%= f.label :title, "Title" %>
@@ -57,7 +57,7 @@
   <hr />
 
   <h2>Messages</h2>
-  <p>Write your schedule's messages</p>
+  <p>Write your reminder's messages</p>
   
   <ul class="vertical">
     <%= f.fields_for :messages, :validate => false do |message_form| %>

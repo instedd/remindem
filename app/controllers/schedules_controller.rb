@@ -67,6 +67,7 @@ class SchedulesController < AuthenticatedController
         format.html { redirect_to(schedule_url(@schedule), :notice => 'Schedule was successfully created.') }
         format.xml  { render :xml => @schedule, :status => :created, :location => @schedule }
       else
+        add_breadcrumb "New Reminder", :new_schedule_path
         format.html { render :action => "new" }
         format.xml  { render :xml => @schedule.errors, :status => :unprocessable_entity }
       end
@@ -86,6 +87,9 @@ class SchedulesController < AuthenticatedController
         format.html { redirect_to(schedule_url(@schedule), :notice => 'Schedule was successfully updated.') }
         format.xml  { head :ok }
       else
+        add_breadcrumb @schedule.title, schedule_path(params[:id])
+        add_breadcrumb "Settings", edit_schedule_path(params[:id])
+        
         format.html { render :action => "edit" }
         format.xml  { render :xml => @schedule.errors, :status => :unprocessable_entity }
       end
