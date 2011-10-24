@@ -32,7 +32,15 @@
         <div id="User">
           <%=current_user.email%><br><br>
           <div class="container">
-            <%= link_to "Log Out", destroy_user_session_path %>
+            <ul>
+              <li><%= link_to 'Reminders', schedules_path %></li>
+              <li><%= link_to 'Settings', edit_user_registration_path %></li>
+            </ul>
+            <hr/>
+            <ul>
+              <li><a href="mailto:support@instedd.org?subject=[remindem-bug]">Report a bug</a></li>
+              <li><%= link_to "Sign Out", destroy_user_session_path %></li>
+            </ul>
           </div>
         </div>
         </li>
@@ -85,7 +93,7 @@
             <div class="left">
               <a href="http://instedd.org">&copy; 2011 InSTEDD</a>
               <a href="#TODO">Terms and conditions</a>
-              <a href="#TODO">Contact us</a>
+              <a href="mailto:support@instedd.org?subject=[remindem]">Contact us</a>
             </div>
             <div class="right">
               <a href="<%= root_path %>">Home</a>
