@@ -26,7 +26,7 @@ RememberMe::Application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address              => "esparta.manas.com.ar"
+    :address              => "esparta.manas.net"
   }
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end
