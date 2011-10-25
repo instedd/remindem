@@ -379,3 +379,27 @@ th.severity {
   color: #777777 !important;
   display: inline;
 }
+
+.TourContent .pc {
+  background: url(/images/tourPc.png);
+  background-repeat: no-repeat;
+  padding-top: 35px;
+}
+.TourContent .android {
+  background: url(/images/tourAndroid.png);
+  background-repeat: no-repeat;
+  padding-top: 41px;
+}
+
+ul.TourNavigation > li.start > a {
+  background: url(/images/start.png);
+}
+ul.TourNavigation > li.manage > a {
+  background: url(/images/manage.png);
+}
+ul.TourNavigation > li.message > a {
+  background: url(/images/message.png);
+}
+ul.TourNavigation > li.schedule > a {
+  background: url(/images/schedule.png);
+}

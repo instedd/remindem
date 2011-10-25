@@ -20,7 +20,7 @@
 			<ul>
 				<%= section 'Home', root_path, :home %>
 				<%= section 'Reminders', schedules_path, :schedules, [:schedules, :subscribers, :logs] unless current_user.nil? %>
-				<%= section 'Tour', tour_path(1), :tour %>
+				<%= section 'Tour', tour_path(:start), :tour %>
 				<%= section 'Community', '#TODO', :comunity %>
 				<%= section 'Help', '#TODO', :help %>
 			</ul>
@@ -97,7 +97,7 @@
             </div>
             <div class="right">
               <a href="<%= root_path %>">Home</a>
-              <a href="<%= tour_path(1) %>">Tour</a>
+              <a href="<%= tour_path(:start) %>">Tour</a>
               <a href="#TODO">Community</a>
               <a href="#TODO">Help</a>
               <a href="#TODO">Language: English</a>

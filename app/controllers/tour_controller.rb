@@ -1,6 +1,6 @@
 class TourController < ApplicationController
   
   def show
-    render params[:page_number]
+    render params[:page]
   end
 end
