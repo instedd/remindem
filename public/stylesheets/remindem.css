@@ -305,7 +305,7 @@ a.black {
   color: black !important;
 }
 
-a.grey {
+a.ux-collapse-trigger.grey {
   color: grey !important;
 }
 
