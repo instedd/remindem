@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class SubscriberTest < ActiveSupport::TestCase
+  
+  def assert_can_be_routed(user, message)
+    assert_equal user.email, message[:'x-remindem-user']
+  end
+  
   test "subscribe" do
     schedule = pregnant_make
     
@@ -15,6 +20,7 @@ class SubscriberTest < ActiveSupport::TestCase
     assert_equal schedule, created_subscriber.schedule
     assert_equal "remindem".with_protocol, result[0][:from]
     assert_equal schedule.welcome_message, result[0][:body]
+    assert_can_be_routed schedule.user, result[0]
     assert_in_delta Time.now.utc.to_f, created_subscriber.subscribed_at.to_f, 1.minute.to_f
   end
   
@@ -28,6 +34,7 @@ class SubscriberTest < ActiveSupport::TestCase
     assert_equal 0, created_subscriber.offset
     assert_equal "remindem".with_protocol, result[0][:from]
     assert_equal schedule.welcome_message, result[0][:body]
+    assert_can_be_routed schedule.user, result[0]
     assert_equal "sms://8558190", result[0][:to]
   end
   
@@ -40,6 +47,7 @@ class SubscriberTest < ActiveSupport::TestCase
     assert_equal subscribers, Subscriber.count
     assert_equal "remindem".with_protocol, result[0][:from]
     assert_equal Subscriber.no_schedule_message("lalala"), result[0][:body]
+    assert_can_be_routed someAuthor, result[0]
     assert_equal "sms://8558190", result[0][:to]
   end
   
@@ -73,6 +81,7 @@ class SubscriberTest < ActiveSupport::TestCase
     result = Subscriber.modify_subscription_according_to :from => "sms://8558190", :body => "#{schedule.keyword} 23", :'x-remindem-user' => otherAuthor.email
     
     assert_equal Subscriber.no_schedule_message(schedule.keyword), result[0][:body]
+    assert_can_be_routed otherAuthor, result[0]
     assert_equal "sms://8558190", result[0][:to]
   end
   
@@ -88,6 +97,7 @@ class SubscriberTest < ActiveSupport::TestCase
     
     assert_equal Subscriber.invalid_author('foo'), result[0][:body]
     assert_equal "sms://8558190", result[0][:to]
+    assert_equal 'not-user-email@acme.com', result[0][:'x-remindem-user']
   end
   
   test "unsubscribe from specific reminder" do
@@ -113,9 +123,9 @@ class SubscriberTest < ActiveSupport::TestCase
     randweeks_schedule = Schedule.find_by_keyword "randweeks"
     randweeks_subscriber = Subscriber.find_by_phone_number_and_schedule_id "sms://8558190", randweeks_schedule
     assert_not_nil randweeks_subscriber
-    assert_equal [:from=>"sms://remindem",
-      :body=> "You have successfully unsubscribed from the \"Pregnancy reminders\" Reminder. To subscribe again send \"pregnant\" to this number",
-      :to=>"sms://8558190"], answer
+    assert_equal Subscriber.goodbye_message(schedule), answer[0][:body]
+    assert_equal "sms://8558190", answer[0][:to]
+    assert_can_be_routed schedule.user, answer[0]
   end
   
   test "sending opt out message without specifying the schedule should answer with the schedules list and a set of instructions to opt out properly" do
@@ -135,9 +145,10 @@ class SubscriberTest < ActiveSupport::TestCase
     created_subscribers = Subscriber.find_all_by_phone_number "sms://8558190"
     assert_not_empty created_subscribers
     assert_equal 2, created_subscribers.size
-    assert_equal [:from=>"sms://remindem",
-      :body=> "You are subscribed to: [\"pregnant\", \"randweeks\"]. Please specify the reminder you want to unsubscribe: 'off keyword'.",
-      :to=>"sms://8558190"], answer
+    
+    assert_equal Subscriber.please_specify_keyword_message("pregnant, randweeks"), answer[0][:body]
+    assert_equal "sms://8558190", answer[0][:to]
+    assert_can_be_routed pregnant_schedule.user, answer[0]
   end
   
   test "unsubscribe from sole reminder" do
@@ -155,9 +166,9 @@ class SubscriberTest < ActiveSupport::TestCase
     created_subscriber = Subscriber.find_by_phone_number "sms://8558190"
     assert_nil created_subscriber
     assert_not_nil schedule
-    assert_equal [:from=>"sms://remindem",
-      :body=> "You have successfully unsubscribed from the \"Pregnancy reminders\" Reminder. To subscribe again send \"pregnant\" to this number",
-      :to=>"sms://8558190"], answer
+    assert_equal Subscriber.goodbye_message(schedule), answer[0][:body]
+    assert_equal "sms://8558190", answer[0][:to]
+    assert_can_be_routed schedule.user, answer[0]
   end
   
   test "unsubscribe from unsubscribed reminder" do
@@ -172,9 +183,10 @@ class SubscriberTest < ActiveSupport::TestCase
     created_subscriber = Subscriber.find_by_phone_number "sms://8558190"
     assert_nil created_subscriber
     assert_not_nil schedule
-    assert_equal [:from=>"sms://remindem",
-      :body=> "Sorry, you are not subscribed to reminder program named pregnant :(.",
-      :to=>"sms://8558190"], answer
+    
+    assert_equal Subscriber.unkwnown_subscriber_message("pregnant"), answer[0][:body]
+    assert_equal "sms://8558190", answer[0][:to]
+    assert_can_be_routed schedule.user, answer[0]
   end
   
   test "subscribe to an already subscribed schedule should warn you and don't subscribe again" do
@@ -192,9 +204,10 @@ class SubscriberTest < ActiveSupport::TestCase
     assert_equal 1, (Subscriber.find_all_by_phone_number "sms://8558190").size
     subscriber = Subscriber.find_by_phone_number "sms://8558190"
     assert_not_nil schedule
-    assert_equal [:from=>"sms://remindem",
-      :body=> "Sorry, you are already subscribed to reminder program named pregnant. To unsubscribe please send 'stop pregnant'.",
-      :to=>"sms://8558190"], answer
+    
+    assert_equal Subscriber.already_registered_message("pregnant"), answer[0][:body]
+    assert_equal "sms://8558190", answer[0][:to]
+    assert_can_be_routed schedule.user, answer[0]
   end
   
   test "subscribe to different schedules should not conflict with multiple subscription to the same schedule" do
@@ -212,6 +225,7 @@ class SubscriberTest < ActiveSupport::TestCase
     assert_equal "sms://remindem", answer[0][:from]
     assert_equal pregnant.welcome_message, answer[0][:body]
     assert_equal "sms://8558190", answer[0][:to]
+    assert_can_be_routed pregnant.user, answer[0]
 
     answer = Subscriber.modify_subscription_according_to :from => "sms://8558190", :body => "randweeks", :'x-remindem-user' => randweeks.user.email
     randweeks = Schedule.find_by_keyword "randweeks"
@@ -219,5 +233,6 @@ class SubscriberTest < ActiveSupport::TestCase
     assert_equal "sms://remindem", answer[0][:from]
     assert_equal randweeks.welcome_message, answer[0][:body]
     assert_equal "sms://8558190", answer[0][:to]
+    assert_can_be_routed randweeks.user, answer[0]
   end
 end

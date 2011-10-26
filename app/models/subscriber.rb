@@ -9,15 +9,15 @@ class Subscriber < ActiveRecord::Base
     sender_phone_number = params[:from]
     
     user = User.find_by_email params[:'x-remindem-user']
-    return reply(invalid_author(keyword), :to => sender_phone_number) unless user
-    
+    return reply(invalid_author(keyword), :to => sender_phone_number, :'x-remindem-user' => params[:'x-remindem-user']) unless user
+        
     unless Schedule.is_opt_out_keyword? keyword
       schedule = user.schedules.find_by_keyword keyword
-      return reply(no_schedule_message(keyword), :to => sender_phone_number) unless schedule
+      return [user.build_message(sender_phone_number, no_schedule_message(keyword))] unless schedule
       
-      return reply(already_registered_message(keyword), :to => sender_phone_number) if self.find_by_phone_number_and_schedule_id sender_phone_number, schedule.id
+      return [user.build_message(sender_phone_number, already_registered_message(keyword))] if self.find_by_phone_number_and_schedule_id sender_phone_number, schedule.id
       
-      return reply(invalid_offset_message(params[:body], offset), :to => sender_phone_number) unless offset.nil? || offset.looks_as_an_int?
+      return [user.build_message(sender_phone_number, invalid_offset_message(params[:body], offset))] unless offset.nil? || offset.looks_as_an_int?
       
       new_subscriber = create! :phone_number => sender_phone_number, 
                                           :offset => offset ? offset : 0, 
@@ -30,17 +30,18 @@ class Subscriber < ActiveRecord::Base
         subscriber = find_by_phone_number_and_schedule_id sender_phone_number, schedule
         if subscriber
           subscriber.destroy
-          reply goodbye_message(schedule), :to => sender_phone_number
+          [user.build_message(sender_phone_number, goodbye_message(schedule))]
         else
-          reply unkwnown_subscriber_message(offset), :to => sender_phone_number
+          [user.build_message(sender_phone_number,unkwnown_subscriber_message(offset))]
         end
       else
         subscribers = find_all_by_phone_number sender_phone_number
         if subscribers.size == 1
           subscribers.first.destroy
-          reply goodbye_message(subscribers.first.schedule), :to => sender_phone_number
+          [user.build_message(sender_phone_number, goodbye_message(subscribers.first.schedule))]
         else
-          reply please_specify_keyword_message(subscribers.collect {|a_subscriber| a_subscriber.schedule.keyword}), :to => sender_phone_number
+          keywords = (subscribers.collect { |a_subscriber| a_subscriber.schedule.keyword}).join(', ')
+          [user.build_message(sender_phone_number, please_specify_keyword_message(keywords))]
         end
       end
     end
@@ -85,6 +86,6 @@ class Subscriber < ActiveRecord::Base
   private 
   
   def self.reply msg, options
-    [{:from => "remindem".with_protocol, :body => msg, :to => options[:to]}]
+    [{:from => "remindem".with_protocol, :body => msg, :to => options[:to], :'x-remindem-user' => options[:'x-remindem-user']}]
   end
 end
