@@ -39,7 +39,7 @@ module RememberMe
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
     
-    config.action_mailer_default_from = "Remindem <remindem-noreply@instedd.org>"
+    config.action_mailer_default_from = "Remindem <noreply@instedd.org>"
     
     config.version_name = '1.4'
   end
