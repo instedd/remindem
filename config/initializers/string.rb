@@ -4,7 +4,12 @@ class String
   end
 
   def without_protocol
-    self.from(self.rindex('/')+1)
+    last_slash = self.rindex('/')
+    if last_slash.nil?
+      self
+    else 
+      self.from(self.rindex('/')+1)
+    end
   end
   
   def looks_as_an_int?
@@ -33,5 +38,11 @@ class String
   
   def to_channel_name
     self.gsub(/@/, '_at_').gsub(/\./, '_dot_').gsub(/\+/, '_plus_')
+  end
+end
+
+class NilClass
+  def without_protocol
+    self
   end
 end
