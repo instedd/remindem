@@ -8,9 +8,10 @@
 	     </div><!-- #steps-container-->
 	</div><!-- #steps-line-->
 </div><!-- #box plain grey -->
-<%= errors_for @channel %>
+<%= errors_for @invalid_channel %>
 <% form_for :channel, :url => { :action => :create }, :remote => true do |f| %>
 <div class="ChannelWizard">
+	<%= f.hidden_field :step, :value => "new_android_channel" %>
 	<h1 class="orange">Enter the gateway code from your mobile phone</h1>
 	<div class="AndroidScreen left"></div><br>
 	<div class="GreyArrow AndroidArrow left"></div><br>
