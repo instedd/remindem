@@ -10,9 +10,9 @@ class ChannelController < AuthenticatedController
       render :action => "new"
     end
   rescue Nuntium::Exception => exception
-    @channel = Channel.new
+    @invalid_channel = Channel.new
     load_errors_from exception
-    params[:step] = "user_channel"
+    params[:step] = params[:channel][:step]
     render :action => "new"
   end   
    
@@ -34,10 +34,10 @@ class ChannelController < AuthenticatedController
   
   def load_errors_from exception
     if exception.properties.empty?
-      @channel.errors.add('Unexpected Error: ', "\"#{exception.message}\"")
+      @invalid_channel.errors.add('Unexpected Error: ', "\"#{exception.message}\"")
     end
     exception.properties.map do |value, msg|
-      @channel.errors.add(("#{value.humanize}: "), msg)
+      @invalid_channel.errors.add(("#{value.humanize}: "), msg)
     end
   end
   
