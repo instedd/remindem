@@ -57,7 +57,7 @@ MessageControls.prototype.is_valid = function(){
 }
 
 MessageControls.prototype.is_offset_valid = function(){
-  return !this.must_check_offset() || (this.is_offset_present() && this.is_offset_possitive());
+  return !this.must_check_offset() || (this.is_offset_present() && this.is_offset_possitive() && this.offset_fits_inside_an_integer());
 }
 
 MessageControls.prototype.is_text_valid = function(){
@@ -72,7 +72,11 @@ MessageControls.prototype.show_offset_errors_if_must = function(){
   if (this.must_check_offset()) {
     this.show_offset_error_if('can\'t be blank', !this.is_offset_present());
     if (this.is_offset_present()) {
-      this.show_offset_error_if('can\'t be negative', !this.is_offset_possitive());
+      if (this.is_offset_possitive()){
+        this.show_offset_error_if('can\'t be greater than 2147483647', !this.offset_fits_inside_an_integer());
+      } else {
+        this.show_offset_error_if('can\'t be negative', !this.is_offset_possitive());  
+      }
     }  
   }
 }
@@ -84,6 +88,11 @@ MessageControls.prototype.is_offset_present = function(){
 MessageControls.prototype.is_offset_possitive = function(){
   return (this.getOffset() >= 0 );
 }
+
+MessageControls.prototype.offset_fits_inside_an_integer = function(){
+  return (this.getOffset() <= 2147483647 );
+}
+
 MessageControls.prototype.must_check_offset = function(){
   return $('input[name=schedule[type]]:radio:checked').val() == 'FixedSchedule';
 }

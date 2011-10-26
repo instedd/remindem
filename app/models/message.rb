@@ -5,7 +5,10 @@ class Message < ActiveRecord::Base
   validates_presence_of :offset,
     :if => lambda { !marked_for_destruction? && schedule.type == "FixedSchedule" },
     :message => "is required for schedules with a fixed timeline"
-  validates_numericality_of :offset, :only_integer => true, :greater_than_or_equal_to => 0,
+  validates_numericality_of :offset,
+    :only_integer => true,
+    :greater_than_or_equal_to => 0,
+    :less_than_or_equal_to => 2147483647,
     :if => lambda { !marked_for_destruction? && schedule.type == "FixedSchedule" }
 
   before_destroy :alert_schedule_from_message_destroy
