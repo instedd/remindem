@@ -40,7 +40,8 @@ class Subscriber < ActiveRecord::Base
           subscribers.first.destroy
           [user.build_message(sender_phone_number, goodbye_message(subscribers.first.schedule))]
         else
-          [user.build_message(sender_phone_number, please_specify_keyword_message(subscribers.collect {|a_subscriber| a_subscriber.schedule.keyword}))]
+          keywords = (subscribers.collect { |a_subscriber| a_subscriber.schedule.keyword}).join(', ')
+          [user.build_message(sender_phone_number, please_specify_keyword_message(keywords))]
         end
       end
     end

@@ -145,9 +145,10 @@ class SubscriberTest < ActiveSupport::TestCase
     created_subscribers = Subscriber.find_all_by_phone_number "sms://8558190"
     assert_not_empty created_subscribers
     assert_equal 2, created_subscribers.size
-    assert_equal [:from=>"sms://remindem",
-      :body=> "You are subscribed to: [\"pregnant\", \"randweeks\"]. Please specify the reminder you want to unsubscribe: 'off keyword'.",
-      :to=>"sms://8558190", :'x-remindem-user' => pregnant_schedule.user.email], answer
+    
+    assert_equal Subscriber.please_specify_keyword_message("pregnant, randweeks"), answer[0][:body]
+    assert_equal "sms://8558190", answer[0][:to]
+    assert_can_be_routed pregnant_schedule.user, answer[0]
   end
   
   test "unsubscribe from sole reminder" do
