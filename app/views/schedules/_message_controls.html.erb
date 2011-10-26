@@ -10,7 +10,7 @@
   
   <div class="offset left">
     <div class="ux-nstep">
-      <%= tag :input, :name => "edit_offset", :size => "2", :type => "text", :value => f.object.offset, :onblur => "validate_onblur(this);" %>
+      <%= tag :input, :name => "edit_offset", :size => "2", :type => "text", :value => f.object.offset, :onblur => "validate_onblur(this);", :'data-min' => "0" %>
     </div>
     <span class="timescale"><%= @schedule.timescale %></span>
   </div>
