@@ -403,3 +403,11 @@ ul.TourNavigation > li.message > a {
 ul.TourNavigation > li.schedule > a {
   background: url(/images/schedule.png);
 }
+
+.faq h1+p {
+  margin-bottom: 26px;
+}
+
+.faq h3 {
+  margin-top: 30px;
+}
