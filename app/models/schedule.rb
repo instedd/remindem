@@ -3,6 +3,7 @@ class Schedule < ActiveRecord::Base
   validates_presence_of :timescale, :unless => Proc.new {|schedule| schedule.type == "CalendarBasedSchedule"}
   validates_uniqueness_of :keyword
   validates_length_of :keyword, :maximum => 15
+  validates_format_of :keyword, :with => /^[^ ]+$/, :message => "must not include spaces" 
   validates_length_of :title, :maximum => 60
   belongs_to :user
   
