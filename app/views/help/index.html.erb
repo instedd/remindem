@@ -1,7 +1,7 @@
 <div class="faq">
 	<div class="w60">
 		<h1>Got Questions?</h1>
-		<p>Got a question or two about Remindem? We've got an answer or two! Check out the Frequently Asked Questions on this page or subscribe to our <a href="#TODO">user discussion group</a>, where we'll be happy to answer any questions.</p>
+		<p>Got a question or two about Remindem? We've got an answer or two! Check out the Frequently Asked Questions on this page or subscribe to our <%= link_to 'user discussion group', community_path %>, where we'll be happy to answer any questions.</p>
 	</div>
 	<hr/>
 	<div class="w60">
@@ -18,7 +18,7 @@
 		<p>Remindem is free to use and open source. Keep in mind that your mobile service provider's fees apply, so be sure to check with them if you have any questions about charges.</p>
 
 		<h3>What browsers are supported for creating and managing text-messaging projects?</h3>
-		<p>Any modern browser, including the latest versions of Firefox, Safari, Internet Explorer, Chrome, and others should work fine. If you run across a browser that doesn't seem to play nice with Remindem, please let us know <link to discussion group and/or contact page>.</p>
+		<p>Any modern browser, including the latest versions of Firefox, Safari, Internet Explorer, Chrome, and others should work fine. If you run across a browser that doesn't seem to play nice with Remindem, please <%= link_to 'let us know', community_path %>.</p>
 
 		<h3>What is Nuntium?</h3>
 		<p>Nuntium is a small application that serves as a bridge between your phone and the Remindem Web application. Because Remindem doesn't directly send or receive text messages, this app helps your phone to communicate with Remindem so that it can send and receive messages according to the schedules you've set.</p>
