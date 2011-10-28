@@ -410,3 +410,7 @@ ul.TourNavigation > li.schedule > a {
 .faq h3 {
   margin-top: 30px;
 }
+
+h3+p {
+  margin-top: -15px;
+}

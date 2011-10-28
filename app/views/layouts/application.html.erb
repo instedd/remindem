@@ -21,6 +21,7 @@
 				<%= section 'Home', root_path, :home %>
 				<%= section 'Reminders', schedules_path, :schedules, [:schedules, :subscribers, :logs] unless current_user.nil? %>
 				<%= section 'Tour', tour_path(:start), :tour %>
+        <%= section 'Community', community_path, :community %>
 				<%= section 'Help', help_path , :help %>
 			</ul>
 		</div>
@@ -97,6 +98,7 @@
             <div class="right">
               <a href="<%= root_path %>">Home</a>
               <a href="<%= tour_path(:start) %>">Tour</a>
+              <a href="<%= community_path %>">Community</a>
               <a href="<%= help_path %>">Help</a>
               <span class="VersionNumber">Version <%= RememberMe::Application.config.version_name %></span>
             </div>
