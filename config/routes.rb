@@ -17,7 +17,7 @@ RememberMe::Application.routes.draw do
   root :to => 'home#index'
 
   match 'tour/:page' => 'tour#show', :as => :tour
-  match 'help' => 'help#index'
+  match 'help' => 'help#faq'
   match 'community' => 'community#index'
   
   # The priority is based upon order of creation:

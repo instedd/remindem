@@ -1,6 +1,6 @@
 class HelpController < ApplicationController
 	
-  def index
+  def faq
     respond_to do |format|
       format.html # index.html.erb
     end
