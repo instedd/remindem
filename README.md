@@ -1,7 +1,7 @@
 == Welcome to Remindem
 
-Setup:
-======
+=== Setup
+
 
 * Nuntium
 Nuntium settins are stored under 'config/nuntium.yml'.
