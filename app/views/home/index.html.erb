@@ -1,7 +1,7 @@
 
 <div class="right">
   <div class="people"></div>
-  <button class="fpdf right">Download One-Pager.pdf (1.15 MB)</button>
+  <button class="fpdf right">Download brochure (1.15 MB)</button>
 </div>
 
 <h1 class="home">Keep people informed</h1>
@@ -22,29 +22,25 @@
 
 <div class="home-middle-bar">
         
-    <div class="prev"><a href="#" class="disabled"><span></span></a></div><!-- #prev -->
-            
-    <div class="benefits">
-    
-    	<div id="benefits-container">
-    
-            <div><span class="i48grad-users left"></span><h3>Helps</h3><p>your community of users feel supported and connected</p><br clear="all"></div>
+  	<div class="benefits">
 
-            <div><span class="i48grad-information left"></span><h3>Sends</h3><p>reminders when subscribers need them most</p><br clear="all"></div>
+      	<ul id="benefits-container">
 
-            <div><span class="i48grad-pie left"></span><h3>Allows</h3><p>you to tailor advice based on when it will be received</p><br clear="all"></div>
+              <li><span class="i48grad-users left"></span><h3>Helps</h3><p>your community of users feel supported and connected</p><br clear="all"></li>
 
-            <div><span class="i48grad-internet left"></span><h3>Schedule and edit</h3><p>your messages from any internet connection</p><br clear="all"></div>
-            
-            <div><span class="i48grad-free left"></span><h3>Free</h3><p>for anyone to use to help increase their social impact</p><br clear="all"></div>
-            
-            <div><span class="i48grad-openSource left"></span><h3>Open Source</h3><p>code for developers to use to improve its design and functionality</p><br clear="all"></div>
-    
-        </div><!-- #benefits-container -->
-            
-    </div><!-- #benefits -->
-        
-    <div class="next"><a href="#" class="disabled"><span></span></a></div><!-- #next -->
+              <li><span class="i48grad-information left"></span><h3>Sends</h3><p>reminders when subscribers need them most</p><br clear="all"></li>
+
+              <li><span class="i48grad-pie left"></span><h3>Allows</h3><p>you to tailor advice based on when it will be received</p><br clear="all"></li>
+
+              <li><span class="i48grad-internet left"></span><h3>Schedule and edit</h3><p>your messages from any internet connection</p><br clear="all"></li>
+
+              <li><span class="i48grad-free left"></span><h3>Free</h3><p>for anyone to use to help increase their social impact</p><br clear="all"></li>
+
+              <li><span class="i48grad-openSource left"></span><h3>Open Source</h3><p>code for developers to use to improve its design and functionality</p><br clear="all"></li>
+
+          </ul><!-- #benefits-container -->
+
+      </div><!-- #benefits -->
 
 </div><!-- #home-middle-bar -->    
 
@@ -136,11 +132,11 @@
     <table>
     	<tr>
         	<td>Step 1</td>
-            <td><button class="fedit">Create an account and log in</button></td>
+            <td><%= link_to 'Create an account and log in', new_user_registration_path, :class=>"button fedit" %></td>
         </tr>
     	<tr>
         	<td>Step 2</td>
-            <td><button class="fadd">Create an new reminders list</button> and choose a keyword that people will text to suscribe to your list</td>
+            <td><%= link_to 'Create an new reminders list', new_schedule_path, :class=>"button fadd" %> and choose a keyword that people will text to suscribe to your list</td>
         </tr>
     	<tr>
         	<td>Step 3</td>
