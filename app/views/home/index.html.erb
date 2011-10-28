@@ -1,1 +1,177 @@
-Hello World!
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'http://theme.instedd.org/theme/stylesheets/apphome.css' %>
+<% end %>
+
+<div class="main-image people right"><%= link_button_to 'Download One-Pager.pdf (1.15 MB)', '/onePager.pdf', :class => "fpdf right" %></div><!-- #main-image people -->
+
+<h1 class="home">Keep people informed</h1>
+<p class="sub">of important things going on in their life and work</p>
+<p>Remindem is a free and easy-to-use tool that allows you to set up a list of tips, reminders, and advice that people can subscribe to via text messages. Remindem sends important text reminders just when your subscribers need them, based on a schedule you define.</p>
+
+<br><br><br><br>
+
+<p>Get started: <%= link_button_to 'Create an account', new_user_registration_path, :class => "orange" %><p>
+<p>Already a member? <%= link_to 'Log in', new_user_session_path %></p>
+
+<div class="clear"></div>
+</div><!-- #container -->
+
+<div class="home-middle-bar">
+        
+    <div class="prev"><a href="#" class="disabled"><span></span></a></div><!-- #prev -->
+            
+    <div class="benefits">
+    
+    	<div id="benefits-container">
+    
+            <div><span class="i48grad-users left"></span><h3>Helps</h3><p>your community of users feel supported and connected</p><br clear="all"></div>
+
+            <div><span class="i48grad-information left"></span><h3>Sends</h3><p>reminders when subscribers need them most</p><br clear="all"></div>
+
+            <div><span class="i48grad-pie left"></span><h3>Allows</h3><p>you to tailor advice based on when it will be received</p><br clear="all"></div>
+
+            <div><span class="i48grad-internet left"></span><h3>Schedule and edit</h3><p>your messages from any internet connection</p><br clear="all"></div>
+            
+            <div><span class="i48grad-free left"></span><h3>Free</h3><p>for anyone to use to help increase their social impact</p><br clear="all"></div>
+            
+            <div><span class="i48grad-openSource left"></span><h3>Open Source</h3><p>code for developers to use to improve its design and functionality</p><br clear="all"></div>
+    
+        </div><!-- #benefits-container -->
+            
+    </div><!-- #benefits -->
+        
+    <div class="next"><a href="#"><span></span></a></div><!-- #next -->
+
+</div><!-- #home-middle-bar -->    
+
+<div id="container">
+
+<h1>What can I use it for?</h1>
+<p class="desc">Remindem is great for any kind of reminder you'd like to send.<br> Here are a few ways you might use it, but you're limited only by your imagination:</p>
+
+<div class="left w45">
+	<h2>Expecting Mothers</h2>
+    <div class="icon-container left"><span class="i96grad-pregnant"></span></div>
+    <p>Mothers-to-be have a lot on their plates, and it's easy to forget details like taking vitamin supplements or showing up for scheduled checkups. Then there's the variety of little changes that might alarm a brand-new mother who doesn't know quite what to expect -- or when to expect it. Why not make the road motherhood a little easier with Remindem? Whether you're a health care practitioner, an insurance professional, or just a worried mother-in-law, you can set up a series of timed reminders to help Mom make it through her pregnancy with flying colors.</p>
+</div><!-- #left w45 -->
+
+<div class="right w45">
+	<h2>Busy Students</h2>
+    <div class="icon-container left"><span class="i96grad-book"></span></div>
+    <p>Got a classroom full of students juggling school, work, family, friends, mandatory goof-off time, etc.? Help them get assignments in on time and make the grade with Remindem. Tests, meeting times, study objectives, even scheduled pep talks -- when it comes to education, Remindem gets an A+.</p>
+</div><!-- #left w45 -->
+
+<div class="clear"></div><!-- #clear -->
+<br>
+
+<div class="left w45">
+	<h2>Diabetics</h2>
+    <div class="icon-container left"><span class="i96grad-diabetic"></span></div>
+    <p>Properly managed, diabetes doesn't have to keep patients from doing all the things they love. Send disease management tips, dietary reminders, insulin dosing schedules, and more with Remindem. Remindem even makes it easy to create separate messaging projects based on disease staging, patient age, and other criteria.</p>
+</div><!-- #left w45 -->
+
+<div class="right w45">
+	<h2>Child immunizations</h2>
+    <div class="icon-container left"><span class="i96grad-vaccine"></span></div>
+    <p>Properly scheduled immunizations are critical to a child's continuing well-being and development. Help parents keep their children healthy with immunization reminders from Remindem. Once parents register using a keyword you specify, they'll begin receiving text reminders tailored to their child's age, minimizing missed or late vaccinations and preventable illnesses that can keep children from reaching their full potential. </p>
+</div><!-- #left w45 -->
+
+<div class="clear"></div><!-- #clear -->
+<br>
+
+<div class="box plain grey features">
+
+	<h2>Features</h2>
+    
+    <div class="left w45">
+        <div><span class="r-arrow"></span>Send messages to any text messaging-enabled phone</div>
+        <div><span class="r-arrow"></span>Manage your reminders through any Internet connection, at any time</div>
+        <div><span class="r-arrow"></span>Create an unlimited number of reminder lists, each with its own keyword</div>
+    </div><!-- #left w45 -->
+    <div class="right w45">
+        <div><span class="r-arrow"></span>Easily create an unlimited number of unique reminders</div>
+        <div><span class="r-arrow"></span>Schedule reminders in advance over a timeline that you define</div> 
+    </div><!-- #right w45 -->
+    
+    <div class="clear"></div><!-- #clear -->
+
+</div><!-- #box plain grey -->
+
+
+<br><br>
+
+<div class="w45 left">
+
+<h1>How does it work?</h1>
+<p>Begin by creating your list of messages and choosing a custom keyword that people will text to your number to subscribe. If desired, you can assign a time interval to each of the messages in your list. When a user subscribes, the clock starts ticking, and he or she will receive each message at the specified time. If your messages are not linked to a specific timeline, such as helpful tips for managing a chronic illness, Remindem can send them randomly.</p>
+
+<p>Remindem requires a mobile phone to receive signup texts and send out reminders, though the Web app is used to create messages and schedule their delivery. To begin sending reminders, just download the free Nuntium application to your Android-powered phone (or to your computer, if you don't have an Android phone), making sure your phone has credit, Internet access, and mobile reception. Once your phone is connected to our server wirelessly or via your computer, Remindem automatically sends text messages to subscribers on your schedule.</p>
+
+<button class="grey">Take a tour</button>
+
+</div><!-- #w45 left -->
+
+<div class="w45 right">
+
+    <div class="InfoGraphic"></div><!-- #InfoGraphic -->
+
+</div><!-- #w45 right -->
+
+<div class="clear"></div><!-- #clear -->
+
+<br><br>
+
+<hr>
+
+<div class="box plain orange w45 left">
+	
+    <h2>Where do I start?</h2>
+
+    <p>Get Started</p>
+	
+    <table>
+    	<tr>
+        	<td>Step 1</td>
+            <td><button class="fedit">Create an account and log in</button></td>
+        </tr>
+    	<tr>
+        	<td>Step 2</td>
+            <td><button class="fadd">Create an new reminders list</button> and choose a keyword that people will text to suscribe to your list</td>
+        </tr>
+    	<tr>
+        	<td>Step 3</td>
+            <td><button class="fmessage">Create your messages</button> and assign a time interval for each</td>
+        </tr>
+    	<tr>
+        	<td>Step 4</td>
+            <td><button class="fandroid">Download the free Nuntium app</button> and connect your Android phone to you account</td>
+        </tr>
+    
+    
+    
+    </table>
+
+
+</div><!-- #box plain orange w45 left -->
+
+<div class="w45 right support">
+	
+    <h2>How can I support it?</h2>
+
+    <div class="w22 left">
+        <p>If you have ideas, needs or suggestions</p>
+        <button class="fchat">Join our discussion list</button>
+    </div><!-- #w22 left -->
+    
+    <div class="w22 right">
+        <p>If you are a developer, contribute with some of the features</p>
+        <button class="fbulb">Visit our backlog</button>
+    </div><!-- #w22 right -->
+    
+    <div class="clear"></div><!-- #clear -->
+
+
+
+</div><!-- #w45 right -->
+
+<div class="clear"></div><!-- #clear -->
