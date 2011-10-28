@@ -11,7 +11,7 @@
   <%= yield(:head) %>
   <link rel="shortcut icon" href="/images/favicon.png" />
 </head>
-<body>
+<body class="<%=(@body_class || []).join(' ')%>">
   <%= flash_message %>
   <div id="wrapper">
     <div id="toolbar">

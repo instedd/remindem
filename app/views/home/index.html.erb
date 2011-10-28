@@ -1,8 +1,8 @@
-<% content_for :head do %>
-  <%= stylesheet_link_tag 'http://theme.instedd.org/theme/stylesheets/apphome.css' %>
-<% end %>
 
-<div class="main-image people right"><%= link_button_to 'Download One-Pager.pdf (1.15 MB)', '/onePager.pdf', :class => "fpdf right" %></div><!-- #main-image people -->
+<div class="right">
+  <div class="people"></div>
+  <button class="fpdf right">Download One-Pager.pdf (1.15 MB)</button>
+</div>
 
 <h1 class="home">Keep people informed</h1>
 <p class="sub">of important things going on in their life and work</p>
@@ -40,7 +40,7 @@
             
     </div><!-- #benefits -->
         
-    <div class="next"><a href="#"><span></span></a></div><!-- #next -->
+    <div class="next"><a href="#" class="disabled"><span></span></a></div><!-- #next -->
 
 </div><!-- #home-middle-bar -->    
 
@@ -107,7 +107,7 @@
 
 <p>Remindem requires a mobile phone to receive signup texts and send out reminders, though the Web app is used to create messages and schedule their delivery. To begin sending reminders, just download the free Nuntium application to your Android-powered phone (or to your computer, if you don't have an Android phone), making sure your phone has credit, Internet access, and mobile reception. Once your phone is connected to our server wirelessly or via your computer, Remindem automatically sends text messages to subscribers on your schedule.</p>
 
-<button class="grey">Take a tour</button>
+<%= link_to 'Take a tour', tour_path(:start), :class=>'button grey' %>
 
 </div><!-- #w45 left -->
 
@@ -160,12 +160,12 @@
 
     <div class="w22 left">
         <p>If you have ideas, needs or suggestions</p>
-        <button class="fchat">Join our discussion list</button>
+        <a href="#" class="button fchat"><span>Join our discussion list</span></a>
     </div><!-- #w22 left -->
     
     <div class="w22 right">
         <p>If you are a developer, contribute with some of the features</p>
-        <button class="fbulb">Visit our backlog</button>
+        <a href="#" class="button fbulb"><span>Visit our backlog</span></a>
     </div><!-- #w22 right -->
     
     <div class="clear"></div><!-- #clear -->
