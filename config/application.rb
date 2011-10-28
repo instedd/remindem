@@ -41,6 +41,6 @@ module RememberMe
     
     config.action_mailer_default_from = "Remindem <noreply@instedd.org>"
     
-    config.version_name = '1.4'
+    config.version_name = '1.5'
   end
 end
