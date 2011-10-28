@@ -4,6 +4,13 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
+  # WARNING if this is removed, nuntium channels must be updated in order to reflect changes in email!
+  validate do
+    if !self.new_record? && self.email_changed?
+      errors.add(:email, "can't be changed")
+    end
+  end
+
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   

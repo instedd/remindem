@@ -35,6 +35,14 @@ class ScheduleTest < ActiveSupport::TestCase
       schedule.save!
     end
     
+    test "validates keyword does not contains whitespace in #{klass}" do
+      schedule = klass.new :keyword => 'lorem ipsum'
+      schedule.save
+      
+      assert schedule.invalid?
+      assert_equal schedule.errors[:keyword].first, "must not include spaces"
+    end
+    
     test "validate lenght of title in #{klass}" do
       schedule = klass.new :title => '*' * 61
       schedule.save
