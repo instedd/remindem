@@ -41,6 +41,8 @@ module RememberMe
     
     config.action_mailer_default_from = "Remindem <noreply@instedd.org>"
     
+    config.google_analytics = 'UA-XXXXXXX-XX'
+    
     config.version_name = '1.6'
   end
 end

@@ -10,6 +10,8 @@
   <%= csrf_meta_tag %>
   <%= yield(:head) %>
   <link rel="shortcut icon" href="/images/favicon.png" />
+  
+  <%= render :partial =>"shared/analytics" %>
 </head>
 <body class="<%=(@body_class || []).join(' ')%>">
   <%= flash_message %>
