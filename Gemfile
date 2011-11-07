@@ -7,6 +7,8 @@ gem 'rails', '3.0.7'
 
 # gem 'sqlite3'
 
+gem 'instedd-rails', :path => '../instedd-rails/'
+
 gem 'mysql2', '< 0.3'
 gem 'devise'
 gem 'delayed_job'
@@ -25,6 +27,7 @@ group :development, :test do
 	gem "rand", "~> 0.9.1"
 end
 gem 'breadcrumbs_on_rails'
+
 
 # Use unicorn as the web server
 # gem 'unicorn'

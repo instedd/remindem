@@ -4,11 +4,11 @@ class String
   end
 
   def without_protocol
-    last_slash = self.rindex('/')
-    if last_slash.nil?
+    last_slash_index = self.rindex('/')
+    if last_slash_index.nil?
       self
     else 
-      self.from(self.rindex('/')+1)
+      self.from(last_slash_index + 1)
     end
   end
   
