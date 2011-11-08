@@ -3,8 +3,3 @@
 
 en:
   hello: "Hello world"
-  views:
-    pagination:
-      previous: "<span></span>"
-      next: "<span></span>"
-      truncate: "..."
