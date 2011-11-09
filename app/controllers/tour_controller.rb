@@ -1,14 +1,4 @@
-class TourController < ApplicationController
-  layout 'tour'
-  helper_method :steps
-
-  def index
-    redirect_to tour_path(:start)
-  end
-  
-  def show
-    render params[:page]
-  end
+class TourController < InsteddRails::TourController
 
   def steps
     { start: 'through any internet connection',

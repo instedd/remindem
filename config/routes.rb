@@ -16,8 +16,8 @@ RememberMe::Application.routes.draw do
   
   root :to => 'home#index'
 
-  match 'tour/:page' => 'tour#show', :as => :tour
-  match 'tour' => 'tour#index'
+  get 'tour(/:page)', :action => :show, :controller => :tour, :as => 'tour'
+
   match 'help' => 'help#faq'
   match 'community' => 'community#index'
 
