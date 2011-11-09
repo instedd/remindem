@@ -396,7 +396,7 @@ ul.TourNavigation > li.start > a {
 ul.TourNavigation > li.manage > a {
   background: url(/images/manage.png);
 }
-ul.TourNavigation > li.message > a {
+ul.TourNavigation > li.send > a {
   background: url(/images/message.png);
 }
 ul.TourNavigation > li.schedule > a {

@@ -1,0 +1,8 @@
+<% content_for :content do %> 
+  <%= render :partial => 'tour/tour_navigation', :selected => @selected_step %>
+  <div class="TourContent left">
+    <%= yield %>
+  </div>  
+  <div class="clear"></div>
+<% end %>
+<%= render :file => 'layouts/application' %>
