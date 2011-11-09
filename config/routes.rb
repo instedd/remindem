@@ -20,6 +20,10 @@ RememberMe::Application.routes.draw do
   match 'tour' => 'tour#index'
   match 'help' => 'help#faq'
   match 'community' => 'community#index'
+
+  get  'createAccount', :to => redirect('/users/sign_up')
+  get  'discuss',       :to => redirect(RememberMe::Application.config.user_group_url)
+  get  'backlog',       :to => redirect(RememberMe::Application.config.backlog_url)
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
