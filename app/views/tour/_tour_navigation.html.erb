@@ -1,0 +1,26 @@
+<ul class="TourNavigation left">
+  <li class="start <%= 'selected' if params[:page] == 'start' %>">
+    <a href="<%= tour_path(:start) %>">
+      <h2>Start</h2>
+      <p>through any internet connection</p>
+    </a>
+  </li>
+  <li class="schedule <%= 'selected' if params[:page] == 'schedule' %>">
+    <a href="<%= tour_path(:schedule) %>">
+      <h2>Schedule</h2>
+      <p>Messages in advance</p>
+    </a>
+  </li>
+  <li class="manage <%= 'selected' if params[:page] == 'manage' %>">
+    <a href="<%= tour_path(:manage) %>">
+      <h2>Manage</h2>
+      <p>as many lists as you want</p>
+    </a>
+  </li>
+  <li class="message <%= 'selected' if params[:page] == 'send' %>">
+    <a href="<%= tour_path(:send) %>">
+      <h2>Send</h2>
+      <p>your scheduled text messages</p>
+    </a>
+  </li>
+</ul>
