@@ -5,13 +5,17 @@
 <hr/>
 <div class="w20 left">
   <p>If you have ideas, needs or suggestions</p>
-  <a class="button fchat" href="https://groups.google.com/group/instedd-tech" target="_blank">Join our user group</a>
+  <%= link_to 'Join our user group',
+    RememberMe::Application.config.user_group_url,
+    :class => "button fchat",
+    :target => "_blank" %>
+  <a class="" href="" ></a>
 </div>
 <div class="w40 left">
   <p>If you are a developer you can contribute with some of the features or check our code repository</p>
   <div>
-    <a href="https://bitbucket.org/instedd/remindem/issues?status=new&status=open" class="button fbulb left">Visit our backlog</a>
-    <a href="https://bitbucket.org/instedd/remindem/overview" class="button fimport left">Check the source code</a>
+    <%= link_to 'Visit our backlog', RememberMe::Application.config.backlog_url, :class => "button fbulb left" %>
+    <%= link_to 'Check the source code', RememberMe::Application.config.source_code_url, :class => "button fimport left" %>
     <div class="clear"></div>
   </div>
 </div>
@@ -23,7 +27,7 @@
     <p>Stay up to date on the latest news about new tools, features or ideas on how to use our technologies. We will send you between 1 and 2 emails a month and won't sell your email or spam you!</p>
   </div>
   <hr/>
-  <form action="http://instedd.us2.list-manage.com/subscribe/post?u=b1404e482b02edd641e6506cf&amp;id=6e0ca202fc" method="post" target="_blank">
+  <form action="<%= RememberMe::Application.config.suscribe_url %>" method="post" target="_blank">
     <div class="w50 left">
       <input type="email" name="EMAIL" placeholder="Enter your email">
     </div>
