@@ -7,7 +7,6 @@ class TourController < ApplicationController
   end
   
   def show
-    @selected_step = params[:page]
     render params[:page]
   end
 
