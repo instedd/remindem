@@ -22,25 +22,37 @@
 
 <div class="home-middle-bar">
         
-  	<div class="benefits">
+	<div class="benefits">
 
-      	<ul id="benefits-container">
+  	<ul id="benefits-container">
 
-              <li><span class="i48grad-users left"></span><h3>Helps</h3><p>your community of users feel supported and connected</p><br clear="all"></li>
+      <li>
+        <span class="i48grad-users left"></span><h3>Helps</h3><p>your community of users feel supported and connected</p><br clear="all">
+      </li>
 
-              <li><span class="i48grad-information left"></span><h3>Sends</h3><p>reminders when subscribers need them most</p><br clear="all"></li>
+      <li>
+        <span class="i48grad-information left"></span><h3>Sends</h3><p>reminders when subscribers need them most</p><br clear="all">
+      </li>
 
-              <li><span class="i48grad-pie left"></span><h3>Allows</h3><p>you to tailor advice based on when it will be received</p><br clear="all"></li>
+      <li>
+        <span class="i48grad-pie left"></span><h3>Allows</h3><p>you to tailor advice based on when it will be received</p><br clear="all">
+      </li>
 
-              <li><span class="i48grad-internet left"></span><h3>Schedule and edit</h3><p>your messages from any internet connection</p><br clear="all"></li>
+      <li>
+        <span class="i48grad-internet left"></span><h3>Schedule and edit</h3><p>your messages from any internet connection</p><br clear="all">
+      </li>
 
-              <li><span class="i48grad-free left"></span><h3>Free</h3><p>for anyone to use to help increase their social impact</p><br clear="all"></li>
+      <li>
+        <span class="i48grad-free left"></span><h3>Free</h3><p>for anyone to use to help increase their social impact</p><br clear="all">
+      </li>
 
-              <li><span class="i48grad-openSource left"></span><h3>Open Source</h3><p>code for developers to use to improve its design and functionality</p><br clear="all"></li>
+      <li>
+        <span class="i48grad-openSource left"></span><h3>Open Source</h3><p>code for developers to use to improve its design and functionality</p><br clear="all">
+      </li>
 
-          </ul><!-- #benefits-container -->
+    </ul><!-- #benefits-container -->
 
-      </div><!-- #benefits -->
+  </div><!-- #benefits -->
 
 </div><!-- #home-middle-bar -->    
 
@@ -83,17 +95,23 @@
 
 	<h2>Features</h2>
     
-    <div class="left w45">
-        <div><span class="r-arrow"></span>Send messages to any text messaging-enabled phone</div>
-        <div><span class="r-arrow"></span>Manage your reminders through any Internet connection, at any time</div>
-        <div><span class="r-arrow"></span>Create an unlimited number of reminder lists, each with its own keyword</div>
-    </div><!-- #left w45 -->
-    <div class="right w45">
-        <div><span class="r-arrow"></span>Easily create an unlimited number of unique reminders</div>
-        <div><span class="r-arrow"></span>Schedule reminders in advance over a timeline that you define</div> 
-    </div><!-- #right w45 -->
-    
-    <div class="clear"></div><!-- #clear -->
+  <div class="left w45">
+    <div>
+      <span class="r-arrow"></span>Send messages to any text messaging-enabled phone
+    </div>
+    <div>
+      <span class="r-arrow"></span>Manage your reminders through any Internet connection, at any time
+    </div>
+    <div>
+      <span class="r-arrow"></span>Create an unlimited number of reminder lists, each with its own keyword
+    </div>
+  </div><!-- #left w45 -->
+  <div class="right w45">
+    <div><span class="r-arrow"></span>Easily create an unlimited number of unique reminders</div>
+    <div><span class="r-arrow"></span>Schedule reminders in advance over a timeline that you define</div> 
+  </div><!-- #right w45 -->
+  
+  <div class="clear"></div><!-- #clear -->
 
 </div><!-- #box plain grey -->
 
@@ -113,7 +131,7 @@
 
 <div class="w45 right">
 
-    <div class="InfoGraphic"></div><!-- #InfoGraphic -->
+  <div class="InfoGraphic"></div><!-- #InfoGraphic -->
 
 </div><!-- #w45 right -->
 
@@ -125,53 +143,52 @@
 
 <div class="box plain orange w45 left">
 	
-    <h2>Where do I start?</h2>
+  <h2>Where do I start?</h2>
 
-    <p>Get Started</p>
-	
-    <table>
-    	<tr>
-        	<td>Step 1</td>
-            <td><%= link_to 'Create an account and log in', new_user_registration_path, :class=>"button fedit" %></td>
-        </tr>
-    	<tr>
-        	<td>Step 2</td>
-            <td><%= link_to 'Create an new reminders list', new_schedule_path, :class=>"button fadd" %> and choose a keyword that people will text to suscribe to your list</td>
-        </tr>
-    	<tr>
-        	<td>Step 3</td>
-            <td><button class="fmessage">Create your messages</button> and assign a time interval for each</td>
-        </tr>
-    	<tr>
-        	<td>Step 4</td>
-            <td><button class="fandroid">Download the free Nuntium app</button> and connect your Android phone to you account</td>
-        </tr>
-    
-    
-    
-    </table>
+  <p>
+    <span>Step 1</span>
+    <%= link_button_to 'Create an account', new_user_registration_path, :class=>"fedit" %> and log in
+  </p>
 
+  <hr/>
 
+  <p>
+    <span>Step 2</span>
+    Create an new reminders list and choose a keyword that people will text to suscribe to your list
+  </p>
+  
+  <hr/>
+
+  <p>
+    <span>Step 3</span>
+    Create your messages and assign a time interval for each
+  </p>
+  
+  <hr/>
+
+  <p>
+    <span>Step 4</span>
+    <%= link_button_to 'Download the free Nuntium app', 'http://bitbucket.org/instedd/local-gateway/downloads', :class=>"fimport" %> and connect your phone to you account
+  </p>
 </div><!-- #box plain orange w45 left -->
 
 <div class="w45 right support">
-	
-    <h2>How can I support it?</h2>
-
-    <div class="w22 left">
-        <p>If you have ideas, needs or suggestions</p>
-        <a href="https://groups.google.com/group/instedd-tech" target="_blank" class="button fchat"><span>Join our discussion list</span></a>
-    </div><!-- #w22 left -->
-    
-    <div class="w22 right">
-        <p>If you are a developer, contribute with some of the features</p>
-        <a  href="https://bitbucket.org/instedd/remindem/issues?status=new&status=open" target="_blank" class="button fbulb"><span>Visit our backlog</span></a>
-    </div><!-- #w22 right -->
-    
-    <div class="clear"></div><!-- #clear -->
-
-
-
+    <h2>How can I help?</h2>
+    <span></span>
+    <p>
+        Got suggestions or feature requests? Join the discussion.
+        <br>
+        <a class='button black fchat' href='https://groups.google.com/group/instedd-tech'>
+          <span>Join our discussion list</span>
+        </a>
+    </p>
+    <p>
+        Got a way with code? Help us develop our tools (and make the world a better place at the same time).
+        <br>
+        <a class='button black fbulb' href='https://bitbucket.org/instedd/pollit/issues?status=new&amp;status=open'>
+            <span>Visit our backlog</span>
+        </a>
+    </p>
 </div><!-- #w45 right -->
 
 <div class="clear"></div><!-- #clear -->
