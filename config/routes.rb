@@ -13,6 +13,7 @@ RememberMe::Application.routes.draw do
   resources :channel, :only => [:create, :destroy]
   get "new_channel/:step", :action => :new, :controller => :channel, :as => "new_channel"
 
+  with_tour
   
   root :to => 'home#index'
 
