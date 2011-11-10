@@ -1,24 +1,25 @@
+<div class="homeHeader">
+  <div class="right">
+    <div class="people"></div>
+    <a class="button fpdf right" href="/onePager.pdf" target="_blank">Download brochure (476 KB)</a>
+  </div>
 
-<div class="right">
-  <div class="people"></div>
-  <a class="button fpdf right" href="/onePager.pdf" target="_blank">Download brochure (476 KB)</a>
+  <h1 class="home">Keep people informed</h1>
+  <p class="sub">of important things going on in their life and work</p>
+  <p>Remindem is a free and easy-to-use tool that allows you to set up a list of tips, reminders, and advice that people can subscribe to via text messages. Remindem sends important text reminders just when your subscribers need them, based on a schedule you define.</p>
+
+  <div class="loginLinks">
+    <% if current_user %>
+    <p class="plain">Get started: <%= link_button_to 'View your reminders', schedules_path, :class => "orange" %><p>
+    <% else %>
+    <p class="plain">Get started: <%= link_button_to 'Create an account', new_user_registration_path, :class => "orange" %><p>
+    <p class="plain">Already a member? <%= link_to 'Log in', new_user_session_path %></p>
+    <% end %>
+  </div>
 </div>
 
-<h1 class="home">Keep people informed</h1>
-<p class="sub">of important things going on in their life and work</p>
-<p>Remindem is a free and easy-to-use tool that allows you to set up a list of tips, reminders, and advice that people can subscribe to via text messages. Remindem sends important text reminders just when your subscribers need them, based on a schedule you define.</p>
-
-<br><br><br><br>
-
-<% if current_user %>
-<p>Get started: <%= link_button_to 'View your reminders', schedules_path, :class => "orange" %><p>
-<% else %>
-<p>Get started: <%= link_button_to 'Create an account', new_user_registration_path, :class => "orange" %><p>
-<p>Already a member? <%= link_to 'Log in', new_user_session_path %></p>
-<% end %>
 
 <div class="clear"></div>
-</div><!-- #container -->
 
 <div class="home-middle-bar">
         
@@ -54,9 +55,7 @@
 
   </div><!-- #benefits -->
 
-</div><!-- #home-middle-bar -->    
-
-<div id="container">
+</div><!-- #home-middle-bar -->
 
 <h1>What can I use it for?</h1>
 <p class="desc">Remindem is great for any kind of reminder you'd like to send.<br> Here are a few ways you might use it, but you're limited only by your imagination:</p>
@@ -137,9 +136,9 @@
 
 <div class="clear"></div><!-- #clear -->
 
-<br><br>
-
+<br>
 <hr>
+<br>
 
 <div class="box plain orange w45 left">
 	
