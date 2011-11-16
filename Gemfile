@@ -21,7 +21,7 @@ gem 'mocha'
 gem 'ffaker'
 gem 'machinist'
 gem "ice_cube", "~> 0.6.13"
-gem "symbolize"
+gem "symbolize", "3.3.0pre"
 gem 'kaminari'
 group :development, :test do
 	gem "rand", "~> 0.9.1"
