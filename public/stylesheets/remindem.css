@@ -213,12 +213,6 @@ ul.vertical li { list-style: none; }
 	color:black;
 }
 
-.VersionNumber {
-	padding-top: 3px;
-	padding-bottom: 3px;
-	margin-left: 6px;
-}
-
 .EmptyAddButton {
 	margin-top: 3px;
 	margin-bottom: 0px;
