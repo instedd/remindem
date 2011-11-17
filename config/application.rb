@@ -45,6 +45,7 @@ module RememberMe
     config.source_code_url = 'https://bitbucket.org/instedd/remindem/overview'
     config.backlog_url = 'https://bitbucket.org/instedd/remindem/issues?status=new&status=open'
     config.user_group_url = 'https://groups.google.com/group/instedd-tech'
+    config.terms_and_conditions_url = '#TODO'
 
     config.google_analytics = 'UA-XXXXXXX-XX'
     

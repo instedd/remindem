@@ -17,15 +17,15 @@ RememberMe::Application.routes.draw do
   
   root :to => 'home#index'
 
-  # get 'tour(/:page)', :action => :show, :controller => :tour, :as => 'tour'
-
   match 'help' => 'help#faq'
   match 'community' => 'community#index'
 
-  get  'createAccount', :to => redirect('/users/sign_up')
-  get  'discuss',       :to => redirect(RememberMe::Application.config.user_group_url)
-  get  'backlog',       :to => redirect(RememberMe::Application.config.backlog_url)
-  
+  get 'createAccount',        :to => redirect('/users/sign_up')
+  get 'discuss',              :to => redirect(RememberMe::Application.config.user_group_url)
+  get 'backlog',              :to => redirect(RememberMe::Application.config.backlog_url)
+  get 'terms_and_conditions', :to => redirect(RememberMe::Application.config.terms_and_conditions_url)
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

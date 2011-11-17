@@ -1,0 +1,46 @@
+<% content_for :navigation do %> 
+  <%= section 'Home', root_path, :home %>
+  <%= section 'Reminders', schedules_path, :schedules, [:schedules, :subscribers, :logs] unless current_user.nil? %>
+  <%= section 'Tour', tour_path(:start), :tour %>
+  <%= section 'Community', community_path, :community %>
+  <%= section 'Help', help_path , :help %>
+<% end %>
+<% content_for :right_menu do %> 
+  <ul class="RightMenu">
+        <%- if !current_user.nil? %>
+        <li>
+        <div id="User">
+          <%=current_user.email%><br><br>
+          <div class="container">
+            <ul>
+              <li><%= link_to 'Reminders', schedules_path %></li>
+              <li><%= link_to 'Settings', edit_user_registration_path %></li>
+            </ul>
+            <hr/>
+            <ul>
+              <li><a href="mailto:support@instedd.org?subject=[<%= application_name.underscore %>-bug]">Report a bug</a></li>
+              <li><%= link_to "Sign Out", destroy_user_session_path %></li>
+            </ul>
+          </div>
+        </div>
+        </li>
+        <li>
+          <%= link_to '', edit_user_registration_path, :class => 'fsettings' %>
+        </li>
+        <% else %>
+        <li>
+          <%= link_to "Create account", new_user_registration_path, :class => 'fedit' %>
+        </li>
+        <li>
+          <%= link_to "Log in", new_user_session_path, :class => 'fuser' %>
+        </li>
+        <% end %>
+      </ul>
+<% end %>
+<% content_for :footer_links do %> 
+  <a href="<%= root_path %>">Home</a>
+  <a href="<%= tour_path(:start) %>">Tour</a>
+  <a href="<%= community_path %>">Community</a>
+  <a href="<%= help_path %>">Help</a>
+<% end %>
+<%= render :file => 'layouts/instedd_application' %>
