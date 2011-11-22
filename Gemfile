@@ -7,8 +7,8 @@ gem 'rails', '3.0.7'
 
 # gem 'sqlite3'
 
-# gem 'instedd-rails', :path => "../instedd-rails"
-gem 'instedd-rails'
+gem 'instedd-rails', :path => "../instedd-rails"
+# gem 'instedd-rails'
 
 
 gem 'mysql2', '< 0.3'
