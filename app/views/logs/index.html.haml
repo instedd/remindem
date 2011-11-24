@@ -1,0 +1,33 @@
+= render "shared/schedule_tabs_and_title", :schedule => Schedule.find(params[:schedule_id])
+.tabsline
+  %h1 Logs
+  .tablewrapp.w90
+    %table{:class => "GralTable ButtonTable #{@logs.empty? ? 'empty' : 'w-pagination'}"}
+      %tr
+        %th{:class => "severity #{css_sort_class_for 'severity'}"}= sortable "severity"
+        %th{:class => css_sort_class_for('description')}= sortable "description", "Text"
+        %th{:class => css_sort_class_for('created_at')}= sortable "created_at", "Timestamp"
+      - if @logs.empty?
+        %tr
+          %td{:colspan => "3"}
+            .EmptyTable You have no Logs yet
+      - else
+        - @logs.each do |log|
+          %tr
+            %td
+              %label{:class => log.severity}= log.severity.to_s.capitalize
+            %td
+              - if log.description.size > 55
+                .ux-collapsible.switch.collapsed{"data-on-expanded" => "expanded"}
+                  %span
+                    = log.description.first 55
+                    \...
+                    %a.ux-collapse-trigger.grey.right.tiny{:href => "#"} more
+                  .ux-content
+                    %span
+                      = log.description
+                      %a.ux-collapse-trigger.grey.right.tiny{:href => "#"} less
+              - else
+                = log.description
+            %td= "#{log.created_at.strftime "%a %b %d %Y, %H:%M:%S"} (#{time_ago_in_words log.created_at} ago)"
+    = paginate @logs

@@ -1,0 +1,28 @@
+.box.plain.grey.w60
+  .steps-line
+    .steps-container.s4
+      %span.circle.first.green
+        %span.inner
+          %span.step-name Choose
+      %span.line-fill.green
+      %span.circle.green
+        %span.inner
+          %span.step-name Install
+      %span.line-fill.green
+      %span.circle.green
+        %span.inner
+          %span.step-name Connect
+      %span.line-fill.green
+      %span.circle.last.green
+        %span.inner
+          %span.step-name Finish
+    / #steps-container
+  / #steps-line
+/ #box plain grey
+.ChannelWizard
+  %h1 Congratulations! you have successfully created a channel
+  %p.w30 The phone you have configured will be used for sending and receiving text messages. Ensure the phone is running and has credit for sending messages.
+  .ChannelConfigured
+%hr/
+.ChannelWizardNavigation
+  = link_to 'Finish', schedules_path, :class => 'button white'

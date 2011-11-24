@@ -1,0 +1,37 @@
+.box.plain.grey.w60
+  .steps-line
+    .steps-container.s4
+      %span.circle.first.green
+        %span.inner
+          %span.step-name Choose
+      %span.line-fill.green
+      %span.circle.green
+        %span.inner
+          %span.step-name Install
+      %span.line-fill.green
+      %span.circle.green
+        %span.inner
+          %span.step-name Connect
+      %span.line-fill
+      %span.circle.last
+        %span.inner
+          %span.step-name Finish
+    / #steps-container
+  / #steps-line
+/ #box plain grey
+= errors_for @invalid_channel
+- form_for :channel, :url => { :action => :create }, :remote => true do |f|
+  .ChannelWizard
+    = f.hidden_field :step, :value => "new_desktop_channel"
+    %h1.orange Enter the gateway code from your mobile phone
+    .DesktopScreen.left
+    %br/
+    .GreyArrow.DesktopArrow.left
+    %br/
+    .left.DesktopChannelCreation
+      %p.w30 Copy the code for automated setup from the Nuntium Local Gateway in here to bind your local gateway to your reminders.
+      = f.text_field :code, :placeholder => 'Enter gateway code', :size => 19
+  %hr/
+  .ChannelWizardNavigation
+    = link_to 'Back', new_channel_path(:download_desktop_local_gateway), :remote => true, :class => 'button white'
+    %button.grey{:type => "submit"} Next

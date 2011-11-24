@@ -1,0 +1,82 @@
+!!!
+%html
+  %head
+    %title Remindem
+    = stylesheet_link_tag 'http://theme.instedd.org/theme/stylesheets/theme.css'
+    = stylesheet_link_tag '/stylesheets/remindem.css'
+    = javascript_include_tag :defaults, "rails.validations"
+    = javascript_include_tag 'http://theme.instedd.org/theme/javascripts/theme.js'
+    = csrf_meta_tag
+    = yield(:head)
+    %link{:href => "/images/favicon.ico", :rel => "shortcut icon", :type => "image/x-icon"}/
+    = render :partial =>"shared/analytics"
+  %body{:class => (@body_class || []).join(' ')}
+    = flash_message
+    #wrapper
+      #toolbar
+        %ul#instedd-pulldown
+        #NavMenu
+          %ul
+            = section 'Home', root_path, :home
+            = section 'Reminders', schedules_path, :schedules, [:schedules, :subscribers, :logs] unless current_user.nil?
+            = section 'Tour', tour_path(:start), :tour
+            = section 'Community', community_path, :community
+            = section 'Help', help_path , :help
+        %ul.RightMenu
+          - if !current_user.nil?
+            %li
+              #User
+                = current_user.email
+                %br/
+                %br/
+                .container
+                  %ul
+                    %li= link_to 'Reminders', schedules_path
+                    %li= link_to 'Settings', edit_user_registration_path
+                  %hr/
+                  %ul
+                    %li
+                      %a{:href => "mailto:support@instedd.org?subject=[remindem-bug]"} Report a bug
+                    %li= link_to "Sign Out", destroy_user_session_path
+            %li
+              = link_to '', edit_user_registration_path, :class => 'fsettings'
+          - else
+            %li
+              = link_to "Create account", new_user_registration_path, :class => 'fedit'
+            %li
+              = link_to "Log in", new_user_session_path, :class => 'fuser'
+      #header
+        .left
+          %a{:href => "/"}
+            %img{:src => "http://theme.instedd.org/theme/images/header/logos/remindem.png"}/
+        - if @show_breadcrum
+          .BreadCrumb
+            = breadcrumb
+        .clear
+      #container
+        = yield
+      #footer-span
+        #footer
+          #footer-container
+            %div
+              .left.platform
+                InSTEDD has created an evolving platform of free and open source technologies to support humanitarian causes. These tools can be used individually or as building blocks for larger solutions.
+                %a{:href => "http://instedd.org/technologies/"} Click here
+                to learn more
+              .right
+                %a.more{:href => "http://instedd.org/technologies/"} Learn more
+                #instedd-footer{"data-app-name" => "remindem"}
+              .clear
+            %div
+              .left
+                %a{:href => "http://instedd.org"} &copy; 2011 InSTEDD
+                %a{:href => "#TODO"} Terms and conditions
+                %a{:href => "mailto:support@instedd.org?subject=[remindem]"} Contact us
+              .right
+                %a{:href => root_path} Home
+                %a{:href => tour_path(:start)} Tour
+                %a{:href => community_path} Community
+                %a{:href => help_path} Help
+                %span.VersionNumber
+                  Version #{RememberMe::Application.config.version_name}
+              .clear

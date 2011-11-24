@@ -1,0 +1,30 @@
+.box.plain.grey.w60
+  .steps-line
+    .steps-container.s4
+      %span.circle.first.green
+        %span.inner
+          %span.step-name Choose
+      %span.line-fill.green
+      %span.circle.green
+        %span.inner
+          %span.step-name Install
+      %span.line-fill
+      %span.circle
+        %span.inner
+          %span.step-name Connect
+      %span.line-fill
+      %span.circle.last
+        %span.inner
+          %span.step-name Finish
+    / #steps-container
+  / #steps-line
+/ #box plain grey
+.ChannelWizard
+  %h1.orange Donwload and install Nuntium Local Gateway
+  %p.w30 Nuntium Local Gateway is a program that runs on your local computer and requires a mobile phone to be plugged in. The Gateway will use the plugged-in phone for sending and receiving text messsages.
+  %p.w30 Download the client corresponding to your operating system and install it.
+  %a.fimport{:href => "https://bitbucket.org/instedd/local-gateway/downloads", :target => "_blank"} Download Nuntium Local Gateway
+%hr/
+.ChannelWizardNavigation
+  = link_to 'Back', new_channel_path(:choose_local_gateway), :remote => true, :class => 'button white'
+  = link_to 'Next', new_channel_path(:new_desktop_channel), :remote => true, :class => 'button grey'

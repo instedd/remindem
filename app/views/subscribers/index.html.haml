@@ -1,0 +1,26 @@
+- schedule = Schedule.find(params[:schedule_id])
+= render "shared/schedule_tabs_and_title", :schedule => schedule
+.tabsline
+  %h1 Subscribers
+  = render 'download_as_csv', :schedule => schedule
+  .tablewrapp.w90
+    %table{:class => "GralTable ButtonTable #{@subscribers.empty? ? 'empty' : 'w-pagination'}"}
+      %tr
+        %th{:class => "small #{css_sort_class_for 'subscribed_at'}"}= sortable 'subscribed_at', 'Subscribed'
+        %th{:class => css_sort_class_for('phone_number'), :colspan => "2"}= sortable 'phone_number'
+      - if @subscribers.empty?
+        %tr
+          %td{:colspan => "3"}
+            .EmptyTable You have no Subscribers yet
+      - else
+        - @subscribers.each do |subscriber|
+          %tr
+            %td= "#{subscriber.subscribed_at.strftime "%a %b %d %Y, %H:%M:%S"} (#{time_ago_in_words subscriber.subscribed_at} ago)"
+            %td= subscriber.phone_number.without_protocol
+            %td
+              = link_to '',                                                                |
+                schedule_subscriber_path(Schedule.find(params[:schedule_id]), subscriber), |
+                :class => "button fdelete",                                                |
+                :confirm => 'Are you sure?',                                               |
+                :method => :delete                                                         |
+    = paginate @subscribers
