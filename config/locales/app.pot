@@ -1,0 +1,829 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.6\n"
+"POT-Creation-Date: 2011-11-24 18:13-0300\n"
+"PO-Revision-Date: 2011-11-24 18:13-0300\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: app/views/subscribers/index.html.haml:1
+msgid "Subscribers"
+msgstr ""
+
+#: app/views/subscribers/index.html.haml:4
+msgid "You have no Subscribers yet"
+msgstr ""
+
+#: app/views/subscribers/_download_as_csv.html.haml:3
+msgid "subscribers registered"
+msgstr ""
+
+#: app/views/tour/start.html.haml:1
+msgid "All you need to get started is an Internet connection and a mobile phone"
+msgstr ""
+
+#: app/views/tour/start.html.haml:2
+msgid "Got 'Droid and an Internet connection? Just download and install a small app on your Android phone to get started, then visit Remindem to enter your text messages and set up your delivery schedule. Remindem then automatically helps your phone send reminders to subscribers on your schedule."
+msgstr ""
+
+#: app/views/tour/start.html.haml:3
+msgid "No 'Droid? No problem! Our small Nuntium PC/Mac app bridges the gap between your phone and the Remindem Web application. Once your phone is connected to your computer, Remindem will use it to send scheduled text messages."
+msgstr ""
+
+#: app/views/tour/start.html.haml:4
+msgid "learn More"
+msgstr ""
+
+#: app/views/tour/start.html.haml:5
+msgid "."
+msgstr ""
+
+#: app/views/tour/start.html.haml:7
+msgid "will manage the flow of incoming and outgoing messages,"
+msgstr ""
+
+#: app/views/tour/_tour_navigation.html.haml:1
+msgid "Start"
+msgstr ""
+
+#: app/views/tour/_tour_navigation.html.haml:2
+msgid "through any internet connection"
+msgstr ""
+
+#: app/views/tour/_tour_navigation.html.haml:3
+msgid "Schedule"
+msgstr ""
+
+#: app/views/tour/_tour_navigation.html.haml:4
+msgid "Messages in advance"
+msgstr ""
+
+#: app/views/tour/_tour_navigation.html.haml:5
+msgid "Manage"
+msgstr ""
+
+#: app/views/tour/_tour_navigation.html.haml:6
+msgid "as many lists as you want"
+msgstr ""
+
+#: app/views/tour/_tour_navigation.html.haml:7
+msgid "Send"
+msgstr ""
+
+#: app/views/tour/_tour_navigation.html.haml:8
+msgid "your scheduled text messages"
+msgstr ""
+
+#: app/views/tour/manage.html.haml:1
+msgid "Manage as many lists and subscribers as you want, all from a single phone number"
+msgstr ""
+
+#: app/views/tour/manage.html.haml:2
+msgid "Whether you manage one text messaging list or dozens, Remindem makes it easy to keep an unlimited number of subscribers up-to-date with relevant, timely reminders."
+msgstr ""
+
+#: app/views/tour/manage.html.haml:3
+msgid "unique keyword"
+msgstr ""
+
+#: app/views/tour/manage.html.haml:4
+msgid "Greet new subscribers with a personalized welcome message and easy-to-remember keyword."
+msgstr ""
+
+#: app/views/tour/manage.html.haml:6
+msgid "Simply define a"
+msgstr ""
+
+#: app/views/tour/manage.html.haml:7
+msgid "for each message list. Subscribers then use those keywords to sign up for the lists that interest them."
+msgstr ""
+
+#: app/views/tour/send.html.haml:1
+msgid "No matter how many lists you manage, no matter how many subscribers you have, Remindem makes it simple to send scheduled text messages to make their lives easier, healthier, and more enjoyable."
+msgstr ""
+
+#: app/views/tour/send.html.haml:2
+msgid "Ready to get started?"
+msgstr ""
+
+#: app/views/tour/send.html.haml:4
+msgid "Wether your project is large or small, Remindem can help"
+msgstr ""
+
+#: app/views/tour/send.html.haml:5
+msgid "Set up a %s and begin today. Once you've set up your messages, keywords, and schedules, be sure to let others know about your list using social media and by spreading the word wherever potential subscribers gather, such as hospitals and clinics."
+msgstr ""
+
+#: app/views/tour/send.html.haml:6
+msgid "Need a little more info? Visit our %s or subscribe to our %s, where we'll be happy to answer any questions you might have and help you get going with Remindem!"
+msgstr ""
+
+#: app/views/tour/schedule.html.haml:1
+msgid "Need a Reminder to send you reminders?"
+msgstr ""
+
+#: app/views/tour/schedule.html.haml:2
+msgid "Remindem remembers to send text reminders so you don't have to."
+msgstr ""
+
+#: app/views/tour/schedule.html.haml:3
+msgid "Create your text messages when it's convenient for you. Set up a delivery schedule that works for your subscribers. Let Remindem stay up all night worrying about the details."
+msgstr ""
+
+#: app/views/tour/schedule.html.haml:4
+msgid "With Remindem, you'll never again jump out of bed at 3 a.m. because you forgot to send text messages. Whether you want to send a daily health tip or series of reminders tailored to the individual timelines of a list of mothers-to-be, Remindem takes care of scheduled delivery so you can rest easy."
+msgstr ""
+
+#: app/views/schedules/edit.html.haml:1 app/views/schedules/show.html.haml:3
+msgid "Properties"
+msgstr ""
+
+#: app/views/schedules/edit.html.haml:2
+msgid "Below you can configure this Reminder properties"
+msgstr ""
+
+#: app/views/schedules/index.html.haml:1
+msgid "Reminders"
+msgstr ""
+
+#: app/views/schedules/index.html.haml:2
+msgid "My Reminders"
+msgstr ""
+
+#: app/views/schedules/index.html.haml:5
+msgid "<script type='text/javascript'>\n  //<![CDATA[\n    $(function() {\n      $('.ItemsTable tr').live('click', function() {\n        var anchor = $('a', $(this));\n        if (anchor.length > 0) {\n          window.location = anchor.attr('href');\n        }\n      });\n    \n      $(\".filterSchedules\").change(function () {\n        $(\".filterSchedules option:selected\").each(function () {\n          window.location = $(this).val();\n        });\n      });\n    })\n  //]]>\n</script>"
+msgstr ""
+
+#: app/views/schedules/index.html.haml:28
+msgid "You have no running Reminders"
+msgstr ""
+
+#: app/views/schedules/index.html.haml:30
+msgid "You have no Reminders yet"
+msgstr ""
+
+#: app/views/schedules/_message_controls.html.haml:2 app/views/schedules/_form.html.haml:7
+msgid "Save"
+msgstr ""
+
+#: app/views/schedules/_message_controls.html.haml:3 app/views/schedules/show.html.haml:8
+msgid "Cancel"
+msgstr ""
+
+#: app/views/schedules/show.html.haml:1
+msgid "Status"
+msgstr ""
+
+#: app/views/schedules/show.html.haml:2
+msgid "Here you can see the overall status of your schedule"
+msgstr ""
+
+#: app/views/schedules/show.html.haml:4
+msgid "This is a summary of the properties of your schedule"
+msgstr ""
+
+#: app/views/schedules/show.html.haml:5
+msgid "Start this reminder"
+msgstr ""
+
+#: app/views/schedules/show.html.haml:6
+msgid "Pause this reminder"
+msgstr ""
+
+#: app/views/schedules/show.html.haml:7
+msgid "Delete this reminder"
+msgstr ""
+
+#: app/views/schedules/show.html.haml:25
+msgid "Keyword"
+msgstr ""
+
+#: app/views/schedules/show.html.haml:30
+msgid "messages"
+msgstr ""
+
+#: app/views/schedules/show.html.haml:31
+msgid "queued"
+msgstr ""
+
+#: app/views/schedules/show.html.haml:36
+msgid "Are you sure you want to delete this reminder?"
+msgstr ""
+
+#: app/views/schedules/show.html.haml:37
+msgid "All your subscribers will stop receiving the scheduled messages"
+msgstr ""
+
+#: app/views/schedules/new.html.haml:1
+msgid "New reminder"
+msgstr ""
+
+#: app/views/schedules/_message_fields.html.haml:7
+msgid "After"
+msgstr ""
+
+#: app/views/schedules/_form.html.haml:1
+msgid "Users will register with this keyword"
+msgstr ""
+
+#: app/views/schedules/_form.html.haml:2
+msgid "This is the message users will get after they successfully registered"
+msgstr ""
+
+#: app/views/schedules/_form.html.haml:3
+msgid "Choose timescale reference to use"
+msgstr ""
+
+#: app/views/schedules/_form.html.haml:4
+msgid "Mode"
+msgstr ""
+
+#: app/views/schedules/_form.html.haml:5
+msgid "Messages"
+msgstr ""
+
+#: app/views/schedules/_form.html.haml:6
+msgid "Write your reminder's messages"
+msgstr ""
+
+#: app/views/devise/unlocks/new.html.haml:1 app/views/devise/unlocks/new.html.haml:2
+msgid "Resend unlock instructions"
+msgstr ""
+
+#: app/views/devise/sessions/new.html.haml:1 app/views/devise/sessions/new.html.haml:2
+msgid "Log In"
+msgstr ""
+
+#: app/views/devise/passwords/edit.html.haml:1
+msgid "Change your password"
+msgstr ""
+
+#: app/views/devise/passwords/edit.html.haml:2 app/views/users/registrations/edit.html.haml:3
+msgid "Change my password"
+msgstr ""
+
+#: app/views/devise/passwords/new.html.haml:1
+msgid "Forgot your password?"
+msgstr ""
+
+#: app/views/devise/passwords/new.html.haml:2
+msgid "Send me reset password instructions"
+msgstr ""
+
+#: app/views/devise/confirmations/new.html.haml:1 app/views/devise/confirmations/new.html.haml:2
+msgid "Resend confirmation instructions"
+msgstr ""
+
+#: app/views/errors/unprocessable_entity.html.haml:1
+msgid "Maybe you tried to change something you didn't have access to."
+msgstr ""
+
+#: app/views/errors/unprocessable_entity.html.haml:2
+msgid "The change you wanted was rejected"
+msgstr ""
+
+#: app/views/errors/not_found.html.haml:1
+msgid "You may have mistyped the address or the page may have moved."
+msgstr ""
+
+#: app/views/errors/not_found.html.haml:2
+msgid "The page you were looking for doesn't exist"
+msgstr ""
+
+#: app/views/errors/internal_server_error.html.haml:1
+msgid "We've been notified about this issue and we'll take a look at it shortly."
+msgstr ""
+
+#: app/views/errors/internal_server_error.html.haml:2
+msgid "We're sorry, but something went wrong"
+msgstr ""
+
+#: app/views/layouts/application.html.haml:1
+msgid "Remindem"
+msgstr ""
+
+#: app/views/layouts/application.html.haml:4
+msgid "Report a bug"
+msgstr ""
+
+#: app/views/layouts/application.html.haml:6
+msgid "Click here"
+msgstr ""
+
+#: app/views/layouts/application.html.haml:7
+msgid "Learn more"
+msgstr ""
+
+#: app/views/layouts/application.html.haml:8
+msgid "&copy; 2011 InSTEDD"
+msgstr ""
+
+#: app/views/layouts/application.html.haml:9
+msgid "Terms and conditions"
+msgstr ""
+
+#: app/views/layouts/application.html.haml:10
+msgid "Contact us"
+msgstr ""
+
+#: app/views/layouts/application.html.haml:11
+msgid "Home"
+msgstr ""
+
+#: app/views/layouts/application.html.haml:12
+msgid "Tour"
+msgstr ""
+
+#: app/views/layouts/application.html.haml:13 app/views/community/index.html.haml:1
+msgid "Community"
+msgstr ""
+
+#: app/views/layouts/application.html.haml:14
+msgid "Help"
+msgstr ""
+
+#: app/views/layouts/application.html.haml:15
+msgid "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">"
+msgstr ""
+
+#: app/views/layouts/application.html.haml:44
+msgid "InSTEDD has created an evolving platform of free and open source technologies to support humanitarian causes. These tools can be used individually or as building blocks for larger solutions."
+msgstr ""
+
+#: app/views/layouts/application.html.haml:45
+msgid "to learn more"
+msgstr ""
+
+#: app/views/layouts/application.html.haml:51
+msgid "Version %s"
+msgstr ""
+
+#: app/views/home/index.html.haml:1
+msgid "Download brochure (536 KB)"
+msgstr ""
+
+#: app/views/home/index.html.haml:2
+msgid "Keep people informed"
+msgstr ""
+
+#: app/views/home/index.html.haml:3
+msgid "of important things going on in their life and work"
+msgstr ""
+
+#: app/views/home/index.html.haml:4
+msgid "Remindem is a free and easy-to-use tool that allows you to set up a list of tips, reminders, and advice that people can subscribe to via text messages. Remindem sends important text reminders just when your subscribers need them, based on a schedule you define."
+msgstr ""
+
+#: app/views/home/index.html.haml:5
+msgid "Helps"
+msgstr ""
+
+#: app/views/home/index.html.haml:6
+msgid "your community of users feel supported and connected"
+msgstr ""
+
+#: app/views/home/index.html.haml:7
+msgid "Sends"
+msgstr ""
+
+#: app/views/home/index.html.haml:8
+msgid "reminders when subscribers need them most"
+msgstr ""
+
+#: app/views/home/index.html.haml:9
+msgid "Allows"
+msgstr ""
+
+#: app/views/home/index.html.haml:10
+msgid "you to tailor advice based on when it will be received"
+msgstr ""
+
+#: app/views/home/index.html.haml:11
+msgid "Schedule and edit"
+msgstr ""
+
+#: app/views/home/index.html.haml:12
+msgid "your messages from any internet connection"
+msgstr ""
+
+#: app/views/home/index.html.haml:13
+msgid "Free"
+msgstr ""
+
+#: app/views/home/index.html.haml:14
+msgid "for anyone to use to help increase their social impact"
+msgstr ""
+
+#: app/views/home/index.html.haml:15
+msgid "Open Source"
+msgstr ""
+
+#: app/views/home/index.html.haml:16
+msgid "code for developers to use to improve its design and functionality"
+msgstr ""
+
+#: app/views/home/index.html.haml:17
+msgid "What can I use it for?"
+msgstr ""
+
+#: app/views/home/index.html.haml:18
+msgid "Expecting Mothers"
+msgstr ""
+
+#: app/views/home/index.html.haml:19
+msgid "Mothers-to-be have a lot on their plates, and it's easy to forget details like taking vitamin supplements or showing up for scheduled checkups. Then there's the variety of little changes that might alarm a brand-new mother who doesn't know quite what to expect -- or when to expect it. Why not make the road to motherhood a little easier with Remindem? Whether you're a health care practitioner, an insurance professional, or just a worried mother-in-law, you can set up a series of timed reminders to help Mom make it through her pregnancy with flying colors."
+msgstr ""
+
+#: app/views/home/index.html.haml:20
+msgid "Busy Students"
+msgstr ""
+
+#: app/views/home/index.html.haml:21
+msgid "Got a classroom full of students juggling school, work, family, friends, mandatory goof-off time, etc.? Help them get assignments in on time and make the grade with Remindem. Tests, meeting times, study objectives, even scheduled pep talks -- when it comes to education, Remindem gets an A+."
+msgstr ""
+
+#: app/views/home/index.html.haml:22
+msgid "Diabetics"
+msgstr ""
+
+#: app/views/home/index.html.haml:23
+msgid "Properly managed, diabetes doesn't have to keep patients from doing all the things they love. Send disease management tips, dietary reminders, insulin dosing schedules, and more with Remindem. Remindem even makes it easy to create separate messaging projects based on disease staging, patient age, and other criteria."
+msgstr ""
+
+#: app/views/home/index.html.haml:24
+msgid "Child immunizations"
+msgstr ""
+
+#: app/views/home/index.html.haml:25
+msgid "Properly scheduled immunizations are critical to a child's continuing well-being and development. Help parents keep their children healthy with immunization reminders from Remindem. Once parents register using a keyword you specify, they'll begin receiving text reminders tailored to their child's age, minimizing missed or late vaccinations and preventable illnesses that can keep children from reaching their full potential."
+msgstr ""
+
+#: app/views/home/index.html.haml:26
+msgid "Features"
+msgstr ""
+
+#: app/views/home/index.html.haml:27
+msgid "How does it work?"
+msgstr ""
+
+#: app/views/home/index.html.haml:28
+msgid "Begin by creating your list of messages and choosing a custom keyword that people will text to your number to subscribe. If desired, you can assign a time interval to each of the messages in your list. When a user subscribes, the clock starts ticking, and he or she will receive each message at the specified time. If your messages are not linked to a specific timeline, such as helpful tips for managing a chronic illness, Remindem can send them randomly."
+msgstr ""
+
+#: app/views/home/index.html.haml:29
+msgid "Remindem requires a mobile phone to receive signup texts and send out reminders, though the Web app is used to create messages and schedule their delivery. To begin sending reminders, just download the free Nuntium application to your Android-powered phone (or to your computer, if you don't have an Android phone), making sure your phone has credit, Internet access, and mobile reception. Once your phone is connected to our server wirelessly or via your computer, Remindem automatically sends text messages to subscribers on your schedule."
+msgstr ""
+
+#: app/views/home/index.html.haml:30
+msgid "Where do I start?"
+msgstr ""
+
+#: app/views/home/index.html.haml:31
+msgid "Step 1"
+msgstr ""
+
+#: app/views/home/index.html.haml:32
+msgid "Step 2"
+msgstr ""
+
+#: app/views/home/index.html.haml:33
+msgid "Step 3"
+msgstr ""
+
+#: app/views/home/index.html.haml:34
+msgid "Step 4"
+msgstr ""
+
+#: app/views/home/index.html.haml:35
+msgid "How can I help?"
+msgstr ""
+
+#: app/views/home/index.html.haml:36
+msgid "Join our discussion list"
+msgstr ""
+
+#: app/views/home/index.html.haml:37
+msgid "Visit our backlog"
+msgstr ""
+
+#: app/views/home/index.html.haml:39 app/views/home/index.html.haml:41
+msgid "Get started: %s"
+msgstr ""
+
+#: app/views/home/index.html.haml:42
+msgid "Already a member? %s"
+msgstr ""
+
+#: app/views/home/index.html.haml:44
+msgid "Remindem is great for any kind of reminder you'd like to send."
+msgstr ""
+
+#: app/views/home/index.html.haml:45
+msgid "Here are a few ways you might use it, but you're limited only by your imagination:"
+msgstr ""
+
+#: app/views/home/index.html.haml:46
+msgid "Send messages to any text messaging-enabled phone"
+msgstr ""
+
+#: app/views/home/index.html.haml:47
+msgid "Manage your reminders through any Internet connection, at any time"
+msgstr ""
+
+#: app/views/home/index.html.haml:48
+msgid "Create an unlimited number of reminder lists, each with its own keyword"
+msgstr ""
+
+#: app/views/home/index.html.haml:49
+msgid "Easily create an unlimited number of unique reminders"
+msgstr ""
+
+#: app/views/home/index.html.haml:50
+msgid "Schedule reminders in advance over a timeline that you define"
+msgstr ""
+
+#: app/views/home/index.html.haml:53
+msgid "and log in"
+msgstr ""
+
+#: app/views/home/index.html.haml:54
+msgid "Create an new reminders list and choose a keyword that people will text to suscribe to your list"
+msgstr ""
+
+#: app/views/home/index.html.haml:55
+msgid "Create your messages and assign a time interval for each"
+msgstr ""
+
+#: app/views/home/index.html.haml:57
+msgid "and connect your phone to you account"
+msgstr ""
+
+#: app/views/home/index.html.haml:58
+msgid "Got suggestions or feature requests? Join the discussion."
+msgstr ""
+
+#: app/views/home/index.html.haml:60
+msgid "Got a way with code? Help us develop our tools (and make the world a better place at the same time)."
+msgstr ""
+
+#: app/views/users/registrations/edit.html.haml:1
+msgid "Edit settings"
+msgstr ""
+
+#: app/views/users/registrations/edit.html.haml:2
+msgid "(we need your current password to confirm your changes)"
+msgstr ""
+
+#: app/views/users/registrations/edit.html.haml:4
+msgid "(leave blank if you don't want to change it)"
+msgstr ""
+
+#: app/views/users/registrations/edit.html.haml:5
+msgid "Update"
+msgstr ""
+
+#: app/views/users/registrations/new.html.haml:1 app/views/users/registrations/new.html.haml:2
+msgid "Create account"
+msgstr ""
+
+#: app/views/users/registrations/success.html.haml:1
+msgid "Open the activation link and start using Remindem!"
+msgstr ""
+
+#: app/views/users/registrations/success.html.haml:2
+msgid "Almost there!"
+msgstr ""
+
+#: app/views/users/registrations/success.html.haml:3
+msgid "You have signed up successfully. However, we need you to confirm your email account. We have just sent an email to %s with an activation link."
+msgstr ""
+
+#: app/views/logs/index.html.haml:1
+msgid "Logs"
+msgstr ""
+
+#: app/views/logs/index.html.haml:5
+msgid "You have no Logs yet"
+msgstr ""
+
+#: app/views/logs/index.html.haml:7
+msgid "more"
+msgstr ""
+
+#: app/views/logs/index.html.haml:8
+msgid "less"
+msgstr ""
+
+#: app/views/logs/index.html.haml:25
+msgid "..."
+msgstr ""
+
+#: app/views/channel/_download_android_local_gateway.html.haml:1 app/views/channel/_new_android_channel.html.haml:1
+#: app/views/channel/_choose_local_gateway.html.haml:1 app/views/channel/_download_desktop_local_gateway.html.haml:1
+#: app/views/channel/_end_wizard.html.haml:1 app/views/channel/_new_desktop_channel.html.haml:1
+msgid "Choose"
+msgstr ""
+
+#: app/views/channel/_download_android_local_gateway.html.haml:2 app/views/channel/_new_android_channel.html.haml:2
+#: app/views/channel/_choose_local_gateway.html.haml:2 app/views/channel/_download_desktop_local_gateway.html.haml:2
+#: app/views/channel/_end_wizard.html.haml:2 app/views/channel/_new_desktop_channel.html.haml:2
+msgid "Install"
+msgstr ""
+
+#: app/views/channel/_download_android_local_gateway.html.haml:3 app/views/channel/_new_android_channel.html.haml:3
+#: app/views/channel/_choose_local_gateway.html.haml:3 app/views/channel/_download_desktop_local_gateway.html.haml:3
+#: app/views/channel/_end_wizard.html.haml:3 app/views/channel/_new_desktop_channel.html.haml:3
+msgid "Connect"
+msgstr ""
+
+#: app/views/channel/_download_android_local_gateway.html.haml:4 app/views/channel/_new_android_channel.html.haml:4
+#: app/views/channel/_choose_local_gateway.html.haml:4 app/views/channel/_download_desktop_local_gateway.html.haml:4
+#: app/views/channel/_end_wizard.html.haml:4 app/views/channel/_new_desktop_channel.html.haml:4
+msgid "Finish"
+msgstr ""
+
+#: app/views/channel/_download_android_local_gateway.html.haml:5
+msgid "Go to Android Market and install Nuntium Local Gateway"
+msgstr ""
+
+#: app/views/channel/_download_android_local_gateway.html.haml:6
+msgid "Nuntium"
+msgstr ""
+
+#: app/views/channel/_download_android_local_gateway.html.haml:7
+msgid "http://market.android.com/details?id=org.instedd.geochat.lgw"
+msgstr ""
+
+#: app/views/channel/_download_android_local_gateway.html.haml:8
+msgid "Use the following QR code to access the app or use the search engine with the keyword"
+msgstr ""
+
+#: app/views/channel/_new_android_channel.html.haml:5 app/views/channel/_new_desktop_channel.html.haml:5
+msgid "Enter the gateway code from your mobile phone"
+msgstr ""
+
+#: app/views/channel/_new_android_channel.html.haml:6 app/views/channel/_new_desktop_channel.html.haml:6
+msgid "Copy the code for automated setup from the Nuntium Local Gateway in here to bind your local gateway to your reminders."
+msgstr ""
+
+#: app/views/channel/_new_android_channel.html.haml:7 app/views/channel/_new_desktop_channel.html.haml:7
+msgid "Next"
+msgstr ""
+
+#: app/views/channel/_choose_local_gateway.html.haml:5
+msgid "Choose your type of mobile phone"
+msgstr ""
+
+#: app/views/channel/_choose_local_gateway.html.haml:6
+msgid "If you have an Android powered mobile phone, you don't need a computer to set up your schedules. Just download the application, enter your text messages, and set your delivery schedule, Remindem handles the rest."
+msgstr ""
+
+#: app/views/channel/_choose_local_gateway.html.haml:7
+msgid "If you use another type of mobile phone all you need to do is plug your phone into your computer and bridge the gap between your text messages and the internet application that sends them out."
+msgstr ""
+
+#: app/views/channel/_no_channel.html.haml:1 app/views/channel/_show_current_channel.html.haml:4
+msgid "will help you to send reminders from your mobile phone, %s."
+msgstr ""
+
+#: app/views/channel/_show_current_channel.html.haml:1
+msgid "Reminders channel"
+msgstr ""
+
+#: app/views/channel/_show_current_channel.html.haml:2
+msgid "Bidirectional (%s)%s"
+msgstr ""
+
+#: app/views/channel/_download_desktop_local_gateway.html.haml:5
+msgid "Donwload and install Nuntium Local Gateway"
+msgstr ""
+
+#: app/views/channel/_download_desktop_local_gateway.html.haml:6
+msgid "Nuntium Local Gateway is a program that runs on your local computer and requires a mobile phone to be plugged in. The Gateway will use the plugged-in phone for sending and receiving text messsages."
+msgstr ""
+
+#: app/views/channel/_download_desktop_local_gateway.html.haml:7
+msgid "Download the client corresponding to your operating system and install it."
+msgstr ""
+
+#: app/views/channel/_download_desktop_local_gateway.html.haml:8
+msgid "Download Nuntium Local Gateway"
+msgstr ""
+
+#: app/views/channel/_end_wizard.html.haml:5
+msgid "Congratulations! you have successfully created a channel"
+msgstr ""
+
+#: app/views/channel/_end_wizard.html.haml:6
+msgid "The phone you have configured will be used for sending and receiving text messages. Ensure the phone is running and has credit for sending messages."
+msgstr ""
+
+#: app/views/help/faq.html.haml:1
+msgid "Got Questions?"
+msgstr ""
+
+#: app/views/help/faq.html.haml:2
+msgid "Can I schedule text reminders for a particular time and date?"
+msgstr ""
+
+#: app/views/help/faq.html.haml:3
+msgid "No yet, but you can schedule text reminders using intervals as short as one day or as long as you'd like. We are adding this feature soon though, so stay in touch!"
+msgstr ""
+
+#: app/views/help/faq.html.haml:4
+msgid "Can I use my dumbphone?"
+msgstr ""
+
+#: app/views/help/faq.html.haml:5
+msgid "Yes. Though wireless text sending and receiving requires an Android-powered phone running the free Nuntium app, you can use other cell phones by installing Nuntium on your PC or Mac. Then, once you connect your phone to your computer, Remindem will send scheduled text reminders."
+msgstr ""
+
+#: app/views/help/faq.html.haml:6
+msgid "Can subscribers respond to my text messages?"
+msgstr ""
+
+#: app/views/help/faq.html.haml:7
+msgid "No. Once your subscribers have signed up for messages using the keyword you specify, all text messages are one way only -- from Remindem to subscribers."
+msgstr ""
+
+#: app/views/help/faq.html.haml:8
+msgid "Is there any charge for using Remindem?"
+msgstr ""
+
+#: app/views/help/faq.html.haml:9
+msgid "Remindem is free to use and open source. Keep in mind that your mobile service provider's fees apply, so be sure to check with them if you have any questions about charges."
+msgstr ""
+
+#: app/views/help/faq.html.haml:10
+msgid "What browsers are supported for creating and managing text-messaging projects?"
+msgstr ""
+
+#: app/views/help/faq.html.haml:11
+msgid "let us know"
+msgstr ""
+
+#: app/views/help/faq.html.haml:12
+msgid "What is the Nuntium Gateway?"
+msgstr ""
+
+#: app/views/help/faq.html.haml:13
+msgid "It’s a small application that serves as a bridge between your phone and the Remindem Web application. Because Remindem doesn't directly send or receive text messages, this app helps your phone to communicate with Remindem so that it can receive your user subscriptions and send your reminders."
+msgstr ""
+
+#: app/views/help/faq.html.haml:14
+msgid "Why doesn't Remindem send and receive text messages directly?"
+msgstr ""
+
+#: app/views/help/faq.html.haml:15
+msgid "We wanted you to be able to use this in any country you are. Therefore, Nuntium is used to \"couple\" your phone to Remindem so that it can send and receive text messages on the schedules you create in the Remindem Web app."
+msgstr ""
+
+#: app/views/help/faq.html.haml:16
+msgid "Can I use my personal phone with Remindem?"
+msgstr ""
+
+#: app/views/help/faq.html.haml:17
+msgid "No. Remindem requires a dedicated phone with its own SIM card."
+msgstr ""
+
+#: app/views/help/faq.html.haml:18
+msgid "Got a question or two about Remindem? We've got an answer or two! Check out the Frequently Asked Questions on this page or subscribe to our %s, where we'll be happy to answer any questions."
+msgstr ""
+
+#: app/views/help/faq.html.haml:19
+msgid "Any modern browser, including the latest versions of Firefox, Safari, Internet Explorer, Chrome, and others should work fine. If you run across a browser that doesn't seem to play nice with Remindem, please"
+msgstr ""
+
+#: app/views/community/index.html.haml:2
+msgid "Get involved with the project! We welcome any feedback, ideas and requests or features. Get in touch and help us build a better and more helpfull tool for you."
+msgstr ""
+
+#: app/views/community/index.html.haml:3
+msgid "If you have ideas, needs or suggestions"
+msgstr ""
+
+#: app/views/community/index.html.haml:4
+msgid "If you are a developer you can contribute with some of the features or check our code repository"
+msgstr ""
+
+#: app/views/community/index.html.haml:5
+msgid "Subscribe to our newsletter"
+msgstr ""
+
+#: app/views/community/index.html.haml:6
+msgid "Stay up to date on the latest news about new tools, features or ideas on how to use our technologies. We will send you between 1 and 2 emails a month and won't sell your email or spam you!"
+msgstr ""
+
+#: app/views/community/index.html.haml:7
+msgid "Subscribe"
+msgstr ""
