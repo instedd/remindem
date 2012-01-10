@@ -293,7 +293,7 @@ ul.vertical li { list-style: none; }
   margin-bottom: 13px !important;
   margin-top: 0px !important;
 }
- 
+
 a.black {
   color: black !important;
 }
@@ -311,6 +311,7 @@ th.small {
   margin-bottom: 10px;
   padding-right: 14px !important;
   padding-top: 4px;
+  word-wrap: break-word;
 }
 
 .reminderMessageBox.grey {
