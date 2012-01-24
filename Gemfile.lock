@@ -32,6 +32,12 @@ GEM
     bcrypt-ruby (3.0.1)
     breadcrumbs_on_rails (2.1.0)
     builder (2.1.2)
+    capistrano (2.9.0)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
     client_side_validations (3.1.0)
     daemons (1.1.4)
     delayed_job (2.1.4)
@@ -44,6 +50,7 @@ GEM
     erubis (2.6.6)
       abstract (>= 1.0.0)
     ffaker (1.8.1)
+    highline (1.6.11)
     hoe (2.12.3)
       rake (~> 0.8)
     i18n (0.5.0)
@@ -65,6 +72,13 @@ GEM
     mocha (0.10.0)
       metaclass (~> 0.0.1)
     mysql2 (0.2.13)
+    net-scp (1.0.4)
+      net-ssh (>= 1.99.1)
+    net-sftp (2.0.5)
+      net-ssh (>= 2.0.9)
+    net-ssh (2.3.0)
+    net-ssh-gateway (1.1.0)
+      net-ssh (>= 1.99.1)
     nuntium_api (0.17)
       json
       rest-client
@@ -93,6 +107,7 @@ GEM
       hoe (>= 1.2.1)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    rvm (1.9.2)
     symbolize (3.2.0)
     thor (0.14.6)
     treetop (1.4.10)
@@ -107,6 +122,7 @@ PLATFORMS
 
 DEPENDENCIES
   breadcrumbs_on_rails
+  capistrano
   client_side_validations
   delayed_job
   devise
@@ -120,4 +136,5 @@ DEPENDENCIES
   nuntium_api (>= 0.12)
   rails (= 3.0.7)
   rand (~> 0.9.1)
+  rvm
   symbolize
