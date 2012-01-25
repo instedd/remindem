@@ -53,6 +53,7 @@ class CalendarBasedScheduleTest < ActiveSupport::TestCase
     wake_up_event = YAML.load(job.handler)
     
     Time.expects(:now).returns(Time.utc(2011,"sep",6,17,44,20)).at_least_once() #to force the right calculation of the hour
+    wake_up_event.perform
     
     #The first scheduled wake up is for Friday Septeber 9.
     assert_equal Time.local(2011,"sep",9,12,03,10), wake_up_event.message_timestamp_cursor
