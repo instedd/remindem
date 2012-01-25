@@ -9,15 +9,18 @@ gem 'nuntium_api', '>=0.12'
 gem 'jquery-rails'
 gem 'client_side_validations'
 
-gem 'mocha'
-gem 'ffaker'
-gem 'machinist'
 gem "ice_cube", "~> 0.6.13"
 gem "symbolize"
 gem 'kaminari'
+
 group :development, :test do
-	gem "rand", "~> 0.9.1"
+  gem "rand", "~> 0.9.1"
+  gem 'test-unit'
+  gem 'mocha', :require => false
+  gem 'ffaker'
+  gem 'machinist'
 end
+
 gem 'breadcrumbs_on_rails'
 
 group :development do
