@@ -38,6 +38,8 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
+    ci_reporter (1.6.9)
+      builder (>= 2.1.2)
     client_side_validations (3.1.0)
     daemons (1.1.4)
     delayed_job (2.1.4)
@@ -124,6 +126,7 @@ PLATFORMS
 DEPENDENCIES
   breadcrumbs_on_rails
   capistrano
+  ci_reporter
   client_side_validations
   delayed_job
   devise

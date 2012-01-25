@@ -19,6 +19,7 @@ group :development, :test do
   gem 'mocha', :require => false
   gem 'ffaker'
   gem 'machinist'
+  gem 'ci_reporter'
 end
 
 gem 'breadcrumbs_on_rails'
