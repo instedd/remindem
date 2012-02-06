@@ -1,4 +1,4 @@
-TestTranslations = true
+TestTranslations = false
 
 if TestTranslations
   def _(msgid)
