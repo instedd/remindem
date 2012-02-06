@@ -32,13 +32,13 @@
   %h1 Choose your type of mobile phone
   %input#androidLocalGateway.left{:checked => "", :name => "localGateway", :type => "radio", :value => "android"}/
   .left.AndroidLogo
-  = label_tag :androidLocalGateway, "Android mobile phone" , :class => "left"
+  = label_tag :androidLocalGateway, _("Android mobile phone") , :class => "left"
   %p.w30.clear.description If you have an Android powered mobile phone, you don't need a computer to set up your schedules. Just download the application, enter your text messages, and set your delivery schedule, Remindem handles the rest.
   %input#desktopLocalGateway.left{:name => "localGateway", :type => "radio", :value => "desktop"}/
   .left.DesktopLogo
-  = label_tag :desktopLocalGateway, "Other mobile phone", :class => "left"
+  = label_tag :desktopLocalGateway, _("Other mobile phone"), :class => "left"
   %p.w30.clear.description If you use another type of mobile phone all you need to do is plug your phone into your computer and bridge the gap between your text messages and the internet application that sends them out.
 %hr/
 .ChannelWizardNavigation
-  = link_to 'Back', schedules_path, :class => 'button white'
-  = link_to 'Next', new_channel_path(:download_local_gateway), :remote => true, :class => 'button grey', :onclick => "updateLocalGatewaySelectionPath();", :id => "next"
+  = link_to _('Back'), schedules_path, :class => 'button white'
+  = link_to _('Next'), new_channel_path(:download_local_gateway), :remote => true, :class => 'button grey', :onclick => "updateLocalGatewaySelectionPath();", :id => "next"

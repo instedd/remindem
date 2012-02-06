@@ -105,6 +105,6 @@ class CalendarBasedSchedule < Schedule
   end
   
   def self.mode_in_words
-    "Calendar"
+    _("Calendar")
   end
 end

@@ -8,14 +8,14 @@
   .loginLinks
     - if current_user
       %p.plain
-        Get started: #{link_button_to 'View your reminders', schedules_path, :class => "orange"}
+        Get started: #{link_button_to _('View your reminders'), schedules_path, :class => "orange"}
       %p
     - else
       %p.plain
-        Get started: #{link_button_to 'Create an account', new_user_registration_path, :class => "orange"}
+        Get started: #{link_button_to _('Create an account'), new_user_registration_path, :class => "orange"}
       %p
       %p.plain
-        Already a member? #{link_to 'Log in', new_user_session_path}
+        Already a member? #{link_to _('Log in'), new_user_session_path}
 .clear
 .home-middle-bar
   .benefits
@@ -118,7 +118,7 @@
   %h1 How does it work?
   %p Begin by creating your list of messages and choosing a custom keyword that people will text to your number to subscribe. If desired, you can assign a time interval to each of the messages in your list. When a user subscribes, the clock starts ticking, and he or she will receive each message at the specified time. If your messages are not linked to a specific timeline, such as helpful tips for managing a chronic illness, Remindem can send them randomly.
   %p Remindem requires a mobile phone to receive signup texts and send out reminders, though the Web app is used to create messages and schedule their delivery. To begin sending reminders, just download the free Nuntium application to your Android-powered phone (or to your computer, if you don't have an Android phone), making sure your phone has credit, Internet access, and mobile reception. Once your phone is connected to our server wirelessly or via your computer, Remindem automatically sends text messages to subscribers on your schedule.
-  = link_to 'Take a tour', tour_path(:start), :class=>'button grey'
+  = link_to _('Take a tour'), tour_path(:start), :class=>'button grey'
 / #w45 left
 .w45.right
   .InfoGraphic
@@ -133,7 +133,7 @@
   %h2 Where do I start?
   %p
     %span Step 1
-    = link_button_to 'Create an account', new_user_registration_path, :class=>"fedit"
+    = link_button_to _('Create an account'), new_user_registration_path, :class=>"fedit"
     and log in
   %hr/
   %p
@@ -146,7 +146,7 @@
   %hr/
   %p
     %span Step 4
-    = link_button_to 'Download the free Nuntium app', 'http://bitbucket.org/instedd/local-gateway/downloads', :class=>"fimport"
+    = link_button_to _('Download the free Nuntium app'), 'http://bitbucket.org/instedd/local-gateway/downloads', :class=>"fimport"
     and connect your phone to you account
 / #box plain orange w45 left
 .w45.right.support

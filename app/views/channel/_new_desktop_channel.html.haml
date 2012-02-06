@@ -33,5 +33,5 @@
       = f.text_field :code, :placeholder => 'Enter gateway code', :size => 19
   %hr/
   .ChannelWizardNavigation
-    = link_to 'Back', new_channel_path(:download_desktop_local_gateway), :remote => true, :class => 'button white'
+    = link_to _('Back'), new_channel_path(:download_desktop_local_gateway), :remote => true, :class => 'button white'
     %button.grey{:type => "submit"} Next

@@ -23,9 +23,9 @@
       %th
         = content_tag :select, :class => 'filterSchedules', :disabled => !@at_least_one_schedule_is_paused do
           = options_for_select([                                                                                  |
-              ['Show All','all'],                                                                                 |
-              ['Paused','paused'],                                                                                |
-              ['Running','running']                                                                               |
+              [_('Show All'),'all'],                                                                                 |
+              [_('Paused'),'paused'],                                                                                |
+              [_('Running'),'running']                                                                               |
             ].map { |text,show| [text, schedules_path(:show => show)] }, schedules_path(:show => params[:show]) ) |
     - if @schedules.empty?
       %tr
@@ -36,7 +36,7 @@
             - else
               You have no Reminders yet
             %br/
-            = link_to 'Create Reminder', new_schedule_path, :class => 'EmptyAddLink'
+            = link_to _('Create Reminder'), new_schedule_path, :class => 'EmptyAddLink'
             = link_to '', new_schedule_path, :class => 'EmptyAddButton button cadd'
     - else
       - @schedules.each do |schedule|
@@ -51,7 +51,7 @@
           %td= link_to '', schedule_path(schedule), :class => 'farrow'
       %tr
         %td
-          = link_to 'Create Reminder', new_schedule_path
+          = link_to _('Create Reminder'), new_schedule_path
         %td
           = link_button_to '', new_schedule_path, :class => 'cadd'
 = render :partial => 'channel/user_channel'

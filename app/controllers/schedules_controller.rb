@@ -3,7 +3,7 @@ class SchedulesController < AuthenticatedController
   def initialize
     super
     @show_breadcrum = true
-    add_breadcrumb "Reminders", :schedules_path
+    add_breadcrumb _("Reminders"), :schedules_path
   end
 
   # GET /schedules
@@ -39,7 +39,7 @@ class SchedulesController < AuthenticatedController
   # GET /schedules/new
   # GET /schedules/new.xml
   def new
-    add_breadcrumb "New Reminder", :new_schedule_path
+    add_breadcrumb _("New Reminder"), :new_schedule_path
     @schedule = FixedSchedule.new :timescale => "hours"
 
     respond_to do |format|
@@ -67,7 +67,7 @@ class SchedulesController < AuthenticatedController
         format.html { redirect_to(schedule_url(@schedule), :notice => 'Schedule was successfully created.') }
         format.xml  { render :xml => @schedule, :status => :created, :location => @schedule }
       else
-        add_breadcrumb "New Reminder", :new_schedule_path
+        add_breadcrumb _("New Reminder"), :new_schedule_path
         format.html { render :action => "new" }
         format.xml  { render :xml => @schedule.errors, :status => :unprocessable_entity }
       end

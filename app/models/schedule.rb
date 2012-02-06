@@ -57,7 +57,7 @@ class Schedule < ActiveRecord::Base
   end
   
   def self.time_scales
-    ['hours', 'days', 'weeks', 'months', 'years']
+    [_('hours'), _('days'), _('weeks'), _('months'), _('years')]
   end
   
   def build_message to, body 

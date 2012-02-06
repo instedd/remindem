@@ -4,7 +4,7 @@ class LogsController < AuthenticatedController
   def initialize
     super
     @show_breadcrum = true
-    add_breadcrumb "Reminders", :schedules_path
+    add_breadcrumb _("Reminders"), :schedules_path
   end  
   
   # GET /logs

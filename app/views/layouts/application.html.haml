@@ -17,11 +17,11 @@
         %ul#instedd-pulldown
         #NavMenu
           %ul
-            = section 'Home', root_path, :home
-            = section 'Reminders', schedules_path, :schedules, [:schedules, :subscribers, :logs] unless current_user.nil?
-            = section 'Tour', tour_path(:start), :tour
-            = section 'Community', community_path, :community
-            = section 'Help', help_path , :help
+            = section _('Home'), root_path, :home
+            = section _('Reminders'), schedules_path, :schedules, [:schedules, :subscribers, :logs] unless current_user.nil?
+            = section _('Tour'), tour_path(:start), :tour
+            = section _('Community'), community_path, :community
+            = section _('Help'), help_path , :help
         %ul.RightMenu
           - if !current_user.nil?
             %li
@@ -31,20 +31,20 @@
                 %br/
                 .container
                   %ul
-                    %li= link_to 'Reminders', schedules_path
-                    %li= link_to 'Settings', edit_user_registration_path
+                    %li= link_to _('Reminders'), schedules_path
+                    %li= link_to _('Settings'), edit_user_registration_path
                   %hr/
                   %ul
                     %li
                       %a{:href => "mailto:support@instedd.org?subject=[remindem-bug]"} Report a bug
-                    %li= link_to "Sign Out", destroy_user_session_path
+                    %li= link_to _("Sign Out"), destroy_user_session_path
             %li
               = link_to '', edit_user_registration_path, :class => 'fsettings'
           - else
             %li
-              = link_to "Create account", new_user_registration_path, :class => 'fedit'
+              = link_to _("Create account"), new_user_registration_path, :class => 'fedit'
             %li
-              = link_to "Log in", new_user_session_path, :class => 'fuser'
+              = link_to _("Log in"), new_user_session_path, :class => 'fuser'
       #header
         .left
           %a{:href => "/"}
