@@ -30,7 +30,7 @@
     %br/
     .left.AndroidChannelCreation
       %p.w30 Copy the code for automated setup from the Nuntium Local Gateway in here to bind your local gateway to your reminders.
-      = f.text_field :code, :placeholder => 'Enter gateway code', :size => 19
+      = f.text_field :code, :placeholder => _('Enter gateway code'), :size => 19
   %hr/
   .ChannelWizardNavigation
     = link_to _('Back'), new_channel_path(:download_android_local_gateway), :remote => true, :class => 'button white'

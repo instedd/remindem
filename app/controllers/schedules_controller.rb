@@ -52,7 +52,7 @@ class SchedulesController < AuthenticatedController
   def edit
     @schedule = Schedule.find(params[:id])
     add_breadcrumb @schedule.title, schedule_path(params[:id])
-    add_breadcrumb "Settings", edit_schedule_path(params[:id])
+    add_breadcrumb _("Settings"), edit_schedule_path(params[:id])
     @schedule.sort_messages
   end
 
@@ -88,7 +88,7 @@ class SchedulesController < AuthenticatedController
         format.xml  { head :ok }
       else
         add_breadcrumb @schedule.title, schedule_path(params[:id])
-        add_breadcrumb "Settings", edit_schedule_path(params[:id])
+        add_breadcrumb _("Settings"), edit_schedule_path(params[:id])
         
         format.html { render :action => "edit" }
         format.xml  { render :xml => @schedule.errors, :status => :unprocessable_entity }

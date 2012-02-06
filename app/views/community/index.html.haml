@@ -4,7 +4,7 @@
 %hr/
 .w20.left
   %p If you have ideas, needs or suggestions
-  = link_to 'Join our user group',                 |
+  = link_to _('Join our user group'),                 |
     RememberMe::Application.config.user_group_url, |
     :class => "button fchat",                      |
     :target => "_blank"                            |
@@ -12,8 +12,8 @@
 .w40.left
   %p If you are a developer you can contribute with some of the features or check our code repository
   %div
-    = link_to 'Visit our backlog', RememberMe::Application.config.backlog_url, :class => "button fbulb left"
-    = link_to 'Check the source code', RememberMe::Application.config.source_code_url, :class => "button fimport left"
+    = link_to _('Visit our backlog'), RememberMe::Application.config.backlog_url, :class => "button fbulb left"
+    = link_to _('Check the source code'), RememberMe::Application.config.source_code_url, :class => "button fimport left"
     .clear
 .clear
 .w60.box.white.emailInput
@@ -24,6 +24,6 @@
   %hr/
   %form{:action => RememberMe::Application.config.suscribe_url, :method => "post", :target => "_blank"}
     .w50.left
-      %input{:name => "EMAIL", :placeholder => "Enter your email", :type => "email"}/
+      %input{:name => "EMAIL", :placeholder => _("Enter your email"), :type => "email"}/
     %button.white.right{:type => "submit"} Subscribe
     .clear

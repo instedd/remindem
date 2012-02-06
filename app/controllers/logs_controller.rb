@@ -11,7 +11,7 @@ class LogsController < AuthenticatedController
   # GET /logs.xml
   def index
     add_breadcrumb Schedule.find(params[:schedule_id]).title, schedule_path(params[:schedule_id])
-	  add_breadcrumb "Logs", schedule_logs_path(params[:schedule_id])
+	  add_breadcrumb _("Logs"), schedule_logs_path(params[:schedule_id])
 
     @logs =Log.where(:schedule_id => params[:schedule_id]).page(params[:page]).per(10).order(sort_column + " " + sort_direction)
     

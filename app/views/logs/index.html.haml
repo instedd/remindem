@@ -4,9 +4,9 @@
   .tablewrapp.w90
     %table{:class => "GralTable ButtonTable #{@logs.empty? ? 'empty' : 'w-pagination'}"}
       %tr
-        %th{:class => "severity #{css_sort_class_for 'severity'}"}= sortable "severity"
-        %th{:class => css_sort_class_for('description')}= sortable "description", "Text"
-        %th{:class => css_sort_class_for('created_at')}= sortable "created_at", "Timestamp"
+        %th{:class => "severity #{css_sort_class_for 'severity'}"}= sortable _("Severity")
+        %th{:class => css_sort_class_for('description')}= sortable "description", _("Text")
+        %th{:class => css_sort_class_for('created_at')}= sortable "created_at", _("Timestamp")
       - if @logs.empty?
         %tr
           %td{:colspan => "3"}

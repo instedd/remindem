@@ -36,7 +36,7 @@
       %br>/
       queued
   .clear
-  = link_to 'Edit settings', edit_schedule_path(@schedule), :class => 'farrow overviewButton'
+  = link_to _('Edit settings'), edit_schedule_path(@schedule), :class => 'farrow overviewButton'
   = form_for(@schedule) do |f|
     %p.pausedDescription
       - if @schedule.paused?

@@ -6,8 +6,8 @@
   .tablewrapp.w90
     %table{:class => "GralTable ButtonTable #{@subscribers.empty? ? 'empty' : 'w-pagination'}"}
       %tr
-        %th{:class => "small #{css_sort_class_for 'subscribed_at'}"}= sortable 'subscribed_at', 'Subscribed'
-        %th{:class => css_sort_class_for('phone_number'), :colspan => "2"}= sortable 'phone_number'
+        %th{:class => "small #{css_sort_class_for 'subscribed_at'}"}= sortable 'subscribed_at', _('Subscribed')
+        %th{:class => css_sort_class_for('phone_number'), :colspan => "2"}= sortable _('Phone Number')
       - if @subscribers.empty?
         %tr
           %td{:colspan => "3"}
