@@ -3,19 +3,19 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.6\n"
-"POT-Creation-Date: 2012-03-06 15:32-0300\n"
-"PO-Revision-Date: 2011-11-24 18:13-0300\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-02-24 12:41-0300\n"
+"PO-Revision-Date: 2012-03-07 21:28+0200\n"
+"Last-Translator:  <boris@instedd.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.1\n"
 
 #: app/views/channel/_choose_local_gateway.html.haml:1
 #: app/views/channel/_download_android_local_gateway.html.haml:1
@@ -24,7 +24,7 @@ msgstr ""
 #: app/views/channel/_new_android_channel.html.haml:1
 #: app/views/channel/_new_desktop_channel.html.haml:1
 msgid "Choose"
-msgstr ""
+msgstr "Selecciona"
 
 #: app/views/channel/_choose_local_gateway.html.haml:2
 #: app/views/channel/_download_android_local_gateway.html.haml:2
@@ -33,7 +33,7 @@ msgstr ""
 #: app/views/channel/_new_android_channel.html.haml:2
 #: app/views/channel/_new_desktop_channel.html.haml:2
 msgid "Install"
-msgstr ""
+msgstr "Instalar"
 
 #: app/views/channel/_choose_local_gateway.html.haml:3
 #: app/views/channel/_download_android_local_gateway.html.haml:3
@@ -42,7 +42,7 @@ msgstr ""
 #: app/views/channel/_new_android_channel.html.haml:3
 #: app/views/channel/_new_desktop_channel.html.haml:3
 msgid "Connect"
-msgstr ""
+msgstr "Conectar"
 
 #: app/views/channel/_choose_local_gateway.html.haml:4
 #: app/views/channel/_download_android_local_gateway.html.haml:4
@@ -51,11 +51,11 @@ msgstr ""
 #: app/views/channel/_new_android_channel.html.haml:4
 #: app/views/channel/_new_desktop_channel.html.haml:4
 msgid "Finish"
-msgstr ""
+msgstr "Finalizar"
 
 #: app/views/channel/_choose_local_gateway.html.haml:5
 msgid "Choose your type of mobile phone"
-msgstr ""
+msgstr "Selecciona tu tipo de teléfono celular"
 
 #: app/views/channel/_choose_local_gateway.html.haml:6
 msgid ""
@@ -63,6 +63,10 @@ msgid ""
 "set up your schedules. Just download the application, enter your text "
 "messages, and set your delivery schedule, Remindem handles the rest."
 msgstr ""
+"Si tienes un teléfono móvil con sistema operativo Android, no necesitarás "
+"una computadora para configurar tus cronogramas. Tan sólo descarga la "
+"aplicación, ingresa tus mensajes de texto y configura tu cronograma de "
+"envíos. Remindem se hará cargo de todo lo demás."
 
 #: app/views/channel/_choose_local_gateway.html.haml:7
 msgid ""
@@ -70,14 +74,17 @@ msgid ""
 "phone into your computer and bridge the gap between your text messages and "
 "the internet application that sends them out."
 msgstr ""
+"Si utilizas algún otro tipo de teléfono móvil, todo lo que debes hacer es "
+"conectarlo a tu computadora para cerrar de esta manera la brecha entre tus "
+"mensajes de texto y la aplicación que se encargará de enviarlos."
 
 #: app/views/channel/_choose_local_gateway.html.haml:20
 msgid "Android mobile phone"
-msgstr ""
+msgstr "Teléfono móvil Android"
 
 #: app/views/channel/_choose_local_gateway.html.haml:21
 msgid "Other mobile phone"
-msgstr ""
+msgstr "Otro tipo de teléfono móvil"
 
 #: app/views/channel/_choose_local_gateway.html.haml:22
 #: app/views/channel/_download_android_local_gateway.html.haml:9
@@ -88,7 +95,7 @@ msgstr ""
 #: app/views/errors/not_found.html.haml:3
 #: app/views/errors/unprocessable_entity.html.haml:3
 msgid "Back"
-msgstr ""
+msgstr "Atrás"
 
 #: app/views/channel/_choose_local_gateway.html.haml:23
 #: app/views/channel/_download_android_local_gateway.html.haml:10
@@ -96,29 +103,31 @@ msgstr ""
 #: app/views/channel/_new_android_channel.html.haml:7
 #: app/views/channel/_new_desktop_channel.html.haml:7
 msgid "Next"
-msgstr ""
+msgstr "Siguiente"
 
 #: app/views/channel/_download_android_local_gateway.html.haml:5
 msgid "Go to Android Market and install Nuntium Local Gateway"
-msgstr ""
+msgstr "Ir al Android Market e instalar el gateway local de Nuntium"
 
 #: app/views/channel/_download_android_local_gateway.html.haml:6
 msgid "Nuntium"
-msgstr ""
+msgstr "Nuntium"
 
 #: app/views/channel/_download_android_local_gateway.html.haml:7
 msgid "http://market.android.com/details?id=org.instedd.geochat.lgw"
-msgstr ""
+msgstr "http://market.android.com/details?id=org.instedd.geochat.lgw"
 
 #: app/views/channel/_download_android_local_gateway.html.haml:8
 msgid ""
 "Use the following QR code to access the app or use the search engine with "
 "the keyword"
 msgstr ""
+"Utiliza el siguiente código QR para acceder a la aplicación, o recurre al "
+"motor de búsqueda con la palabra clave"
 
 #: app/views/channel/_download_desktop_local_gateway.html.haml:5
 msgid "Donwload and install Nuntium Local Gateway"
-msgstr ""
+msgstr "Descarga e instala el gateway local de Nuntium"
 
 #: app/views/channel/_download_desktop_local_gateway.html.haml:6
 msgid ""
@@ -126,65 +135,75 @@ msgid ""
 "requires a mobile phone to be plugged in. The Gateway will use the plugged-"
 "in phone for sending and receiving text messsages."
 msgstr ""
+"El gateway local de Nuntium es un programa que se ejecuta en tu computadora "
+"y requiere que le conectes a ésta un teléfono móvil. El gateway se valdrá de "
+"este teléfono para enviar y recibir mensajes de texto."
 
 #: app/views/channel/_download_desktop_local_gateway.html.haml:7
 msgid ""
 "Download the client corresponding to your operating system and install it."
 msgstr ""
+"Descarga la aplicación correspondiente a tu sistema operativo e instálala."
 
 #: app/views/channel/_download_desktop_local_gateway.html.haml:8
 msgid "Download Nuntium Local Gateway"
-msgstr ""
+msgstr "Descarga el gateway local de Nuntium"
 
 #: app/views/channel/_end_wizard.html.haml:5
 msgid "Congratulations! you have successfully created a channel"
-msgstr ""
+msgstr "¡Felicitaciones! Has creado un canal exitosamente"
 
 #: app/views/channel/_end_wizard.html.haml:6
 msgid ""
 "The phone you have configured will be used for sending and receiving text "
 "messages. Ensure the phone is running and has credit for sending messages."
 msgstr ""
+"El teléfono que acabas de configurar será usado para el envío y la recepción "
+"de mensajes de texto. Asegúrate de que esté funcionando correctamente y "
+"tenga crédito como para poder enviar SMS."
 
 #: app/views/channel/_new_android_channel.html.haml:5
 #: app/views/channel/_new_desktop_channel.html.haml:5
 msgid "Enter the gateway code from your mobile phone"
-msgstr ""
+msgstr "Ingresa el código de gateway desde tu teléfono móvil"
 
 #: app/views/channel/_new_android_channel.html.haml:6
 #: app/views/channel/_new_desktop_channel.html.haml:6
+#, fuzzy
 msgid ""
 "Copy the code for automated setup from the Nuntium Local Gateway in here to "
 "bind your local gateway to your reminders."
 msgstr ""
+"Copia y pega aquí el código de configuración automática del gateway local de "
+"Nuntium para relacionar tu gateway local con tus recordatorios"
 
 #: app/views/channel/_new_android_channel.html.haml:11
 #: app/views/channel/_new_desktop_channel.html.haml:11
 msgid "Enter gateway code"
-msgstr ""
+msgstr "Ingresa el código de gateway"
 
 #: app/views/channel/_no_channel.html.haml:1
 #: app/views/channel/_show_current_channel.html.haml:4
 msgid "will help you to send reminders from your mobile phone, %s."
-msgstr ""
+msgstr "te ayudará a enviar recordatorios desde tu teléfono móvil, %s."
 
 #: app/views/channel/_no_channel.html.haml:2
 msgid "Add a channel"
-msgstr ""
+msgstr "Agregar un canal"
 
 #: app/views/channel/_show_current_channel.html.haml:1
 msgid "Reminders channel"
-msgstr ""
+msgstr "Canal de Recordatorios"
 
 #: app/views/channel/_show_current_channel.html.haml:2
 msgid "Bidirectional (%s)%s"
-msgstr ""
+msgstr "Bidireccional (%s)%s"
 
 #: app/views/community/index.html.haml:1
 #: app/views/layouts/application.html.haml:13
 #: app/views/layouts/application.html.haml:28
 msgid "Community"
-msgstr ""
+msgstr "Comunidad"
 
 #: app/views/community/index.html.haml:2
 msgid ""
@@ -192,20 +211,25 @@ msgid ""
 "or features. Get in touch and help us build a better and more helpfull tool "
 "for you."
 msgstr ""
+"¡Involúcrate con este proyecto! Tus comentarios, ideas, requerimientos o "
+"sugerencias serán bienvenidos. Contáctanos y ayúdanos a mejorar esta "
+"herramienta, de manera que te resulte más útil."
 
 #: app/views/community/index.html.haml:3
 msgid "If you have ideas, needs or suggestions"
-msgstr ""
+msgstr "Si tienes ideas, requerimientos o sugerencias."
 
 #: app/views/community/index.html.haml:4
 msgid ""
 "If you are a developer you can contribute with some of the features or check "
 "our code repository"
 msgstr ""
+"Si eres programador, puedes contribuir a mejorar algunas de las "
+"funcionalidades de Remindem, o revisar nuestro repositorio de código"
 
 #: app/views/community/index.html.haml:5
 msgid "Subscribe to our newsletter"
-msgstr ""
+msgstr "Suscríbete a nuestro Newsletter"
 
 #: app/views/community/index.html.haml:6
 msgid ""
@@ -213,91 +237,102 @@ msgid ""
 "to use our technologies. We will send you between 1 and 2 emails a month and "
 "won't sell your email or spam you!"
 msgstr ""
+"Mantente al día sobre las últimas noticias acerca de nuevas herramientas, "
+"funcionalidades o ideas respecto de cómo aprovechar nuestras tecnologías. Te "
+"enviaremos uno o dos e-mails mensuales, y de ninguna manera comprometeremos "
+"tus datos de contacto ni recibirás correo basura de nuestra parte."
 
 #: app/views/community/index.html.haml:7
 msgid "Subscribe"
-msgstr ""
+msgstr "Suscribirme"
 
 #: app/views/community/index.html.haml:8
 msgid "Join our user group"
-msgstr ""
+msgstr "Únete a nuestro grupo de usuarios"
 
 #: app/views/community/index.html.haml:9 app/views/home/index.html.haml:37
 msgid "Visit our backlog"
-msgstr ""
+msgstr "Visita nuestro registro de trabajos pendientes"
 
 #: app/views/community/index.html.haml:10
 msgid "Check the source code"
-msgstr ""
+msgstr "Examina el código fuente"
 
 #: app/views/community/index.html.haml:12
 msgid "Enter your email"
-msgstr ""
+msgstr "Ingresa tu dirección de e-mail"
 
 #: app/views/devise/confirmations/new.html.haml:1
 #: app/views/devise/confirmations/new.html.haml:2
 msgid "Resend confirmation instructions"
-msgstr ""
+msgstr "Reenviar instrucciones de confirmación"
 
 #: app/views/devise/passwords/edit.html.haml:1
 msgid "Change your password"
-msgstr ""
+msgstr "Cambia tu contraseña"
 
 #: app/views/devise/passwords/edit.html.haml:2
 #: app/views/users/registrations/edit.html.haml:3
 msgid "Change my password"
-msgstr ""
+msgstr "Cambiar mi contraseña"
 
 #: app/views/devise/passwords/new.html.haml:1
 msgid "Forgot your password?"
-msgstr ""
+msgstr "¿Has olvidado tu contraseña?"
 
 #: app/views/devise/passwords/new.html.haml:2
 msgid "Send me reset password instructions"
-msgstr ""
+msgstr "Enviar instrucciones para restablecerla"
 
 #: app/views/devise/sessions/new.html.haml:1
 #: app/views/devise/sessions/new.html.haml:2
 msgid "Log In"
-msgstr ""
+msgstr "Iniciar la sesión"
 
 #: app/views/devise/unlocks/new.html.haml:1
 #: app/views/devise/unlocks/new.html.haml:2
 msgid "Resend unlock instructions"
-msgstr ""
+msgstr "Reenviar instrucciones de desbloqueo"
 
 #: app/views/errors/internal_server_error.html.haml:1
 msgid ""
 "We've been notified about this issue and we'll take a look at it shortly."
 msgstr ""
+"Hemos sido notificados acerca de este asunto, y en breve lo estaremos "
+"resolviendo."
 
 #: app/views/errors/internal_server_error.html.haml:2
 msgid "We're sorry, but something went wrong"
-msgstr ""
+msgstr "Lo sentimos, ha habido un error"
 
 #: app/views/errors/not_found.html.haml:1
 msgid "You may have mistyped the address or the page may have moved."
 msgstr ""
+"Tal vez hayas escrito erróneamente la dirección, o la página web haya "
+"cambiado de ubicación."
 
 #: app/views/errors/not_found.html.haml:2
 msgid "The page you were looking for doesn't exist"
-msgstr ""
+msgstr "La página web que estás buscando no existe"
 
 #: app/views/errors/unprocessable_entity.html.haml:1
 msgid "Maybe you tried to change something you didn't have access to."
 msgstr ""
+"Tal vez hayas intentado modificar algo para lo que no tenías autorización."
 
 #: app/views/errors/unprocessable_entity.html.haml:2
 msgid "The change you wanted was rejected"
-msgstr ""
+msgstr "La modificación que solicitaste ha sido rechazada"
 
 #: app/views/help/faq.html.haml:1
 msgid "Got Questions?"
-msgstr ""
+msgstr "¿Alguna pregunta?"
 
 #: app/views/help/faq.html.haml:2
 msgid "Can I schedule text reminders for a particular time and date?"
 msgstr ""
+"¿Puedo programar el envío de SMS recordatorios para un día y una hora "
+"específicos?"
 
 #: app/views/help/faq.html.haml:3
 msgid ""
@@ -305,10 +340,15 @@ msgid ""
 "day or as long as you'd like. We are adding this feature soon though, so "
 "stay in touch!"
 msgstr ""
+"Todavía no, pero puedes programar el envío de recordatorios a intervalos que "
+"van desde un día hasta la extensión que tú desees. No obstante, estaremos "
+"implementando aquella funcionalidad en breve, así que mantente en contacto."
 
 #: app/views/help/faq.html.haml:4
 msgid "Can I use my dumbphone?"
 msgstr ""
+"¿Puedo utilizar mi dumbphone (celular ordinario, sin las funcionalidades de "
+"un smartphone)?"
 
 #: app/views/help/faq.html.haml:5
 msgid ""
@@ -317,20 +357,28 @@ msgid ""
 "installing Nuntium on your PC or Mac. Then, once you connect your phone to "
 "your computer, Remindem will send scheduled text reminders."
 msgstr ""
+"Sí. Aunque el envío y la recepción de SMS requiere un teléfono Android en el "
+"que se ejecute la aplicación gratuita Nuntium, podrás utilizar cualquier "
+"otro tipo de celular si instalas Nuntium en tu PC o Mac. Entonces, una vez "
+"que hayas conectado tu teléfono móvil a tu computadora, Remindem podrá "
+"enviar los recordatorios que hayas programado."
 
 #: app/views/help/faq.html.haml:6
 msgid "Can subscribers respond to my text messages?"
-msgstr ""
+msgstr "¿Pueden los suscriptores responder mis mensajes de texto?"
 
 #: app/views/help/faq.html.haml:7
 msgid ""
 "No. Once your subscribers have signed up for messages using the keyword you "
 "specify, all text messages are one way only -- from Remindem to subscribers."
 msgstr ""
+"No. Una vez que tus suscriptores se hayan registrado para recibir "
+"recordatorios utilizando la plalabra clave que tú hayas preestablecido, "
+"todos los SMS serán unidireccionales –de Remindem a los detinatarios–."
 
 #: app/views/help/faq.html.haml:8
 msgid "Is there any charge for using Remindem?"
-msgstr ""
+msgstr "¿Tiene algún costo el uso de Remindem?"
 
 #: app/views/help/faq.html.haml:9
 msgid ""
@@ -338,20 +386,24 @@ msgid ""
 "service provider's fees apply, so be sure to check with them if you have any "
 "questions about charges."
 msgstr ""
+"Remindem es un desarrollo gratuito y de código abierto. Ten en cuenta que tu "
+"proveedor de servicios de telefonía móvil aplicará sus tarifas habituales, "
+"por lo que deberás consultarle cualquier duda que tengas respecto de los "
+"costos."
 
 #: app/views/help/faq.html.haml:10
 msgid ""
 "What browsers are supported for creating and managing text-messaging "
 "projects?"
-msgstr ""
+msgstr "¿Qué navegadores son compatibles con Remindem?"
 
 #: app/views/help/faq.html.haml:11
 msgid "let us know"
-msgstr ""
+msgstr "háznoslo saber"
 
 #: app/views/help/faq.html.haml:12
 msgid "What is the Nuntium Gateway?"
-msgstr ""
+msgstr "¿Qué es el gateway local de Nuntium?"
 
 #: app/views/help/faq.html.haml:13
 msgid ""
@@ -360,10 +412,15 @@ msgid ""
 "text messages, this app helps your phone to communicate with Remindem so "
 "that it can receive your user subscriptions and send your reminders."
 msgstr ""
+"Se trata de una pequeña aplicación que funciona como un puente entre tu "
+"teléfono y la plataforma web de Remindem. Dado que Remindem no envía ni "
+"recibe mensajes de texto directamente, esta aplicación le permite a tu "
+"teléfono comunicarse con Remindem, de manera que éste pueda recibir las "
+"suscripciones de tus beneficiarios y enviarles recordatorios."
 
 #: app/views/help/faq.html.haml:14
 msgid "Why doesn't Remindem send and receive text messages directly?"
-msgstr ""
+msgstr "¿Por qué Remindem no envía ni recibe mensajes de texto directamente?"
 
 #: app/views/help/faq.html.haml:15
 msgid ""
@@ -371,14 +428,20 @@ msgid ""
 "Nuntium is used to \"couple\" your phone to Remindem so that it can send and "
 "receive text messages on the schedules you create in the Remindem Web app."
 msgstr ""
+"Nos interesa que puedas utilizar esta herramienta en cualquier país en el "
+"que te encuentres. Por consiguiente, Nuntium te permite interconectar tu "
+"celular con Remindem, de manera que éste pueda enviar y recibir SMS según el "
+"cronograma que tú hayas programado en la aplicación web de Remindem."
 
 #: app/views/help/faq.html.haml:16
 msgid "Can I use my personal phone with Remindem?"
-msgstr ""
+msgstr "¿Puedo usar mi teléfono personal con Remindem?"
 
 #: app/views/help/faq.html.haml:17
 msgid "No. Remindem requires a dedicated phone with its own SIM card."
 msgstr ""
+"No. Remindem requiere un teléfono dedicado exclusivamente a su funcionalidad "
+"de envío de recordatorios, con su propia tarjeta SIM."
 
 #: app/views/help/faq.html.haml:18
 msgid ""
@@ -386,10 +449,14 @@ msgid ""
 "the Frequently Asked Questions on this page or subscribe to our %s, where "
 "we'll be happy to answer any questions."
 msgstr ""
+"¿Se te ocurren un par de preguntas acerca de Remindem? ¡Nosotros tenemos un "
+"par de respuestas! Revisa las Preguntas Más Frecuentes en esta página, o "
+"suscríbete a nuestro %s, a través del cual responderemos con gusto cualquier "
+"pregunta que nos quieras formular."
 
 #: app/views/help/faq.html.haml:18
 msgid "user discussion group"
-msgstr ""
+msgstr "grupo de discusión"
 
 #: app/views/help/faq.html.haml:19
 msgid ""
@@ -397,10 +464,14 @@ msgid ""
 "Internet Explorer, Chrome, and others should work fine. If you run across a "
 "browser that doesn't seem to play nice with Remindem, please"
 msgstr ""
+"Cualquier navegador moderno, incluyendo las últimas versiones de Firefox, "
+"Safari, Internet Explorer, Google Chrome y demás, debería funcionar "
+"perfectamente bien. Si estás utilizando algún navegador que pareciera no "
+"compatibilizar adecuadamente con Remindem, por favor"
 
 #: app/views/home/index.html.haml:1
 msgid "Download brochure (536 KB)"
-msgstr ""
+msgstr "Descargar el folleto (536 KB)"
 
 #: app/views/home/index.html.haml:2
 msgid "Keep people informed"
@@ -408,7 +479,7 @@ msgstr "Mantén a la gente informada"
 
 #: app/views/home/index.html.haml:3
 msgid "of important things going on in their life and work"
-msgstr ""
+msgstr "acerca de asuntos importantes relacionados con su vida y trabajo"
 
 #: app/views/home/index.html.haml:4
 msgid ""
@@ -417,62 +488,71 @@ msgid ""
 "Remindem sends important text reminders just when your subscribers need "
 "them, based on a schedule you define."
 msgstr ""
+"Remindem es una herramienta gratuita y fácil de usar que te permite "
+"configurar una lista de consejos, recordatorios y recomendaciones a la que "
+"la gente puede suscribirse vía mensajes de texto. Remindem envía SMS "
+"recordatorios importantes justo cuando tus destinatarios los precisan, con "
+"base en un cronograma predefinido por ti."
 
 #: app/views/home/index.html.haml:5
 msgid "Helps"
-msgstr ""
+msgstr "Ayuda"
 
 #: app/views/home/index.html.haml:6
 msgid "your community of users feel supported and connected"
-msgstr ""
+msgstr "a tu comunidad de usuarios a que se sientan respaldados y conectados"
 
 #: app/views/home/index.html.haml:7
 msgid "Sends"
-msgstr ""
+msgstr "Envía"
 
 #: app/views/home/index.html.haml:8
 msgid "reminders when subscribers need them most"
-msgstr ""
+msgstr "SMS recordatorios cuando tus suscriptores más los necesitan"
 
 #: app/views/home/index.html.haml:9
 msgid "Allows"
-msgstr ""
+msgstr "Permite"
 
 #: app/views/home/index.html.haml:10
 msgid "you to tailor advice based on when it will be received"
-msgstr ""
+msgstr "que puedas adaptar consejos con base en cuándo éstos serán recibidos"
 
 #: app/views/home/index.html.haml:11
 msgid "Schedule and edit"
-msgstr ""
+msgstr "Programa el envío y edita"
 
 #: app/views/home/index.html.haml:12
 msgid "your messages from any internet connection"
-msgstr ""
+msgstr "tus mensajes desde cualquier conexión a internet"
 
 #: app/views/home/index.html.haml:13
 msgid "Free"
-msgstr ""
+msgstr "Gratis"
 
 #: app/views/home/index.html.haml:14
 msgid "for anyone to use to help increase their social impact"
 msgstr ""
+"para que cualquiera pueda utilizarlo a efectos de incrementar su impacto "
+"social"
 
 #: app/views/home/index.html.haml:15
 msgid "Open Source"
-msgstr ""
+msgstr "Código abierto"
 
 #: app/views/home/index.html.haml:16
 msgid "code for developers to use to improve its design and functionality"
 msgstr ""
+"que permite que los desarrolladores puedan mejorar su diseño y sus "
+"funcionalidades"
 
 #: app/views/home/index.html.haml:17
 msgid "What can I use it for?"
-msgstr ""
+msgstr "¿Para qué lo puedo usar?"
 
 #: app/views/home/index.html.haml:18
 msgid "Expecting Mothers"
-msgstr ""
+msgstr "Embarazadas"
 
 #: app/views/home/index.html.haml:19
 msgid ""
@@ -485,10 +565,19 @@ msgid ""
 "mother-in-law, you can set up a series of timed reminders to help Mom make "
 "it through her pregnancy with flying colors."
 msgstr ""
+"Las futuras madres tienen mucho de que ocuparse, y es fácil que se olviden "
+"de detalles tales como tomar sus suplementos vitamínicos o acudir a sus "
+"citas de control médico. Además, hay una gran variedad de pequeños cambios "
+"que podrían llegar a alarmar a las madres primerizas, que no saben muy bien "
+"qué esperar –o cuándo esperarlo–. ¿Por qué no hacerles un poco más fácil el "
+"camino hacia la maternidad con Remindem? Tanto si eres un profesional de la "
+"salud como un corredor de seguros, o tan sólo una suegra preocupada, podrás "
+"configurar el envío de una serie de recordatorios programados que ayudarán a "
+"la futura mamá a atravesar su embarazo con éxito."
 
 #: app/views/home/index.html.haml:20
 msgid "Busy Students"
-msgstr ""
+msgstr "Estudiantes atareados"
 
 #: app/views/home/index.html.haml:21
 msgid ""
@@ -497,10 +586,16 @@ msgid ""
 "the grade with Remindem. Tests, meeting times, study objectives, even "
 "scheduled pep talks -- when it comes to education, Remindem gets an A+."
 msgstr ""
+"¿Tienes un aula llena de estudiantes que deben hacer malabares entre el "
+"colegio, el trabajo, la familia, los amigos, el infaltable tiempo de ocio, "
+"etc.? Deja que Remindem los ayude a lidiar en tiempo y forma con todas esas "
+"tareas. Exámenes, horarios de reuniones, objetivos de estudio e incluso "
+"charlas motivacionales programadas... Cuando de educación se trata, Remindem "
+"siempre obtiene un 10."
 
 #: app/views/home/index.html.haml:22
 msgid "Diabetics"
-msgstr ""
+msgstr "Diabéticos"
 
 #: app/views/home/index.html.haml:23
 msgid ""
@@ -510,10 +605,17 @@ msgid ""
 "create separate messaging projects based on disease staging, patient age, "
 "and other criteria."
 msgstr ""
+"Bien llevada, la diabetes no tiene por qué impedirles a los pacientes que "
+"hagan todas las cosas que les encantan. Envía mediante Remindem consejos "
+"sobre el tratamiento de la enfermedad, recordatorios acerca de la "
+"alimentación, horarios de dosificación de la insulina y mucho más. Remindem "
+"incluso te facilita la creación de proyectos independientes de envío de "
+"recordatorios según el estado de la enfermedad, la edad del paciente o "
+"cualquier otro criterio."
 
 #: app/views/home/index.html.haml:24
 msgid "Child immunizations"
-msgstr ""
+msgstr "Vacunación infantil"
 
 #: app/views/home/index.html.haml:25
 msgid ""
@@ -524,14 +626,23 @@ msgid ""
 "child's age, minimizing missed or late vaccinations and preventable "
 "illnesses that can keep children from reaching their full potential."
 msgstr ""
+"El cumplimiento del calendario de vacunaciones resulta crucial para el "
+"continuo bienestar y desarrollo de un niño. Ayuda a los padres a preservar "
+"la salud de sus hijos con los recordatorios de vacunación de Remindem. Una "
+"vez que los padres se hayan registrado mediante el envío de una palabra "
+"clave preestablecida por ti, comenzarán a recibir SMS recordatorios de "
+"acuerdo con las edades de sus hijos, minimizándose así el riesgo de que se "
+"salteen una dosis, de que los vacunen tardíamente o de que los niños "
+"contraigan una enfermedad prevenible que les impida alcanzar todo su "
+"potencial."
 
 #: app/views/home/index.html.haml:26
 msgid "Features"
-msgstr ""
+msgstr "Características"
 
 #: app/views/home/index.html.haml:27
 msgid "How does it work?"
-msgstr ""
+msgstr "¿Cómo funciona?"
 
 #: app/views/home/index.html.haml:28
 msgid ""
@@ -543,6 +654,14 @@ msgid ""
 "as helpful tips for managing a chronic illness, Remindem can send them "
 "randomly."
 msgstr ""
+"Comienza por la creación de tu lista de mensajes y la elección de una "
+"palabra clave personalizada, que la gente deberá enviarte vía SMS para "
+"suscribirse. Si lo deseas, puedes asignarle un intervalo de tiempo a cada "
+"uno de los mensajes de la lista. Cuando un usuario se suscribe, el reloj "
+"comienza a correr, y él o ella recibirá cada SMS en el momento especificado. "
+"Si tus mensajes no están vinculados a una línea de tiempo determinada, como "
+"en el caso del envío de consejos útiles para el manejo de una enfermedad "
+"crónica, Remindem los podrá mandar aleatoriamente."
 
 #: app/views/home/index.html.haml:29
 msgid ""
@@ -555,125 +674,152 @@ msgid ""
 "or via your computer, Remindem automatically sends text messages to "
 "subscribers on your schedule."
 msgstr ""
+"Remindem requiere un teléfono móvil para recibir los SMS de registración y "
+"mandar recordatorios, si bien para crear mensajes de texto y programar su "
+"envío se utiliza la aplicación web respectiva. Para comenzar a enviar "
+"recordatorios simplemente descarga la aplicación gratuita Nuntium en tu "
+"teléfono Android (o en tu computadora, si no dispones de un Android), "
+"asegurándote de que éste tenga crédito, acceso a internet y una buena "
+"recepción. Una vez que tu teléfono esté conectado inalámbricamente a nuestro "
+"servidor, o bien a través de tu computadora, Remindem automáticamente "
+"comenzará a enviarles los SMS a tus suscriptores, según el cronograma "
+"preestablecido."
 
 #: app/views/home/index.html.haml:30
 msgid "Where do I start?"
-msgstr ""
+msgstr "¿Por dónde comienzo?"
 
 #: app/views/home/index.html.haml:31
 msgid "Step 1"
-msgstr ""
+msgstr "Paso 1"
 
 #: app/views/home/index.html.haml:32
 msgid "Step 2"
-msgstr ""
+msgstr "Paso 2"
 
 #: app/views/home/index.html.haml:33
 msgid "Step 3"
-msgstr ""
+msgstr "Paso 3"
 
 #: app/views/home/index.html.haml:34
 msgid "Step 4"
-msgstr ""
+msgstr "Paso 4"
 
 #: app/views/home/index.html.haml:35
 msgid "How can I help?"
-msgstr ""
+msgstr "¿Cómo puedo ayudar?"
 
 #: app/views/home/index.html.haml:36
 msgid "Join our discussion list"
-msgstr ""
+msgstr "Únete a nuestra lista de discusión"
 
 #: app/views/home/index.html.haml:39 app/views/home/index.html.haml:41
 msgid "Get started: %s"
-msgstr ""
+msgstr "Inicio: %s"
 
 #: app/views/home/index.html.haml:39
 msgid "View your reminders"
-msgstr ""
+msgstr "Visualiza tus recordatorios"
 
 #: app/views/home/index.html.haml:41 app/views/home/index.html.haml:52
 msgid "Create an account"
-msgstr ""
+msgstr "Crea una cuenta"
 
 #: app/views/home/index.html.haml:42
 msgid "Already a member? %s"
-msgstr ""
+msgstr "¿Ya eres un miembro? %s"
 
 #: app/views/home/index.html.haml:42
 #: app/views/layouts/application.html.haml:38
 msgid "Log in"
-msgstr ""
+msgstr "Iniciar la sesión"
 
 #: app/views/home/index.html.haml:44
 msgid "Remindem is great for any kind of reminder you'd like to send."
 msgstr ""
+"Remindem es ideal para gestionar cualquier tipo de recordatorio que desees "
+"enviar."
 
 #: app/views/home/index.html.haml:45
 msgid ""
 "Here are a few ways you might use it, but you're limited only by your "
 "imagination:"
 msgstr ""
+"He aquí algunas de las maneras en que lo podrías utilizar, pero el límite "
+"sólo depende de tu imaginación:"
 
 #: app/views/home/index.html.haml:46
 msgid "Send messages to any text messaging-enabled phone"
 msgstr ""
+"Envía mensajes de texto a cualquier teléfono móvil habilitado para "
+"recibirlos"
 
 #: app/views/home/index.html.haml:47
 msgid "Manage your reminders through any Internet connection, at any time"
 msgstr ""
+"Gestiona tus recordatorios a través de cualquier conexión a internet, en "
+"cualquier momento"
 
 #: app/views/home/index.html.haml:48
 msgid "Create an unlimited number of reminder lists, each with its own keyword"
 msgstr ""
+"Crea una cantidad ilimitada de listas de recordatorios, cada una de ellas "
+"con su propia palabra clave"
 
 #: app/views/home/index.html.haml:49
 msgid "Easily create an unlimited number of unique reminders"
-msgstr ""
+msgstr "Crea fácilmente un número ilimitado de recordatorios exclusivos"
 
 #: app/views/home/index.html.haml:50
 msgid "Schedule reminders in advance over a timeline that you define"
-msgstr ""
+msgstr "Programa el envío de recordatorios según un cronograma preestablecido"
 
 #: app/views/home/index.html.haml:51
 msgid "Take a tour"
-msgstr ""
+msgstr "Haz un recorrido"
 
 #: app/views/home/index.html.haml:53
 msgid "and log in"
-msgstr ""
+msgstr "e inicia la sesión"
 
 #: app/views/home/index.html.haml:54
 msgid ""
 "Create an new reminders list and choose a keyword that people will text to "
 "suscribe to your list"
 msgstr ""
+"Crea una nueva lista de recordatorios y elige una palabra clave que los "
+"destinatarios deberán enviar vía SMS para suscribirse a aquélla"
 
 #: app/views/home/index.html.haml:55
 msgid "Create your messages and assign a time interval for each"
-msgstr ""
+msgstr "Crea tus SMS y asígnales un intervalo de tiempo determinado"
 
 #: app/views/home/index.html.haml:56
 msgid "Download the free Nuntium app"
-msgstr ""
+msgstr "Descarga la aplicación gratuita Nuntium"
 
 #: app/views/home/index.html.haml:57
-msgid "and connect your phone to your account"
-msgstr ""
+msgid "and connect your phone to you account"
+msgstr "y conecta tu teléfono con tu cuenta"
 
 #: app/views/home/index.html.haml:58
 msgid "Got suggestions or feature requests? Join the discussion."
 msgstr ""
+"¿Tienes sugerencias o requerimientos acerca de nuevas funcionalidades que te "
+"gustaría formularnos? Únete a la discusión."
 
 #: app/views/home/index.html.haml:60
 msgid ""
 "Got a way with code? Help us develop our tools (and make the world a better "
 "place at the same time)."
 msgstr ""
+"¿Se te ocurre alguna manera de mejorar nuestro código? Ayúdanos a "
+"desarrollar nuestras herramientas (y al mismo tiempo contribuye a que el "
+"mundo se transforme en un mejor lugar)."
 
 #: app/views/layouts/application.html.haml:1
 msgid "Remindem"
-msgstr ""
+msgstr "Remindem"
 
 #: app/views/layouts/application.html.haml:2
 #: app/views/layouts/application.html.haml:26
@@ -682,7 +828,7 @@ msgstr ""
 #: app/controllers/schedules_controller.rb:6
 #: app/controllers/subscribers_controller.rb:7
 msgid "Reminders"
-msgstr ""
+msgstr "Recordatorios"
 
 #: app/views/layouts/application.html.haml:3
 #: app/views/layouts/application.html.haml:33
@@ -690,63 +836,65 @@ msgstr ""
 #: app/controllers/schedules_controller.rb:55
 #: app/controllers/schedules_controller.rb:91
 msgid "Settings"
-msgstr ""
+msgstr "Configuración"
 
 #: app/views/layouts/application.html.haml:4
 msgid "Report a bug"
-msgstr ""
+msgstr "Reporta un error"
 
 #: app/views/layouts/application.html.haml:5
 #: app/views/layouts/application.html.haml:34
 msgid "Sign Out"
-msgstr ""
+msgstr "Cerrar la sesión"
 
 #: app/views/layouts/application.html.haml:6
 msgid "Click here"
-msgstr ""
+msgstr "Haz click aquí"
 
 #: app/views/layouts/application.html.haml:7
 msgid "Learn more"
-msgstr ""
+msgstr "Aprende más"
 
 #: app/views/layouts/application.html.haml:8
 msgid "&copy; 2011 InSTEDD"
-msgstr ""
+msgstr "&copy; 2011 InSTEDD"
 
 #: app/views/layouts/application.html.haml:9
 msgid "Terms and conditions"
-msgstr ""
+msgstr "Términos y condiciones"
 
 #: app/views/layouts/application.html.haml:10
 msgid "Contact us"
-msgstr ""
+msgstr "Contáctanos"
 
 #: app/views/layouts/application.html.haml:11
 #: app/views/layouts/application.html.haml:25
 msgid "Home"
-msgstr ""
+msgstr "Inicio"
 
 #: app/views/layouts/application.html.haml:12
 #: app/views/layouts/application.html.haml:27
 msgid "Tour"
-msgstr ""
+msgstr "Tour"
 
 #: app/views/layouts/application.html.haml:14
 #: app/views/layouts/application.html.haml:29
 msgid "Help"
-msgstr ""
+msgstr "Ayuda"
 
 #: app/views/layouts/application.html.haml:15
 msgid ""
 "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://"
 "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">"
 msgstr ""
+"<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" "
+"\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">"
 
 #: app/views/layouts/application.html.haml:37
 #: app/views/users/registrations/new.html.haml:1
 #: app/views/users/registrations/new.html.haml:2
 msgid "Create account"
-msgstr ""
+msgstr "Crea una cuenta"
 
 #: app/views/layouts/application.html.haml:44
 msgid ""
@@ -754,20 +902,24 @@ msgid ""
 "technologies to support humanitarian causes. These tools can be used "
 "individually or as building blocks for larger solutions."
 msgstr ""
+"InSTEDD ha creado una plataforma evolutiva de tecnologías gratuitas y de "
+"código abierto en apoyo de causas humanitarias. Estas herramientas pueden "
+"ser usadas individualmente, o bien a manera de módulos encastrables que "
+"permitan desarrollar soluciones más extensas."
 
 #: app/views/layouts/application.html.haml:45
 msgid "to learn more"
-msgstr ""
+msgstr "para aprender más"
 
 #: app/views/layouts/application.html.haml:51
 msgid "Version %s"
-msgstr ""
+msgstr "Versión %s"
 
 #: app/views/logs/index.html.haml:1
 #: app/views/shared/_schedule_tabs_and_title.html.haml:6
 #: app/controllers/logs_controller.rb:14
 msgid "Logs"
-msgstr ""
+msgstr "Registros"
 
 #: app/views/logs/index.html.haml:2 app/views/logs/index.html.haml:13
 msgid "Severity"
@@ -775,81 +927,83 @@ msgstr ""
 
 #: app/views/logs/index.html.haml:3 app/views/logs/index.html.haml:15
 msgid "Text"
-msgstr ""
+msgstr "Texto"
 
 #: app/views/logs/index.html.haml:4 app/views/logs/index.html.haml:17
 msgid "Timestamp"
-msgstr ""
+msgstr "Marca de tiempo"
 
 #: app/views/logs/index.html.haml:5
 msgid "You have no Logs yet"
-msgstr ""
+msgstr "Aún no tienes Registros"
 
 #: app/views/logs/index.html.haml:7
 msgid "more"
-msgstr ""
+msgstr "más"
 
 #: app/views/logs/index.html.haml:8
 msgid "less"
-msgstr ""
+msgstr "menos"
 
 #: app/views/logs/index.html.haml:25
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: app/views/schedules/_form.html.haml:1
 msgid "Users will register with this keyword"
-msgstr ""
+msgstr "Los usuarios se registrarán con esta palabra clave"
 
 #: app/views/schedules/_form.html.haml:2
 msgid "This is the message users will get after they successfully registered"
 msgstr ""
+"Éste es el mensaje que recibirán los usuarios después de haberse registrado "
+"exitosamente"
 
 #: app/views/schedules/_form.html.haml:3
 msgid "Choose timescale reference to use"
-msgstr ""
+msgstr "Elige el cronograma de referencia a usar"
 
 #: app/views/schedules/_form.html.haml:4
 msgid "Mode"
-msgstr ""
+msgstr "Modo"
 
 #: app/views/schedules/_form.html.haml:5
 msgid "Messages"
-msgstr ""
+msgstr "Mensajes"
 
 #: app/views/schedules/_form.html.haml:6
 msgid "Write your reminder's messages"
-msgstr ""
+msgstr "Escribe los textos de tus recordatorios"
 
 #: app/views/schedules/_form.html.haml:7
 #: app/views/schedules/_message_controls.html.haml:2
 msgid "Save"
-msgstr ""
+msgstr "Guardar"
 
 #: app/views/schedules/_message_controls.html.haml:3
 #: app/views/schedules/show.html.haml:8
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: app/views/schedules/_message_controls.html.haml:9
 msgid "Add message here"
-msgstr ""
+msgstr "Agrega tu mensaje aquí"
 
 #: app/views/schedules/_message_fields.html.haml:7
 msgid "After"
-msgstr ""
+msgstr "Después"
 
 #: app/views/schedules/edit.html.haml:1 app/views/schedules/show.html.haml:3
 msgid "Properties"
-msgstr ""
+msgstr "Propiedades"
 
 #: app/views/schedules/edit.html.haml:2
 msgid "Below you can configure this Reminder properties"
-msgstr ""
+msgstr "Aquí abajo puedes configurar las propiedades de este recordatorio"
 
 #: app/views/schedules/index.html.haml:2
 msgid "My Reminders"
-msgstr ""
+msgstr "Mis Recordatorios"
 
 #: app/views/schedules/index.html.haml:5
 msgid ""
@@ -872,142 +1026,162 @@ msgid ""
 "  //]]>\n"
 "</script>"
 msgstr ""
+"<script type='text/javascript'>\n"
+"//<![CDATA[\n"
+"$(function() {\n"
+"$('.ItemsTable tr').live('click', function() {\n"
+"var anchor = $('a', $(this));\n"
+"if (anchor.length > 0) {\n"
+"window.location = anchor.attr('href');\n"
+"}\n"
+"});\n"
+"\n"
+"$(\".filterSchedules\").change(function () {\n"
+"$(\".filterSchedules option:selected\").each(function () {\n"
+"window.location = $(this).val();\n"
+"});\n"
+"});\n"
+"})\n"
+"//]]>\n"
+"</script>"
 
 #: app/views/schedules/index.html.haml:28
 msgid "You have no running Reminders"
-msgstr ""
+msgstr "No tienes Recordatorios en curso"
 
 #: app/views/schedules/index.html.haml:30
 msgid "You have no Reminders yet"
-msgstr ""
+msgstr "Aún no tienes Recordatorios"
 
 #: app/views/schedules/index.html.haml:32
 #: app/views/schedules/index.html.haml:40
 msgid "Create Reminder"
-msgstr ""
+msgstr "Crear un Recordatorio"
 
 #: app/views/schedules/new.html.haml:1
 msgid "New reminder"
-msgstr ""
+msgstr "Nuevo recordatorio "
 
 #: app/views/schedules/show.html.haml:1
 msgid "Status"
-msgstr ""
+msgstr "Estado"
 
 #: app/views/schedules/show.html.haml:2
 msgid "Here you can see the overall status of your schedule"
-msgstr ""
+msgstr "Aquí puedes ver el estado general de tu cronograma"
 
 #: app/views/schedules/show.html.haml:4
 msgid "This is a summary of the properties of your schedule"
-msgstr ""
+msgstr "Éste es un resumen de las propiedades de tu cronograma"
 
 #: app/views/schedules/show.html.haml:5
 msgid "Start this reminder"
-msgstr ""
+msgstr "Comenzar con este recordatorio"
 
 #: app/views/schedules/show.html.haml:6
 msgid "Pause this reminder"
-msgstr ""
+msgstr "Pausar este recordatorio"
 
 #: app/views/schedules/show.html.haml:7
 msgid "Delete this reminder"
-msgstr ""
+msgstr "Eliminar este recordatorio"
 
 #: app/views/schedules/show.html.haml:25
 msgid "Keyword"
-msgstr ""
+msgstr "Palabra clave"
 
 #: app/views/schedules/show.html.haml:30
 msgid "messages"
-msgstr ""
+msgstr "mensajes"
 
 #: app/views/schedules/show.html.haml:31
 msgid "queued"
-msgstr ""
+msgstr "en la cola"
 
 #: app/views/schedules/show.html.haml:32
 #: app/views/users/registrations/edit.html.haml:1
 msgid "Edit settings"
-msgstr ""
+msgstr "Editar la configuración"
 
 #: app/views/schedules/show.html.haml:36
 msgid "Are you sure you want to delete this reminder?"
-msgstr ""
+msgstr "¿Estás seguro de que deseas eliminar este recordatorio?"
 
 #: app/views/schedules/show.html.haml:37
 msgid "All your subscribers will stop receiving the scheduled messages"
-msgstr ""
+msgstr "Todos tus suscriptores dejarán de recibir los mensajes programados"
 
 #: app/views/shared/_schedule_tabs_and_title.html.haml:4
 msgid "Overview"
-msgstr ""
+msgstr "Generalidades"
 
 #: app/views/shared/_schedule_tabs_and_title.html.haml:10
 #: app/views/subscribers/index.html.haml:1
 #: app/controllers/subscribers_controller.rb:15
 msgid "Subscribers"
-msgstr ""
+msgstr "Suscriptores"
 
 #: app/views/subscribers/_download_as_csv.html.haml:3
 msgid "subscribers registered"
-msgstr ""
+msgstr "suscriptores registrados"
 
 #: app/views/subscribers/_download_as_csv.html.haml:4
 msgid "Download as CSV"
-msgstr ""
+msgstr "Descargar como CSV"
 
 #: app/views/subscribers/index.html.haml:2
 #: app/views/subscribers/index.html.haml:12
 msgid "Subscribed"
-msgstr ""
+msgstr "Suscripto"
 
 #: app/views/subscribers/index.html.haml:3
 #: app/views/subscribers/index.html.haml:14
 msgid "Phone Number"
-msgstr ""
+msgstr "Número de Teléfono"
 
 #: app/views/subscribers/index.html.haml:4
 msgid "You have no Subscribers yet"
-msgstr ""
+msgstr "Aún no tienes Suscriptores"
 
 #: app/views/tour/_tour_navigation.html.haml:1
 msgid "Start"
-msgstr ""
+msgstr "Comienza"
 
 #: app/views/tour/_tour_navigation.html.haml:2
 msgid "through any internet connection"
-msgstr ""
+msgstr "a través de cualquier conexión a internet"
 
 #: app/views/tour/_tour_navigation.html.haml:3
 msgid "Schedule"
-msgstr ""
+msgstr "Programa"
 
 #: app/views/tour/_tour_navigation.html.haml:4
 msgid "Messages in advance"
-msgstr ""
+msgstr "mensajes anticipadamente"
 
 #: app/views/tour/_tour_navigation.html.haml:5
 msgid "Manage"
-msgstr ""
+msgstr "Gestiona"
 
 #: app/views/tour/_tour_navigation.html.haml:6
 msgid "as many lists as you want"
-msgstr ""
+msgstr "tantas listas como desees"
 
 #: app/views/tour/_tour_navigation.html.haml:7
 msgid "Send"
-msgstr ""
+msgstr "Envía"
 
 #: app/views/tour/_tour_navigation.html.haml:8
 msgid "your scheduled text messages"
-msgstr ""
+msgstr "tus mensajes de texto pre-programados"
 
 #: app/views/tour/manage.html.haml:1
 msgid ""
 "Manage as many lists and subscribers as you want, all from a single phone "
 "number"
 msgstr ""
+"Gestiona la cantidad de listas y de suscriptores que desees, todo ello desde "
+"un único número de teléfono"
 
 #: app/views/tour/manage.html.haml:2
 msgid ""
@@ -1015,34 +1189,43 @@ msgid ""
 "to keep an unlimited number of subscribers up-to-date with relevant, timely "
 "reminders."
 msgstr ""
+"Ya sea que administres una única lista de recordatorios o docenas, Remindem "
+"te permitira fácilmente mantener al día a un número ilimitado de "
+"suscriptores, mediante recordatorios relevantes y oportunos."
 
 #: app/views/tour/manage.html.haml:3
 msgid "unique keyword"
-msgstr ""
+msgstr "única palabra clave"
 
 #: app/views/tour/manage.html.haml:4
 msgid ""
 "Greet new subscribers with a personalized welcome message and easy-to-"
 "remember keyword."
 msgstr ""
+"Saluda a tus nuevos suscriptores con un mensaje de bienvenida personalizado "
+"y una palabra clave fácil de recordar."
 
 #: app/views/tour/manage.html.haml:6
 msgid "Simply define a"
-msgstr ""
+msgstr "Simplemente establece una"
 
 #: app/views/tour/manage.html.haml:7
 msgid ""
 "for each message list. Subscribers then use those keywords to sign up for "
 "the lists that interest them."
 msgstr ""
+"para cada lista de mensajes. Tus suscriptores luego utilizarán esas palabras "
+"clave para suscribirse a aquellas listas que les interesen."
 
 #: app/views/tour/schedule.html.haml:1
-msgid "Need a Reminder to send your reminders?"
-msgstr ""
+msgid "Need a Reminder to send you reminders?"
+msgstr "¿Necesitas a alguien que se ocupe de enviar tus recordatorios?"
 
 #: app/views/tour/schedule.html.haml:2
 msgid "Remindem remembers to send text reminders so you don't have to."
 msgstr ""
+"Remindem se acuerda de enviar tus SMS recordatorios, para que tú puedas "
+"despreocuparte de ello."
 
 #: app/views/tour/schedule.html.haml:3
 msgid ""
@@ -1050,6 +1233,9 @@ msgid ""
 "schedule that works for your subscribers. Let Remindem stay up all night "
 "worrying about the details."
 msgstr ""
+"Crea tus mensajes de texto en el momento que te resulte más conveniente. "
+"Configura un cronograma de envío adecuado para tus suscriptores. Y deja que "
+"Remindem se pase toda la noche preocupándose por los detalles."
 
 #: app/views/tour/schedule.html.haml:4
 msgid ""
@@ -1059,6 +1245,12 @@ msgid ""
 "mothers-to-be, Remindem takes care of scheduled delivery so you can rest "
 "easy."
 msgstr ""
+"Con Remindem nunca más deberás despertarte sobresaltado a las 3 de la "
+"madrugada porque te has olvidado de enviar tus SMS. Ya sea que desees mandar "
+"un consejo de salud diario o una serie de recordatorios adaptados a los "
+"horarios individuales de futuras madres suscriptas a una lista, Remindem se "
+"hará cargo de su envío programado, de manera que tú puedas descansar "
+"tranquilo. "
 
 #: app/views/tour/send.html.haml:1
 msgid ""
@@ -1066,14 +1258,17 @@ msgid ""
 "have, Remindem makes it simple to send scheduled text messages to make their "
 "lives easier, healthier, and more enjoyable."
 msgstr ""
+"Sin importar cuántas listas administres ni cuántos suscriptores tengas, "
+"Remindem te simplificará el envío de SMS según un cronograma preestablecido, "
+"para hacerles la vida más fácil, más saludable y más agradable."
 
 #: app/views/tour/send.html.haml:2
 msgid "Ready to get started?"
-msgstr ""
+msgstr "¿Estás listo para comenzar?"
 
 #: app/views/tour/send.html.haml:4
 msgid "Wether your project is large or small, Remindem can help"
-msgstr ""
+msgstr "Sea tu proyecto grande o pequeño, Remindem te puede ayudar"
 
 #: app/views/tour/send.html.haml:5
 msgid ""
@@ -1082,6 +1277,11 @@ msgid ""
 "by spreading the word wherever potential subscribers gather, such as "
 "hospitals and clinics."
 msgstr ""
+"Crea tu %s y comienza ya mismo. Una vez que hayas configurado tus mensajes, "
+"palabras clave y cronogramas, asegúrate de que otros se enteren de la "
+"existencia de tu lista, valiéndote de los medios de comunicación social y de "
+"la difusión allí donde los potenciales suscriptores se reúnen, como "
+"hospitales y clínicas."
 
 #: app/views/tour/send.html.haml:6
 msgid ""
@@ -1089,11 +1289,16 @@ msgid ""
 "happy to answer any questions you might have and help you get going with "
 "Remindem!"
 msgstr ""
+"¿Necesitas un poco más de información? Visita nuestra %s o suscríbete a "
+"nuestro %s, donde responderemos con todo gusto cualquier pregunta que desees "
+"formularnos, para que así puedas seguir utilizando Remindem."
 
 #: app/views/tour/start.html.haml:1
 msgid ""
 "All you need to get started is an Internet connection and a mobile phone"
 msgstr ""
+"Todo lo que necesitas para comenzar es una conexión a internet y un teléfono "
+"móvil"
 
 #: app/views/tour/start.html.haml:2
 msgid ""
@@ -1102,6 +1307,11 @@ msgid ""
 "messages and set up your delivery schedule. Remindem then automatically "
 "helps your phone send reminders to subscribers on your schedule."
 msgstr ""
+"¿Tienes un Android y dispones de una conexión a internet? Simplemente "
+"descarga e instala una pequeña aplicación en tu teléfono Android para "
+"comenzar, y luego visita Remindem para ingresar tus mensajes de texto y "
+"configurar tu cronograma de envíos. Luego Remindem automáticamente hará que "
+"tu teléfono envíe los recordatorios a tus suscriptores según el cronograma."
 
 #: app/views/tour/start.html.haml:3
 msgid ""
@@ -1109,82 +1319,90 @@ msgid ""
 "your phone and the Remindem Web application. Once your phone is connected to "
 "your computer, Remindem will use it to send scheduled text messages."
 msgstr ""
+"¿No tienes un Android? ¡No hay problema! Nuestra mini-aplicación Nuntium "
+"para PC o Mac superará la brecha entre tu teléfono móvil y la aplicación web "
+"de Remindem. Una vez que hayas conectado tu teléfono a tu computadora, "
+"Remindem lo usará para enviar los mensajes de texto programados."
 
 #: app/views/tour/start.html.haml:4
 msgid "learn More"
-msgstr ""
+msgstr "aprende Más"
 
 #: app/views/tour/start.html.haml:5
 msgid "."
-msgstr ""
+msgstr "."
 
 #: app/views/tour/start.html.haml:7
 msgid "will manage the flow of incoming and outgoing messages,"
-msgstr ""
+msgstr "administrará el flujo de SMS entrantes y salientes,"
 
 #: app/views/tour/start.html.haml:8
 msgid "Try it now!"
-msgstr ""
+msgstr "¡Pruébalo ahora!"
 
 #: app/views/users/registrations/edit.html.haml:2
 msgid "(we need your current password to confirm your changes)"
 msgstr ""
+"(necesitamos que ingreses tu contraseña actual para confirmar los cambios)"
 
 #: app/views/users/registrations/edit.html.haml:4
 msgid "(leave blank if you don't want to change it)"
-msgstr ""
+msgstr "(deja el espacio en blanco si no deseas el cambio)"
 
 #: app/views/users/registrations/edit.html.haml:5
 msgid "Update"
-msgstr ""
+msgstr "Actualizar"
 
 #: app/views/users/registrations/success.html.haml:1
 msgid "Open the activation link and start using Remindem!"
-msgstr ""
+msgstr "¡Accede al enlace de activación y comienza a usar Remindem!"
 
 #: app/views/users/registrations/success.html.haml:2
 msgid "Almost there!"
-msgstr ""
+msgstr "¡Ya casi terminas!"
 
 #: app/views/users/registrations/success.html.haml:3
 msgid ""
 "You have signed up successfully. However, we need you to confirm your email "
 "account. We have just sent an email to %s with an activation link."
 msgstr ""
+"Te has registrado correctamente. Sin embargo, necesitamos que nos confirmes "
+"tu cuenta de e-mail. Acabamos de enviar un e-mail a %s que contiene un "
+"enlace de activación."
 
 #: app/controllers/schedules_controller.rb:42
 #: app/controllers/schedules_controller.rb:70
 msgid "New Reminder"
-msgstr ""
+msgstr "Nuevo Recordatorio"
 
 #: app/models/calendar_based_schedule.rb:108
 msgid "Calendar"
-msgstr ""
+msgstr "Calendario"
 
 #: app/models/fixed_schedule.rb:21
 msgid "Timeline"
-msgstr ""
+msgstr "Cronograma"
 
 #: app/models/random_schedule.rb:18
 msgid "Random"
-msgstr ""
+msgstr "Aleatorio"
 
 #: app/models/schedule.rb:60
 msgid "hours"
-msgstr ""
+msgstr "horas"
 
 #: app/models/schedule.rb:60
 msgid "days"
-msgstr ""
+msgstr "días"
 
 #: app/models/schedule.rb:60
 msgid "weeks"
-msgstr ""
+msgstr "semanas"
 
 #: app/models/schedule.rb:60
 msgid "months"
-msgstr ""
+msgstr "meses"
 
 #: app/models/schedule.rb:60
 msgid "years"
-msgstr ""
+msgstr "años"
