@@ -412,3 +412,8 @@ ul.TourNavigation > li.schedule > a {
 h3+p {
   margin-top: -15px;
 }
+
+/* TODO: Fix on instedd theme */
+.homepage #footer-container ul.language li {
+  display: inherit ! important;
+}
