@@ -373,6 +373,10 @@ th.severity {
   display: inline;
 }
 
+.TourContent {
+  width: 710px;
+}
+
 .TourContent .pc {
   background: url(/images/tourPc.png);
   background-repeat: no-repeat;

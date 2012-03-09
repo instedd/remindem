@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.6\n"
-"POT-Creation-Date: 2012-03-06 15:32-0300\n"
+"POT-Creation-Date: 2012-03-09 15:13-0300\n"
 "PO-Revision-Date: 2011-11-24 18:13-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -164,11 +164,14 @@ msgid "Enter gateway code"
 msgstr ""
 
 #: app/views/channel/_no_channel.html.haml:1
-#: app/views/channel/_show_current_channel.html.haml:4
-msgid "will help you to send reminders from your mobile phone, %s."
+msgid "will help you to send reminders from your mobile phone,"
 msgstr ""
 
-#: app/views/channel/_no_channel.html.haml:2
+#: app/views/channel/_no_channel.html.haml:2 app/views/tour/start.html.haml:4
+msgid "learn More"
+msgstr ""
+
+#: app/views/channel/_no_channel.html.haml:4
 msgid "Add a channel"
 msgstr ""
 
@@ -178,6 +181,10 @@ msgstr ""
 
 #: app/views/channel/_show_current_channel.html.haml:2
 msgid "Bidirectional (%s)%s"
+msgstr ""
+
+#: app/views/channel/_show_current_channel.html.haml:4
+msgid "will help you to send reminders from your mobile phone, %s."
 msgstr ""
 
 #: app/views/community/index.html.haml:1
@@ -387,7 +394,7 @@ msgid ""
 "we'll be happy to answer any questions."
 msgstr ""
 
-#: app/views/help/faq.html.haml:18
+#: app/views/help/faq.html.haml:18 app/views/tour/send.html.haml:6
 msgid "user discussion group"
 msgstr ""
 
@@ -584,88 +591,88 @@ msgstr ""
 msgid "Join our discussion list"
 msgstr ""
 
-#: app/views/home/index.html.haml:39 app/views/home/index.html.haml:41
+#: app/views/home/index.html.haml:40 app/views/home/index.html.haml:42
 msgid "Get started: %s"
 msgstr ""
 
-#: app/views/home/index.html.haml:39
+#: app/views/home/index.html.haml:40
 msgid "View your reminders"
 msgstr ""
 
-#: app/views/home/index.html.haml:41 app/views/home/index.html.haml:52
+#: app/views/home/index.html.haml:42 app/views/home/index.html.haml:53
 msgid "Create an account"
 msgstr ""
 
-#: app/views/home/index.html.haml:42
+#: app/views/home/index.html.haml:43
 msgid "Already a member? %s"
 msgstr ""
 
-#: app/views/home/index.html.haml:42
+#: app/views/home/index.html.haml:43
 #: app/views/layouts/application.html.haml:38
 msgid "Log in"
 msgstr ""
 
-#: app/views/home/index.html.haml:44
+#: app/views/home/index.html.haml:45
 msgid "Remindem is great for any kind of reminder you'd like to send."
 msgstr ""
 
-#: app/views/home/index.html.haml:45
+#: app/views/home/index.html.haml:46
 msgid ""
 "Here are a few ways you might use it, but you're limited only by your "
 "imagination:"
 msgstr ""
 
-#: app/views/home/index.html.haml:46
+#: app/views/home/index.html.haml:47
 msgid "Send messages to any text messaging-enabled phone"
 msgstr ""
 
-#: app/views/home/index.html.haml:47
+#: app/views/home/index.html.haml:48
 msgid "Manage your reminders through any Internet connection, at any time"
 msgstr ""
 
-#: app/views/home/index.html.haml:48
+#: app/views/home/index.html.haml:49
 msgid "Create an unlimited number of reminder lists, each with its own keyword"
 msgstr ""
 
-#: app/views/home/index.html.haml:49
+#: app/views/home/index.html.haml:50
 msgid "Easily create an unlimited number of unique reminders"
 msgstr ""
 
-#: app/views/home/index.html.haml:50
+#: app/views/home/index.html.haml:51
 msgid "Schedule reminders in advance over a timeline that you define"
 msgstr ""
 
-#: app/views/home/index.html.haml:51
+#: app/views/home/index.html.haml:52
 msgid "Take a tour"
 msgstr ""
 
-#: app/views/home/index.html.haml:53
+#: app/views/home/index.html.haml:54
 msgid "and log in"
 msgstr ""
 
-#: app/views/home/index.html.haml:54
+#: app/views/home/index.html.haml:55
 msgid ""
 "Create an new reminders list and choose a keyword that people will text to "
 "suscribe to your list"
 msgstr ""
 
-#: app/views/home/index.html.haml:55
+#: app/views/home/index.html.haml:56
 msgid "Create your messages and assign a time interval for each"
 msgstr ""
 
-#: app/views/home/index.html.haml:56
+#: app/views/home/index.html.haml:57
 msgid "Download the free Nuntium app"
 msgstr ""
 
-#: app/views/home/index.html.haml:57
+#: app/views/home/index.html.haml:58
 msgid "and connect your phone to your account"
 msgstr ""
 
-#: app/views/home/index.html.haml:58
+#: app/views/home/index.html.haml:59
 msgid "Got suggestions or feature requests? Join the discussion."
 msgstr ""
 
-#: app/views/home/index.html.haml:60
+#: app/views/home/index.html.haml:61
 msgid ""
 "Got a way with code? Help us develop our tools (and make the world a better "
 "place at the same time)."
@@ -748,18 +755,18 @@ msgstr ""
 msgid "Create account"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:44
+#: app/views/layouts/application.html.haml:45
 msgid ""
 "InSTEDD has created an evolving platform of free and open source "
 "technologies to support humanitarian causes. These tools can be used "
 "individually or as building blocks for larger solutions."
 msgstr ""
 
-#: app/views/layouts/application.html.haml:45
+#: app/views/layouts/application.html.haml:46
 msgid "to learn more"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:51
+#: app/views/layouts/application.html.haml:53
 msgid "Version %s"
 msgstr ""
 
@@ -939,6 +946,10 @@ msgstr ""
 msgid "All your subscribers will stop receiving the scheduled messages"
 msgstr ""
 
+#: app/views/shared/_langs_menu.haml:6
+msgid "Language:"
+msgstr ""
+
 #: app/views/shared/_schedule_tabs_and_title.html.haml:4
 msgid "Overview"
 msgstr ""
@@ -1072,7 +1083,7 @@ msgid "Ready to get started?"
 msgstr ""
 
 #: app/views/tour/send.html.haml:4
-msgid "Wether your project is large or small, Remindem can help"
+msgid "Whether your project is large or small, Remindem can help"
 msgstr ""
 
 #: app/views/tour/send.html.haml:5
@@ -1083,11 +1094,19 @@ msgid ""
 "hospitals and clinics."
 msgstr ""
 
+#: app/views/tour/send.html.haml:5
+msgid "free account"
+msgstr ""
+
 #: app/views/tour/send.html.haml:6
 msgid ""
 "Need a little more info? Visit our %s or subscribe to our %s, where we'll be "
 "happy to answer any questions you might have and help you get going with "
 "Remindem!"
+msgstr ""
+
+#: app/views/tour/send.html.haml:6
+msgid "Help page"
 msgstr ""
 
 #: app/views/tour/start.html.haml:1
@@ -1108,10 +1127,6 @@ msgid ""
 "No 'Droid? No problem! Our small Nuntium PC/Mac app bridges the gap between "
 "your phone and the Remindem Web application. Once your phone is connected to "
 "your computer, Remindem will use it to send scheduled text messages."
-msgstr ""
-
-#: app/views/tour/start.html.haml:4
-msgid "learn More"
 msgstr ""
 
 #: app/views/tour/start.html.haml:5
@@ -1152,9 +1167,33 @@ msgid ""
 "account. We have just sent an email to %s with an activation link."
 msgstr ""
 
+#: app/controllers/channel_controller.rb:26
+msgid "Channel was successfully deleted."
+msgstr ""
+
+#: app/controllers/channel_controller.rb:37
+msgid "Unexpected Error: "
+msgstr ""
+
 #: app/controllers/schedules_controller.rb:42
 #: app/controllers/schedules_controller.rb:70
 msgid "New Reminder"
+msgstr ""
+
+#: app/controllers/schedules_controller.rb:67
+msgid "Schedule was successfully created."
+msgstr ""
+
+#: app/controllers/schedules_controller.rb:87
+msgid "Schedule was successfully updated."
+msgstr ""
+
+#: app/controllers/schedules_controller.rb:111
+msgid "Schedule was successfully deleted."
+msgstr ""
+
+#: app/controllers/users/registrations_controller.rb:4
+msgid "you"
 msgstr ""
 
 #: app/models/calendar_based_schedule.rb:108
@@ -1163,6 +1202,167 @@ msgstr ""
 
 #: app/models/fixed_schedule.rb:21
 msgid "Timeline"
+msgstr ""
+
+#: app/models/model_attributes.rb:2
+msgid "channel"
+msgstr ""
+
+#: app/models/model_attributes.rb:3
+msgid "Channel|Name"
+msgstr ""
+
+#: app/models/model_attributes.rb:4
+msgid "Channel|Address"
+msgstr ""
+
+#: app/models/model_attributes.rb:5
+msgid "log"
+msgstr ""
+
+#: app/models/model_attributes.rb:6
+msgid "Log|Severity"
+msgstr ""
+
+#: app/models/model_attributes.rb:7
+msgid "Log|Description"
+msgstr ""
+
+#: app/models/model_attributes.rb:8
+msgid "message"
+msgstr ""
+
+#: app/models/model_attributes.rb:9
+msgid "Message|Text"
+msgstr ""
+
+#: app/models/model_attributes.rb:10
+msgid "Message|Offset"
+msgstr ""
+
+#: app/models/model_attributes.rb:11
+msgid "Message|Occurrence rule"
+msgstr ""
+
+#: app/models/model_attributes.rb:12
+msgid "schedule"
+msgstr ""
+
+#: app/models/model_attributes.rb:13
+msgid "Schedule|Keyword"
+msgstr ""
+
+#: app/models/model_attributes.rb:14
+msgid "Schedule|Timescale"
+msgstr ""
+
+#: app/models/model_attributes.rb:15
+msgid "Schedule|Welcome message"
+msgstr ""
+
+#: app/models/model_attributes.rb:16
+msgid "Schedule|Title"
+msgstr ""
+
+#: app/models/model_attributes.rb:17
+msgid "Schedule|Paused"
+msgstr ""
+
+#: app/models/model_attributes.rb:18
+msgid "subscriber"
+msgstr ""
+
+#: app/models/model_attributes.rb:19
+msgid "Subscriber|Phone number"
+msgstr ""
+
+#: app/models/model_attributes.rb:20
+msgid "Subscriber|Subscribed at"
+msgstr ""
+
+#: app/models/model_attributes.rb:21
+msgid "Subscriber|Offset"
+msgstr ""
+
+#: app/models/model_attributes.rb:22
+msgid "user"
+msgstr ""
+
+#: app/models/model_attributes.rb:23
+msgid "User|Email"
+msgstr ""
+
+#: app/models/model_attributes.rb:24
+msgid "User|Encrypted password"
+msgstr ""
+
+#: app/models/model_attributes.rb:25
+msgid "User|Reset password token"
+msgstr ""
+
+#: app/models/model_attributes.rb:26
+msgid "User|Reset password sent at"
+msgstr ""
+
+#: app/models/model_attributes.rb:27
+msgid "User|Remember created at"
+msgstr ""
+
+#: app/models/model_attributes.rb:28
+msgid "User|Sign in count"
+msgstr ""
+
+#: app/models/model_attributes.rb:29
+msgid "User|Current sign in at"
+msgstr ""
+
+#: app/models/model_attributes.rb:30
+msgid "User|Last sign in at"
+msgstr ""
+
+#: app/models/model_attributes.rb:31
+msgid "User|Current sign in ip"
+msgstr ""
+
+#: app/models/model_attributes.rb:32
+msgid "User|Last sign in ip"
+msgstr ""
+
+#: app/models/model_attributes.rb:33
+msgid "User|Confirmation token"
+msgstr ""
+
+#: app/models/model_attributes.rb:34
+msgid "User|Confirmed at"
+msgstr ""
+
+#: app/models/model_attributes.rb:35
+msgid "User|Confirmation sent at"
+msgstr ""
+
+#: app/models/model_attributes.rb:36
+msgid "User|Lang"
+msgstr ""
+
+#: app/models/model_attributes.rb:40
+msgid "Title"
+msgstr ""
+
+#: app/models/model_attributes.rb:41
+msgid "Welcome message"
+msgstr ""
+
+#: app/models/model_attributes.rb:42
+msgid "Timescale"
+msgstr ""
+
+#: app/models/model_attributes.rb:43
+msgid "This Reminder is paused and won't send messages."
+msgstr ""
+
+#: app/models/model_attributes.rb:44
+msgid ""
+"This Reminder is active and will be sending messages to registered users."
 msgstr ""
 
 #: app/models/random_schedule.rb:18

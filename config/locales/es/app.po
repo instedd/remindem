@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.6\n"
 "POT-Creation-Date: 2012-02-24 12:41-0300\n"
-"PO-Revision-Date: 2012-03-07 21:28+0200\n"
-"Last-Translator:  <boris@instedd.org>\n"
+"PO-Revision-Date: 2012-03-09 20:15+0200\n"
+"Last-Translator: Santiago Palladino <spalladino@manas.com.ar>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -169,13 +169,12 @@ msgstr "Ingresa el código de gateway desde tu teléfono móvil"
 
 #: app/views/channel/_new_android_channel.html.haml:6
 #: app/views/channel/_new_desktop_channel.html.haml:6
-#, fuzzy
 msgid ""
 "Copy the code for automated setup from the Nuntium Local Gateway in here to "
 "bind your local gateway to your reminders."
 msgstr ""
 "Copia y pega aquí el código de configuración automática del gateway local de "
-"Nuntium para relacionar tu gateway local con tus recordatorios"
+"Nuntium para relacionar tu gateway local con tus recordatorios."
 
 #: app/views/channel/_new_android_channel.html.haml:11
 #: app/views/channel/_new_desktop_channel.html.haml:11
@@ -217,7 +216,7 @@ msgstr ""
 
 #: app/views/community/index.html.haml:3
 msgid "If you have ideas, needs or suggestions"
-msgstr "Si tienes ideas, requerimientos o sugerencias."
+msgstr "Si tienes ideas, requerimientos o sugerencias"
 
 #: app/views/community/index.html.haml:4
 msgid ""
@@ -798,9 +797,8 @@ msgstr "Crea tus SMS y asígnales un intervalo de tiempo determinado"
 msgid "Download the free Nuntium app"
 msgstr "Descarga la aplicación gratuita Nuntium"
 
-#: app/views/home/index.html.haml:57
-msgid "and connect your phone to you account"
-msgstr "y conecta tu teléfono con tu cuenta"
+#~ msgid "and connect your phone to you account"
+#~ msgstr "y conecta tu teléfono con tu cuenta"
 
 #: app/views/home/index.html.haml:58
 msgid "Got suggestions or feature requests? Join the discussion."
@@ -923,7 +921,7 @@ msgstr "Registros"
 
 #: app/views/logs/index.html.haml:2 app/views/logs/index.html.haml:13
 msgid "Severity"
-msgstr ""
+msgstr "Severidad"
 
 #: app/views/logs/index.html.haml:3 app/views/logs/index.html.haml:15
 msgid "Text"
@@ -1060,7 +1058,7 @@ msgstr "Crear un Recordatorio"
 
 #: app/views/schedules/new.html.haml:1
 msgid "New reminder"
-msgstr "Nuevo recordatorio "
+msgstr "Nuevo recordatorio"
 
 #: app/views/schedules/show.html.haml:1
 msgid "Status"
@@ -1217,9 +1215,8 @@ msgstr ""
 "para cada lista de mensajes. Tus suscriptores luego utilizarán esas palabras "
 "clave para suscribirse a aquellas listas que les interesen."
 
-#: app/views/tour/schedule.html.haml:1
-msgid "Need a Reminder to send you reminders?"
-msgstr "¿Necesitas a alguien que se ocupe de enviar tus recordatorios?"
+#~ msgid "Need a Reminder to send you reminders?"
+#~ msgstr "¿Necesitas a alguien que se ocupe de enviar tus recordatorios?"
 
 #: app/views/tour/schedule.html.haml:2
 msgid "Remindem remembers to send text reminders so you don't have to."
@@ -1250,7 +1247,7 @@ msgstr ""
 "un consejo de salud diario o una serie de recordatorios adaptados a los "
 "horarios individuales de futuras madres suscriptas a una lista, Remindem se "
 "hará cargo de su envío programado, de manera que tú puedas descansar "
-"tranquilo. "
+"tranquilo."
 
 #: app/views/tour/send.html.haml:1
 msgid ""
@@ -1266,9 +1263,8 @@ msgstr ""
 msgid "Ready to get started?"
 msgstr "¿Estás listo para comenzar?"
 
-#: app/views/tour/send.html.haml:4
-msgid "Wether your project is large or small, Remindem can help"
-msgstr "Sea tu proyecto grande o pequeño, Remindem te puede ayudar"
+#~ msgid "Wether your project is large or small, Remindem can help"
+#~ msgstr "Sea tu proyecto grande o pequeño, Remindem te puede ayudar"
 
 #: app/views/tour/send.html.haml:5
 msgid ""
@@ -1406,3 +1402,217 @@ msgstr "meses"
 #: app/models/schedule.rb:60
 msgid "years"
 msgstr "años"
+
+#: app/models/model_attributes.rb:27
+msgid "User|Remember created at"
+msgstr "Recuerdame fecha creación"
+
+#: app/models/model_attributes.rb:13
+msgid "Schedule|Keyword"
+msgstr "Palabra clave"
+
+#: app/models/model_attributes.rb:25
+msgid "User|Reset password token"
+msgstr "Código de blanqueo de contraseña"
+
+#: app/models/model_attributes.rb:28
+msgid "User|Sign in count"
+msgstr "Cantidad de inicios de sesión"
+
+#: app/models/model_attributes.rb:7
+msgid "Log|Description"
+msgstr "Descripción"
+
+#: app/models/model_attributes.rb:35
+msgid "User|Confirmation sent at"
+msgstr "Fecha de envío de confirmación"
+
+#: app/models/model_attributes.rb:31
+msgid "User|Current sign in ip"
+msgstr "IP de sesión actual"
+
+#: app/models/model_attributes.rb:8
+msgid "message"
+msgstr "mensaje"
+
+#: app/views/tour/send.html.haml:4
+msgid "Whether your project is large or small, Remindem can help"
+msgstr "Sea tu proyecto grande o pequeño, Remindem te puede ayudar"
+
+#: app/models/model_attributes.rb:21
+msgid "Subscriber|Offset"
+msgstr "Offset"
+
+#: app/models/model_attributes.rb:23
+msgid "User|Email"
+msgstr "Email"
+
+#: app/models/model_attributes.rb:17
+msgid "Schedule|Paused"
+msgstr "Pausado"
+
+#: app/views/channel/_no_channel.html.haml:1
+msgid "will help you to send reminders from your mobile phone,"
+msgstr "te ayudará a enviar recordatorios desde tu móvil,"
+
+#: app/models/model_attributes.rb:5
+msgid "log"
+msgstr "registro"
+
+#: app/models/model_attributes.rb:11
+msgid "Message|Occurrence rule"
+msgstr "Regla de ocurrencia"
+
+#: app/models/model_attributes.rb:6
+msgid "Log|Severity"
+msgstr "Severidad"
+
+#: app/models/model_attributes.rb:18
+msgid "subscriber"
+msgstr "suscriptor"
+
+#: app/models/model_attributes.rb:19
+msgid "Subscriber|Phone number"
+msgstr "número telefónico"
+
+#: app/controllers/schedules_controller.rb:111
+msgid "Schedule was successfully deleted."
+msgstr "El recordatorio fue eliminado."
+
+#: app/models/model_attributes.rb:32
+msgid "User|Last sign in ip"
+msgstr "IP de último inicio de sesión"
+
+#: app/models/model_attributes.rb:9
+msgid "Message|Text"
+msgstr "Texto"
+
+#: app/models/model_attributes.rb:30
+msgid "User|Last sign in at"
+msgstr "Fecha de último inicio de sesión"
+
+#: app/models/model_attributes.rb:2
+msgid "channel"
+msgstr "canal"
+
+#: app/controllers/schedules_controller.rb:67
+msgid "Schedule was successfully created."
+msgstr "El recordatorio fue creado exitosamente."
+
+#: app/views/tour/schedule.html.haml:1
+msgid "Need a Reminder to send your reminders?"
+msgstr "¿Necesitas a alguien que se ocupe de enviar tus recordatorios?"
+
+#: app/models/model_attributes.rb:12
+msgid "schedule"
+msgstr "recordatorio"
+
+#: app/models/model_attributes.rb:14
+msgid "Schedule|Timescale"
+msgstr "Escala de tiempo"
+
+#: app/models/model_attributes.rb:3
+msgid "Channel|Name"
+msgstr "Nombre"
+
+#: app/views/home/index.html.haml:57
+msgid "and connect your phone to your account"
+msgstr "y conecta tu teléfono a tu cuenta"
+
+#: app/models/model_attributes.rb:24
+msgid "User|Encrypted password"
+msgstr "Contraseña encriptada"
+
+#: app/controllers/channel_controller.rb:26
+msgid "Channel was successfully deleted."
+msgstr "El canal fue eliminado."
+
+#: app/views/shared/_langs_menu.haml:6
+msgid "Language:"
+msgstr "Idioma:"
+
+#: app/models/model_attributes.rb:34
+msgid "User|Confirmed at"
+msgstr "Fecha confirmación"
+
+#: app/controllers/users/registrations_controller.rb:4
+msgid "you"
+msgstr "ti"
+
+#: app/models/model_attributes.rb:26
+msgid "User|Reset password sent at"
+msgstr "Fecha de envío de blanqueo de contraseña"
+
+#: app/models/model_attributes.rb:15
+msgid "Schedule|Welcome message"
+msgstr "Mensaje de bienvenida"
+
+#: app/models/model_attributes.rb:29
+msgid "User|Current sign in at"
+msgstr "Fecha de inicio de sesión actual"
+
+#: app/models/model_attributes.rb:16
+msgid "Schedule|Title"
+msgstr "Título"
+
+#: app/models/model_attributes.rb:20
+msgid "Subscriber|Subscribed at"
+msgstr "Fecha de suscripción"
+
+#: app/controllers/schedules_controller.rb:87
+msgid "Schedule was successfully updated."
+msgstr "El recordatorio fue actualizado exitosamente."
+
+#: app/models/model_attributes.rb:10
+msgid "Message|Offset"
+msgstr "Offset"
+
+#: app/models/model_attributes.rb:4
+msgid "Channel|Address"
+msgstr "Dirección"
+
+#: app/models/model_attributes.rb:36
+msgid "User|Lang"
+msgstr "Idioma"
+
+#: app/controllers/channel_controller.rb:37
+msgid "Unexpected Error: "
+msgstr "Error no esperado:"
+
+#: app/models/model_attributes.rb:33
+msgid "User|Confirmation token"
+msgstr "Código de confirmación"
+
+#: app/models/model_attributes.rb:22
+msgid "user"
+msgstr "usuario"
+
+#: app/models/model_attributes.rb:42
+msgid "Timescale"
+msgstr "Escala de tiempo"
+
+#: app/models/model_attributes.rb:40
+msgid "Title"
+msgstr "Título"
+
+#: app/views/tour/send.html.haml:6
+msgid "Help page"
+msgstr "Página de ayuda"
+
+#: app/models/model_attributes.rb:44
+msgid ""
+"This Reminder is active and will be sending messages to registered users."
+msgstr ""
+"Este Recordatorio está activo y enviará mensajes a los usuarios registrados."
+
+#: app/models/model_attributes.rb:41
+msgid "Welcome message"
+msgstr "Mensaje de bienvenida"
+
+#: app/views/tour/send.html.haml:5
+msgid "free account"
+msgstr "cuenta gratuita"
+
+#: app/models/model_attributes.rb:43
+msgid "This Reminder is paused and won't send messages."
+msgstr "Este Recordatorio está pausada y no estará enviando mensajes."

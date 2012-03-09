@@ -35,3 +35,10 @@ _('User|Confirmed at')
 _('User|Confirmation sent at')
 _('User|Lang')
 #DO NOT MODIFY! AUTOMATICALLY GENERATED FILE!
+
+# Hardcoded strings which failed to be obtained by the gettext find all script
+_("Title")
+_("Welcome message")
+_("Timescale")
+_("This Reminder is paused and won't send messages.")
+_("This Reminder is active and will be sending messages to registered users.")

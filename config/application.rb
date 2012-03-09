@@ -59,7 +59,7 @@ module RememberMe
     }
 
     # Default language
-    config.default_locale = :es
+    config.default_locale = :en
 
     # Gettext configuration
     FastGettext.add_text_domain 'app', :path => 'config/locales', :type => :po, :ignore_fuzzy => true, :ignore_obsolte => true
