@@ -1,29 +1,36 @@
 RememberMe::Application.routes.draw do
-  devise_for :users, :controllers => {:registrations => 'users/registrations' } do
-    get 'users/registrations/success', :to => 'users/registrations#success' 
-  end
-
-  resources :schedules, :path => '/reminders' do
-    resources :logs, :only => :index
-    resources :subscribers, :only => [:index, :destroy]
-  end
-
-  match :receive_at, :controller => "nuntium", :action => :receive_at
   
-  resources :channel, :only => [:create, :destroy]
-  get "new_channel/:step", :action => :new, :controller => :channel, :as => "new_channel"
+  scope "(:locale)", :locale => /#{Locales.available.keys.join('|')}/ do
+  
+    devise_for :users, :controllers => {:registrations => 'users/registrations' } do
+      get 'users/registrations/success', :to => 'users/registrations#success' 
+    end
 
+    resources :schedules, :path => '/reminders' do
+      resources :logs, :only => :index
+      resources :subscribers, :only => [:index, :destroy]
+    end
+
+    match :receive_at, :controller => "nuntium", :action => :receive_at
+  
+    resources :channel, :only => [:create, :destroy]
+    get "new_channel/:step", :action => :new, :controller => :channel, :as => "new_channel"
+
+    match 'tour/:page' => 'tour#show', :as => :tour
+    match 'tour' => 'tour#index'
+    match 'help' => 'help#faq'
+    match 'community' => 'community#index'
+
+    get  'createAccount', :to => redirect('/users/sign_up')
+    get  'discuss',       :to => redirect(RememberMe::Application.config.user_group_url)
+    get  'backlog',       :to => redirect(RememberMe::Application.config.backlog_url)
+
+    match '/locale/update' => 'locale#update',  :as => 'update_locale'
+    match '/' => 'home#index',                  :as => 'home'
+
+  end
   
   root :to => 'home#index'
-
-  match 'tour/:page' => 'tour#show', :as => :tour
-  match 'tour' => 'tour#index'
-  match 'help' => 'help#faq'
-  match 'community' => 'community#index'
-
-  get  'createAccount', :to => redirect('/users/sign_up')
-  get  'discuss',       :to => redirect(RememberMe::Application.config.user_group_url)
-  get  'backlog',       :to => redirect(RememberMe::Application.config.backlog_url)
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

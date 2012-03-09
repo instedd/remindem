@@ -1,11 +1,11 @@
 module Locales
 
   def available
-    Pollit::Application.config.available_locales
+    RememberMe::Application.config.available_locales
   end
 
   def default
-    Pollit::Application.config.default_locale
+    RememberMe::Application.config.default_locale
   end
 
   def many?

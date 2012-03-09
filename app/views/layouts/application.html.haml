@@ -52,6 +52,7 @@
         - if @show_breadcrum
           .BreadCrumb
             = breadcrumb
+        = render :partial => 'shared/langs'
         .clear
       #container
         = yield
@@ -77,6 +78,7 @@
                 %a{:href => tour_path(:start)} Tour
                 %a{:href => community_path} Community
                 %a{:href => help_path} Help
+                = render partial: 'shared/langs_menu' 
                 %span.VersionNumber
                   Version #{RememberMe::Application.config.version_name}
               .clear

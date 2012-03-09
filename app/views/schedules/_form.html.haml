@@ -3,7 +3,7 @@
 = form_for @schedule, :validate => true do |f|
   = errors_for @schedule, :as => :reminder
   .field.w60
-    = f.label :title, _("Title")
+    = f.label :title
     = f.text_field :title, :class => "causesPendingSaveNoticeOnChange"
   .field.w60
     = f.label :keyword, _("Keyword")

@@ -1,0 +1,9 @@
+%span.lang-menu
+  %ul.language{:style => "height: #{20 * Locales.available.count + 15}px"}
+    - Locales.available.each do |key,name|
+      %li
+        %a{:href => '#', 'data-lang' => key}
+          = name
+  %span
+    Language:
+    = Locales.available[I18n.locale]

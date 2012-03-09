@@ -40,9 +40,9 @@
   = form_for(@schedule) do |f|
     %p.pausedDescription
       - if @schedule.paused?
-        This Reminder is paused and won't send messages.
+        = _("This Reminder is paused and won't send messages.")
       - else
-        This Reminder is active and will be sending messages to registered users.
+        = _("This Reminder is active and will be sending messages to registered users.")
     = f.hidden_field :paused?, :value => !@schedule.paused?
     - if @schedule.paused?
       %button.fplay.overviewButton{:type => "submit"} Start this reminder
