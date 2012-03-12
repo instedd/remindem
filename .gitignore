@@ -4,3 +4,4 @@ config/nuntium.yml
 tmp/
 .DS_Store
 remindem.tmproj
+test/reports/
