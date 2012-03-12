@@ -10,7 +10,7 @@ class LogsControllerTest < ActionController::TestCase
   
   test "should get index" do
     schedule = RandomSchedule.make
-    get :index, :schedule_id => schedule.id
+    get :index, :schedule_id => schedule.id, :locale => I18n.locale
     assert_response :success
     assert_not_nil assigns(:logs)
   end

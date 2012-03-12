@@ -10,13 +10,13 @@ class SchedulesControllerTest < ActionController::TestCase
   end
 
   test "should get index" do
-    get :index
+    get :index, :locale => I18n.locale
     assert_response :success
     assert_not_nil assigns(:schedules)
   end
 
   test "should get new" do
-    get :new
+    get :new, :locale => I18n.locale
     assert_response :success
   end
 
@@ -40,7 +40,7 @@ class SchedulesControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
-    get :edit, :id => @schedule.to_param
+    get :edit, :id => @schedule.to_param, :locale => I18n.locale
     assert_response :success
   end
 

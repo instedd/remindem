@@ -10,7 +10,7 @@ class SubscribersControllerTest < ActionController::TestCase
   end
 
   test "should get index" do
-    get :index, :schedule_id => @randweeks.id
+    get :index, :schedule_id => @randweeks.id, :locale => I18n.locale
     assert_response :success
     assert_not_nil assigns(:subscribers)
   end
