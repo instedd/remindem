@@ -15,7 +15,7 @@ class RandomSchedule < Schedule
   end
   
   def self.mode_in_words
-    "Random"
+    _("Random")
   end
   
   def duration

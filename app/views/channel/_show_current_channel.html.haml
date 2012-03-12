@@ -1,0 +1,12 @@
+.CurrentChannelBox.box.grey
+  .left
+    %p.black Reminders channel
+    %p.grey
+      Bidirectional (#{current_user.channel.address})#{", last activity #{time_ago_in_words @last_log.created_at} ago" if @last_log}
+  = link_to '', channel_path(current_user.channel), :method => :delete, :class => 'icon fdelete right'
+.LocalGatewayBox.box.plain.white
+  .LocalGatewayLogo.left
+  .LocalGatewayText.left
+    will help you to send reminders from your mobile phone, #{link_to 'learn More', tour_path(:start)}.
+  = link_to 'Change channel', new_channel_path(:choose_local_gateway), :remote => true, :class => 'button white right'
+  .LocalGatewayArrow.right

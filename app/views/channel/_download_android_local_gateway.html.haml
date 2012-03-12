@@ -1,0 +1,36 @@
+.box.plain.grey.w60
+  .steps-line
+    .steps-container.s4
+      %span.circle.first.green
+        %span.inner
+          %span.step-name Choose
+      %span.line-fill.green
+      %span.circle.green
+        %span.inner
+          %span.step-name Install
+      %span.line-fill
+      %span.circle
+        %span.inner
+          %span.step-name Connect
+      %span.line-fill
+      %span.circle.last
+        %span.inner
+          %span.step-name Finish
+    / #steps-container
+  / #steps-line
+/ #box plain grey
+.ChannelWizard
+  %h1.orange Go to Android Market and install Nuntium Local Gateway
+  %p.w30.grey
+    Use the following QR code to access the app or use the search engine with the keyword
+    %span.box.plain.grey Nuntium
+  %br/
+  .AndroidQR
+  %br/
+  %a{:href => "http://market.android.com/details?id=org.instedd.geochat.lgw", :target => "_blank"} http://market.android.com/details?id=org.instedd.geochat.lgw
+  %br/
+  %br/
+%hr/
+.ChannelWizardNavigation
+  = link_to _('Back'), new_channel_path(:choose_local_gateway), :remote => true, :class => 'button white'
+  = link_to _('Next'), new_channel_path(:new_android_channel), :remote => true, :class => 'button grey'

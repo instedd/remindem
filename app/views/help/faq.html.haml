@@ -1,0 +1,26 @@
+.faq
+  .w60
+    %h1 Got Questions?
+    %p
+      Got a question or two about Remindem? We've got an answer or two! Check out the Frequently Asked Questions on this page or subscribe to our #{link_to _('user discussion group'), "https://groups.google.com/group/instedd-tech", :target=>"_blank"}, where we'll be happy to answer any questions.
+  %hr/
+  .w60
+    %h3 Can I schedule text reminders for a particular time and date?
+    %p No yet, but you can schedule text reminders using intervals as short as one day or as long as you'd like. We are adding this feature soon though, so stay in touch!
+    %h3 Can I use my dumbphone?
+    %p Yes. Though wireless text sending and receiving requires an Android-powered phone running the free Nuntium app, you can use other cell phones by installing Nuntium on your PC or Mac. Then, once you connect your phone to your computer, Remindem will send scheduled text reminders.
+    %h3 Can subscribers respond to my text messages?
+    %p No. Once your subscribers have signed up for messages using the keyword you specify, all text messages are one way only -- from Remindem to subscribers.
+    %h3 Is there any charge for using Remindem?
+    %p Remindem is free to use and open source. Keep in mind that your mobile service provider's fees apply, so be sure to check with them if you have any questions about charges.
+    %h3 What browsers are supported for creating and managing text-messaging projects?
+    %p
+      Any modern browser, including the latest versions of Firefox, Safari, Internet Explorer, Chrome, and others should work fine. If you run across a browser that doesn't seem to play nice with Remindem, please
+      = succeed "." do
+        %a{:href => "mailto:support@instedd.org?subject=[remindem]"} let us know
+    %h3 What is the Nuntium Gateway?
+    %p It’s a small application that serves as a bridge between your phone and the Remindem Web application. Because Remindem doesn't directly send or receive text messages, this app helps your phone to communicate with Remindem so that it can receive your user subscriptions and send your reminders.
+    %h3 Why doesn't Remindem send and receive text messages directly?
+    %p We wanted you to be able to use this in any country you are. Therefore, Nuntium is used to "couple" your phone to Remindem so that it can send and receive text messages on the schedules you create in the Remindem Web app.
+    %h3 Can I use my personal phone with Remindem?
+    %p No. Remindem requires a dedicated phone with its own SIM card.

@@ -155,7 +155,8 @@ $(function() {
 });
 
 function updateTimescaleLabels(new_value){
-	$('#random_schedule_option').next().text("Random once " + timescaleToOneString(new_value));
+  var message = $('#random_schedule_option').attr('data-message');
+	$('#random_schedule_option').next().text(message + timescaleToOneString(new_value));
 	$('.timescale').text(capitalizedSingular(new_value));
 }
 

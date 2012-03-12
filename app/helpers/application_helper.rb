@@ -1,4 +1,9 @@
 module ApplicationHelper
+  def image_tag(source, options = {})
+    source = File.join(I18n.locale.to_s, source) if options.delete(:localized)
+    super(source, options)
+  end
+  
   def link_to_remove_fields(name, f, options={})
     f.hidden_field(:_destroy) + link_to_function(name, "remove_fields(this)", options)
   end

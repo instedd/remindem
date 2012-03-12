@@ -3,7 +3,7 @@ class SchedulesController < AuthenticatedController
   def initialize
     super
     @show_breadcrum = true
-    add_breadcrumb "Reminders", :schedules_path
+    add_breadcrumb _("Reminders"), :schedules_path
   end
 
   # GET /schedules
@@ -39,7 +39,7 @@ class SchedulesController < AuthenticatedController
   # GET /schedules/new
   # GET /schedules/new.xml
   def new
-    add_breadcrumb "New Reminder", :new_schedule_path
+    add_breadcrumb _("New Reminder"), :new_schedule_path
     @schedule = FixedSchedule.new :timescale => "hours"
 
     respond_to do |format|
@@ -52,7 +52,7 @@ class SchedulesController < AuthenticatedController
   def edit
     @schedule = Schedule.find(params[:id])
     add_breadcrumb @schedule.title, schedule_path(params[:id])
-    add_breadcrumb "Settings", edit_schedule_path(params[:id])
+    add_breadcrumb _("Settings"), edit_schedule_path(params[:id])
     @schedule.sort_messages
   end
 
@@ -64,10 +64,10 @@ class SchedulesController < AuthenticatedController
     
     respond_to do |format|
       if @schedule.save
-        format.html { redirect_to(schedule_url(@schedule), :notice => 'Schedule was successfully created.') }
+        format.html { redirect_to(schedule_url(@schedule), :notice => _('Schedule was successfully created.')) }
         format.xml  { render :xml => @schedule, :status => :created, :location => @schedule }
       else
-        add_breadcrumb "New Reminder", :new_schedule_path
+        add_breadcrumb _("New Reminder"), :new_schedule_path
         format.html { render :action => "new" }
         format.xml  { render :xml => @schedule.errors, :status => :unprocessable_entity }
       end
@@ -84,11 +84,11 @@ class SchedulesController < AuthenticatedController
     
     respond_to do |format|
       if @schedule.update_attributes(params[:schedule])
-        format.html { redirect_to(schedule_url(@schedule), :notice => 'Schedule was successfully updated.') }
+        format.html { redirect_to(schedule_url(@schedule), :notice => _('Schedule was successfully updated.')) }
         format.xml  { head :ok }
       else
         add_breadcrumb @schedule.title, schedule_path(params[:id])
-        add_breadcrumb "Settings", edit_schedule_path(params[:id])
+        add_breadcrumb _("Settings"), edit_schedule_path(params[:id])
         
         format.html { render :action => "edit" }
         format.xml  { render :xml => @schedule.errors, :status => :unprocessable_entity }
@@ -108,7 +108,7 @@ class SchedulesController < AuthenticatedController
     @schedule.destroy
 
    respond_to do |format|
-     format.html { redirect_to(schedules_url, :notice => 'Schedule was successfully deleted.') }
+     format.html { redirect_to(schedules_url, :notice => _('Schedule was successfully deleted.')) }
      format.xml  { head :ok }
    end
   end

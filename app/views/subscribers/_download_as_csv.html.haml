@@ -1,0 +1,5 @@
+.sbox.grey.subscribersBox.w30
+  .left.subscribersDescription
+    .subscribersCount= schedule.subscribers.count
+    subscribers registered
+  = link_button_to _('Download as CSV'), schedule_subscribers_path(schedule.id)+'.csv', :class => "csvDownload white right" , :disabled => schedule.subscribers.empty?

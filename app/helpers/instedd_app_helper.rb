@@ -1,4 +1,10 @@
 module InsteddAppHelper
+  
+  def link_to_instedd(text, urls, html_options={})
+    url = I18n.locale == :es ? urls[:latam] : urls[:instedd]
+    link_to text, url, html_options
+  end
+  
   def flash_message
     res = nil
 

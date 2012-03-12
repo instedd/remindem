@@ -1,0 +1,57 @@
+- content_for :head do
+  :javascript
+    $(function() {
+      $('.ItemsTable tr').live('click', function() {
+        var anchor = $('a', $(this));
+        if (anchor.length > 0) {
+          window.location = anchor.attr('href');
+        }
+      });
+    
+      $(".filterSchedules").change(function () {
+        $(".filterSchedules option:selected").each(function () {
+          window.location = $(this).val();
+        });
+      });
+    })
+
+%h1 Reminders
+.tablewrapp.RemindersTable
+  %table{:class => "GralTable TwoColumn CleanTable ItemsTable #{'empty' if @schedules.empty?}"}
+    %tr
+      %th My Reminders
+      %th
+        = content_tag :select, :class => 'filterSchedules', :disabled => !@at_least_one_schedule_is_paused do
+          = options_for_select([                                                                                  |
+              [_('Show All'),'all'],                                                                                 |
+              [_('Paused'),'paused'],                                                                                |
+              [_('Running'),'running']                                                                               |
+            ].map { |text,show| [text, schedules_path(:show => show)] }, schedules_path(:show => params[:show]) ) |
+    - if @schedules.empty?
+      %tr
+        %td{:colspan => "2"}
+          .EmptyRemindersTable
+            - if params[:show] == 'running'
+              You have no running Reminders
+            - else
+              You have no Reminders yet
+            %br/
+            = link_to _('Create Reminder'), new_schedule_path, :class => 'EmptyAddLink'
+            = link_to '', new_schedule_path, :class => 'EmptyAddButton button cadd'
+    - else
+      - @schedules.each do |schedule|
+        %tr
+          %td{:class => schedule.paused? ? 'spaused' : 'sactive'}
+            %span
+            = link_to schedule_path(schedule) do
+              = schedule.title
+              .indexKeyword
+                \&#x2192;
+                = schedule.keyword
+          %td= link_to '', schedule_path(schedule), :class => 'farrow'
+      %tr
+        %td
+          = link_to _('Create Reminder'), new_schedule_path
+        %td
+          = link_button_to '', new_schedule_path, :class => 'cadd'
+= render :partial => 'channel/user_channel'

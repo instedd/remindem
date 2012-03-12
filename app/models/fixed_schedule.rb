@@ -18,7 +18,7 @@ class FixedSchedule < Schedule
   end
   
   def self.mode_in_words
-    "Timeline"
+    _("Timeline")
   end
   
   def duration

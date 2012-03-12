@@ -4,7 +4,7 @@ class SubscribersController < AuthenticatedController
   def initialize
     super
     @show_breadcrum = true
-    add_breadcrumb "Reminders", :schedules_path
+    add_breadcrumb _("Reminders"), :schedules_path
   end
   
   
@@ -12,7 +12,7 @@ class SubscribersController < AuthenticatedController
   # GET /subscribers.xml
   def index
     add_breadcrumb Schedule.find(params[:schedule_id]).title, schedule_path(params[:schedule_id])
-    add_breadcrumb "Subscribers", schedule_subscribers_path(params[:schedule_id])
+    add_breadcrumb _("Subscribers"), schedule_subscribers_path(params[:schedule_id])
     @subscribers = Subscriber.where(:schedule_id => params[:schedule_id]).page(params[:page]).per(10).order(sort_column + " " + sort_direction)
 
     respond_to do |format|

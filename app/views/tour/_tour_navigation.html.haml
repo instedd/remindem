@@ -1,0 +1,17 @@
+%ul.TourNavigation.left
+  %li{:class => "start #{'selected' if params[:page] == 'start'}"}
+    %a{:href => tour_path(:start)}
+      %h2 Start
+      %p through any internet connection
+  %li{:class => "schedule #{'selected' if params[:page] == 'schedule'}"}
+    %a{:href => tour_path(:schedule)}
+      %h2 Schedule
+      %p Messages in advance
+  %li{:class => "manage #{'selected' if params[:page] == 'manage'}"}
+    %a{:href => tour_path(:manage)}
+      %h2 Manage
+      %p as many lists as you want
+  %li{:class => "message #{'selected' if params[:page] == 'send'}"}
+    %a{:href => tour_path(:send)}
+      %h2 Send
+      %p your scheduled text messages

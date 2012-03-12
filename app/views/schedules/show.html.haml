@@ -1,0 +1,64 @@
+- content_for :head do
+  :javascript
+    function updateNotifyValue(){
+    	if ($('#notifySubscribers:checked').val() !== undefined) {
+    		send_notification = true;
+    	}else {
+    		send_notification = false;
+    	}
+    	$('#delete').attr('href', ($('#delete').attr('href').replace("NOTIFY_VALUE", send_notification)));
+    };
+= render "shared/schedule_tabs_and_title", :schedule => @schedule
+.tabsline
+  %h2 Status
+  %p Here you can see the overall status of your schedule
+  = render 'subscribers/download_as_csv', :schedule => @schedule
+  %hr/
+  %h2 Properties
+  %p This is a summary of the properties of your schedule
+  .left.box.plain.white.overviewBox
+    .i48grad-key.left
+    .overviewText
+      Keyword
+      %br/
+      = @schedule.keyword
+  .left.box.plain.white.overviewBox
+    .i48grad-time.left
+    .overviewText
+      = "#{@schedule.duration} #{@schedule.timescale}"
+      %br/
+      = @schedule.class.mode_in_words
+  .left.box.plain.white.overviewBox
+    .i48grad-reminder.left
+    .overviewText
+      = @schedule.messages.count
+      messages
+      %br>/
+      queued
+  .clear
+  = link_to _('Edit settings'), edit_schedule_path(@schedule), :class => 'farrow overviewButton'
+  = form_for(@schedule) do |f|
+    %p.pausedDescription
+      - if @schedule.paused?
+        = _("This Reminder is paused and won't send messages.")
+      - else
+        = _("This Reminder is active and will be sending messages to registered users.")
+    = f.hidden_field :paused?, :value => !@schedule.paused?
+    - if @schedule.paused?
+      %button.fplay.overviewButton{:type => "submit"} Start this reminder
+    - else
+      %button.fpause.overviewButton{:type => "submit"} Pause this reminder
+  %hr/
+  .ux-collapsible.collapsed.deleteScheduleBox.switch{"data-on-expanded" => "box grey plain expanded"}
+    %span
+      %a.icon.fdelete.ux-collapse-trigger.black{:href => "#"} Delete this reminder
+    .ux-content
+      %a.icon.fdelete.ux-collapse-trigger{:href => "#"}
+        Are you sure you want to delete this reminder?
+        %br/
+        All your subscribers will stop receiving the scheduled messages
+      %hr/
+      %input#notifySubscribers{:checked => "", :name => "notifySubscribers", :type => "checkbox"}/
+      = label_tag :notifySubscribers, "Notify the subscribers that this reminder is no longer active?"
+      = link_to 'Confirm', schedule_path(@schedule, :notify => "NOTIFY_VALUE"), :method => :delete , :class => "button white right", :id => "delete", :onclick => "updateNotifyValue();"
+      %a.ux-collapse-trigger.grey.right{:href => "#"} Cancel

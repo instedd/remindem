@@ -23,7 +23,7 @@ class ChannelController < AuthenticatedController
      @channel.destroy
 
      respond_to do |format|
-       format.html { redirect_to(schedules_url, :notice => 'Channel was successfully deleted.') }
+       format.html { redirect_to(schedules_url, :notice => _('Channel was successfully deleted.')) }
        format.xml  { head :ok }
      end
   rescue Nuntium::Exception => exception
@@ -34,7 +34,7 @@ class ChannelController < AuthenticatedController
   
   def load_errors_from exception
     if exception.properties.empty?
-      @invalid_channel.errors.add('Unexpected Error: ', "\"#{exception.message}\"")
+      @invalid_channel.errors.add(_('Unexpected Error: '), "\"#{exception.message}\"")
     end
     exception.properties.map do |value, msg|
       @invalid_channel.errors.add(("#{value.humanize}: "), msg)
