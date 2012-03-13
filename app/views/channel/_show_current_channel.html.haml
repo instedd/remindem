@@ -2,7 +2,8 @@
   .left
     %p.black Reminders channel
     %p.grey
-      Bidirectional (#{current_user.channel.address})#{", last activity #{time_ago_in_words @last_log.created_at} ago" if @last_log}
+      Bidirectional
+      = "(#{current_user.channel.address.strip})#{", last activity #{time_ago_in_words @last_log.created_at} ago" if @last_log}"
   = link_to '', channel_path(current_user.channel), :method => :delete, :class => 'icon fdelete right'
 .LocalGatewayBox.box.plain.white
   .LocalGatewayLogo.left
