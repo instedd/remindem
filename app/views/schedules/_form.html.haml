@@ -16,24 +16,24 @@
       = f.text_area :welcome_message,                          |
         :rows => 3,                                            |
         :class => "causesPendingSaveNoticeOnChange ux-wajbar", |
-        :placeholder => _('Write your welcome message here'),     |
+        :placeholder => _('Write your welcome message here'),  |
         :maxlength => 160                                      |
   .field
     = f.label :timescale, _("Timescale")
     %p Choose timescale reference to use
     .ux-dropdown.w20.inline
-      = f.select :timescale, Schedule.time_scales, {}, :class => "causesPendingSaveNoticeOnChange"
+      = f.select :timescale, Schedule.time_scale_options, {}, :class => "causesPendingSaveNoticeOnChange"
   .field
     %label Mode
     %p
       = _("Choose whether you want to set up a timeline for your messages or send them randomly")
-      = _(" (Only available if there are no subscribers)") unless @schedule.subscribers.empty?
+      = _("(Only available if there are no subscribers)") unless @schedule.subscribers.empty?
     = f.radio_button :type,                               |
       "FixedSchedule",                                    |
       :id => "fixed_schedule_option",                     |
       :class => "causesPendingSaveNoticeOnChange styled", |
-      :disabled => !@schedule.subscribers.empty?         |
-      
+      :disabled => !@schedule.subscribers.empty?          |
+
     = f.label :type, FixedSchedule.mode_in_words, :class => 'radio'
     %br/
     = f.radio_button :type,                               |
@@ -41,7 +41,7 @@
       :id => "random_schedule_option",                    |
       :class => "causesPendingSaveNoticeOnChange styled", |
       :disabled => !@schedule.subscribers.empty?,         |
-      'data-message' => _("Random Once")                      |
+      'data-message' => _("Random Once")                  |
     = f.label :type, RandomSchedule.mode_in_words, :class => 'radio'
   %hr/
   %h2 Messages

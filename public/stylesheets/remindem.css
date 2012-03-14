@@ -68,10 +68,6 @@ ul.vertical li { list-style: none; }
   margin-right: 1px !important;
 }
 
-.LocalGatewayBox {
-	width: 615px;
-}
-
 .user_channel {
 	margin-top: 21px;
 }
@@ -201,7 +197,7 @@ ul.vertical li { list-style: none; }
 	padding-left: 9px;
 	padding-right: 4px;
 	padding-bottom: 0px;
-	width: 605px !important;
+	width: 692px !important;
 }
 
 .CurrentChannelBox > div > p{
@@ -228,7 +224,7 @@ ul.vertical li { list-style: none; }
 .spaused span { background:#d0d0d0; margin-right:5px; width:10px; height:9px; border-top:1px solid #9c9c9c; display:inline-block; border-radius:2px; -moz-border-radius:2px; -webkit-border-radius:2px }
 
 .RemindersTable {
-  width: 618px !important;
+  width: 704px !important;
 }
 
 .EmptyRemindersTable {

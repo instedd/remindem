@@ -75,9 +75,9 @@ MessageControls.prototype.show_offset_errors_if_must = function(){
       if (this.is_offset_possitive()){
         this.show_offset_error_if('can\'t be greater than 2147483647', !this.offset_fits_inside_an_integer());
       } else {
-        this.show_offset_error_if('can\'t be negative', !this.is_offset_possitive());  
+        this.show_offset_error_if('can\'t be negative', !this.is_offset_possitive());
       }
-    }  
+    }
   }
 }
 
@@ -156,16 +156,8 @@ $(function() {
 
 function updateTimescaleLabels(new_value){
   var message = $('#random_schedule_option').attr('data-message');
-	$('#random_schedule_option').next().text(message + timescaleToOneString(new_value));
+	$('#random_schedule_option').next().text(message + ' ' + timescaleToOneString(new_value));
 	$('.timescale').text(capitalizedSingular(new_value));
-}
-
-function capitalizedSingular(timescale) {
-	return caseTimescale(timescale, "Hour", "Day", "Week", "Month", "Year", "");
-}
-
-function timescaleToOneString(timescale) {
-	return caseTimescale(timescale, "an hour", "a day", "a week", "a month", "a year", "");
 }
 
 function caseTimescale(value, hour, day, week, month, year, defaultCase){
@@ -200,18 +192,18 @@ function edit_fields(link, content) {
   fieldsRow.after(content);
 	var controlsRow = getRow(link).next();
 	fieldsRow.hide();
-	
+
 	assignMessageValues(new MessageControls(controlsRow), new MessageFields(fieldsRow));
 
 	$.instedd.init_components(controlsRow);
-	
+
   //Hide offset control if user is editing a random schedule
   toggleOffset();
 	timescale.change();
 }
 
 function add_fields(link, association, content) {
-  //Replace association placeholder id with a timestamp	
+  //Replace association placeholder id with a timestamp
   var new_id = new Date().getTime();
   var regexp = new RegExp("new_" + association, "g");
   var newRowContent = content.replace(regexp, new_id);
@@ -224,7 +216,7 @@ function add_fields(link, association, content) {
 	fieldsRow.hide();
 	$.instedd.init_components(fieldsRow);
 	$.instedd.init_components(controlsRow);
-	
+
   //Hide offset control if user is editing a random schedule
   toggleOffset();
 	timescale.change();
@@ -232,7 +224,7 @@ function add_fields(link, association, content) {
 
 function confirm_changes(buttonOk) {
   if (validate_fields(buttonOk)) {
-		
+
   	var currentRow = getRow(buttonOk);
   	var hiddenRow = $(currentRow).prev();
 

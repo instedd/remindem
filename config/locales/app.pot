@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.6\n"
-"POT-Creation-Date: 2012-03-09 15:13-0300\n"
+"POT-Creation-Date: 2012-03-14 17:54-0300\n"
 "PO-Revision-Date: 2011-11-24 18:13-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -180,16 +180,16 @@ msgid "Reminders channel"
 msgstr ""
 
 #: app/views/channel/_show_current_channel.html.haml:2
-msgid "Bidirectional (%s)%s"
+msgid "Bidirectional"
 msgstr ""
 
-#: app/views/channel/_show_current_channel.html.haml:4
+#: app/views/channel/_show_current_channel.html.haml:5
 msgid "will help you to send reminders from your mobile phone, %s."
 msgstr ""
 
 #: app/views/community/index.html.haml:1
 #: app/views/layouts/application.html.haml:13
-#: app/views/layouts/application.html.haml:28
+#: app/views/layouts/application.html.haml:35
 msgid "Community"
 msgstr ""
 
@@ -608,7 +608,7 @@ msgid "Already a member? %s"
 msgstr ""
 
 #: app/views/home/index.html.haml:43
-#: app/views/layouts/application.html.haml:38
+#: app/views/layouts/application.html.haml:45
 msgid "Log in"
 msgstr ""
 
@@ -683,8 +683,8 @@ msgid "Remindem"
 msgstr ""
 
 #: app/views/layouts/application.html.haml:2
-#: app/views/layouts/application.html.haml:26
-#: app/views/layouts/application.html.haml:32
+#: app/views/layouts/application.html.haml:33
+#: app/views/layouts/application.html.haml:39
 #: app/views/schedules/index.html.haml:1 app/controllers/logs_controller.rb:7
 #: app/controllers/schedules_controller.rb:6
 #: app/controllers/subscribers_controller.rb:7
@@ -692,7 +692,7 @@ msgid "Reminders"
 msgstr ""
 
 #: app/views/layouts/application.html.haml:3
-#: app/views/layouts/application.html.haml:33
+#: app/views/layouts/application.html.haml:40
 #: app/views/shared/_schedule_tabs_and_title.html.haml:8
 #: app/controllers/schedules_controller.rb:55
 #: app/controllers/schedules_controller.rb:91
@@ -704,7 +704,7 @@ msgid "Report a bug"
 msgstr ""
 
 #: app/views/layouts/application.html.haml:5
-#: app/views/layouts/application.html.haml:34
+#: app/views/layouts/application.html.haml:41
 msgid "Sign Out"
 msgstr ""
 
@@ -729,17 +729,17 @@ msgid "Contact us"
 msgstr ""
 
 #: app/views/layouts/application.html.haml:11
-#: app/views/layouts/application.html.haml:25
+#: app/views/layouts/application.html.haml:32
 msgid "Home"
 msgstr ""
 
 #: app/views/layouts/application.html.haml:12
-#: app/views/layouts/application.html.haml:27
+#: app/views/layouts/application.html.haml:34
 msgid "Tour"
 msgstr ""
 
 #: app/views/layouts/application.html.haml:14
-#: app/views/layouts/application.html.haml:29
+#: app/views/layouts/application.html.haml:36
 msgid "Help"
 msgstr ""
 
@@ -749,24 +749,24 @@ msgid ""
 "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:37
+#: app/views/layouts/application.html.haml:44
 #: app/views/users/registrations/new.html.haml:1
 #: app/views/users/registrations/new.html.haml:2
 msgid "Create account"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:45
+#: app/views/layouts/application.html.haml:52
 msgid ""
 "InSTEDD has created an evolving platform of free and open source "
 "technologies to support humanitarian causes. These tools can be used "
 "individually or as building blocks for larger solutions."
 msgstr ""
 
-#: app/views/layouts/application.html.haml:46
+#: app/views/layouts/application.html.haml:53
 msgid "to learn more"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:53
+#: app/views/layouts/application.html.haml:60
 msgid "Version %s"
 msgstr ""
 
@@ -802,48 +802,6 @@ msgstr ""
 
 #: app/views/logs/index.html.haml:25
 msgid "..."
-msgstr ""
-
-#: app/views/schedules/_form.html.haml:1
-msgid "Users will register with this keyword"
-msgstr ""
-
-#: app/views/schedules/_form.html.haml:2
-msgid "This is the message users will get after they successfully registered"
-msgstr ""
-
-#: app/views/schedules/_form.html.haml:3
-msgid "Choose timescale reference to use"
-msgstr ""
-
-#: app/views/schedules/_form.html.haml:4
-msgid "Mode"
-msgstr ""
-
-#: app/views/schedules/_form.html.haml:5
-msgid "Messages"
-msgstr ""
-
-#: app/views/schedules/_form.html.haml:6
-msgid "Write your reminder's messages"
-msgstr ""
-
-#: app/views/schedules/_form.html.haml:7
-#: app/views/schedules/_message_controls.html.haml:2
-msgid "Save"
-msgstr ""
-
-#: app/views/schedules/_message_controls.html.haml:3
-#: app/views/schedules/show.html.haml:8
-msgid "Cancel"
-msgstr ""
-
-#: app/views/schedules/_message_controls.html.haml:9
-msgid "Add message here"
-msgstr ""
-
-#: app/views/schedules/_message_fields.html.haml:7
-msgid "After"
 msgstr ""
 
 #: app/views/schedules/edit.html.haml:1 app/views/schedules/show.html.haml:3
@@ -921,6 +879,11 @@ msgstr ""
 msgid "Delete this reminder"
 msgstr ""
 
+#: app/views/schedules/show.html.haml:8
+#: app/views/schedules/_message_controls.html.haml:3
+msgid "Cancel"
+msgstr ""
+
 #: app/views/schedules/show.html.haml:25
 msgid "Keyword"
 msgstr ""
@@ -946,6 +909,43 @@ msgstr ""
 msgid "All your subscribers will stop receiving the scheduled messages"
 msgstr ""
 
+#: app/views/schedules/_form.html.haml:1
+msgid "Users will register with this keyword"
+msgstr ""
+
+#: app/views/schedules/_form.html.haml:2
+msgid "This is the message users will get after they successfully registered"
+msgstr ""
+
+#: app/views/schedules/_form.html.haml:3
+msgid "Choose timescale reference to use"
+msgstr ""
+
+#: app/views/schedules/_form.html.haml:4
+msgid "Mode"
+msgstr ""
+
+#: app/views/schedules/_form.html.haml:5
+msgid "Messages"
+msgstr ""
+
+#: app/views/schedules/_form.html.haml:6
+msgid "Write your reminder's messages"
+msgstr ""
+
+#: app/views/schedules/_form.html.haml:7
+#: app/views/schedules/_message_controls.html.haml:2
+msgid "Save"
+msgstr ""
+
+#: app/views/schedules/_message_controls.html.haml:9
+msgid "Add message here"
+msgstr ""
+
+#: app/views/schedules/_message_fields.html.haml:7
+msgid "After"
+msgstr ""
+
 #: app/views/shared/_langs_menu.haml:6
 msgid "Language:"
 msgstr ""
@@ -958,14 +958,6 @@ msgstr ""
 #: app/views/subscribers/index.html.haml:1
 #: app/controllers/subscribers_controller.rb:15
 msgid "Subscribers"
-msgstr ""
-
-#: app/views/subscribers/_download_as_csv.html.haml:3
-msgid "subscribers registered"
-msgstr ""
-
-#: app/views/subscribers/_download_as_csv.html.haml:4
-msgid "Download as CSV"
 msgstr ""
 
 #: app/views/subscribers/index.html.haml:2
@@ -982,36 +974,12 @@ msgstr ""
 msgid "You have no Subscribers yet"
 msgstr ""
 
-#: app/views/tour/_tour_navigation.html.haml:1
-msgid "Start"
+#: app/views/subscribers/_download_as_csv.html.haml:3
+msgid "subscribers registered"
 msgstr ""
 
-#: app/views/tour/_tour_navigation.html.haml:2
-msgid "through any internet connection"
-msgstr ""
-
-#: app/views/tour/_tour_navigation.html.haml:3
-msgid "Schedule"
-msgstr ""
-
-#: app/views/tour/_tour_navigation.html.haml:4
-msgid "Messages in advance"
-msgstr ""
-
-#: app/views/tour/_tour_navigation.html.haml:5
-msgid "Manage"
-msgstr ""
-
-#: app/views/tour/_tour_navigation.html.haml:6
-msgid "as many lists as you want"
-msgstr ""
-
-#: app/views/tour/_tour_navigation.html.haml:7
-msgid "Send"
-msgstr ""
-
-#: app/views/tour/_tour_navigation.html.haml:8
-msgid "your scheduled text messages"
+#: app/views/subscribers/_download_as_csv.html.haml:4
+msgid "Download as CSV"
 msgstr ""
 
 #: app/views/tour/manage.html.haml:1
@@ -1139,6 +1107,38 @@ msgstr ""
 
 #: app/views/tour/start.html.haml:8
 msgid "Try it now!"
+msgstr ""
+
+#: app/views/tour/_tour_navigation.html.haml:1
+msgid "Start"
+msgstr ""
+
+#: app/views/tour/_tour_navigation.html.haml:2
+msgid "through any internet connection"
+msgstr ""
+
+#: app/views/tour/_tour_navigation.html.haml:3
+msgid "Schedule"
+msgstr ""
+
+#: app/views/tour/_tour_navigation.html.haml:4
+msgid "Messages in advance"
+msgstr ""
+
+#: app/views/tour/_tour_navigation.html.haml:5
+msgid "Manage"
+msgstr ""
+
+#: app/views/tour/_tour_navigation.html.haml:6
+msgid "as many lists as you want"
+msgstr ""
+
+#: app/views/tour/_tour_navigation.html.haml:7
+msgid "Send"
+msgstr ""
+
+#: app/views/tour/_tour_navigation.html.haml:8
+msgid "your scheduled text messages"
 msgstr ""
 
 #: app/views/users/registrations/edit.html.haml:2
@@ -1363,6 +1363,68 @@ msgstr ""
 #: app/models/model_attributes.rb:44
 msgid ""
 "This Reminder is active and will be sending messages to registered users."
+msgstr ""
+
+#: app/models/model_attributes.rb:45
+msgid "Random Once"
+msgstr ""
+
+#: app/models/model_attributes.rb:46
+msgid "Write your welcome message here"
+msgstr ""
+
+#: app/models/model_attributes.rb:47
+msgid "Add message"
+msgstr ""
+
+#: app/models/model_attributes.rb:48
+msgid ""
+"Choose whether you want to set up a timeline for your messages or send them "
+"randomly"
+msgstr ""
+
+#: app/models/model_attributes.rb:49
+msgid "(Only available if there are no subscribers)"
+msgstr ""
+
+#: app/models/model_attributes.rb:50
+msgid "an hour"
+msgstr ""
+
+#: app/models/model_attributes.rb:51
+msgid "a day"
+msgstr ""
+
+#: app/models/model_attributes.rb:52
+msgid "a week"
+msgstr ""
+
+#: app/models/model_attributes.rb:53
+msgid "a month"
+msgstr ""
+
+#: app/models/model_attributes.rb:54
+msgid "a year"
+msgstr ""
+
+#: app/models/model_attributes.rb:55
+msgid "Hour"
+msgstr ""
+
+#: app/models/model_attributes.rb:56
+msgid "Day"
+msgstr ""
+
+#: app/models/model_attributes.rb:57
+msgid "Week"
+msgstr ""
+
+#: app/models/model_attributes.rb:58
+msgid "Month"
+msgstr ""
+
+#: app/models/model_attributes.rb:59
+msgid "Year"
 msgstr ""
 
 #: app/models/random_schedule.rb:18

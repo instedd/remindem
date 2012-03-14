@@ -31,11 +31,11 @@ Schedule.blueprint do
 end
 
 FixedSchedule.blueprint do
-  timescale { Schedule.time_scales[rand(Schedule.time_scales.count)] }
+  timescale { Schedule.time_scale_options[rand(Schedule.time_scale_options.count)][1] }
 end
 
 RandomSchedule.blueprint do
-  timescale { Schedule.time_scales[rand(Schedule.time_scales.count)] }
+  timescale { Schedule.time_scale_options[rand(Schedule.time_scale_options.count)][1] }
 end
 
 CalendarBasedSchedule.blueprint do

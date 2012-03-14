@@ -8,6 +8,13 @@
     = javascript_include_tag 'http://theme.instedd.org/theme/javascripts/theme.js'
     = csrf_meta_tag
     = yield(:head)
+    :javascript
+      function capitalizedSingular(timescale) {
+        return caseTimescale(timescale, "#{_('hours')}", "#{_('days')}", "#{_('weeks')}", "#{_('months')}", "#{_('years')}", "");
+      };
+      function timescaleToOneString(timescale) {
+        return caseTimescale(timescale, "#{_('an hour')}", "#{_('a day')}", "#{_('a week')}", "#{_('a month')}", "#{_('a year')}", "");
+      };
     %link{:href => "/images/favicon.ico", :rel => "shortcut icon", :type => "image/x-icon"}/
     = render :partial =>"shared/analytics"
   %body{:class => (@body_class || []).join(' ')}
@@ -78,7 +85,7 @@
                 %a{:href => tour_path(:start)} Tour
                 %a{:href => community_path} Community
                 %a{:href => help_path} Help
-                = render partial: 'shared/langs_menu' 
+                = render partial: 'shared/langs_menu'
                 %span.VersionNumber
                   Version #{RememberMe::Application.config.version_name}
               .clear

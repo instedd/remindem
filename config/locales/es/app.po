@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.6\n"
 "POT-Creation-Date: 2012-02-24 12:41-0300\n"
-"PO-Revision-Date: 2012-03-09 20:15+0200\n"
-"Last-Translator: Santiago Palladino <spalladino@manas.com.ar>\n"
+"PO-Revision-Date: 2012-03-14 22:57+0200\n"
+"Last-Translator:  <mcoca@manas.com.ar>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -194,9 +194,8 @@ msgstr "Agregar un canal"
 msgid "Reminders channel"
 msgstr "Canal de Recordatorios"
 
-#: app/views/channel/_show_current_channel.html.haml:2
-msgid "Bidirectional (%s)%s"
-msgstr "Bidireccional (%s)%s"
+#~ msgid "Bidirectional (%s)%s"
+#~ msgstr "Bidireccional (%s)%s"
 
 #: app/views/community/index.html.haml:1
 #: app/views/layouts/application.html.haml:13
@@ -989,7 +988,7 @@ msgstr "Agrega tu mensaje aquí"
 
 #: app/views/schedules/_message_fields.html.haml:7
 msgid "After"
-msgstr "Después"
+msgstr "Después de"
 
 #: app/views/schedules/edit.html.haml:1 app/views/schedules/show.html.haml:3
 msgid "Properties"
@@ -1616,3 +1615,71 @@ msgstr "cuenta gratuita"
 #: app/models/model_attributes.rb:43
 msgid "This Reminder is paused and won't send messages."
 msgstr "Este Recordatorio está pausada y no estará enviando mensajes."
+
+#: app/views/channel/_show_current_channel.html.haml:2
+msgid "Bidirectional"
+msgstr "Bidireccional"
+
+#: app/models/model_attributes.rb:47
+msgid "Add message"
+msgstr "Agregar mensaje"
+
+#: app/models/model_attributes.rb:46
+msgid "Write your welcome message here"
+msgstr "Escribe aquí tu mensaje de bienvenida"
+
+#: app/models/model_attributes.rb:45
+msgid "Random Once"
+msgstr "Aleatorio cada"
+
+#: app/models/model_attributes.rb:57
+msgid "Week"
+msgstr "Semana"
+
+#: app/models/model_attributes.rb:50
+msgid "an hour"
+msgstr "una hora"
+
+#: app/models/model_attributes.rb:48
+msgid ""
+"Choose whether you want to set up a timeline for your messages or send them "
+"randomly"
+msgstr ""
+"Elige si quieres definir una linea de tiempo para tus mensajes o enviarlos "
+"aleatoriamente"
+
+#: app/models/model_attributes.rb:52
+msgid "a week"
+msgstr "una semana"
+
+#: app/models/model_attributes.rb:55
+msgid "Hour"
+msgstr "Hora"
+
+#: app/models/model_attributes.rb:53
+msgid "a month"
+msgstr "un mes"
+
+#: app/models/model_attributes.rb:51
+msgid "a day"
+msgstr "un día"
+
+#: app/models/model_attributes.rb:58
+msgid "Month"
+msgstr "Mes"
+
+#: app/models/model_attributes.rb:49
+msgid "(Only available if there are no subscribers)"
+msgstr "(Disponible únicamente si no hay suscriptores)"
+
+#: app/models/model_attributes.rb:54
+msgid "a year"
+msgstr "un año"
+
+#: app/models/model_attributes.rb:59
+msgid "Year"
+msgstr "Año"
+
+#: app/models/model_attributes.rb:56
+msgid "Day"
+msgstr "Día"

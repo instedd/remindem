@@ -3,21 +3,21 @@ class Schedule < ActiveRecord::Base
   validates_presence_of :timescale, :unless => Proc.new {|schedule| schedule.type == "CalendarBasedSchedule"}
   validates_uniqueness_of :keyword
   validates_length_of :keyword, :maximum => 15
-  validates_format_of :keyword, :with => /^[^ ]+$/, :message => "must not include spaces" 
+  validates_format_of :keyword, :with => /^[^ ]+$/, :message => "must not include spaces"
   validates_length_of :title, :maximum => 60
   belongs_to :user
-  
+
   has_many :messages, :dependent => :destroy
   has_many :subscribers, :dependent => :destroy
   has_many :logs, :dependent => :destroy
-  
+
   accepts_nested_attributes_for :messages, :allow_destroy => true
   validates_associated :messages
   before_validation :initialize_messages
-  
+
   before_destroy :notify_deletion_to_subscribers
   before_update :log_changes
-  
+
   attr_accessor_with_default :notifySubscribers, true
 
   def keyword_is_not_opt_out_keyword
@@ -37,31 +37,31 @@ class Schedule < ActiveRecord::Base
     end
     super
   end
-  
+
   def subscribe subscriber
     generate_reminders_for subscriber
     log_new_subscription_of subscriber.phone_number
     welcome_message_for subscriber.phone_number
   end
-  
+
   def generate_reminders_for recipient
     messages = self.reminders
-    
+
     messages.each_with_index do |message, index|
       self.enqueue_reminder message, index, recipient
     end
   end
-  
+
   def welcome_message_for phone_number
     [build_message(phone_number, welcome_message)]
   end
-  
-  def self.time_scales
-    [_('hours'), _('days'), _('weeks'), _('months'), _('years')]
+
+  def self.time_scale_options
+    [[_('hours'), 'hours'], [_('days'), 'days'], [_('weeks'), 'weeks'], [_('months'), 'months'], [_('years'), 'years']]
   end
-  
-  def build_message to, body 
-    self.user.build_message to, body 
+
+  def build_message to, body
+    self.user.build_message to, body
   end
 
   def send_or_reschedule message, subscriber
@@ -79,27 +79,27 @@ class Schedule < ActiveRecord::Base
       create_warning_log_described_by "The message '#{message.text}' was not sent to #{subscriber.phone_number.without_protocol} since schedule is paused"
     end
   end
-  
+
   def schedule_message message, subscriber, send_at
-    Delayed::Job.enqueue ReminderJob.new(subscriber.id, self.id, message.id), 
+    Delayed::Job.enqueue ReminderJob.new(subscriber.id, self.id, message.id),
       :message_id => message.id, :subscriber_id => subscriber.id, :run_at => send_at
   end
-  
+
   def last_job_for subscriber
     Delayed::Job.order('run_at DESC').where(:subscriber_id => subscriber.id).first
   end
 
-  def send_message to, body 
+  def send_message to, body
     nuntium = Nuntium.new_from_config
     message = self.build_message to, body
     nuntium.send_ao message
     log_message_sent body, to
   end
-  
+
   def log_message_sent body, recipient_number
     create_information_log_described_by "The message '#{body}' was sent to #{recipient_number.without_protocol}"
   end
-  
+
   def log_new_subscription_of recipient_number
     create_information_log_described_by "New subscriber: #{recipient_number.without_protocol}"
   end
@@ -107,26 +107,26 @@ class Schedule < ActiveRecord::Base
   def create_warning_log_described_by description
     Log.create! :schedule => self, :severity => :warning, :description => description
   end
-  
+
   def create_information_log_described_by description
     Log.create! :schedule => self, :severity => :information, :description => description
   end
-  
+
   def log_message_updated message
     create_information_log_described_by "Message updated: #{message.text}"
   end
-  
+
   def log_message_deleted message
     create_information_log_described_by "Message deleted: #{message.text}"
   end
-  
+
   def log_message_created message
     create_information_log_described_by "Message created: #{message.text}"
   end
-  
+
   def initialize_messages
     messages.each { |m| m.schedule = self }
-  end 
+  end
 
   def notify_deletion_to_subscribers
     if notifySubscribers
@@ -136,7 +136,7 @@ class Schedule < ActiveRecord::Base
       end
     end
   end
-  
+
   def log_changes
     log_if_welcome_message_changed
     log_if_paused_or_resumed
@@ -169,7 +169,7 @@ class Schedule < ActiveRecord::Base
   def log_schedule_resumed
     create_information_log_described_by "Schedule resumed"
   end
-  
+
   def mode_in_words
     raise NotImplementedError, 'Subclasses must redefine this message'
   end
@@ -177,7 +177,7 @@ class Schedule < ActiveRecord::Base
   def self.is_opt_out_keyword? keyword
     keyword.upcase == opt_out_keyword.upcase
   end
-  
+
   def self.opt_out_keyword
     'stop'
   end
@@ -185,5 +185,5 @@ class Schedule < ActiveRecord::Base
   def duration
     raise NotImplementedError, 'Subclasses must redefine this message'
   end
-  
+
 end
