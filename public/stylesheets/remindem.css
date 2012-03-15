@@ -416,3 +416,7 @@ h3+p {
 .homepage #footer-container ul.language li {
   display: inherit ! important;
 }
+
+.wizardSteps {
+  width: 693px;
+}

@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.6\n"
-"POT-Creation-Date: 2012-03-15 16:18-0300\n"
+"POT-Creation-Date: 2012-03-15 19:25-0300\n"
 "PO-Revision-Date: 2011-11-24 18:13-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,8 +48,10 @@ msgstr ""
 #: app/views/channel/_download_android_local_gateway.html.haml:4
 #: app/views/channel/_download_desktop_local_gateway.html.haml:4
 #: app/views/channel/_end_wizard.html.haml:4
+#: app/views/channel/_end_wizard.html.haml:7
 #: app/views/channel/_new_android_channel.html.haml:4
 #: app/views/channel/_new_desktop_channel.html.haml:4
+#: app/models/model_attributes.rb:76
 msgid "Finish"
 msgstr ""
 
@@ -627,7 +629,7 @@ msgstr ""
 msgid "View your reminders"
 msgstr ""
 
-#: app/views/home/index.html.haml:42 app/views/home/index.html.haml:53
+#: app/views/home/index.html.haml:42 app/views/home/index.html.haml:54
 msgid "Create an account"
 msgstr ""
 
@@ -674,33 +676,33 @@ msgstr ""
 msgid "Take a tour"
 msgstr ""
 
-#: app/views/home/index.html.haml:54
+#: app/views/home/index.html.haml:55
 msgid "and log in"
 msgstr ""
 
-#: app/views/home/index.html.haml:55
+#: app/views/home/index.html.haml:56
 msgid ""
 "Create an new reminders list and choose a keyword that people will text to "
 "suscribe to your list"
 msgstr ""
 
-#: app/views/home/index.html.haml:56
+#: app/views/home/index.html.haml:57
 msgid "Create your messages and assign a time interval for each"
 msgstr ""
 
-#: app/views/home/index.html.haml:57
+#: app/views/home/index.html.haml:58
 msgid "Download the free Nuntium app"
 msgstr ""
 
-#: app/views/home/index.html.haml:58
+#: app/views/home/index.html.haml:59
 msgid "and connect your phone to your account"
 msgstr ""
 
-#: app/views/home/index.html.haml:59
+#: app/views/home/index.html.haml:60
 msgid "Got suggestions or feature requests? Join the discussion."
 msgstr ""
 
-#: app/views/home/index.html.haml:61
+#: app/views/home/index.html.haml:62
 msgid ""
 "Got a way with code? Help us develop our tools (and make the world a better "
 "place at the same time)."
@@ -1055,11 +1057,11 @@ msgid ""
 "remember keyword."
 msgstr ""
 
-#: app/views/tour/manage.html.haml:6
+#: app/views/tour/manage.html.haml:7
 msgid "Simply define a"
 msgstr ""
 
-#: app/views/tour/manage.html.haml:7
+#: app/views/tour/manage.html.haml:8
 msgid ""
 "for each message list. Subscribers then use those keywords to sign up for "
 "the lists that interest them."
