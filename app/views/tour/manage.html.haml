@@ -3,7 +3,7 @@
   .left
     %h2.w30 Manage as many lists and subscribers as you want, all from a single phone number
     %p.advertised.w30 Whether you manage one text messaging list or dozens, Remindem makes it easy to keep an unlimited number of subscribers up-to-date with relevant, timely reminders.
-  %img.left{:src => "/images/myReminders.png", :style => "margin-left: 30px; margin-bottom: 31px; margin-top: 23px; width:322px; height: 206px;"}/
+  = image_tag "myReminders.png", :style => "margin-left: 30px; margin-bottom: 31px; margin-top: 23px; width:322px; height: 206px;", :class => 'left', :localized => true
   %hr.clear/
   .left.w30{:style => "margin-top: 35px;"}
     %p
@@ -11,8 +11,8 @@
       %span.highlight unique keyword
       for each message list. Subscribers then use those keywords to sign up for the lists that interest them.
   %img.left{:src => "/images/tourArrow.png", :style => "margin-left:15px; margin-top: 81px; width:36px; height: 17px;"}/
-  %img.left{:src => "/images/keyword.png", :style => "margin-left:23px;margin-top:30px; width:300px; height: 113px;"}/
+  = image_tag "keyword.png", :style => "margin-left:23px;margin-top:30px; width:300px; height: 113px;", :class => 'left', :localized => true
   .clear
-  %img{:src => "/images/welcomeMessage.png", :style => "margin-left: 38px;margin-top: 23px; width:634px; height: 132px;"}/
+  = image_tag "welcomeMessage.png", :style => "margin-left: 38px;margin-top: 23px; width:634px; height: 132px;", :localized => true
   %p Greet new subscribers with a personalized welcome message and easy-to-remember keyword.
 .clear

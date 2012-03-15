@@ -25,10 +25,12 @@ ul.vertical li { list-style: none; }
   padding-left: 0px !important;
   font-size: 12px;
   margin-bottom: 13px !important;
+  display: inline-block;
 }
 
 .subscribersDescription {
   margin-left: 5px;
+  margin-right: 10px;
 }
 
 .csvDownload {

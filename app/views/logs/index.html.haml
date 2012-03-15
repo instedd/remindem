@@ -29,5 +29,6 @@
                       %a.ux-collapse-trigger.grey.right.tiny{:href => "#"} less
               - else
                 = log.description
-            %td= "#{log.created_at.strftime "%a %b %d %Y, %H:%M:%S"} (#{time_ago_in_words log.created_at} ago)"
+            %td
+              #{log.created_at.strftime "%a %b %d %Y, %H:%M:%S"} (#{time_ago_in_words log.created_at} ago)
     = paginate @logs

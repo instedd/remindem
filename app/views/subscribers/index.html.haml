@@ -15,12 +15,13 @@
       - else
         - @subscribers.each do |subscriber|
           %tr
-            %td= "#{subscriber.subscribed_at.strftime "%a %b %d %Y, %H:%M:%S"} (#{time_ago_in_words subscriber.subscribed_at} ago)"
+            %td
+              #{subscriber.subscribed_at.strftime "%a %b %d %Y, %H:%M:%S"} (#{time_ago_in_words subscriber.subscribed_at} ago)
             %td= subscriber.phone_number.without_protocol
             %td
               = link_to '',                                                                |
                 schedule_subscriber_path(Schedule.find(params[:schedule_id]), subscriber), |
                 :class => "button fdelete",                                                |
-                :confirm => 'Are you sure?',                                               |
+                :confirm => _('Are you sure?'),                                            |
                 :method => :delete                                                         |
     = paginate @subscribers

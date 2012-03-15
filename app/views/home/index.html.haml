@@ -24,35 +24,32 @@
         %span.i48grad-users.left
         %h3 Helps
         %p your community of users feel supported and connected
-        %br{:clear => "all"}/
+        %br{:clear => "all"}
       %li
         %span.i48grad-information.left
         %h3 Sends
         %p reminders when subscribers need them most
-        %br{:clear => "all"}/
+        %br{:clear => "all"}
       %li
         %span.i48grad-pie.left
         %h3 Allows
         %p you to tailor advice based on when it will be received
-        %br{:clear => "all"}/
+        %br{:clear => "all"}
       %li
         %span.i48grad-internet.left
         %h3 Schedule and edit
         %p your messages from any internet connection
-        %br{:clear => "all"}/
+        %br{:clear => "all"}
       %li
         %span.i48grad-free.left
         %h3 Free
         %p for anyone to use to help increase their social impact
-        %br{:clear => "all"}/
+        %br{:clear => "all"}
       %li
         %span.i48grad-openSource.left
         %h3 Open Source
         %p code for developers to use to improve its design and functionality
-        %br{:clear => "all"}/
-    / #benefits-container
-  / #benefits
-/ #home-middle-bar
+        %br{:clear => "all"}
 %h1 What can I use it for?
 %p.desc
   Remindem is great for any kind of reminder you'd like to send.
@@ -63,31 +60,25 @@
   .icon-container.left
     %span.i96grad-pregnant
   %p Mothers-to-be have a lot on their plates, and it's easy to forget details like taking vitamin supplements or showing up for scheduled checkups. Then there's the variety of little changes that might alarm a brand-new mother who doesn't know quite what to expect -- or when to expect it. Why not make the road to motherhood a little easier with Remindem? Whether you're a health care practitioner, an insurance professional, or just a worried mother-in-law, you can set up a series of timed reminders to help Mom make it through her pregnancy with flying colors.
-/ #left w45
 .right.w45
   %h2 Busy Students
   .icon-container.left
     %span.i96grad-book
   %p Got a classroom full of students juggling school, work, family, friends, mandatory goof-off time, etc.? Help them get assignments in on time and make the grade with Remindem. Tests, meeting times, study objectives, even scheduled pep talks -- when it comes to education, Remindem gets an A+.
-/ #left w45
 .clear
-/ #clear
-%br/
+%br
 .left.w45
   %h2 Diabetics
   .icon-container.left
     %span.i96grad-diabetic
   %p Properly managed, diabetes doesn't have to keep patients from doing all the things they love. Send disease management tips, dietary reminders, insulin dosing schedules, and more with Remindem. Remindem even makes it easy to create separate messaging projects based on disease staging, patient age, and other criteria.
-/ #left w45
 .right.w45
   %h2 Child immunizations
   .icon-container.left
     %span.i96grad-vaccine
   %p Properly scheduled immunizations are critical to a child's continuing well-being and development. Help parents keep their children healthy with immunization reminders from Remindem. Once parents register using a keyword you specify, they'll begin receiving text reminders tailored to their child's age, minimizing missed or late vaccinations and preventable illnesses that can keep children from reaching their full potential.
-/ #left w45
 .clear
-/ #clear
-%br/
+%br
 .box.plain.grey.features
   %h2 Features
   .left.w45
@@ -108,53 +99,45 @@
     %div
       %span.r-arrow>
       Schedule reminders in advance over a timeline that you define
-  / #right w45
   .clear
-  / #clear
-/ #box plain grey
-%br/
-%br/
+%br
+%br
 .w45.left
   %h1 How does it work?
   %p Begin by creating your list of messages and choosing a custom keyword that people will text to your number to subscribe. If desired, you can assign a time interval to each of the messages in your list. When a user subscribes, the clock starts ticking, and he or she will receive each message at the specified time. If your messages are not linked to a specific timeline, such as helpful tips for managing a chronic illness, Remindem can send them randomly.
   %p Remindem requires a mobile phone to receive signup texts and send out reminders, though the Web app is used to create messages and schedule their delivery. To begin sending reminders, just download the free Nuntium application to your Android-powered phone (or to your computer, if you don't have an Android phone), making sure your phone has credit, Internet access, and mobile reception. Once your phone is connected to our server wirelessly or via your computer, Remindem automatically sends text messages to subscribers on your schedule.
   = link_to _('Take a tour'), tour_path(:start), :class=>'button grey'
-/ #w45 left
 .w45.right
-  .InfoGraphic
-  / #InfoGraphic
-/ #w45 right
+  = image_tag "InfoGraphic.png", :style => "width:411px; height:335px", :localized => true
 .clear
-/ #clear
-%br/
-%hr/
-%br/
+%br
+%hr
+%br
 .box.plain.orange.w45.left
   %h2 Where do I start?
   %p
     %span Step 1
     = link_button_to _('Create an account'), new_user_registration_path, :class=>"fedit"
     and log in
-  %hr/
+  %hr
   %p
     %span Step 2
     Create an new reminders list and choose a keyword that people will text to suscribe to your list
-  %hr/
+  %hr
   %p
     %span Step 3
     Create your messages and assign a time interval for each
-  %hr/
+  %hr
   %p
     %span Step 4
     = link_button_to _('Download the free Nuntium app'), 'http://bitbucket.org/instedd/local-gateway/downloads', :class=>"fimport"
     and connect your phone to your account
-/ #box plain orange w45 left
 .w45.right.support
   %h2 How can I help?
   %span
   %p
     Got suggestions or feature requests? Join the discussion.
-    %br/
+    %br
     %a.button.black.fchat{:href => RememberMe::Application.config.user_group_url}
       %span Join our discussion list
   %p
@@ -162,6 +145,4 @@
     %br/
     %a.button.black.fbulb{:href => RememberMe::Application.config.backlog_url}
       %span Visit our backlog
-/ #w45 right
 .clear
-/ #clear

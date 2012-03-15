@@ -7,7 +7,7 @@
           window.location = anchor.attr('href');
         }
       });
-    
+
       $(".filterSchedules").change(function () {
         $(".filterSchedules option:selected").each(function () {
           window.location = $(this).val();
@@ -23,9 +23,9 @@
       %th
         = content_tag :select, :class => 'filterSchedules', :disabled => !@at_least_one_schedule_is_paused do
           = options_for_select([                                                                                  |
-              [_('Show All'),'all'],                                                                                 |
-              [_('Paused'),'paused'],                                                                                |
-              [_('Running'),'running']                                                                               |
+              [_('Show All'),'all'],                                                                              |
+              [_('Paused'),'paused'],                                                                             |
+              [_('Running'),'running']                                                                            |
             ].map { |text,show| [text, schedules_path(:show => show)] }, schedules_path(:show => params[:show]) ) |
     - if @schedules.empty?
       %tr

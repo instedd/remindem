@@ -40,16 +40,16 @@ module RememberMe
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
-    
+
     config.action_mailer_default_from = "Remindem <noreply@instedd.org>"
 
-    config.suscribe_url = 'http://instedd.us2.list-manage.com/subscribe/post?u=b1404e482b02edd641e6506cf&amp;id=6e0ca202fc'
+    config.suscribe_url = 'http://instedd.us2.list-manage.com/subscribe/post?u=b1404e482b02edd641e6506cf&id=6e0ca202fc'
     config.source_code_url = 'https://bitbucket.org/instedd/remindem/overview'
     config.backlog_url = 'https://bitbucket.org/instedd/remindem/issues?status=new&status=open'
     config.user_group_url = 'https://groups.google.com/group/instedd-tech'
 
     config.google_analytics = 'UA-XXXXXXX-XX'
-    
+
     config.version_name = '1.6'
 
     # Languages

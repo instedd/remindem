@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.6\n"
 "POT-Creation-Date: 2012-02-24 12:41-0300\n"
-"PO-Revision-Date: 2012-03-14 22:57+0200\n"
+"PO-Revision-Date: 2012-03-15 21:52+0200\n"
 "Last-Translator:  <mcoca@manas.com.ar>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: es\n"
@@ -242,7 +242,7 @@ msgstr ""
 
 #: app/views/community/index.html.haml:7
 msgid "Subscribe"
-msgstr "Suscribirme"
+msgstr "Suscríbete"
 
 #: app/views/community/index.html.haml:8
 msgid "Join our user group"
@@ -1614,11 +1614,10 @@ msgstr "cuenta gratuita"
 
 #: app/models/model_attributes.rb:43
 msgid "This Reminder is paused and won't send messages."
-msgstr "Este Recordatorio está pausada y no estará enviando mensajes."
+msgstr "Este Recordatorio está pausado y no estará enviando mensajes."
 
-#: app/views/channel/_show_current_channel.html.haml:2
-msgid "Bidirectional"
-msgstr "Bidireccional"
+#~ msgid "Bidirectional"
+#~ msgstr "Bidireccional"
 
 #: app/models/model_attributes.rb:47
 msgid "Add message"
@@ -1683,3 +1682,107 @@ msgstr "Año"
 #: app/models/model_attributes.rb:56
 msgid "Day"
 msgstr "Día"
+
+#~ msgid "Reset it"
+#~ msgstr "Restablecerla "
+
+#: app/views/devise/shared/_links.haml:5
+msgid "Didn't receive confirmation instructions?"
+msgstr "¿No has recibido las instrucciones de confirmación?"
+
+#~ msgid "Forgot your password? %s"
+#~ msgstr "¿Has olvidado tu contraseña? %s"
+
+#~ msgid "\"Sign in with #{provider.to_s.titleize}\""
+#~ msgstr ""
+
+#: app/views/devise/shared/_links.haml:8
+msgid "Didn't receive unlock instructions?"
+msgstr "¿No has recibido las instrucciones para desbloquear tu cuenta?"
+
+#: app/views/devise/shared/_links.haml:13
+msgid "Sign in with"
+msgstr ""
+
+#: app/views/devise/shared/_links.haml:3 app/models/model_attributes.rb:60
+msgid "Reset it"
+msgstr "Restablecerla"
+
+#: app/models/model_attributes.rb:62
+msgid "Password"
+msgstr "Contraseña"
+
+#: app/models/model_attributes.rb:61
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: app/views/layouts/application.html.haml:53
+#: app/views/layouts/application.html.haml:55
+#: app/models/model_attributes.rb:63
+msgid "http://instedd.org/technologies/"
+msgstr "http://www.ilabamericalatina.org/herramientas"
+
+#: app/models/model_attributes.rb:63
+msgid "Remember me"
+msgstr "Recordarme"
+
+#: app/models/model_attributes.rb:66
+msgid "Confirm new password"
+msgstr "Confirma nueva contraseña"
+
+#: app/models/model_attributes.rb:65
+msgid "New password"
+msgstr "Nueva contraseña"
+
+#: app/models/model_attributes.rb:67
+msgid "Current password"
+msgstr "Contraseña actual"
+
+#: app/models/model_attributes.rb:68
+msgid "Delete my account"
+msgstr "Eliminar mi cuenta"
+
+#: app/models/model_attributes.rb:69
+msgid "Are you sure?"
+msgstr "¿Estás seguro?"
+
+#: app/views/channel/_show_current_channel.html.haml:2
+msgid "Bidirectional (%s)"
+msgstr "Bidireccional (%s)"
+
+#: app/views/channel/_show_current_channel.html.haml:4
+msgid ", last activity %s ago"
+msgstr ", última actividad %s atrás"
+
+#: app/views/channel/_show_current_channel.html.haml:8
+#: app/models/model_attributes.rb:70
+msgid "Change channel"
+msgstr "Cambiar canal"
+
+#: app/models/model_attributes.rb:73
+msgid "Paused"
+msgstr "Pausados"
+
+#: app/models/model_attributes.rb:74
+msgid "Running"
+msgstr "Activos"
+
+#: app/models/model_attributes.rb:72
+msgid "Show All"
+msgstr "Mostrar Todos"
+
+#: app/views/logs/index.html.haml:31
+msgid "%s (%s ago)"
+msgstr "%s (%s atrás)"
+
+#: app/views/subscribers/index.csv.haml:3
+msgid "%s, %s, (%s ago)"
+msgstr "%s, %s, (%s atrás)"
+
+#: app/views/subscribers/index.csv.haml:1
+msgid "Phone number,Subscribed"
+msgstr "Número de teléfono,Suscripto"
+
+#: app/views/tour/start.html.haml:8 app/models/model_attributes.rb:65
+msgid "http://instedd.org/technologies/nuntium/"
+msgstr "http://www.ilabamericalatina.org/herramientas/nuntium"

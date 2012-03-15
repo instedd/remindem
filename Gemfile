@@ -31,6 +31,7 @@ group :development do
   gem 'gettext', :git => 'https://github.com/cameel/gettext.git', :ref => 'c3a8373'
   gem 'ruby_parser'
   gem 'locale'
+  gem 'hpricot'
 end
 
 group :development do

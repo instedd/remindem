@@ -2,14 +2,14 @@
   %h1 Community
   %p Get involved with the project! We welcome any feedback, ideas and requests or features. Get in touch and help us build a better and more helpfull tool for you.
 %hr/
-.w20.left
-  %p If you have ideas, needs or suggestions
-  = link_to _('Join our user group'),                 |
-    RememberMe::Application.config.user_group_url, |
-    :class => "button fchat",                      |
-    :target => "_blank"                            |
-  %a{:href => ""}
-.w40.left
+.w60
+  %p{style: 'margin-right: 10px;'} If you have ideas, needs or suggestions
+  = link_to _('Join our user group'),               |
+    RememberMe::Application.config.user_group_url,  |
+    :class => "button fchat",                       |
+    :target => "_blank",                            |
+    :style => "margin-right: 10px"                  |
+.w60
   %p If you are a developer you can contribute with some of the features or check our code repository
   %div
     = link_to _('Visit our backlog'), RememberMe::Application.config.backlog_url, :class => "button fbulb left"
@@ -23,7 +23,7 @@
     %p Stay up to date on the latest news about new tools, features or ideas on how to use our technologies. We will send you between 1 and 2 emails a month and won't sell your email or spam you!
   %hr/
   %form{:action => RememberMe::Application.config.suscribe_url, :method => "post", :target => "_blank"}
-    .w50.left
+    .left.w50
       %input{:name => "EMAIL", :placeholder => _("Enter your email"), :type => "email"}/
     %button.white.right{:type => "submit"} Subscribe
     .clear
