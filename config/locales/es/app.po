@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.6\n"
 "POT-Creation-Date: 2012-02-24 12:41-0300\n"
-"PO-Revision-Date: 2012-03-16 20:35+0200\n"
+"PO-Revision-Date: 2012-03-16 20:58+0200\n"
 "Last-Translator:  <mcoca@manas.com.ar>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: es\n"
@@ -1439,7 +1439,7 @@ msgstr "Offset"
 
 #: app/models/model_attributes.rb:23
 msgid "User|Email"
-msgstr "Email"
+msgstr "E-mail"
 
 #: app/models/model_attributes.rb:17
 msgid "Schedule|Paused"
@@ -1709,7 +1709,7 @@ msgstr "Contraseña"
 
 #: app/models/model_attributes.rb:61
 msgid "Email"
-msgstr "Correo electrónico"
+msgstr "E-mail"
 
 #: app/views/layouts/application.html.haml:53
 #: app/views/layouts/application.html.haml:55
