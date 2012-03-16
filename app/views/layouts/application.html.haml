@@ -17,7 +17,7 @@
       };
     %link{:href => "/images/favicon.ico", :rel => "shortcut icon", :type => "image/x-icon"}/
     = render :partial =>"shared/analytics"
-  %body{:class => (@body_class || []).join(' ')}
+  %body{:class => ((@body_class || []) << I18n.locale).join(' ')}
     = flash_message
     #wrapper
       #toolbar
