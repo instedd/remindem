@@ -50,7 +50,7 @@ module RememberMe
 
     config.google_analytics = 'UA-XXXXXXX-XX'
 
-    config.version_name = '1.6.1'
+    config.version_name = '1.6.2'
 
     # Languages
     config.available_locales = {
