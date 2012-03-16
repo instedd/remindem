@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.6\n"
 "POT-Creation-Date: 2012-02-24 12:41-0300\n"
-"PO-Revision-Date: 2012-03-15 21:52+0200\n"
+"PO-Revision-Date: 2012-03-16 16:05+0200\n"
 "Last-Translator:  <mcoca@manas.com.ar>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: es\n"
@@ -1786,3 +1786,7 @@ msgstr "Número de teléfono,Suscripto"
 #: app/views/tour/start.html.haml:8 app/models/model_attributes.rb:65
 msgid "http://instedd.org/technologies/nuntium/"
 msgstr "http://www.ilabamericalatina.org/herramientas/nuntium"
+
+#: app/models/model_attributes.rb:77
+msgid "Password confirmation"
+msgstr "Confirma contraseña"
