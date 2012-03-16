@@ -1,10 +1,10 @@
 module InsteddAppHelper
-  
+
   def link_to_instedd(text, urls, html_options={})
     url = I18n.locale == :es ? urls[:latam] : urls[:instedd]
     link_to text, url, html_options
   end
-  
+
   def flash_message
     res = nil
 
@@ -33,7 +33,11 @@ module InsteddAppHelper
 
         content_tag :div, :class => "box error_description #{options[:class] || 'w60'}" do
           (content_tag :h2 do
-            "#{pluralize(object.errors.count, 'error')} prohibited this #{object_name.humanize} from being saved:"
+            if object.errors.count == 1
+              _("%{count} error prohibited this %{model} from being saved:")
+            else
+              _("%{count} errors prohibited this %{model} from being saved:")
+            end % {count: object.errors.count, model: _(object_name.humanize)}
           end) \
           + \
           (content_tag :ul do
@@ -51,7 +55,7 @@ module DeviseHelper
     return if resource.errors.full_messages.empty?
 
     (content_tag :div, :class => "box error_description #{html_options[:class] || 'w60'}"  do
-      (content_tag :h2, 'The following errors occurred') \
+      (content_tag :h2, _('The following errors occurred')) \
       + \
       (content_tag :ul do
         raw resource.errors.full_messages.map { |msg| content_tag(:li, msg) }.join

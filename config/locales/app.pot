@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.6.1\n"
-"POT-Creation-Date: 2012-03-16 15:34-0300\n"
+"POT-Creation-Date: 2012-03-16 16:44-0300\n"
 "PO-Revision-Date: 2011-11-24 18:13-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1252,6 +1252,18 @@ msgstr ""
 msgid "you"
 msgstr ""
 
+#: app/helpers/instedd_app_helper.rb:37
+msgid "%{count} error prohibited this %{model} from being saved:"
+msgstr ""
+
+#: app/helpers/instedd_app_helper.rb:39
+msgid "%{count} errors prohibited this %{model} from being saved:"
+msgstr ""
+
+#: app/helpers/instedd_app_helper.rb:58
+msgid "The following errors occurred"
+msgstr ""
+
 #: app/models/calendar_based_schedule.rb:108
 msgid "Calendar"
 msgstr ""
@@ -1525,6 +1537,10 @@ msgstr ""
 
 #: app/models/model_attributes.rb:77
 msgid "Password confirmation"
+msgstr ""
+
+#: app/models/model_attributes.rb:78
+msgid "errors"
 msgstr ""
 
 #: app/models/random_schedule.rb:18

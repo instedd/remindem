@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.6\n"
 "POT-Creation-Date: 2012-02-24 12:41-0300\n"
-"PO-Revision-Date: 2012-03-16 20:58+0200\n"
+"PO-Revision-Date: 2012-03-16 21:45+0200\n"
 "Last-Translator:  <mcoca@manas.com.ar>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: es\n"
@@ -1812,3 +1812,25 @@ msgstr ""
 "servidor, o bien a través de tu computadora, Remindem automáticamente "
 "comenzará a enviarles los SMS a tus suscriptores, según el cronograma "
 "preestablecido."
+
+#: app/models/model_attributes.rb:78
+msgid "errors"
+msgstr "errores"
+
+#~ msgid "%{errors} prohibited this %{object_name} from being saved:"
+#~ msgstr ""
+#~ "No se pudo guardar este/a %{object_name} porque se encontraron %{errors} "
+#~ "errores"
+
+#: app/helpers/instedd_app_helper.rb:54
+msgid "The following errors occurred"
+msgstr "Se encontraron problemas con los siguientes campos:"
+
+#: app/helpers/instedd_app_helper.rb:37
+msgid "%{count} error prohibited this %{model} from being saved:"
+msgstr "No se pudo guardar este/a %{model} porque se encontró %{count} error"
+
+#: app/helpers/instedd_app_helper.rb:39
+msgid "%{count} errors prohibited this %{model} from being saved:"
+msgstr ""
+"No se pudo guardar este/a %{model} porque se encontraron %{count} errores"
