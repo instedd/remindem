@@ -21,7 +21,7 @@
         = f.password_field :password_confirmation
   .actions
     %button.white{:type => "submit"} Update
-    = link_to "Back", :back
+    = link_to _("Back"), :back
   %hr.w30/
   %p
     = link_to _("Delete my account"), registration_path(resource_name), :confirm => _("Are you sure?"), :method => :delete, :class => 'fdelete'
