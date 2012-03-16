@@ -6,8 +6,8 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: 1.6\n"
-"POT-Creation-Date: 2012-03-16 11:04-0300\n"
+"Project-Id-Version: 1.6.1\n"
+"POT-Creation-Date: 2012-03-16 15:34-0300\n"
 "PO-Revision-Date: 2011-11-24 18:13-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -583,9 +583,9 @@ msgstr ""
 
 #: app/views/home/index.html.haml:29
 msgid ""
-"Remindem requires a mobile phone to receive signup texts and send out "
-"reminders, though the Web app is used to create messages and schedule their "
-"delivery. To begin sending reminders, just download the free Nuntium "
+"Remindem requires a mobile phone to receive create account texts and send "
+"out reminders, though the Web app is used to create messages and schedule "
+"their delivery. To begin sending reminders, just download the free Nuntium "
 "application to your Android-powered phone (or to your computer, if you don't "
 "have an Android phone), making sure your phone has credit, Internet access, "
 "and mobile reception. Once your phone is connected to our server wirelessly "
@@ -735,7 +735,7 @@ msgstr ""
 
 #: app/views/layouts/application.html.haml:5
 #: app/views/layouts/application.html.haml:41
-msgid "Sign Out"
+msgid "Log Out"
 msgstr ""
 
 #: app/views/layouts/application.html.haml:6

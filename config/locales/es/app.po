@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.6\n"
 "POT-Creation-Date: 2012-02-24 12:41-0300\n"
-"PO-Revision-Date: 2012-03-16 16:05+0200\n"
+"PO-Revision-Date: 2012-03-16 20:35+0200\n"
 "Last-Translator:  <mcoca@manas.com.ar>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: es\n"
@@ -510,15 +510,15 @@ msgstr "SMS recordatorios cuando tus suscriptores más los necesitan"
 
 #: app/views/home/index.html.haml:9
 msgid "Allows"
-msgstr "Permite"
+msgstr "Adapta"
 
 #: app/views/home/index.html.haml:10
 msgid "you to tailor advice based on when it will be received"
-msgstr "que puedas adaptar consejos con base en cuándo éstos serán recibidos"
+msgstr "consejos con base en cuándo éstos serán recibidos"
 
 #: app/views/home/index.html.haml:11
 msgid "Schedule and edit"
-msgstr "Programa el envío y edita"
+msgstr "Edita, agenda y envía"
 
 #: app/views/home/index.html.haml:12
 msgid "your messages from any internet connection"
@@ -530,9 +530,7 @@ msgstr "Gratis"
 
 #: app/views/home/index.html.haml:14
 msgid "for anyone to use to help increase their social impact"
-msgstr ""
-"para que cualquiera pueda utilizarlo a efectos de incrementar su impacto "
-"social"
+msgstr "para que puedas aprovecharlo e incrementar tu impacto social"
 
 #: app/views/home/index.html.haml:15
 msgid "Open Source"
@@ -661,27 +659,26 @@ msgstr ""
 "en el caso del envío de consejos útiles para el manejo de una enfermedad "
 "crónica, Remindem los podrá mandar aleatoriamente."
 
-#: app/views/home/index.html.haml:29
-msgid ""
-"Remindem requires a mobile phone to receive signup texts and send out "
-"reminders, though the Web app is used to create messages and schedule their "
-"delivery. To begin sending reminders, just download the free Nuntium "
-"application to your Android-powered phone (or to your computer, if you don't "
-"have an Android phone), making sure your phone has credit, Internet access, "
-"and mobile reception. Once your phone is connected to our server wirelessly "
-"or via your computer, Remindem automatically sends text messages to "
-"subscribers on your schedule."
-msgstr ""
-"Remindem requiere un teléfono móvil para recibir los SMS de registración y "
-"mandar recordatorios, si bien para crear mensajes de texto y programar su "
-"envío se utiliza la aplicación web respectiva. Para comenzar a enviar "
-"recordatorios simplemente descarga la aplicación gratuita Nuntium en tu "
-"teléfono Android (o en tu computadora, si no dispones de un Android), "
-"asegurándote de que éste tenga crédito, acceso a internet y una buena "
-"recepción. Una vez que tu teléfono esté conectado inalámbricamente a nuestro "
-"servidor, o bien a través de tu computadora, Remindem automáticamente "
-"comenzará a enviarles los SMS a tus suscriptores, según el cronograma "
-"preestablecido."
+#~ msgid ""
+#~ "Remindem requires a mobile phone to receive signup texts and send out "
+#~ "reminders, though the Web app is used to create messages and schedule their "
+#~ "delivery. To begin sending reminders, just download the free Nuntium "
+#~ "application to your Android-powered phone (or to your computer, if you don't "
+#~ "have an Android phone), making sure your phone has credit, Internet access, "
+#~ "and mobile reception. Once your phone is connected to our server wirelessly "
+#~ "or via your computer, Remindem automatically sends text messages to "
+#~ "subscribers on your schedule."
+#~ msgstr ""
+#~ "Remindem requiere un teléfono móvil para recibir los SMS de registración y "
+#~ "mandar recordatorios, si bien para crear mensajes de texto y programar su "
+#~ "envío se utiliza la aplicación web respectiva. Para comenzar a enviar "
+#~ "recordatorios simplemente descarga la aplicación gratuita Nuntium en tu "
+#~ "teléfono Android (o en tu computadora, si no dispones de un Android), "
+#~ "asegurándote de que éste tenga crédito, acceso a internet y una buena "
+#~ "recepción. Una vez que tu teléfono esté conectado inalámbricamente a nuestro "
+#~ "servidor, o bien a través de tu computadora, Remindem automáticamente "
+#~ "comenzará a enviarles los SMS a tus suscriptores, según el cronograma "
+#~ "preestablecido."
 
 #: app/views/home/index.html.haml:30
 msgid "Where do I start?"
@@ -839,10 +836,8 @@ msgstr "Configuración"
 msgid "Report a bug"
 msgstr "Reporta un error"
 
-#: app/views/layouts/application.html.haml:5
-#: app/views/layouts/application.html.haml:34
-msgid "Sign Out"
-msgstr "Cerrar la sesión"
+#~ msgid "Sign Out"
+#~ msgstr "Cerrar la sesión"
 
 #: app/views/layouts/application.html.haml:6
 msgid "Click here"
@@ -1790,3 +1785,30 @@ msgstr "http://www.ilabamericalatina.org/herramientas/nuntium"
 #: app/models/model_attributes.rb:77
 msgid "Password confirmation"
 msgstr "Confirma contraseña"
+
+#: app/views/layouts/application.html.haml:5
+#: app/views/layouts/application.html.haml:41
+msgid "Log Out"
+msgstr "Cerrar la sesión"
+
+#: app/views/home/index.html.haml:29
+msgid ""
+"Remindem requires a mobile phone to receive create account texts and send "
+"out reminders, though the Web app is used to create messages and schedule "
+"their delivery. To begin sending reminders, just download the free Nuntium "
+"application to your Android-powered phone (or to your computer, if you don't "
+"have an Android phone), making sure your phone has credit, Internet access, "
+"and mobile reception. Once your phone is connected to our server wirelessly "
+"or via your computer, Remindem automatically sends text messages to "
+"subscribers on your schedule."
+msgstr ""
+"Remindem requiere un teléfono móvil para recibir los SMS de registración y "
+"mandar recordatorios, si bien para crear mensajes de texto y programar su "
+"envío se utiliza la aplicación web respectiva. Para comenzar a enviar "
+"recordatorios simplemente descarga la aplicación gratuita Nuntium en tu "
+"teléfono Android (o en tu computadora, si no dispones de un Android), "
+"asegurándote de que éste tenga crédito, acceso a internet y una buena "
+"recepción. Una vez que tu teléfono esté conectado inalámbricamente a nuestro "
+"servidor, o bien a través de tu computadora, Remindem automáticamente "
+"comenzará a enviarles los SMS a tus suscriptores, según el cronograma "
+"preestablecido."

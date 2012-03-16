@@ -1,9 +1,9 @@
 RememberMe::Application.routes.draw do
-  
+
   scope "(:locale)", :locale => /#{Locales.available.keys.join('|')}/ do
-  
-    devise_for :users, :controllers => {:registrations => 'users/registrations' } do
-      get 'users/registrations/success', :to => 'users/registrations#success' 
+
+    devise_for :users, :controllers => {:registrations => 'users/registrations' }, :path_names => { :sign_in => "log_in", :sign_out => "log_out", :sign_up => "create_account" } do
+      get 'users/registrations/success', :to => 'users/registrations#success'
     end
 
     resources :schedules, :path => '/reminders' do
@@ -12,7 +12,7 @@ RememberMe::Application.routes.draw do
     end
 
     match :receive_at, :controller => "nuntium", :action => :receive_at
-  
+
     resources :channel, :only => [:create, :destroy]
     get "new_channel/:step", :action => :new, :controller => :channel, :as => "new_channel"
 
@@ -29,9 +29,9 @@ RememberMe::Application.routes.draw do
     match '/' => 'home#index',                  :as => 'home'
 
   end
-  
+
   root :to => 'home#index'
-  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
