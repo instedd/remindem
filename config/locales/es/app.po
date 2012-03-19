@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.6\n"
 "POT-Creation-Date: 2012-02-24 12:41-0300\n"
-"PO-Revision-Date: 2012-03-20 00:33+0200\n"
+"PO-Revision-Date: 2012-03-20 00:56+0200\n"
 "Last-Translator:  <mcoca@manas.com.ar>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: es\n"
@@ -1886,3 +1886,19 @@ msgstr "Mensaje eliminado: %{message}"
 #: app/models/schedule.rb:116
 msgid "Message updated: %{message}"
 msgstr "Mensaje actualizado: %{message}"
+
+#: app/models/model_attributes.rb:83
+msgid "can't be blank"
+msgstr "no puede estar en blanco"
+
+#: app/models/model_attributes.rb:84
+msgid "can't be greater than 2147483647"
+msgstr "no puede ser mayor a 2147483647"
+
+#: app/models/model_attributes.rb:82
+msgid "There are unsaved changes in your schedule!"
+msgstr "Hay cambios sin guardar en tu recordatorio!"
+
+#: app/models/model_attributes.rb:85
+msgid "can't be negative"
+msgstr "no puede ser negativo"

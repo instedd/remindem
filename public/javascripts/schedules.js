@@ -65,17 +65,17 @@ MessageControls.prototype.is_text_valid = function(){
 }
 
 MessageControls.prototype.show_text_errors_if_must = function(){
-  this.show_text_error_if('can\'t be blank', !this.is_text_present());
+  this.show_text_error_if(cant_be_blank, !this.is_text_present());
 }
 
 MessageControls.prototype.show_offset_errors_if_must = function(){
   if (this.must_check_offset()) {
-    this.show_offset_error_if('can\'t be blank', !this.is_offset_present());
+    this.show_offset_error_if(cant_be_blank, !this.is_offset_present());
     if (this.is_offset_present()) {
       if (this.is_offset_possitive()){
-        this.show_offset_error_if('can\'t be greater than 2147483647', !this.offset_fits_inside_an_integer());
+        this.show_offset_error_if(cant_be_greater_than_max, !this.offset_fits_inside_an_integer());
       } else {
-        this.show_offset_error_if('can\'t be negative', !this.is_offset_possitive());
+        this.show_offset_error_if(cant_be_negative, !this.is_offset_possitive());
       }
     }
   }
@@ -115,7 +115,7 @@ function assignMessageValues(dest, source) {
 }
 
 function showUnsavedChangesAlert(){
-	$.status.showError("There are unsaved changes in your schedule!")
+	$.status.showError(unsaved_changes)
 }
 
 function toggleOffset(){

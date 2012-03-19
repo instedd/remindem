@@ -15,6 +15,11 @@
       function timescaleToOneString(timescale) {
         return caseTimescale(timescale, "#{_('an hour')}", "#{_('a day')}", "#{_('a week')}", "#{_('a month')}", "#{_('a year')}", "");
       };
+      var unsaved_changes = "#{_('There are unsaved changes in your schedule!')}"
+      var cant_be_blank = "#{_('can\'t be blank')}"
+      var cant_be_greater_than_max = "#{_('can\'t be greater than 2147483647')}"
+      var cant_be_negative = "#{_('can\'t be negative')}"
+
     %link{:href => "/images/favicon.ico", :rel => "shortcut icon", :type => "image/x-icon"}/
     = render :partial =>"shared/analytics"
   %body{:class => ((@body_class || []) << I18n.locale).join(' ')}

@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.6.2\n"
-"POT-Creation-Date: 2012-03-19 16:57-0300\n"
+"POT-Creation-Date: 2012-03-19 19:54-0300\n"
 "PO-Revision-Date: 2011-11-24 18:13-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -202,7 +202,7 @@ msgstr ""
 
 #: app/views/community/index.html.haml:1
 #: app/views/layouts/application.html.haml:13
-#: app/views/layouts/application.html.haml:35
+#: app/views/layouts/application.html.haml:40
 msgid "Community"
 msgstr ""
 
@@ -638,7 +638,7 @@ msgid "Already a member? %s"
 msgstr ""
 
 #: app/views/home/index.html.haml:43
-#: app/views/layouts/application.html.haml:45
+#: app/views/layouts/application.html.haml:50
 msgid "Log in"
 msgstr ""
 
@@ -713,8 +713,8 @@ msgid "Remindem"
 msgstr ""
 
 #: app/views/layouts/application.html.haml:2
-#: app/views/layouts/application.html.haml:33
-#: app/views/layouts/application.html.haml:39
+#: app/views/layouts/application.html.haml:38
+#: app/views/layouts/application.html.haml:44
 #: app/views/schedules/index.html.haml:1 app/controllers/logs_controller.rb:7
 #: app/controllers/schedules_controller.rb:6
 #: app/controllers/subscribers_controller.rb:7
@@ -722,7 +722,7 @@ msgid "Reminders"
 msgstr ""
 
 #: app/views/layouts/application.html.haml:3
-#: app/views/layouts/application.html.haml:40
+#: app/views/layouts/application.html.haml:45
 #: app/views/shared/_schedule_tabs_and_title.html.haml:8
 #: app/controllers/schedules_controller.rb:55
 #: app/controllers/schedules_controller.rb:91
@@ -734,7 +734,7 @@ msgid "Report a bug"
 msgstr ""
 
 #: app/views/layouts/application.html.haml:5
-#: app/views/layouts/application.html.haml:41
+#: app/views/layouts/application.html.haml:46
 msgid "Log Out"
 msgstr ""
 
@@ -759,17 +759,17 @@ msgid "Contact us"
 msgstr ""
 
 #: app/views/layouts/application.html.haml:11
-#: app/views/layouts/application.html.haml:32
+#: app/views/layouts/application.html.haml:37
 msgid "Home"
 msgstr ""
 
 #: app/views/layouts/application.html.haml:12
-#: app/views/layouts/application.html.haml:34
+#: app/views/layouts/application.html.haml:39
 msgid "Tour"
 msgstr ""
 
 #: app/views/layouts/application.html.haml:14
-#: app/views/layouts/application.html.haml:36
+#: app/views/layouts/application.html.haml:41
 msgid "Help"
 msgstr ""
 
@@ -779,30 +779,30 @@ msgid ""
 "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:44
+#: app/views/layouts/application.html.haml:49
 #: app/views/users/registrations/new.html.haml:1
 #: app/views/users/registrations/new.html.haml:2
 msgid "Create account"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:52
+#: app/views/layouts/application.html.haml:57
 msgid ""
 "InSTEDD has created an evolving platform of free and open source "
 "technologies to support humanitarian causes. These tools can be used "
 "individually or as building blocks for larger solutions."
 msgstr ""
 
-#: app/views/layouts/application.html.haml:53
-#: app/views/layouts/application.html.haml:55
+#: app/views/layouts/application.html.haml:58
+#: app/views/layouts/application.html.haml:60
 #: app/models/model_attributes.rb:64
 msgid "http://instedd.org/technologies/"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:54
+#: app/views/layouts/application.html.haml:59
 msgid "to learn more"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:62
+#: app/views/layouts/application.html.haml:67
 msgid "Version %s"
 msgstr ""
 
@@ -1553,6 +1553,22 @@ msgstr ""
 
 #: app/models/model_attributes.rb:81
 msgid "Warning"
+msgstr ""
+
+#: app/models/model_attributes.rb:82
+msgid "There are unsaved changes in your schedule!"
+msgstr ""
+
+#: app/models/model_attributes.rb:83
+msgid "can't be blank"
+msgstr ""
+
+#: app/models/model_attributes.rb:84
+msgid "can't be greater than 2147483647"
+msgstr ""
+
+#: app/models/model_attributes.rb:85
+msgid "can't be negative"
 msgstr ""
 
 #: app/models/random_schedule.rb:18
