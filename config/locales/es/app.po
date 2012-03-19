@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.6\n"
 "POT-Creation-Date: 2012-02-24 12:41-0300\n"
-"PO-Revision-Date: 2012-03-16 21:45+0200\n"
+"PO-Revision-Date: 2012-03-20 00:33+0200\n"
 "Last-Translator:  <mcoca@manas.com.ar>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: es\n"
@@ -1834,3 +1834,55 @@ msgstr "No se pudo guardar este/a %{model} porque se encontró %{count} error"
 msgid "%{count} errors prohibited this %{model} from being saved:"
 msgstr ""
 "No se pudo guardar este/a %{model} porque se encontraron %{count} errores"
+
+#: app/models/model_attributes.rb:79
+msgid "Information"
+msgstr "Información"
+
+#: app/models/schedule.rb:100
+msgid "The message '%{body}' was sent to %{recipient}"
+msgstr "El mensaje '%{body}' ha sido enviado a %{recipient}"
+
+#: app/models/schedule.rb:166
+msgid "Schedule paused"
+msgstr "Recordatorio pausado"
+
+#: app/models/schedule.rb:152
+msgid "Welcome message has been updated: %{message}"
+msgstr "El mensaje de bienvenida ha sido actualizado: %{message}"
+
+#: app/models/schedule.rb:135
+msgid ""
+"The schedule %{keyword} has been deleted. You will no longer receive "
+"messages from this schedule."
+msgstr ""
+"El recordatorio %{keyword} ha sido eliminado. No recibirás mas mensajes de "
+"este recordatorio."
+
+#: app/models/schedule.rb:170
+msgid "Schedule resumed"
+msgstr "Recordatorio reanudado"
+
+#: app/models/model_attributes.rb:81
+msgid "Warning"
+msgstr "Advertencia"
+
+#: app/models/model_attributes.rb:80
+msgid "Error"
+msgstr "Error"
+
+#: app/models/schedule.rb:104
+msgid "New subscriber: %{subscriber}"
+msgstr "Nuevo suscriptor: %{subscriber}"
+
+#: app/models/schedule.rb:124
+msgid "Message created: %{message}"
+msgstr "Mensaje creado: %{message}"
+
+#: app/models/schedule.rb:120
+msgid "Message deleted: %{message}"
+msgstr "Mensaje eliminado: %{message}"
+
+#: app/models/schedule.rb:116
+msgid "Message updated: %{message}"
+msgstr "Mensaje actualizado: %{message}"

@@ -15,7 +15,7 @@
         - @logs.each do |log|
           %tr
             %td
-              %label{:class => log.severity}= log.severity.to_s.capitalize
+              %label{:class => log.severity}= _(log.severity.to_s.capitalize)
             %td
               - if log.description.size > 55
                 .ux-collapsible.switch.collapsed{"data-on-expanded" => "expanded"}

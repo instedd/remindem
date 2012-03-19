@@ -6,8 +6,8 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: 1.6.1\n"
-"POT-Creation-Date: 2012-03-16 16:44-0300\n"
+"Project-Id-Version: 1.6.2\n"
+"POT-Creation-Date: 2012-03-19 16:57-0300\n"
 "PO-Revision-Date: 2011-11-24 18:13-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1543,6 +1543,18 @@ msgstr ""
 msgid "errors"
 msgstr ""
 
+#: app/models/model_attributes.rb:79
+msgid "Information"
+msgstr ""
+
+#: app/models/model_attributes.rb:80
+msgid "Error"
+msgstr ""
+
+#: app/models/model_attributes.rb:81
+msgid "Warning"
+msgstr ""
+
 #: app/models/random_schedule.rb:18
 msgid "Random"
 msgstr ""
@@ -1565,4 +1577,42 @@ msgstr ""
 
 #: app/models/schedule.rb:60
 msgid "years"
+msgstr ""
+
+#: app/models/schedule.rb:100
+msgid "The message '%{body}' was sent to %{recipient}"
+msgstr ""
+
+#: app/models/schedule.rb:104
+msgid "New subscriber: %{subscriber}"
+msgstr ""
+
+#: app/models/schedule.rb:116
+msgid "Message updated: %{message}"
+msgstr ""
+
+#: app/models/schedule.rb:120
+msgid "Message deleted: %{message}"
+msgstr ""
+
+#: app/models/schedule.rb:124
+msgid "Message created: %{message}"
+msgstr ""
+
+#: app/models/schedule.rb:135
+msgid ""
+"The schedule %{keyword} has been deleted. You will no longer receive "
+"messages from this schedule."
+msgstr ""
+
+#: app/models/schedule.rb:152
+msgid "Welcome message has been updated: %{message}"
+msgstr ""
+
+#: app/models/schedule.rb:166
+msgid "Schedule paused"
+msgstr ""
+
+#: app/models/schedule.rb:170
+msgid "Schedule resumed"
 msgstr ""

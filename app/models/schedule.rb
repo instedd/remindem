@@ -97,11 +97,11 @@ class Schedule < ActiveRecord::Base
   end
 
   def log_message_sent body, recipient_number
-    create_information_log_described_by "The message '#{body}' was sent to #{recipient_number.without_protocol}"
+    create_information_log_described_by (_("The message '%{body}' was sent to %{recipient}") % {body: body, recipient: recipient_number.without_protocol})
   end
 
   def log_new_subscription_of recipient_number
-    create_information_log_described_by "New subscriber: #{recipient_number.without_protocol}"
+    create_information_log_described_by (_("New subscriber: %{subscriber}") % {subscriber: recipient_number.without_protocol})
   end
 
   def create_warning_log_described_by description
@@ -113,15 +113,15 @@ class Schedule < ActiveRecord::Base
   end
 
   def log_message_updated message
-    create_information_log_described_by "Message updated: #{message.text}"
+    create_information_log_described_by _("Message updated: %{message}") % {message: message.text}
   end
 
   def log_message_deleted message
-    create_information_log_described_by "Message deleted: #{message.text}"
+    create_information_log_described_by _("Message deleted: %{message}") % {message: message.text}
   end
 
   def log_message_created message
-    create_information_log_described_by "Message created: #{message.text}"
+    create_information_log_described_by _("Message created: %{message}") % {message: message.text}
   end
 
   def initialize_messages
@@ -132,7 +132,7 @@ class Schedule < ActiveRecord::Base
     if notifySubscribers
       subscribers.each do |subscriber|
         self.send_message(subscriber.phone_number,
-          "The schedule #{self.keyword} has been deleted. You will no longer receive messages from this schedule.")
+          (_("The schedule %{keyword} has been deleted. You will no longer receive messages from this schedule.") % {keyword: self.keyword}))
       end
     end
   end
@@ -149,7 +149,7 @@ class Schedule < ActiveRecord::Base
   end
 
    def log_welcome_message_updated
-    create_information_log_described_by "Welcome message has been updated: #{welcome_message}"
+    create_information_log_described_by (_("Welcome message has been updated: %{message}") % {message: welcome_message})
   end
 
   def log_if_paused_or_resumed
@@ -163,11 +163,11 @@ class Schedule < ActiveRecord::Base
   end
 
   def log_schedule_paused
-    create_information_log_described_by "Schedule paused"
+    create_information_log_described_by _("Schedule paused")
   end
 
   def log_schedule_resumed
-    create_information_log_described_by "Schedule resumed"
+    create_information_log_described_by _("Schedule resumed")
   end
 
   def mode_in_words
