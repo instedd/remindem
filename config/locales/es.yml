@@ -4,7 +4,12 @@
 #  - Tsutomu Kuroda - http://github.com/kuroda (t-kuroda@oiax.jp)
 # Corrected by Eloy Serra Labán: http://goo.gl/i9Kts, /nQ928, /XfKaX
 
-"es":
+es:
+  views:
+    pagination:
+      previous: "<span></span>"
+      next: "<span></span>"
+      truncate: "..."
   date:
     formats:
       default: "%d/%m/%Y"
