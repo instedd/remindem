@@ -160,8 +160,11 @@ function updateTimescaleLabels(new_value){
 	$('.timescale').text(capitalizedSingular(new_value));
 }
 
-function caseTimescale(value, hour, day, week, month, year, defaultCase){
+function caseTimescale(value, minute, hour, day, week, month, year, defaultCase){
 	switch (value){
+    case "minutes":
+    case "minute":
+      return minute
 		case "hours":
 		case "hour":
 			return hour;

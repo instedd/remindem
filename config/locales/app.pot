@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.6.2\n"
-"POT-Creation-Date: 2012-03-19 19:54-0300\n"
+"POT-Creation-Date: 2012-03-22 17:33-0300\n"
 "PO-Revision-Date: 2011-11-24 18:13-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,7 +51,7 @@ msgstr ""
 #: app/views/channel/_end_wizard.html.haml:7
 #: app/views/channel/_new_android_channel.html.haml:4
 #: app/views/channel/_new_desktop_channel.html.haml:4
-#: app/models/model_attributes.rb:76
+#: app/models/model_attributes.rb:72
 msgid "Finish"
 msgstr ""
 
@@ -171,7 +171,7 @@ msgstr ""
 
 #: app/views/channel/_no_channel.html.haml:2
 #: app/views/channel/_show_current_channel.html.haml:7
-#: app/views/tour/start.html.haml:4 app/models/model_attributes.rb:72
+#: app/views/tour/start.html.haml:4 app/models/model_attributes.rb:68
 msgid "learn More"
 msgstr ""
 
@@ -196,7 +196,7 @@ msgid "will help you to send reminders from your mobile phone, %s."
 msgstr ""
 
 #: app/views/channel/_show_current_channel.html.haml:8
-#: app/models/model_attributes.rb:71
+#: app/models/model_attributes.rb:67
 msgid "Change channel"
 msgstr ""
 
@@ -282,7 +282,7 @@ msgstr ""
 msgid "Log In"
 msgstr ""
 
-#: app/views/devise/shared/_links.haml:3 app/models/model_attributes.rb:60
+#: app/views/devise/shared/_links.haml:3 app/models/model_attributes.rb:56
 msgid "Reset it"
 msgstr ""
 
@@ -794,7 +794,7 @@ msgstr ""
 
 #: app/views/layouts/application.html.haml:58
 #: app/views/layouts/application.html.haml:60
-#: app/models/model_attributes.rb:64
+#: app/models/model_attributes.rb:60
 msgid "http://instedd.org/technologies/"
 msgstr ""
 
@@ -1022,7 +1022,7 @@ msgstr ""
 msgid "You have no Subscribers yet"
 msgstr ""
 
-#: app/views/subscribers/index.html.haml:19 app/models/model_attributes.rb:70
+#: app/views/subscribers/index.html.haml:19 app/models/model_attributes.rb:66
 msgid "Are you sure?"
 msgstr ""
 
@@ -1157,7 +1157,7 @@ msgstr ""
 msgid "will manage the flow of incoming and outgoing messages,"
 msgstr ""
 
-#: app/views/tour/start.html.haml:8 app/models/model_attributes.rb:65
+#: app/views/tour/start.html.haml:8 app/models/model_attributes.rb:61
 msgid "http://instedd.org/technologies/nuntium/"
 msgstr ""
 
@@ -1456,118 +1456,102 @@ msgid "(Only available if there are no subscribers)"
 msgstr ""
 
 #: app/models/model_attributes.rb:50
-msgid "an hour"
+msgid "a minute"
 msgstr ""
 
 #: app/models/model_attributes.rb:51
-msgid "a day"
+msgid "an hour"
 msgstr ""
 
 #: app/models/model_attributes.rb:52
-msgid "a week"
+msgid "a day"
 msgstr ""
 
 #: app/models/model_attributes.rb:53
-msgid "a month"
+msgid "a week"
 msgstr ""
 
 #: app/models/model_attributes.rb:54
-msgid "a year"
+msgid "a month"
 msgstr ""
 
 #: app/models/model_attributes.rb:55
-msgid "Hour"
-msgstr ""
-
-#: app/models/model_attributes.rb:56
-msgid "Day"
+msgid "a year"
 msgstr ""
 
 #: app/models/model_attributes.rb:57
-msgid "Week"
-msgstr ""
-
-#: app/models/model_attributes.rb:58
-msgid "Month"
-msgstr ""
-
-#: app/models/model_attributes.rb:59
-msgid "Year"
-msgstr ""
-
-#: app/models/model_attributes.rb:61
 msgid "Email"
 msgstr ""
 
-#: app/models/model_attributes.rb:62
+#: app/models/model_attributes.rb:58
 msgid "Password"
 msgstr ""
 
-#: app/models/model_attributes.rb:63
+#: app/models/model_attributes.rb:59
 msgid "Remember me"
 msgstr ""
 
-#: app/models/model_attributes.rb:66
+#: app/models/model_attributes.rb:62
 msgid "New password"
 msgstr ""
 
-#: app/models/model_attributes.rb:67
+#: app/models/model_attributes.rb:63
 msgid "Confirm new password"
 msgstr ""
 
-#: app/models/model_attributes.rb:68
+#: app/models/model_attributes.rb:64
 msgid "Current password"
 msgstr ""
 
-#: app/models/model_attributes.rb:69
+#: app/models/model_attributes.rb:65
 msgid "Delete my account"
 msgstr ""
 
-#: app/models/model_attributes.rb:73
+#: app/models/model_attributes.rb:69
 msgid "Show All"
 msgstr ""
 
-#: app/models/model_attributes.rb:74
+#: app/models/model_attributes.rb:70
 msgid "Paused"
 msgstr ""
 
-#: app/models/model_attributes.rb:75
+#: app/models/model_attributes.rb:71
 msgid "Running"
 msgstr ""
 
-#: app/models/model_attributes.rb:77
+#: app/models/model_attributes.rb:73
 msgid "Password confirmation"
 msgstr ""
 
-#: app/models/model_attributes.rb:78
+#: app/models/model_attributes.rb:74
 msgid "errors"
 msgstr ""
 
-#: app/models/model_attributes.rb:79
+#: app/models/model_attributes.rb:75
 msgid "Information"
 msgstr ""
 
-#: app/models/model_attributes.rb:80
+#: app/models/model_attributes.rb:76
 msgid "Error"
 msgstr ""
 
-#: app/models/model_attributes.rb:81
+#: app/models/model_attributes.rb:77
 msgid "Warning"
 msgstr ""
 
-#: app/models/model_attributes.rb:82
+#: app/models/model_attributes.rb:78
 msgid "There are unsaved changes in your schedule!"
 msgstr ""
 
-#: app/models/model_attributes.rb:83
+#: app/models/model_attributes.rb:79
 msgid "can't be blank"
 msgstr ""
 
-#: app/models/model_attributes.rb:84
+#: app/models/model_attributes.rb:80
 msgid "can't be greater than 2147483647"
 msgstr ""
 
-#: app/models/model_attributes.rb:85
+#: app/models/model_attributes.rb:81
 msgid "can't be negative"
 msgstr ""
 
@@ -1576,23 +1560,27 @@ msgid "Random"
 msgstr ""
 
 #: app/models/schedule.rb:60
-msgid "hours"
+msgid "Minutes"
 msgstr ""
 
 #: app/models/schedule.rb:60
-msgid "days"
+msgid "Hours"
 msgstr ""
 
 #: app/models/schedule.rb:60
-msgid "weeks"
+msgid "Days"
 msgstr ""
 
 #: app/models/schedule.rb:60
-msgid "months"
+msgid "Weeks"
 msgstr ""
 
 #: app/models/schedule.rb:60
-msgid "years"
+msgid "Months"
+msgstr ""
+
+#: app/models/schedule.rb:60
+msgid "Years"
 msgstr ""
 
 #: app/models/schedule.rb:100

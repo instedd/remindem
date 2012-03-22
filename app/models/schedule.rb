@@ -57,7 +57,7 @@ class Schedule < ActiveRecord::Base
   end
 
   def self.time_scale_options
-    [[_('hours'), 'hours'], [_('days'), 'days'], [_('weeks'), 'weeks'], [_('months'), 'months'], [_('years'), 'years']]
+    [[_('Minutes'), 'minutes'], [_('Hours'), 'hours'], [_('Days'), 'days'], [_('Weeks'), 'weeks'], [_('Months'), 'months'], [_('Years'), 'years']]
   end
 
   def build_message to, body

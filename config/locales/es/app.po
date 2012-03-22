@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.6\n"
 "POT-Creation-Date: 2012-02-24 12:41-0300\n"
-"PO-Revision-Date: 2012-03-20 00:56+0200\n"
+"PO-Revision-Date: 2012-03-22 22:34+0200\n"
 "Last-Translator:  <mcoca@manas.com.ar>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: es\n"
@@ -1377,25 +1377,20 @@ msgstr "Cronograma"
 msgid "Random"
 msgstr "Aleatorio"
 
-#: app/models/schedule.rb:60
-msgid "hours"
-msgstr "horas"
+#~ msgid "hours"
+#~ msgstr "horas"
 
-#: app/models/schedule.rb:60
-msgid "days"
-msgstr "días"
+#~ msgid "days"
+#~ msgstr "días"
 
-#: app/models/schedule.rb:60
-msgid "weeks"
-msgstr "semanas"
+#~ msgid "weeks"
+#~ msgstr "semanas"
 
-#: app/models/schedule.rb:60
-msgid "months"
-msgstr "meses"
+#~ msgid "months"
+#~ msgstr "meses"
 
-#: app/models/schedule.rb:60
-msgid "years"
-msgstr "años"
+#~ msgid "years"
+#~ msgstr "años"
 
 #: app/models/model_attributes.rb:27
 msgid "User|Remember created at"
@@ -1626,9 +1621,8 @@ msgstr "Escribe aquí tu mensaje de bienvenida"
 msgid "Random Once"
 msgstr "Aleatorio cada"
 
-#: app/models/model_attributes.rb:57
-msgid "Week"
-msgstr "Semana"
+#~ msgid "Week"
+#~ msgstr "Semana"
 
 #: app/models/model_attributes.rb:50
 msgid "an hour"
@@ -1646,9 +1640,8 @@ msgstr ""
 msgid "a week"
 msgstr "una semana"
 
-#: app/models/model_attributes.rb:55
-msgid "Hour"
-msgstr "Hora"
+#~ msgid "Hour"
+#~ msgstr "Hora"
 
 #: app/models/model_attributes.rb:53
 msgid "a month"
@@ -1658,9 +1651,8 @@ msgstr "un mes"
 msgid "a day"
 msgstr "un día"
 
-#: app/models/model_attributes.rb:58
-msgid "Month"
-msgstr "Mes"
+#~ msgid "Month"
+#~ msgstr "Mes"
 
 #: app/models/model_attributes.rb:49
 msgid "(Only available if there are no subscribers)"
@@ -1670,13 +1662,11 @@ msgstr "(Disponible únicamente si no hay suscriptores)"
 msgid "a year"
 msgstr "un año"
 
-#: app/models/model_attributes.rb:59
-msgid "Year"
-msgstr "Año"
+#~ msgid "Year"
+#~ msgstr "Año"
 
-#: app/models/model_attributes.rb:56
-msgid "Day"
-msgstr "Día"
+#~ msgid "Day"
+#~ msgstr "Día"
 
 #~ msgid "Reset it"
 #~ msgstr "Restablecerla "
@@ -1902,3 +1892,37 @@ msgstr "Hay cambios sin guardar en tu recordatorio!"
 #: app/models/model_attributes.rb:85
 msgid "can't be negative"
 msgstr "no puede ser negativo"
+
+#~ msgid "minutes"
+#~ msgstr "minutos"
+
+#~ msgid "Minute"
+#~ msgstr "Minuto"
+
+#: app/models/model_attributes.rb:50
+msgid "a minute"
+msgstr "un minuto"
+
+#: app/models/schedule.rb:60
+msgid "Months"
+msgstr "Meses"
+
+#: app/models/schedule.rb:60
+msgid "Days"
+msgstr "Días"
+
+#: app/models/schedule.rb:60
+msgid "Years"
+msgstr "Años"
+
+#: app/models/schedule.rb:60
+msgid "Hours"
+msgstr "Horas"
+
+#: app/models/schedule.rb:60
+msgid "Weeks"
+msgstr "Semanas"
+
+#: app/models/schedule.rb:60
+msgid "Minutes"
+msgstr "Minutos"

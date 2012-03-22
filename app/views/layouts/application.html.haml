@@ -10,10 +10,10 @@
     = yield(:head)
     :javascript
       function capitalizedSingular(timescale) {
-        return caseTimescale(timescale, "#{_('hours')}", "#{_('days')}", "#{_('weeks')}", "#{_('months')}", "#{_('years')}", "");
+        return caseTimescale(timescale,"#{_('minutes')}", "#{_('hours')}", "#{_('days')}", "#{_('weeks')}", "#{_('months')}", "#{_('years')}", "");
       };
       function timescaleToOneString(timescale) {
-        return caseTimescale(timescale, "#{_('an hour')}", "#{_('a day')}", "#{_('a week')}", "#{_('a month')}", "#{_('a year')}", "");
+        return caseTimescale(timescale, "#{_('a minute')}", "#{_('an hour')}", "#{_('a day')}", "#{_('a week')}", "#{_('a month')}", "#{_('a year')}", "");
       };
       var unsaved_changes = "#{_('There are unsaved changes in your schedule!')}"
       var cant_be_blank = "#{_('can\'t be blank')}"
