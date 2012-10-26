@@ -38,7 +38,7 @@ RememberMe::Application.routes.draw do
     match 'help' => 'help#faq'
     match 'community' => 'community#index'
 
-    get  'createAccount', :to => redirect('/%{locale}/users/sign_up'), :defaults => { :locale => 'en' }
+    get  'createAccount', :to => redirect('/%{locale}/users/create_account'), :defaults => { :locale => 'en' }
     get  'discuss',       :to => redirect(RememberMe::Application.config.user_group_url)
     get  'backlog',       :to => redirect(RememberMe::Application.config.backlog_url)
 
