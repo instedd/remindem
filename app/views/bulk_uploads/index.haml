@@ -1,0 +1,38 @@
+%h1 Bulk upload
+
+%p Choose a CSV file to upload, containing subscriptions to reminders in the account. The file must have the following fields:
+
+%ol
+  %li Subscriptor phone number
+  %li Keyword of the reminder to subscribe to
+  %li Subscription offset (optional)
+
+%p For example:
+%pre
+  :preserve
+    555-1000, PREGNANCY, 5
+    555-2000, HELLO, 0
+
+%hr
+
+= form_tag bulk_uploads_path, multipart: true do
+  %p
+    = label_tag :file, "File to upload: "
+  %p
+    = file_field_tag :file
+    = submit_tag _("Upload")
+
+- if @upload && !upload.valid?
+  %hr
+  %h2 Errors
+  %p The following errors were found, please correct them and re-upload the file.
+
+  %dl
+    - @upload.subscriptions.each do |s|
+      - if s.errors.any?
+        %dt
+          In line
+          = s.index
+        %dd
+          = errors.full_messages.join("; ")
+

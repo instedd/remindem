@@ -54,4 +54,7 @@
           = link_to _('Create Reminder'), new_schedule_path
         %td
           = link_button_to '', new_schedule_path, :class => 'cadd'
+
+%p= link_to _("Subscribers bulk upload"), bulk_uploads_path, :class => 'farrow'
+
 = render :partial => 'channel/user_channel'

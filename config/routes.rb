@@ -31,7 +31,11 @@ RememberMe::Application.routes.draw do
     match :receive_at, :controller => "nuntium", :action => :receive_at
 
     resources :channel, :only => [:create, :destroy]
+
     get "new_channel/:step", :action => :new, :controller => :channel, :as => "new_channel"
+
+    get  'bulk_uploads', :action => :index,  :controller => :bulk_uploads, :as => "bulk_uploads"
+    post 'bulk_uploads', :action => :upload, :controller => :bulk_uploads, :as => "bulk_uploads"
 
     match 'tour/:page' => 'tour#show', :as => :tour
     match 'tour' => 'tour#index'

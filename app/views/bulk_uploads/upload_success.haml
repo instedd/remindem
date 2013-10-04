@@ -1,0 +1,7 @@
+%h1 Bulk upload
+
+%p The upload was completed successfully. The following subscriptions were made:
+
+%ul
+  - @upload.subscriptions.each do |s|
+    %li= s.action_description
