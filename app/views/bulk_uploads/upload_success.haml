@@ -5,3 +5,8 @@
 %ul
   - @upload.subscriptions.each do |s|
     %li= s.action_description
+
+%hr
+
+.actions
+  = link_to _('Back to reminders'), schedules_path

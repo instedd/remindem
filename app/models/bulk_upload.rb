@@ -2,26 +2,31 @@ require 'csv'
 
 class BulkUpload
 
-  attr_accessor :subscriptions, :user
+  attr_accessor :subscriptions, :user, :time, :unsubscribe
 
-  def initialize(user)
+  def initialize(user, opts={})
     @user = user
+    @time = opts[:time]
+    @unsubscribe = opts[:unsubscribe]
     @subscriptions ||= []
+
+    load_from_csv(opts[:file]) if opts[:file]
   end
 
-  def self.from_csv(file, user)
-    upload = self.new(user)
-    index = 0
+  def load_from_csv(file)
+    index = 1
     CSV.foreach(file.path, headers: false) do |row|
-      upload.subscriptions << SubscriptionIntent.new(
+      subscriptions << SubscriptionIntent.new(
         owner: user,
         index: index,
+        unique: unsubscribe,
+        time: time,
         subscriber: row[0],
         keyword: row[1],
         offset: row[2])
       index += 1
     end
-    upload
+    self
   end
 
   def valid?
@@ -37,13 +42,18 @@ class BulkUpload
   class SubscriptionIntent
     include ActiveModel::Validations
 
-    attr_accessor :user, :index, :subscriber, :keyword, :offset, :unique, :created
+    attr_accessor :user, :index, :time, :subscriber, :keyword, :offset, :unique, :created
 
-    validates :phone_number, length: { minimum: 5}
+    validates :phone_number, length: { minimum: 5 }
     validates :offset, numericality: true
 
-    validate :keyword do |r|
+    validate :keyword do
       errors.add(:keyword, _("Reminder with keyword #{keyword} not found")) unless schedule
+    end
+
+    validate :time do
+      errors.add(:time, _("Invalid hour specified")) if subscribed_at.blank?
+      errors.add(:time, _("Time of day cannot be 00:00 hs")) if subscribed_at && subscribed_at.hour == 0
     end
 
     def initialize(attrs={})
@@ -53,6 +63,7 @@ class BulkUpload
       @keyword = attrs[:keyword]
       @offset = attrs[:offset].try(:to_i) || 0
       @unique = attrs[:unique]
+      @time = attrs[:time]
     end
 
     def valid?
@@ -63,14 +74,20 @@ class BulkUpload
       subscriber.gsub(/[^\d]/, '')
     end
 
+    def subscribed_at
+      @subscribed_at ||= time.blank? ? Time.now.utc : Time.now.utc.change(hour: time.to_i, minute: 0, second: 0)
+    rescue
+      nil
+    end
+
     def schedule
       @schedule ||= user.schedules.find_by_keyword(keyword.strip)
     end
 
     def action_description
       if created
-        "Subscribe %{phone_number} to reminder %{reminder} (%{keyword}) with offset %{offset}" \
-          % {phone_number: phone_number, reminder: schedule.title, keyword: schedule.keyword, offset: offset}
+        "Subscribed %{phone_number} to reminder %{reminder} (%{keyword}) with offset %{offset} on time %{time}" \
+          % {phone_number: phone_number, reminder: schedule.title, keyword: schedule.keyword, offset: offset, time: subscribed_at.to_s(:time)}
       else
         "Subscriber %{phone_number} in reminder %{reminder} (%{keyword}) was already subscribed" \
           % {phone_number: phone_number, reminder: schedule.title, keyword: schedule.keyword}
@@ -86,9 +103,9 @@ class BulkUpload
                         :phone_number => phone_number,
                         :offset => offset,
                         :schedule => schedule,
-                        :subscribed_at => Time.now.utc)
+                        :subscribed_at => subscribed_at)
 
-      created = true
+      self.created = true
     end
 
     def unsubscribe_all!

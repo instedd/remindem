@@ -14,13 +14,27 @@
     555-2000, HELLO, 0
 
 %hr
+%br/
 
 = form_tag bulk_uploads_path, multipart: true do
-  %p
-    = label_tag :file, "File to upload: "
-  %p
+  .field
+    = label_tag :file, "File"
+    %p CSV file with the required format
     = file_field_tag :file
-    = submit_tag _("Upload")
+  .field
+    = label_tag :time, "Message time of day"
+    %p Messages will be sent to the subscribers at this hour of the day (GMT), or use the current time if left blank.
+    = text_field_tag :time, '', type: 'number', min: 1, max: 24
+    hours GMT
+  .field
+    = label_tag nil, "Unsubscribe from other reminders"
+    %p If checked, subscribers will be unsubscribed from all other reminders in this account before subscribing them to the specified one.
+    = check_box_tag :unsubscribe, true, false
+    = label_tag :unsubscribe, "Unsubscribe", class: 'radio'
+
+  .actions
+    %button.white{:type => "submit"} Upload
+    = link_to _('Cancel'), schedules_path
 
 - if @upload && !upload.valid?
   %hr

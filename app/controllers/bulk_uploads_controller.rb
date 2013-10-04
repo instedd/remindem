@@ -10,7 +10,7 @@ class BulkUploadsController < AuthenticatedController
   end
 
   def upload
-    @upload = BulkUpload.from_csv(params[:file], current_user)
+    @upload = BulkUpload.new(current_user, params)
     if @upload.valid?
       @upload.process!
       render 'upload_success'
