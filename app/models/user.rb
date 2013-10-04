@@ -1,17 +1,17 @@
 # Copyright (C) 2011-2012, InSTEDD
-# 
+#
 # This file is part of Remindem.
-# 
+#
 # Remindem is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
-# 
+#
 # Remindem is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with Remindem.  If not, see <http://www.gnu.org/licenses/>.
 
@@ -30,11 +30,13 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  
+
   has_many :schedules, :dependent => :destroy
-  
+
   has_one :channel, :dependent => :destroy
-  
+
+  serialize :features, Hash
+
   def register_channel(code)
     raise Nuntium::Exception.new("There were problems creating the channel", "Ticket code" => "Mustn't be blank") if code.blank?
     remove_old_channel
@@ -42,24 +44,24 @@ class User < ActiveRecord::Base
     channel = self.build_channel :name => new_channel_info["name"], :address => new_channel_info["address"]
     channel.save!
   end
-  
+
   def build_message(to, body)
     { :from => "remindem".with_protocol, :to => to, :body => body, :'x-remindem-user' => self.email }
   end
-  
+
   def remove_old_channel
     channel = Channel.find_by_user_id(self.id)
     channel.destroy  unless channel.nil?
   end
-  
+
   def create_nuntium_channel_for code
-    Nuntium.new_from_config.create_channel({ 
-      :name => self.email.to_channel_name, 
-      :ticket_code => code, 
+    Nuntium.new_from_config.create_channel({
+      :name => self.email.to_channel_name,
+      :ticket_code => code,
       :ticket_message => "This gateway will be used for reminders written by #{self.email}",
       :at_rules => [{
-        'matchings' => [], 
-        'actions' => [{ 'property' => 'x-remindem-user', 'value' => self.email }], 
+        'matchings' => [],
+        'actions' => [{ 'property' => 'x-remindem-user', 'value' => self.email }],
         'stop' => false}],
       :restrictions => [{ 'name' => 'x-remindem-user', 'value' => self.email }],
       :kind => 'qst_server',
@@ -69,5 +71,21 @@ class User < ActiveRecord::Base
       :enabled => true
     })
   end
-  
+
+  def feature_enabled?(feature)
+    features && features[feature.to_s]
+  end
+
+  def enable_feature!(feature)
+    self.features ||= {}
+    self.features[feature.to_s] = true
+    save!
+  end
+
+  def disable_feature!(feature)
+    self.features ||= {}
+    self.features[feature.to_s] = false
+    save!
+  end
+
 end

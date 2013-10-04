@@ -55,6 +55,7 @@
         %td
           = link_button_to '', new_schedule_path, :class => 'cadd'
 
-%p= link_to _("Subscribers bulk upload"), bulk_uploads_path, :class => 'farrow'
+- if current_user.feature_enabled?(:bulk_upload)
+  %p= link_to _("Subscribers bulk upload"), bulk_uploads_path, :class => 'farrow'
 
 = render :partial => 'channel/user_channel'
