@@ -4,7 +4,7 @@ class BulkUploadsController < AuthenticatedController
   add_breadcrumb _("Bulk Upload"), :bulk_uploads_path
 
   before_filter do
-    @show_breadcrum = true
+    @show_breadcrumb = true
   end
 
   def index

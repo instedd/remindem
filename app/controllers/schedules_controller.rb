@@ -1,17 +1,17 @@
 # Copyright (C) 2011-2012, InSTEDD
-# 
+#
 # This file is part of Remindem.
-# 
+#
 # Remindem is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
-# 
+#
 # Remindem is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with Remindem.  If not, see <http://www.gnu.org/licenses/>.
 
@@ -19,7 +19,7 @@ class SchedulesController < AuthenticatedController
 
   def initialize
     super
-    @show_breadcrum = true
+    @show_breadcrumb = true
     add_breadcrumb _("Reminders"), :schedules_path
   end
 
@@ -27,7 +27,7 @@ class SchedulesController < AuthenticatedController
   # GET /schedules.xml
   def index
     @at_least_one_schedule_is_paused = !Schedule.where(:user_id => current_user.id, :paused => true).empty?
-    
+
     @schedules = if params[:show] == 'all' || params[:show].nil?
         Schedule.where(:user_id => current_user.id)
       else
@@ -40,13 +40,13 @@ class SchedulesController < AuthenticatedController
       format.xml  { render :xml => @schedules }
     end
   end
-  
+
   # GET /schedules/1
   # GET /schedules/1.xml
   def show
     @schedule = Schedule.find(params[:id])
     add_breadcrumb @schedule.title, schedule_path(params[:id])
-    
+
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @schedule }
@@ -78,7 +78,7 @@ class SchedulesController < AuthenticatedController
   def create
     params[:schedule][:user] = current_user
     @schedule = params[:schedule][:type].constantize.new(params[:schedule])
-    
+
     respond_to do |format|
       if @schedule.save
         format.html { redirect_to(schedule_url(@schedule), :notice => _('Schedule was successfully created.')) }
@@ -95,10 +95,10 @@ class SchedulesController < AuthenticatedController
   # PUT /schedules/1.xml
   def update
     @schedule = Schedule.find(params[:id])
-    
+
     #Type needs to be manually set because it's protected, thus update_attributes doesn't affect it
     @schedule.type = params[:schedule][:type] unless params[:schedule][:type].blank?
-    
+
     respond_to do |format|
       if @schedule.update_attributes(params[:schedule])
         format.html { redirect_to(schedule_url(@schedule), :notice => _('Schedule was successfully updated.')) }
@@ -106,7 +106,7 @@ class SchedulesController < AuthenticatedController
       else
         add_breadcrumb @schedule.title, schedule_path(params[:id])
         add_breadcrumb _("Settings"), edit_schedule_path(params[:id])
-        
+
         format.html { render :action => "edit" }
         format.xml  { render :xml => @schedule.errors, :status => :unprocessable_entity }
       end
