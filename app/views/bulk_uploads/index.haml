@@ -36,7 +36,7 @@
     %button.white{:type => "submit"} Upload
     = link_to _('Cancel'), schedules_path
 
-- if @upload && !upload.valid?
+- if @upload && !@upload.valid?
   %hr
   %h2 Errors
   %p The following errors were found, please correct them and re-upload the file.
@@ -48,5 +48,5 @@
           In line
           = s.index
         %dd
-          = errors.full_messages.join("; ")
+          = s.errors.full_messages.join("; ")
 

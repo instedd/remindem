@@ -48,7 +48,7 @@ class BulkUpload
     validates :offset, numericality: true
 
     validate :keyword do
-      errors.add(:keyword, _("Reminder with keyword #{keyword} not found")) unless schedule
+      errors.add(:keyword, _("#{keyword} not found in any reminder")) unless schedule
     end
 
     validate :time do
@@ -64,10 +64,6 @@ class BulkUpload
       @offset = attrs[:offset].try(:to_i) || 0
       @unique = attrs[:unique]
       @time = attrs[:time]
-    end
-
-    def valid?
-      phone_number.size > 5
     end
 
     def phone_number
