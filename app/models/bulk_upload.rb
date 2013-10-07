@@ -44,7 +44,7 @@ class BulkUpload
 
     attr_accessor :user, :index, :time, :subscriber, :keyword, :offset, :unique, :created
 
-    validates :phone_number, length: { minimum: 5 }
+    validates :phone_number, length: { minimum: 8 }
     validates :offset, numericality: true
 
     validate :keyword do
@@ -67,7 +67,7 @@ class BulkUpload
     end
 
     def phone_number
-      subscriber.gsub(/[^\d]/, '')
+      subscriber.gsub(/[^\d]/, '').with_protocol
     end
 
     def subscribed_at
