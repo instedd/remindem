@@ -1,1 +1,1 @@
-worker: RAILS_ENV=production bundle exec script/delayed_job start
+worker: bundle exec rake jobs:work
