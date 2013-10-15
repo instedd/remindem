@@ -34,8 +34,10 @@ namespace :deploy do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
 
-  task :symlink_nuntium_config, :roles => :app do
-    run "ln -nfs #{shared_path}/nuntium.yml #{release_path}/config/"
+  task :symlink_configs, :roles => :app do
+    %W(database nuntium).each do |file|
+      run "ln -nfs #{shared_path}/#{file}.yml #{release_path}/config/"
+    end
   end
 end
 
@@ -67,6 +69,6 @@ end
 
 before "deploy:start", "deploy:migrate"
 before "deploy:restart", "deploy:migrate"
-after "deploy:update_code", "deploy:symlink_nuntium_config"
+after "deploy:update_code", "deploy:symlink_configs"
 after "deploy:update", "foreman:export"
 after "deploy:restart", "foreman:restart"
