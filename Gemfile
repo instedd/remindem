@@ -13,6 +13,7 @@ gem 'client_side_validations'
 gem "ice_cube", "~> 0.6.13"
 gem "symbolize"
 gem 'kaminari'
+gem 'foreman'
 
 group :development, :test do
   gem "rand", "~> 0.9.1"
