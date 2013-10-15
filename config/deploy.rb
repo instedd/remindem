@@ -24,6 +24,7 @@ set :application, "remindem"
 set :repository,  "https://bitbucket.org/instedd/remindem.git"
 set :scm, :git
 set :deploy_via, :remote_cache
+set :user, 'ubuntu'
 default_environment['TERM'] = ENV['TERM']
 
 namespace :deploy do
@@ -45,7 +46,7 @@ namespace :foreman do
     concurrency = "worker=1"
     procfile = "Procfile"
     run "echo -e \"#{env.map{|k,v| "#{k}=#{v}"}.join("\\n")}\" >  #{current_path}/.env"
-    run "cd #{current_path} && rvmsudo bundle exec foreman export upstart /etc/init -l #{shared_path}/log -f #{current_path}/#{procfile} -t #{current_path}/config/upstart/ -a #{application} -u #{user} --concurrency=\"#{concurrency}\""
+    run "cd #{current_path} && rvmsudo bundle exec foreman export upstart /etc/init -l #{shared_path}/log -f #{current_path}/#{procfile} -a #{application} -u #{user} --concurrency=\"#{concurrency}\""
   end
 
   desc "Start the application services"
