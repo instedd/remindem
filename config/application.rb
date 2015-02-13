@@ -1,19 +1,19 @@
 #encoding: utf-8
 
 # Copyright (C) 2011-2012, InSTEDD
-# 
+#
 # This file is part of Remindem.
-# 
+#
 # Remindem is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
-# 
+#
 # Remindem is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with Remindem.  If not, see <http://www.gnu.org/licenses/>.
 
@@ -79,7 +79,7 @@ module RememberMe
     config.default_locale = :en
 
     # Gettext configuration
-    FastGettext.add_text_domain 'app', :path => 'config/locales', :type => :po, :ignore_fuzzy => true, :ignore_obsolte => true
+    FastGettext.add_text_domain 'app', :path => 'config/locales', :type => :po, :ignore_fuzzy => true, :ignore_obsolete => true
     FastGettext.default_available_locales = config.available_locales.keys.map(&:to_s)
     FastGettext.default_text_domain = 'app'
     FastGettext.default_locale = 'en'
