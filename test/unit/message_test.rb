@@ -1,24 +1,30 @@
 # Copyright (C) 2011-2012, InSTEDD
-# 
+#
 # This file is part of Remindem.
-# 
+#
 # Remindem is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
-# 
+#
 # Remindem is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with Remindem.  If not, see <http://www.gnu.org/licenses/>.
 
 require 'test_helper'
 
 class MessageTest < ActiveSupport::TestCase
-    
+
+  test "should be able to process rule" do
+    schedule = CalendarBasedSchedule.make
+    message = schedule.messages.create! :text => 'msg1' , :occurrence_rule => IceCube::Rule.weekly.day(:friday)
+    assert message.rule.kind_of?(IceCube::Rule)
+  end
+
   test "should be able to create message for random schedules without offset" do
     schedule = RandomSchedule.make
     message = schedule.messages.create :text => 'lorem'
@@ -42,105 +48,105 @@ class MessageTest < ActiveSupport::TestCase
     message = schedule.messages.create :text => 'lorem', :offset => '-1'
     assert !message.valid?
   end
-  
+
   test "updated message bodies are also updated in DJ queue" do
     #setup
     pregnant = pregnant_make
-    
+
     #edit message text
     aSubscriber = pregnant.subscribers.find(:first)
     pregnant.generate_reminders_for aSubscriber
-    
+
     #grab the first message and edit it
     firstMessageID = pregnant.messages.find(:first).id
     message = pregnant.messages.find(firstMessageID)
     message.text = "Changed Message"
     message.save!
-    
+
     Delayed::Job.where("message_id = '#{firstMessageID}'").each do |x|
       assert_equal "Changed Message", Message.find(x.message_id).text
     end
   end
-  
+
   test "deleted messages are removed from DJ queue" do
     #setup
     pregnant = pregnant_make
-    
+
     aSubscriber = pregnant.subscribers.find_by_offset(0)
     bSubscriber = pregnant.subscribers.find_by_offset(2)
     pregnant.generate_reminders_for aSubscriber
     pregnant.generate_reminders_for bSubscriber
-    
+
     #delete message with given id
     firstMessageID = pregnant.messages.find(:first).id
     message = pregnant.messages.find(firstMessageID)
-    
+
     assert_equal 2, Delayed::Job.where("message_id = '#{firstMessageID}'").size
-    
+
     message.destroy
-    
+
     assert_equal 0, Delayed::Job.where("message_id = '#{firstMessageID}'").size
   end
-  
+
   test "messages updated to be sent in the past are deleted" do
     #setup
     pregnant = pregnant_make
-    
+
     aSubscriber = pregnant.subscribers.find_by_offset(0)
     bSubscriber = pregnant.subscribers.find_by_offset(2)
     pregnant.generate_reminders_for aSubscriber
     pregnant.generate_reminders_for bSubscriber
-    
+
     #grab a message
     message = pregnant.messages.first
-    
+
     assert_equal 2, Delayed::Job.find_all_by_message_id(message.id).size
-    
+
     #schedule it for the past
     message.offset = 1
     message.save!
-    
+
     #verify that any messages are removed from the queue since they should no longer be sent
     assert_equal 1, Delayed::Job.find_all_by_message_id(message.id).size
   end
-  
+
   test "messages updated to be sent in the future are rescheduled" do
     #setup
     pregnant = pregnant_make
-    
+
     aSubscriber = pregnant.subscribers.find_by_offset(0)
     bSubscriber = pregnant.subscribers.find_by_offset(2)
     pregnant.generate_reminders_for aSubscriber
     pregnant.generate_reminders_for bSubscriber
-    
+
     #grab a message
     message = pregnant.messages.first
-    
+
     assert_equal 2, Delayed::Job.find_all_by_message_id(message.id).size
-    
+
     #schedule it for the future
     message.offset = 28
     message.save!
-    
+
     #verify that the messages remain in the queue
     assert_equal 2, Delayed::Job.find_all_by_message_id(message.id).size
-    
+
     #verify that the run_at fields have been updated to reflect the new offset
     assert_in_delta aSubscriber.reference_time + 28.weeks, Delayed::Job.find_by_message_id_and_subscriber_id(message.id, aSubscriber.id).run_at, 5
     assert_in_delta bSubscriber.reference_time + 28.weeks, Delayed::Job.find_by_message_id_and_subscriber_id(message.id, bSubscriber.id).run_at, 5
   end
-  
+
   test "add a message to a schedule adds delayed job" do
     #setup
     pregnant = pregnant_make
     aSubscriber = pregnant.subscribers.find_by_offset(0)
     bSubscriber = pregnant.subscribers.find_by_offset(2)
-    
+
     #add a message
     message = pregnant.messages.create! :text => 'pregnant5', :offset => 1
-    
+
     assert_equal 1, Delayed::Job.find_all_by_message_id(message.id).size #there should be two DJ for the two subscribers
-    
+
     assert_in_delta aSubscriber.reference_time + 1.weeks, Delayed::Job.find_by_message_id_and_subscriber_id(message.id, aSubscriber.id).run_at, 5
   end
 end

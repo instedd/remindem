@@ -19,6 +19,11 @@ require 'test_helper'
 
 class ScheduleTest < ActiveSupport::TestCase
 
+  test "notifies subscribers by default" do
+    schedule = Schedule.new
+    assert schedule.notifySubscribers
+  end
+
   test "validate presence of required fields in schedule" do
     schedule = Schedule.new
     schedule.save

@@ -1,11 +1,11 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.7'
+gem 'rails', '3.2.21'
 gem 'haml-rails'
 
-gem 'mysql2', '< 0.3'
+gem 'mysql2'
 gem 'devise'
-gem 'delayed_job'
+gem 'delayed_job_active_record'
 gem 'nuntium_api', '>=0.12'
 gem 'jquery-rails'
 gem 'client_side_validations'
@@ -22,6 +22,7 @@ group :development, :test do
   gem 'ffaker'
   gem 'machinist'
   gem 'ci_reporter'
+  gem 'pry-debugger'
 end
 
 gem 'breadcrumbs_on_rails'
