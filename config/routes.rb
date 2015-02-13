@@ -19,9 +19,11 @@ RememberMe::Application.routes.draw do
 
   scope "(:locale)", :locale => /#{Locales.available.keys.join('|')}/ do
 
-    devise_for :users, :controllers => {:registrations => 'users/registrations' }, :path_names => { :sign_in => "log_in", :sign_out => "log_out", :sign_up => "create_account" } do
+    devise_for :users, :controllers => {:registrations => 'users/registrations', omniauth_callbacks: "omniauth_callbacks" } do
       get 'users/registrations/success', :to => 'users/registrations#success'
     end
+
+    guisso_for :user
 
     resources :schedules, :path => '/reminders' do
       resources :logs, :only => :index

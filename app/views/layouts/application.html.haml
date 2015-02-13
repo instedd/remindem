@@ -44,19 +44,19 @@
                 .container
                   %ul
                     %li= link_to _('Reminders'), schedules_path
-                    %li= link_to _('Settings'), edit_user_registration_path
+                    %li= link_to _('Settings'), guisso_settings_path(:user)
                   %hr/
                   %ul
                     %li
                       %a{:href => "mailto:support@instedd.org?subject=[remindem-bug]"} Report a bug
-                    %li= link_to _("Log Out"), destroy_user_session_path
+                    %li= link_to _("Log out"), guisso_sign_out_path_for(:user, after_sign_out_url: root_url)
             %li
-              = link_to '', edit_user_registration_path, :class => 'fsettings'
+              = link_to '', guisso_settings_path(:user), :class => 'fsettings'
           - else
             %li
-              = link_to _("Create account"), new_user_registration_path, :class => 'fedit'
+              = link_to _("Create account"), guisso_sign_up_path_for(:user), :class => 'fedit'
             %li
-              = link_to _("Log in"), new_user_session_path, :class => 'fuser'
+              = link_to _("Log in"), guisso_sign_in_path_for(:user), :class => 'fuser'
       #header
         .left
           %a{:href => "/"}

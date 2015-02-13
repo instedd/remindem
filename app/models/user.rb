@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable
 
   # WARNING if this is removed, nuntium channels must be updated in order to reflect changes in email!
   validate do
@@ -34,6 +34,8 @@ class User < ActiveRecord::Base
   has_many :schedules, :dependent => :destroy
 
   has_one :channel, :dependent => :destroy
+
+  has_many :identities, dependent: :destroy
 
   serialize :features, Hash
 
