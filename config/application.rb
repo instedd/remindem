@@ -79,7 +79,7 @@ module RememberMe
     config.default_locale = :en
 
     # Gettext configuration
-    FastGettext.add_text_domain 'app', :path => 'config/locales', :type => :po, :ignore_fuzzy => true, :ignore_obsolete => true
+    FastGettext.add_text_domain 'app', :path => 'config/locales', :type => :po, :ignore_fuzzy => true, :report_warning => false
     FastGettext.default_available_locales = config.available_locales.keys.map(&:to_s)
     FastGettext.default_text_domain = 'app'
     FastGettext.default_locale = 'en'
