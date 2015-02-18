@@ -1,17 +1,17 @@
 # Copyright (C) 2011-2012, InSTEDD
-# 
+#
 # This file is part of Remindem.
-# 
+#
 # Remindem is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
-# 
+#
 # Remindem is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with Remindem.  If not, see <http://www.gnu.org/licenses/>.
 
@@ -55,7 +55,7 @@ RememberMe::Application.configure do
   # config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.default_url_options = { :host => 'remindem.instedd.org' }
-  
+
   # Enable threaded mode
   # config.threadsafe!
 
@@ -65,4 +65,22 @@ RememberMe::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+  # Compress JavaScripts and CSS
+  config.assets.compress = true
+   
+  # Don't fallback to assets pipeline if a precompiled asset is missed
+  config.assets.compile = false
+   
+  # Generate digests for assets URLs
+  config.assets.digest = true
+   
+  # Defaults to Rails.root.join("public/assets")
+  # config.assets.manifest = YOUR_PATH
+   
+  # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
+  # config.assets.precompile += %w( search.js )
+   
+  # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
+  # config.force_ssl = true
 end

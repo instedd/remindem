@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150212183510) do
+ActiveRecord::Schema.define(:version => 20150213153954) do
 
   create_table "channels", :force => true do |t|
     t.integer  "user_id"
@@ -33,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20150212183510) do
     t.datetime "updated_at"
     t.integer  "message_id",    :default => 0
     t.integer  "subscriber_id", :default => 0
+    t.string   "queue"
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"

@@ -107,7 +107,7 @@ ul.vertical li { list-style: none; }
 	font-size: 15px;
 }
 .ChannelWizard .AndroidLogo {
-   	background: url(/images/android.png);
+   	background: image-url('android.png');
     background-repeat: no-repeat;
     width: 37px;
     height: 35px;
@@ -116,7 +116,7 @@ ul.vertical li { list-style: none; }
 }
 
 .ChannelWizard .DesktopLogo {
-   	background: url(/images/pc.png);
+   	background: image-url('pc.png');
     background-repeat: no-repeat;
     width: 37px;
     height: 30px;
@@ -130,7 +130,7 @@ ul.vertical li { list-style: none; }
 }
 
 .ChannelWizard .AndroidQR{
-   	background: url(/images/android_local_gateway.png);
+   	background: image-url('android_local_gateway.png');
     background-repeat: no-repeat;
     width: 270px;
     height: 270px;
@@ -142,21 +142,21 @@ ul.vertical li { list-style: none; }
 }
 
 .ChannelWizard .AndroidScreen{
-   	background: url(/images/androidPreview.png);
+   	background: image-url('androidPreview.png');
     background-repeat: no-repeat;
     width: 254px;
     height: 375px;
 }
 
 .ChannelWizard .GreyArrow{
-   	background: url(/images/arrow.png);
+   	background: image-url('arrow.png');
     background-repeat: no-repeat;
     width: 46px;
     height: 17px;
 }
 
 .ChannelWizard .DesktopScreen{
-   	background: url(/images/pcPreview.png);
+   	background: image-url('pcPreview.png');
     background-repeat: no-repeat;
     width: 258px;
     height: 374px;
@@ -185,7 +185,7 @@ ul.vertical li { list-style: none; }
 }
 
 .ChannelWizard .ChannelConfigured{
-   	background: url(/images/finish.png);
+   	background: image-url('finish.png');
     background-repeat: no-repeat;
     width: 461px;
     height: 302px;
@@ -377,27 +377,28 @@ th.severity {
 }
 
 .TourContent .pc {
-  background: url(/images/tourPc.png);
+  background: image-url('tourPc.png');
   background-repeat: no-repeat;
   padding-top: 35px;
 }
+
 .TourContent .android {
-  background: url(/images/tourAndroid.png);
+  background: image-url('tourAndroid.png');
   background-repeat: no-repeat;
   padding-top: 41px;
 }
 
 ul.TourNavigation > li.start > a {
-  background: url(/images/start.png);
+  background: image-url('start.png');
 }
 ul.TourNavigation > li.manage > a {
-  background: url(/images/manage.png);
+  background: image-url('manage.png');
 }
 ul.TourNavigation > li.message > a {
-  background: url(/images/message.png);
+  background: image-url('message.png');
 }
 ul.TourNavigation > li.schedule > a {
-  background: url(/images/schedule.png);
+  background: image-url('schedule.png');
 }
 
 .faq h1+p {

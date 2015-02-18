@@ -1,11 +1,11 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.7'
+gem 'rails', '3.2.21'
 gem 'haml-rails'
 
-gem 'mysql2', '< 0.3'
-gem 'devise', '1.5.4'
-gem 'delayed_job'
+gem 'mysql2'
+gem 'devise', '~> 1.5.4'
+gem 'delayed_job_active_record'
 gem 'nuntium_api', '>=0.12'
 gem 'jquery-rails'
 gem 'client_side_validations'
@@ -22,7 +22,9 @@ gem 'rack-oauth2'
 gem 'alto_guisso', git: "https://github.com/instedd/alto_guisso.git", branch: 'master'
 gem 'alto_guisso_rails', git: "https://github.com/instedd/alto_guisso_rails.git", branch: 'master'
 
-gem 'pry-debugger'
+gem 'breadcrumbs_on_rails'
+gem 'fast_gettext'
+gem 'gettext_i18n_rails'
 
 group :development, :test do
   gem "rand", "~> 0.9.1"
@@ -31,14 +33,16 @@ group :development, :test do
   gem 'ffaker'
   gem 'machinist'
   gem 'ci_reporter'
+  gem 'pry-byebug'
 end
 
-gem 'breadcrumbs_on_rails'
-gem 'fast_gettext'
-gem 'gettext_i18n_rails'
+group :assets do
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+  gem 'uglifier', '>= 1.0.3'
+end
 
 group :development do
-  gem 'gettext', :git => 'https://github.com/cameel/gettext.git', :ref => 'c3a8373'
   gem 'ruby_parser'
   gem 'locale'
   gem 'hpricot'

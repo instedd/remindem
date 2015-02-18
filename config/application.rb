@@ -28,7 +28,13 @@ require 'openid/store/filesystem'
 
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
-Bundler.require(:default, Rails.env) if defined?(Bundler)
+if defined?(Bundler)
+  # If you precompile assets before deploying to production, use this line
+  Bundler.require *Rails.groups(:assets => %w(development test))
+  # If you want your assets lazily compiled in production, use this line
+  # Bundler.require(:default, :assets, Rails.env)
+end
+
 
 module RememberMe
   class Application < Rails::Application
@@ -74,6 +80,10 @@ module RememberMe
 
     config.version_name = '1.6.2'
 
+    # Enable asset pipeline
+    config.assets.enabled = true
+    config.assets.version = '1.0'
+
     # Languages
     config.available_locales = {
       :en => "English",
@@ -84,7 +94,7 @@ module RememberMe
     config.default_locale = :en
 
     # Gettext configuration
-    FastGettext.add_text_domain 'app', :path => 'config/locales', :type => :po, :ignore_fuzzy => true, :ignore_obsolte => true
+    FastGettext.add_text_domain 'app', :path => 'config/locales', :type => :po, :ignore_fuzzy => true, :report_warning => false
     FastGettext.default_available_locales = config.available_locales.keys.map(&:to_s)
     FastGettext.default_text_domain = 'app'
     FastGettext.default_locale = 'en'

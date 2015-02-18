@@ -1,17 +1,17 @@
 # Copyright (C) 2011-2012, InSTEDD
-# 
+#
 # This file is part of Remindem.
-# 
+#
 # Remindem is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
-# 
+#
 # Remindem is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with Remindem.  If not, see <http://www.gnu.org/licenses/>.
 
@@ -22,6 +22,13 @@ class Schedule < ActiveRecord::Base
   validates_length_of :keyword, :maximum => 15
   validates_format_of :keyword, :with => /^[^ ]+$/, :message => "must not include spaces"
   validates_length_of :title, :maximum => 60
+
+  before_destroy :notify_deletion_to_subscribers
+  before_update :log_changes
+
+  after_initialize { self.notifySubscribers = true }
+  attr_accessor :notifySubscribers
+
   belongs_to :user
 
   has_many :messages, :dependent => :destroy
@@ -32,10 +39,6 @@ class Schedule < ActiveRecord::Base
   validates_associated :messages
   before_validation :initialize_messages
 
-  before_destroy :notify_deletion_to_subscribers
-  before_update :log_changes
-
-  attr_accessor_with_default :notifySubscribers, true
 
   def keyword_is_not_opt_out_keyword
     if keyword && self.class.is_opt_out_keyword?(keyword)
