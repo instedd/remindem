@@ -1,6 +1,6 @@
 *.log
 config/nuntium.yml
-.bundle/
+.bundle*/
 tmp/
 .DS_Store
 remindem.tmproj
