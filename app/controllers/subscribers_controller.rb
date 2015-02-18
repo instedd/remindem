@@ -27,6 +27,7 @@ class SubscribersController < AuthenticatedController
 
   # GET /subscribers
   # GET /subscribers.xml
+  # GET /subscribers.json
   def index
     add_breadcrumb Schedule.find(params[:schedule_id]).title, schedule_path(params[:schedule_id])
     add_breadcrumb _("Subscribers"), schedule_subscribers_path(params[:schedule_id])
@@ -34,7 +35,8 @@ class SubscribersController < AuthenticatedController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @subscribers }
+      format.xml   { render :xml => @subscribers }
+      format.json  { render :json => @subscribers }
       format.csv do
         @subscribers = Subscriber.where(:schedule_id => params[:schedule_id])
         render :csv => @subscribers
