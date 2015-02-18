@@ -49,7 +49,7 @@
                   %ul
                     %li
                       %a{:href => "mailto:support@instedd.org?subject=[remindem-bug]"} Report a bug
-                    %li= link_to _("Log out"), guisso_sign_out_path_for(:user, after_sign_out_url: root_url)
+                    %li= link_to _("Log out"), destroy_session_path(:user)
             %li
               = link_to '', guisso_settings_path(:user), :class => 'fsettings'
           - else
