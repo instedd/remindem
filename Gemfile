@@ -15,6 +15,10 @@ gem "symbolize"
 gem 'kaminari'
 gem 'foreman'
 
+gem 'breadcrumbs_on_rails'
+gem 'fast_gettext'
+gem 'gettext_i18n_rails'
+
 group :development, :test do
   gem "rand", "~> 0.9.1"
   gem 'test-unit'
@@ -25,9 +29,11 @@ group :development, :test do
   gem 'pry-byebug'
 end
 
-gem 'breadcrumbs_on_rails'
-gem 'fast_gettext'
-gem 'gettext_i18n_rails'
+group :assets do
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+  gem 'uglifier', '>= 1.0.3'
+end
 
 group :development do
   gem 'ruby_parser'

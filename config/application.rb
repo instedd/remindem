@@ -69,6 +69,10 @@ module RememberMe
 
     config.version_name = '1.6.2'
 
+    # Enable asset pipeline
+    config.assets.enabled = true
+    config.assets.version = '1.0'
+
     # Languages
     config.available_locales = {
       :en => "English",
