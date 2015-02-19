@@ -7,7 +7,8 @@ gem 'mysql2'
 gem 'devise', '~> 1.5.4'
 gem 'delayed_job_active_record'
 gem 'nuntium_api', '>=0.12'
-gem 'jquery-rails'
+gem 'hub_client'
+gem 'jquery-rails', '~> 2.1.0'
 gem 'client_side_validations'
 
 gem "ice_cube", "~> 0.6.13"
