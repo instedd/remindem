@@ -6,3 +6,4 @@ tmp/
 remindem.tmproj
 test/reports/
 .sass-cache
+config/guisso.yml
