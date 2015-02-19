@@ -50,6 +50,7 @@ RememberMe::Application.routes.draw do
 
     match '/locale/update' => 'locale#update',  :as => 'update_locale'
     match '/' => 'home#index',                  :as => 'home'
+    match '/hub/*path' => 'hub#api', format: false
 
   end
 
