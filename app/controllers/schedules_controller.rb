@@ -17,24 +17,21 @@
 
 class SchedulesController < AuthenticatedController
 
-  def initialize
-    super
-    @show_breadcrumb = true
-    add_breadcrumb _("Reminders"), :schedules_path
-  end
+  before_filter :set_breadcrumb
+  before_filter :load_schedule, only: [:show, :edit, :update, :destroy]
 
   # GET /schedules
   # GET /schedules.xml
   def index
-    @at_least_one_schedule_is_paused = !Schedule.where(:user_id => current_user.id, :paused => true).empty?
+    @schedules = Schedule.where(user_id: current_user.id)
+    @at_least_one_schedule_is_paused = @schedules.paused.any?
 
-    @schedules = if params[:show] == 'all' || params[:show].nil?
-        Schedule.where(:user_id => current_user.id)
-      else
-        Schedule.where(:user_id => current_user.id, :paused => params[:show] == 'paused')
-      end
+    if params[:show] != 'all' && !params[:show].nil?
+      @schedules = @schedules.where(:paused => params[:show] == 'paused')
+    end
 
     @last_log = Log.find(:all, :conditions => ["schedule_id in (?)", @schedules.collect(&:id)]).sort_by(&:created_at).reverse.first rescue nil
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @schedules }
@@ -44,7 +41,6 @@ class SchedulesController < AuthenticatedController
   # GET /schedules/1
   # GET /schedules/1.xml
   def show
-    @schedule = Schedule.find(params[:id])
     add_breadcrumb @schedule.title, schedule_path(params[:id])
 
     respond_to do |format|
@@ -67,7 +63,6 @@ class SchedulesController < AuthenticatedController
 
   # GET /schedules/1/edit
   def edit
-    @schedule = Schedule.find(params[:id])
     add_breadcrumb @schedule.title, schedule_path(params[:id])
     add_breadcrumb _("Settings"), edit_schedule_path(params[:id])
     @schedule.sort_messages
@@ -76,8 +71,8 @@ class SchedulesController < AuthenticatedController
   # POST /schedules
   # POST /schedules.xml
   def create
-    params[:schedule][:user] = current_user
     @schedule = params[:schedule][:type].constantize.new(params[:schedule])
+    @schedule.user_id = current_user.id
 
     respond_to do |format|
       if @schedule.save
@@ -94,8 +89,6 @@ class SchedulesController < AuthenticatedController
   # PUT /schedules/1
   # PUT /schedules/1.xml
   def update
-    @schedule = Schedule.find(params[:id])
-
     #Type needs to be manually set because it's protected, thus update_attributes doesn't affect it
     @schedule.type = params[:schedule][:type] unless params[:schedule][:type].blank?
 
@@ -116,7 +109,6 @@ class SchedulesController < AuthenticatedController
   # DELETE /schedules/1
   # DELETE /schedules/1.xml
   def destroy
-    @schedule = Schedule.find(params[:id])
     if params[:notify] == "true"
       @schedule.notifySubscribers = true
     else
@@ -129,4 +121,16 @@ class SchedulesController < AuthenticatedController
      format.xml  { head :ok }
    end
   end
+
+  private
+
+  def set_breadcrumb
+    @show_breadcrumb = true
+    add_breadcrumb _("Reminders"), :schedules_path
+  end
+
+  def load_schedule
+    @schedule = current_user.schedules.find(params[:id])
+  end
+
 end

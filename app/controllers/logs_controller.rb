@@ -18,19 +18,16 @@
 class LogsController < AuthenticatedController
   helper_method :sort_column, :sort_direction
 
-  def initialize
-    super
-    @show_breadcrumb = true
-    add_breadcrumb _("Reminders"), :schedules_path
-  end
+  before_filter :show_breadcrumb
+  before_filter :load_schedule
 
   # GET /logs
   # GET /logs.xml
   def index
-    add_breadcrumb Schedule.find(params[:schedule_id]).title, schedule_path(params[:schedule_id])
-	  add_breadcrumb _("Logs"), schedule_logs_path(params[:schedule_id])
+    add_breadcrumb @schedule.title, schedule_path(@schedule.id)
+    add_breadcrumb _("Logs"), schedule_logs_path(@schedule.id)
 
-    @logs =Log.where(:schedule_id => params[:schedule_id]).page(params[:page]).per(10).order(sort_column + " " + sort_direction)
+    @logs = @schedule.logs.page(params[:page]).per(10).order(sort_column + " " + sort_direction)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -45,4 +42,16 @@ class LogsController < AuthenticatedController
   def sort_direction
      %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
   end
+
+  private
+
+  def show_breadcrumb
+    @show_breadcrumb = true
+    add_breadcrumb _("Reminders"), :schedules_path
+  end
+
+  def load_schedule
+    @schedule = current_user.schedules.find(params[:schedule_id])
+  end
+
 end

@@ -16,11 +16,9 @@
       %span.circle.last
         %span.inner
           %span.step-name Finish
-    / #steps-container
-  / #steps-line
-/ #box plain grey
+
 = errors_for @invalid_channel
-- form_for :channel, :url => { :action => :create }, :remote => true do |f|
+= form_for :channel, :url => { :action => :create }, :remote => true do |f|
   .ChannelWizard
     = f.hidden_field :step, :value => "new_android_channel"
     %h1.orange Enter the gateway code from your mobile phone

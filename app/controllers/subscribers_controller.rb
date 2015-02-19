@@ -16,20 +16,18 @@
 # along with Remindem.  If not, see <http://www.gnu.org/licenses/>.
 
 class SubscribersController < AuthenticatedController
+
   helper_method :sort_column, :sort_direction
 
-  def initialize
-    super
-    @show_breadcrumb = true
-    add_breadcrumb _("Reminders"), :schedules_path
-  end
-
+  before_filter :set_breadcrumb
+  before_filter :load_schedule
+  before_filter :load_subscriber, except: :index
 
   # GET /subscribers
   # GET /subscribers.xml
   # GET /subscribers.json
   def index
-    add_breadcrumb Schedule.find(params[:schedule_id]).title, schedule_path(params[:schedule_id])
+    add_breadcrumb @schedule.title, schedule_path(@schedule.id)
     add_breadcrumb _("Subscribers"), schedule_subscribers_path(params[:schedule_id])
     @subscribers = Subscriber.where(:schedule_id => params[:schedule_id]).page(params[:page]).per(10).order(sort_column + " " + sort_direction)
 
@@ -47,7 +45,6 @@ class SubscribersController < AuthenticatedController
   # DELETE /subscribers/1
   # DELETE /subscribers/1.xml
   def destroy
-    @subscriber = Subscriber.find(params[:id])
     @subscriber.destroy
 
     respond_to do |format|
@@ -63,4 +60,20 @@ class SubscribersController < AuthenticatedController
   def sort_direction
      %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
   end
+
+  private
+
+  def set_breadcrumb
+    @show_breadcrumb = true
+    add_breadcrumb _("Reminders"), :schedules_path
+  end
+
+  def load_schedule
+    @schedule = current_user.schedules.find(params[:schedule_id])
+  end
+
+  def load_subscriber
+    @subscriber = @schedule.subscribers.find(params[:id])
+  end
+
 end

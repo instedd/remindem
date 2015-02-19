@@ -16,6 +16,7 @@
 # along with Remindem.  If not, see <http://www.gnu.org/licenses/>.
 
 class Schedule < ActiveRecord::Base
+
   validates_presence_of :keyword, :user_id, :welcome_message, :type, :title
   validates_presence_of :timescale, :unless => Proc.new {|schedule| schedule.type == "CalendarBasedSchedule"}
   validates_uniqueness_of :keyword
@@ -31,6 +32,8 @@ class Schedule < ActiveRecord::Base
 
   belongs_to :user
 
+  validates_presence_of :user
+
   has_many :messages, :dependent => :destroy
   has_many :subscribers, :dependent => :destroy
   has_many :logs, :dependent => :destroy
@@ -38,6 +41,8 @@ class Schedule < ActiveRecord::Base
   accepts_nested_attributes_for :messages, :allow_destroy => true
   validates_associated :messages
   before_validation :initialize_messages
+
+  scope :paused, where(paused: true)
 
 
   def keyword_is_not_opt_out_keyword
