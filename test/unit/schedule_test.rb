@@ -95,9 +95,9 @@ class ScheduleTest < ActiveSupport::TestCase
     messages = randweeks.messages
     sent_at = (1..5).map { |i| subscriber.subscribed_at + i.send(randweeks.timescale.to_sym) }
 
-    assert_equal 5, Delayed::Job.count
+    assert_equal 5, Delayed::Job.of_kind(ReminderJob).count
 
-    Delayed::Job.all.each do |job|
+    Delayed::Job.of_kind(ReminderJob).each do |job|
       reminder_job = YAML.load(job.handler)
 
       assert_equal 1, messages.select {|msg| msg.text == Message.find(reminder_job.message_id).text}.length
@@ -113,7 +113,7 @@ class ScheduleTest < ActiveSupport::TestCase
 
     messages = pregnant.messages
 
-    assert_equal 5, Delayed::Job.count
+    assert_equal 5, Delayed::Job.of_kind(ReminderJob).count
 
     Delayed::Job.order(:run_at).each_with_index do |job, index|
       reminder_job = YAML.load(job.handler)
@@ -179,6 +179,30 @@ class ScheduleTest < ActiveSupport::TestCase
       assert_equal pregnant, log.schedule
     end
 
+    test "hub is notified when subscriber is added to #{klass}" do
+      pregnant = klass.make :keyword => 'pregnant'
+      subscriber = Subscriber.make :schedule => pregnant, :phone_number => 'sms://1234'
+
+      pregnant.subscribe subscriber
+
+      assert_equal 1, Delayed::Job.of_kind(SubscribedEvent).count
+
+      job = YAML.load(Delayed::Job.of_kind(SubscribedEvent).first.handler)
+      HubClient.current.expects(:notify)
+      assert_equal subscriber.id, job.subscriber_id
+      job.perform
+    end
+
+    test "hub is not notified if disabled when subscriber is added to #{klass}" do
+      pregnant = klass.make :keyword => 'pregnant'
+      subscriber = Subscriber.make :schedule => pregnant, :phone_number => 'sms://1234'
+      HubClient.current.expects(:enabled?).returns(false)
+
+      pregnant.subscribe subscriber
+
+      assert_equal 0, Delayed::Job.of_kind(SubscribedEvent).count
+    end
+
     test "event is logged when message is sent on #{klass}" do
 
       pregnant = klass.make
@@ -188,9 +212,9 @@ class ScheduleTest < ActiveSupport::TestCase
       pregnant.subscribe subscriber
 
       assert_equal 2, Log.count
-      assert_equal 1, Delayed::Job.count
+      assert_equal 1, Delayed::Job.of_kind(ReminderJob).count
 
-      job = Delayed::Job.first
+      job = Delayed::Job.of_kind(ReminderJob).first
       scheduled_job = YAML.load(job.handler)
 
       scheduled_job.perform
@@ -293,9 +317,9 @@ class ScheduleTest < ActiveSupport::TestCase
 
     pregnant.subscribe subscriber
 
-    assert_equal 1, Delayed::Job.count
+    assert_equal 1, Delayed::Job.of_kind(ReminderJob).count
 
-    job = Delayed::Job.first
+    job = Delayed::Job.of_kind(ReminderJob).first
     scheduled_job = YAML.load(job.handler)
 
     scheduled_job.perform

@@ -1,5 +1,6 @@
 *.log
 config/nuntium.yml
+config/hub.yml
 .bundle*/
 tmp/
 .DS_Store
