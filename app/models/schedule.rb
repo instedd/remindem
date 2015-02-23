@@ -67,6 +67,7 @@ class Schedule < ActiveRecord::Base
     generate_reminders_for subscriber
     log_new_subscription_of subscriber.phone_number
     welcome_message_for subscriber.phone_number
+    notify_subscription_to_hub subscriber
   end
 
   def generate_reminders_for recipient
@@ -205,6 +206,10 @@ class Schedule < ActiveRecord::Base
 
   def self.opt_out_keyword
     'stop'
+  end
+
+  def notify_subscription_to_hub(subscriber)
+    Delayed::Job.enqueue SubscribedEvent.new(subscriber.id), subscriber_id: subscriber.id
   end
 
   def duration
