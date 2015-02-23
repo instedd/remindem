@@ -209,6 +209,7 @@ class Schedule < ActiveRecord::Base
   end
 
   def notify_subscription_to_hub(subscriber)
+    return if not HubClient.current.enabled?
     Delayed::Job.enqueue SubscribedEvent.new(subscriber.id), subscriber_id: subscriber.id
   end
 

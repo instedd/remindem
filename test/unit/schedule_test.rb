@@ -179,6 +179,30 @@ class ScheduleTest < ActiveSupport::TestCase
       assert_equal pregnant, log.schedule
     end
 
+    test "hub is notified when subscriber is added to #{klass}" do
+      pregnant = klass.make :keyword => 'pregnant'
+      subscriber = Subscriber.make :schedule => pregnant, :phone_number => 'sms://1234'
+
+      pregnant.subscribe subscriber
+
+      assert_equal 1, Delayed::Job.of_kind(SubscribedEvent).count
+
+      job = YAML.load(Delayed::Job.of_kind(SubscribedEvent).first.handler)
+      HubClient.current.expects(:notify)
+      assert_equal subscriber.id, job.subscriber_id
+      job.perform
+    end
+
+    test "hub is not notified if disabled when subscriber is added to #{klass}" do
+      pregnant = klass.make :keyword => 'pregnant'
+      subscriber = Subscriber.make :schedule => pregnant, :phone_number => 'sms://1234'
+      HubClient.current.expects(:enabled?).returns(false)
+
+      pregnant.subscribe subscriber
+
+      assert_equal 0, Delayed::Job.of_kind(SubscribedEvent).count
+    end
+
     test "event is logged when message is sent on #{klass}" do
 
       pregnant = klass.make
