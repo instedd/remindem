@@ -18,10 +18,10 @@
 require 'bundler/capistrano'
 require 'rvm/capistrano'
 
-set :rvm_ruby_string, '1.9.3'
+set :rvm_ruby_string, '2.0.0-p598'
 
 set :application, "remindem"
-set :repository,  "https://bitbucket.org/instedd/remindem.git"
+set :repository,  "https://github.com/instedd/remindem.git"
 set :scm, :git
 set :deploy_via, :remote_cache
 set :user, 'ubuntu'
