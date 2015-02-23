@@ -66,8 +66,8 @@ class Schedule < ActiveRecord::Base
   def subscribe subscriber
     generate_reminders_for subscriber
     log_new_subscription_of subscriber.phone_number
-    welcome_message_for subscriber.phone_number
     notify_subscription_to_hub subscriber
+    welcome_message_for subscriber.phone_number
   end
 
   def generate_reminders_for recipient

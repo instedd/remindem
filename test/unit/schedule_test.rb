@@ -95,9 +95,9 @@ class ScheduleTest < ActiveSupport::TestCase
     messages = randweeks.messages
     sent_at = (1..5).map { |i| subscriber.subscribed_at + i.send(randweeks.timescale.to_sym) }
 
-    assert_equal 5, Delayed::Job.count
+    assert_equal 5, Delayed::Job.of_kind(ReminderJob).count
 
-    Delayed::Job.all.each do |job|
+    Delayed::Job.of_kind(ReminderJob).each do |job|
       reminder_job = YAML.load(job.handler)
 
       assert_equal 1, messages.select {|msg| msg.text == Message.find(reminder_job.message_id).text}.length
@@ -113,7 +113,7 @@ class ScheduleTest < ActiveSupport::TestCase
 
     messages = pregnant.messages
 
-    assert_equal 5, Delayed::Job.count
+    assert_equal 5, Delayed::Job.of_kind(ReminderJob).count
 
     Delayed::Job.order(:run_at).each_with_index do |job, index|
       reminder_job = YAML.load(job.handler)
@@ -188,9 +188,9 @@ class ScheduleTest < ActiveSupport::TestCase
       pregnant.subscribe subscriber
 
       assert_equal 2, Log.count
-      assert_equal 1, Delayed::Job.count
+      assert_equal 1, Delayed::Job.of_kind(ReminderJob).count
 
-      job = Delayed::Job.first
+      job = Delayed::Job.of_kind(ReminderJob).first
       scheduled_job = YAML.load(job.handler)
 
       scheduled_job.perform
@@ -293,9 +293,9 @@ class ScheduleTest < ActiveSupport::TestCase
 
     pregnant.subscribe subscriber
 
-    assert_equal 1, Delayed::Job.count
+    assert_equal 1, Delayed::Job.of_kind(ReminderJob).count
 
-    job = Delayed::Job.first
+    job = Delayed::Job.of_kind(ReminderJob).first
     scheduled_job = YAML.load(job.handler)
 
     scheduled_job.perform
