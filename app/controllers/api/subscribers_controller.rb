@@ -36,6 +36,22 @@ class Api::SubscribersController < ApiController
     end
   end
 
+  # POST /api/reminders/1/subscribers.json
+  def create
+    @intent = SubscriptionIntent.new owner: current_user,
+      subscriber: params[:phone_number],
+      schedule: @schedule,
+      offset: params[:offset],
+      unique: false
+
+    if @intent.valid?
+      @subscriber = @intent.find_or_create
+      render :json => @subscriber
+    else
+      render :json => @intent.errors, :status => :unprocessable_entity
+    end
+  end
+
   private
 
   def load_schedule
