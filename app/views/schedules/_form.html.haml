@@ -1,5 +1,3 @@
-- content_for :head do
-  = javascript_include_tag 'schedules'
 = form_for @schedule, :validate => true do |f|
   = errors_for @schedule, :as => :reminder
   .field.w60

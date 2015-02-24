@@ -124,24 +124,27 @@ function toggleOffset(){
 var timescale;
 
 $(function() {
-  $('#fixed_schedule_option').change(function(){
+  var form = $('form.edit_schedule, form.new_schedule');
+  if (form.length > 0) {
+    $('#fixed_schedule_option').change(function(){
+      toggleOffset();
+    });
+
+    $('#random_schedule_option').change(function(){
+      toggleOffset();
+    });
+
+    timescale = $('#schedule_timescale');
+
+    timescale.change(function(){
+      updateTimescaleLabels($(this).val());
+    });
+  	timescale.change();
+
+    form.areYouSure({message: unsaved_changes, addRemoveFieldsMarksDirty: true});
+
     toggleOffset();
-  });
-
-  $('#random_schedule_option').change(function(){
-    toggleOffset();
-  });
-
-  timescale = $('#schedule_timescale');
-
-  timescale.change(function(){
-    updateTimescaleLabels($(this).val());
-  });
-	timescale.change();
-
-  $('form.edit_schedule, form.new_schedule').areYouSure({message: unsaved_changes, addRemoveFieldsMarksDirty: true});
-
-  toggleOffset();
+  };
 });
 
 function updateTimescaleLabels(new_value){
