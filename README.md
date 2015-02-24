@@ -1,6 +1,10 @@
 # Remindem
 
+Remindem is a free and easy-to-use tool that allows you to set up a list of tips, reminders, and advice that people can subscribe to via text messages. Remindem sends important text reminders just when your subscribers need them, based on a schedule you define.
+
 ## Setup
+
+Remindem is a standard Ruby on Rails application, which uses MySQL as a database engine.
 
 ### Nuntium
 
@@ -18,6 +22,16 @@ At nuntium the application should be configured with HTTP POST interface, url `h
 ### Guisso
 
 Remindem can use [Guisso](https://github.com/instedd/guisso) (Guisso unveils Instedd's Single Sign On) for managing user accounts. This is configured via a `config/guisso.yml` file, which can be generated from the Guisso's instance to be used; or refer to `guisso.yml.template` for an example.
+
+### Hub
+
+Remindem posts notifications of new subscribers and provides access to external actions in [InSTEDD Hub](https://github.com/instedd/hub) using [Hub Client](https://github.com/instedd/ruby-hub_client). To configure the client, add a `config/hub.yml` file with the following contents:
+
+    enabled: true                   # Set to false to disable and not send notifications
+    url: http://hub-stg.instedd.org # URL to the hub instance to be used
+    connector_guid: CONNECTOR_GUID  # GUID of the Remindem connector in the hub
+    token: SECRET_TOKEN             # Secret token used to report notifications
+
 
 ### Emails
 
