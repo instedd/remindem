@@ -114,10 +114,6 @@ function assignMessageValues(dest, source) {
 	dest.setText(source.getText());
 }
 
-function showUnsavedChangesAlert(){
-	$.status.showError(unsaved_changes)
-}
-
 function toggleOffset(){
 	if ($('#fixed_schedule_option').is(':checked'))
 		$('div.offset').css('visibility', 'visible');
@@ -143,13 +139,7 @@ $(function() {
   });
 	timescale.change();
 
-  $('.causesPendingSaveNoticeOnChange').change(function(){
-    showUnsavedChangesAlert();
-  });
-
-  $('.causesPendingSaveNoticeOnClick').click(function(){
-    showUnsavedChangesAlert();
-  });
+  $('form.edit_schedule, form.new_schedule').areYouSure({message: unsaved_changes, addRemoveFieldsMarksDirty: true});
 
   toggleOffset();
 });
@@ -188,6 +178,7 @@ function caseTimescale(value, minute, hour, day, week, month, year, defaultCase)
 function remove_fields(link) {
   $(link).prev("input[type=hidden]").attr("value", '1');
   getRow(link).hide();
+  $('form').trigger('rescan.areYouSure');
 }
 
 function edit_fields(link, content) {
@@ -236,7 +227,6 @@ function confirm_changes(buttonOk) {
   	hiddenRow.show();
   	currentRow.remove();
 
-  	showUnsavedChangesAlert();
 		return true;
 	}
 	return false;
