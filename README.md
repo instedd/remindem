@@ -1,5 +1,7 @@
 # Remindem
 
+[![Build Status](https://travis-ci.org/instedd/remindem.svg?branch=master)](https://travis-ci.org/instedd/remindem)
+
 Remindem is a free and easy-to-use tool that allows you to set up a list of tips, reminders, and advice that people can subscribe to via text messages. Remindem sends important text reminders just when your subscribers need them, based on a schedule you define.
 
 ## Setup
