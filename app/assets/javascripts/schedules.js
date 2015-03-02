@@ -9,7 +9,6 @@ function MessageFields(row) {
 	this._text = $('input.text', this._row);
 	this._textText = $('pre.text', this._row);
   this._externalActions = eaFormToObject($('.externalActionForm .action'), this._row);
-  console.log(this._externalActions);
 }
 
 MessageFields.prototype.setOffset = function(value) {
@@ -342,6 +341,7 @@ function renderForm(result) {
     new_el.children('select').attr('data-name', field.name());
     $('.externalActionForm .action').last().after(new_el);
     new_el.removeClass('hidden model');
+    model.remove();
   });
 };
 
