@@ -32,11 +32,14 @@ class Schedule < ActiveRecord::Base
   belongs_to :user
 
   has_many :messages, :dependent => :destroy
+  has_many :external_actions, :dependent => :destroy
   has_many :subscribers, :dependent => :destroy
   has_many :logs, :dependent => :destroy
 
   accepts_nested_attributes_for :messages, :allow_destroy => true
+  accepts_nested_attributes_for :external_actions, :allow_destroy => true
   validates_associated :messages
+  validates_associated :external_actions
   before_validation :initialize_messages
 
 

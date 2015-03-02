@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/instedd/ruby-hub_client.git
-  revision: c8e18e94a668d5477d7a545c7887c491f6c7ac90
+  revision: bfb94fbb7745281b2c34ca9d83acd57d26f7d8fc
   branch: master
   specs:
     hub_client (0.0.1)
@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/instedd/alto_guisso.git
-  revision: bdd04569e1f1925664f839f18cba3c2807aafe19
+  revision: 6d72573c211f45ff95d36847af733449acdfa04a
   branch: master
   specs:
     alto_guisso (0.0.2)
@@ -206,8 +206,9 @@ GEM
       hoe (>= 1.2.1)
     rdoc (3.12.2)
       json (~> 1.4)
-    rest-client (1.6.7)
-      mime-types (>= 1.16)
+    rest-client (1.6.8)
+      mime-types (~> 1.16)
+      rdoc (>= 2.4.2)
     ruby-openid (2.6.0)
     ruby_parser (2.3.1)
       sexp_processor (~> 3.0)

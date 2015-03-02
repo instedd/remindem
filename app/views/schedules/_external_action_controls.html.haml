@@ -1,0 +1,18 @@
+- save_onclick ||= 'confirm_changes(this);'
+- cancel_onclick ||= 'revert_changes(this);'
+%li.fields
+  .box.w60.reminderMessageBox
+    = link_to_remove_fields '', f, :class => "fdelete causesPendingSaveNoticeOnClick"
+    .offset.left
+      .ux-nstep
+        = tag :input, :name => "edit_offset", :size => "2", :type => "text", :value => f.object.offset, :onblur => "validate_onblur(this);", :'data-min' => "0"
+      %span.timescale= @schedule.timescale
+    .text
+      .externalActionForm{name: 'edit_external_actions'}
+        .action.model.hidden
+          %label Label
+          = select_tag 'remindem_data', options_for_select({'No action' => nil, 'Subscriber phone' => :subscriber_phone, 'Days since registration' => :days_since_registration})
+    %hr/
+    .actions
+      %button.white{:onclick => "return #{save_onclick}", :type => "button"} Save
+      %a{:href => "#", :onclick => "#{cancel_onclick}; return false;"} Cancel

@@ -1,6 +1,4 @@
 - content_for :head do
-  = javascript_include_tag 'schedules'
-  = javascript_include_tag 'hub_action'
   :javascript
     window.hub_url = "#{HubClient.current.url}"
 = form_for @schedule, :validate => true do |f|
@@ -59,9 +57,9 @@
         #dropdown-actions.dropdown.dropdown-relative
           %ul.dropdown-menu
             %li
-              %a{onclick: "$('.add_fields', $(this).closest('.box')).click();", href: "javascript:void(0);"} Add message
+              %a{onclick: "$('.add_fields', $(this).closest('.box')).click();", href: "javascript:void(0);"}= _("Add message")
             %li
-              %a{onclick: "chooseHubAction();", href: "javascript:void(0);"} External action
+              = link_to_add_fields _("External action"), f, :messages, builder_name: "external_actions", :class => "add_fields", onclick: "chooseHubAction();"
   .actions
     %button.white{:type => "submit"} Save
     = link_to _('Cancel'), :back

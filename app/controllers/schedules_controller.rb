@@ -99,6 +99,8 @@ class SchedulesController < AuthenticatedController
     #Type needs to be manually set because it's protected, thus update_attributes doesn't affect it
     @schedule.type = params[:schedule][:type] unless params[:schedule][:type].blank?
 
+    parse_nested_attributes_for_actions(params[:schedule][:external_actions_attributes])
+
     respond_to do |format|
       if @schedule.update_attributes(params[:schedule])
         format.html { redirect_to(schedule_url(@schedule), :notice => _('Schedule was successfully updated.')) }
@@ -128,5 +130,17 @@ class SchedulesController < AuthenticatedController
      format.html { redirect_to(schedules_url, :notice => _('Schedule was successfully deleted.')) }
      format.xml  { head :ok }
    end
+  end
+
+  private
+
+  def parse_nested_attributes_for_actions(attributes)
+    modified_attrs = {}
+    attributes.each do |key, attrs|
+      modified_attrs[key] = attrs
+      modified_attrs[key][:external_actions] = JSON.parse(modified_attrs[key][:external_actions])
+    end
+    puts modified_attrs
+    modified_attrs
   end
 end
