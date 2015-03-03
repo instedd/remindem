@@ -99,7 +99,7 @@ class SchedulesController < AuthenticatedController
     #Type needs to be manually set because it's protected, thus update_attributes doesn't affect it
     @schedule.type = params[:schedule][:type] unless params[:schedule][:type].blank?
 
-    parse_nested_attributes_for_actions(params[:schedule][:external_actions_attributes])
+    parse_nested_attributes_for_actions(params[:schedule])
 
     respond_to do |format|
       if @schedule.update_attributes(params[:schedule])
@@ -136,11 +136,13 @@ class SchedulesController < AuthenticatedController
 
   def parse_nested_attributes_for_actions(attributes)
     modified_attrs = {}
-    attributes.each do |key, attrs|
+    unified = {}.merge(attributes[:messages_attributes] || {}).merge(attributes[:external_actions_attributes] || {})
+    unified.each do |key, attrs|
       modified_attrs[key] = attrs
-      modified_attrs[key][:external_actions] = JSON.parse(modified_attrs[key][:external_actions])
+      if modified_attrs[key][:external_actions] && modified_attrs[key][:external_actions].is_a?(String)
+        modified_attrs[key][:external_actions] = JSON.parse(modified_attrs[key][:external_actions].gsub('=>', ':'))
+      end
     end
-    puts modified_attrs
-    modified_attrs
+    {messages_attributes: modified_attrs}
   end
 end

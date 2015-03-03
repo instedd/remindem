@@ -9,9 +9,15 @@
       %span.timescale= @schedule.timescale
     .text
       .externalActionForm{name: 'edit_external_actions'}
-        .action.model.hidden
-          %label Label
-          = select_tag 'remindem_data', options_for_select({'No action' => nil, 'Subscriber phone' => :subscriber_phone, 'Days since registration' => :days_since_registration})
+        - if f.object.external_actions.blank?
+          .action.model.hidden
+            %label Label
+            = select_tag 'remindem_data', options_for_select({'No action' => nil, 'Subscriber phone' => :subscriber_phone, 'Days since registration' => :days_since_registration})
+        - else
+          - f.object.external_actions.each do |label, value|
+            .action
+              %label= label
+              = select_tag 'remindem_data', options_for_select({'No action' => nil, 'Subscriber phone' => :subscriber_phone, 'Days since registration' => :days_since_registration}, value)
     %hr/
     .actions
       %button.white{:onclick => "return #{save_onclick}", :type => "button"} Save
