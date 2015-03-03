@@ -37,6 +37,14 @@ class Message < ActiveRecord::Base
 
   #toDo: move this behavior to the schedule and remove the if's after merge
 
+  def run schedule, subscriber
+    schedule.send_or_reschedule self, subscriber
+  end
+
+  def description
+    text
+  end
+
   def enqueue_dj_messages
     self.schedule.subscribers.each do |subscriber|
       if self.schedule.class <= FixedSchedule then
