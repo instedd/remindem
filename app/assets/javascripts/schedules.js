@@ -8,7 +8,7 @@ function MessageFields(row) {
 	this._offsetText = $('span.offset', this._row);
 	this._text = $('input.text', this._row);
 	this._textText = $('pre.text', this._row);
-  this._externalActions = eaFormToObject($('.externalActionForm .action'), this._row);
+  this._externalActions = eaFormToObject($('.externalActionForm'), this._row);
 }
 
 MessageFields.prototype.setOffset = function(value) {
@@ -38,7 +38,7 @@ function MessageControls(row) {
 	this._row = $(row);
 	this._offset = $('input[name="edit_offset"]', this._row);
 	this._text = $('textarea[name="edit_text"]', this._row);
-  this._externalActions = eaFormToObject($('.externalActionForm .action'), this._row);
+  this._externalActions = eaFormToObject($('.externalActionForm'), this._row);
 }
 
 MessageControls.prototype.setOffset = function(value) {
@@ -224,6 +224,9 @@ function edit_fields(link, content) {
 	var controlsRow = getRow(link).next();
 	fieldsRow.hide();
 
+  if(isExternalAction(controlsRow)) {
+    renderExternalActionForm(controlsRow);
+  }
 	assignMessageValues(new MessageControls(controlsRow), new MessageFields(fieldsRow));
 
 	$.instedd.init_components(controlsRow);
@@ -231,6 +234,10 @@ function edit_fields(link, content) {
   //Hide offset control if user is editing a random schedule
   toggleOffset();
 	timescale.change();
+}
+
+function isExternalAction(controlsRow) {
+  return $('.externalActionForm',controlsRow).length > 0;
 }
 
 function add_fields(link, association, content) {
@@ -327,31 +334,50 @@ function chooseHubAction() {
   hubApi.openPicker('action').then(function(path, selection) {
     return hubApi.reflect(path).then(function(reflect_result) {
       if(reflect_result.args().length > 0) {
-        renderForm(reflect_result.args()[0]);
+        var row = getRow($('.externalActionForm .action.model').last());
+        renderForm(reflect_result, path, row);
       }
     });
   });
 };
 
-function renderForm(result) {
-  model = $('.externalActionForm .action.model');
-  list = result.visit(function(field){
+function renderForm(reflect_result, path, row) {
+  model = $('.action.model', row);
+  list = reflect_result.visitArgs(function(field){
     new_el = model.clone();
     new_el.children('label').text(field.label());
     new_el.children('select').attr('data-name', field.name());
-    $('.externalActionForm .action').last().after(new_el);
+    $('.externalActionForm .action', row).last().after(new_el);
     new_el.removeClass('hidden model');
     model.remove();
   });
+  new_el.parents('.externalActionForm').data('meta', {path: path, result: reflect_result.toJson()});
 };
 
+function renderMapping(row, mappings) {
+  for(mapping in mappings) {
+    $(".action select[data-name="+mapping+"]", row).val(mappings[mapping]);
+  }
+}
+
+function renderExternalActionForm(controlsRow) {
+  var hubApi = new HubApi(window.hub_url, '/hub');
+  var data = $('.externalActionForm', controlsRow).data('meta');
+  var result = hubApi.reflectResult(data.result);
+  renderForm(result, data.path, controlsRow);
+  renderMapping(controlsRow, data.mapping);
+}
+
 function eaFormToObject(src) {
+  var hubApi = new HubApi(window.hub_url, '/hub');
+  var data = src.data('meta');
+  var result = hubApi.reflectResult(data.result);
   externalActions = {}
-  src.each(function(i, el) {
+  src.children('.action').each(function(i, el) {
     field = $(el).children('select');
     externalActions[field.data('name')] = field.val();
   });
-  return externalActions;
+  return $.extend(data, {mapping: externalActions});
 }
 
 function setExternalActionsToHiddenField(row, actions) {
