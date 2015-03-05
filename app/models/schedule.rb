@@ -120,11 +120,15 @@ class Schedule < ActiveRecord::Base
     Delayed::Job.order('run_at DESC').where(:subscriber_id => subscriber.id).first
   end
 
-  def send_message to, message
+  def send_message to, msg
     nuntium = Nuntium.new_from_config
-    message = self.build_message to, body
+    # if msg.is_a?(Message)
+      message = self.build_message to, msg.description
+    # else
+    #   message = self.build_message to, msg
+    # end
     nuntium.send_ao message
-    log_message_sent message, to
+    log_message_sent msg, to
   end
 
   def execute_message message, subscriber
@@ -167,8 +171,9 @@ class Schedule < ActiveRecord::Base
   def notify_deletion_to_subscribers
     if notifySubscribers
       subscribers.each do |subscriber|
-        self.send_message(subscriber.phone_number,
-          (_("The schedule %{keyword} has been deleted. You will no longer receive messages from this schedule.") % {keyword: self.keyword}))
+        text = _("The schedule %{keyword} has been deleted. You will no longer receive messages from this schedule.") % {keyword: self.keyword}
+        message = Message.new text: text
+        self.send_message(subscriber.phone_number, message)
       end
     end
   end

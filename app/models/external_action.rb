@@ -5,8 +5,8 @@ class ExternalAction < Message
     external_actions['path']
   end
 
-  def run schedule, subscriber
-
+  def run(schedule, subscriber)
+    schedule.send_or_execute self, subscriber
   end
 
   def execute subscriber
@@ -17,8 +17,10 @@ class ExternalAction < Message
     Hash[mapping.map do |key, value|
       if value === Hash
         Hash[data(value, subscriber)]
-      else value === :subscriber_phone_number
+      elsif value === :subscriber_phone_number
         [key, subscriber.phone_number]
+      elsif value === :days_since_registration
+        [key, subscriber.days_since_registration]
       else
         [key, value]
       end
