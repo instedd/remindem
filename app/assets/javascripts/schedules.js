@@ -335,24 +335,57 @@ function chooseHubAction() {
     return hubApi.reflect(path).then(function(reflect_result) {
       if(reflect_result.args().length > 0) {
         var row = getRow($('.externalActionForm .action.model').last());
-        renderForm(reflect_result, path, row);
+        renderForm(reflect_result, path, selection, row);
       }
     });
   });
 };
 
-function renderForm(reflect_result, path, row) {
+function renderForm(reflect_result, path, selection, row) {
   model = $('.action.model', row);
-  list = reflect_result.visitArgs(function(field){
-    new_el = model.clone();
-    new_el.children('label').text(field.label());
-    new_el.children('select').attr('data-name', field.name());
-    $('.externalActionForm .action', row).last().after(new_el);
-    new_el.removeClass('hidden model');
-    model.remove();
+  $.each(reflect_result.args(), function(i, value) {
+    buildForm(value, row, model);
   });
-  new_el.parents('.externalActionForm').data('meta', {path: path, result: reflect_result.toJson()});
+  model.remove();
+  new_el.parents('.externalActionForm').data('meta', {path: path, result: reflect_result.toJson(), selection: selection});
 };
+
+function buildForm(struct_or_value, row, model) {
+  if(struct_or_value.isStruct())
+    renderStruct(struct_or_value, row, model);
+  else
+    renderValue(struct_or_value, row, model);
+}
+
+function renderStruct(struct, row, model) {
+  new_el = model.clone();
+  new_el.children('label').text(struct.label());
+  new_el.children('label').addClass('title');
+  new_el.children('select').remove();
+  $('.externalActionForm .action', row).last().after(new_el);
+  new_el.removeClass('hidden model');
+  $.each(struct.fields(), function(index, value){
+    buildForm(value, row, model);
+  })
+}
+
+function renderValue(value, row) {
+  new_el = model.clone();
+  new_el.children('label').text(value.label());
+  if(value.isEnum()){
+    select = new_el.children('select');
+    select.empty();
+    $.each(value.enumOptions(), function(i,e) {
+      var opt = new Option(e);
+      select.get(0).options.add(opt);
+    });
+  }
+  else {
+    new_el.children('select').attr('data-name', value.name());
+  }
+  $('.externalActionForm .action', row).last().after(new_el);
+  new_el.removeClass('hidden model');
+}
 
 function renderMapping(row, mappings) {
   for(mapping in mappings) {
@@ -364,22 +397,25 @@ function renderExternalActionForm(controlsRow) {
   var hubApi = new HubApi(window.hub_url, '/hub');
   var data = $('.externalActionForm', controlsRow).data('meta');
   var result = hubApi.reflectResult(data.result);
-  renderForm(result, data.path, controlsRow);
+  renderForm(result, data.path, data.selection, controlsRow);
   renderMapping(controlsRow, data.mapping);
 }
 
 function eaFormToObject(src) {
+  if(src.length == 0) { return null; }
   var hubApi = new HubApi(window.hub_url, '/hub');
   var data = src.data('meta');
   var result = hubApi.reflectResult(data.result);
-  externalActions = {}
-  src.children('.action').each(function(i, el) {
-    field = $(el).children('select');
-    externalActions[field.data('name')] = field.val();
+  externalActions = {};
+  struct = result.visitArgs(function(arg){
+    if (!arg.isStruct()) {
+      return $('.action select[data-name=' + arg.name() + ']', src).val();
+    }
   });
-  return $.extend(data, {mapping: externalActions});
+  return $.extend(data, {mapping: struct});
 }
 
 function setExternalActionsToHiddenField(row, actions) {
+  debugger;
   $('.external_actions', row).val(JSON.stringify(actions));
 }
