@@ -61,7 +61,6 @@ end
 Subscriber.blueprint do
   phone_number
   subscribed_at { Time.now.utc }
-  schedule_id { FixedSchedule.make.id }
   offset { 0 }
 end
 
