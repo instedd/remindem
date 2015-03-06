@@ -48,7 +48,7 @@ class SubscribersController < AuthenticatedController
     @subscriber.destroy
 
     respond_to do |format|
-      format.html { redirect_to(schedule_subscribers_url, :schedule_id => params[:schedule_id]) }
+      format.html { redirect_to(schedule_subscribers_url, :schedule_id => params[:schedule_id], notice: _("Subscriber %{phone} has been removed") % { phone: @subscriber.phone_number.without_protocol }) }
       format.xml  { head :ok }
     end
   end
