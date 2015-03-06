@@ -8,6 +8,7 @@
         = tag :input, :name => "edit_offset", :size => "2", :type => "text", :value => f.object.offset, :onblur => "validate_onblur(this);", :'data-min' => "0"
       %span.timescale= @schedule.timescale
     .text
+      .loading
       .externalActionForm{"data-meta" => f.object.external_actions.to_json}
         .action.model.hidden
           %label Label

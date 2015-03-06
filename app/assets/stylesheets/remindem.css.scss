@@ -430,8 +430,22 @@ h3+p {
     width:260px;
     display:inline-block;
   }
+
+  .title {
+    font-weight:bold;
+  }
 }
 
 .hidden {
-  display:none;
+  display:none !important;
+}
+
+.loading {
+  background: image-url('loading_white.gif');
+  width: 100%;
+  height: 20px;
+  margin-top: 3px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position-x: center;
 }

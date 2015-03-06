@@ -336,6 +336,7 @@ function chooseHubAction() {
       if(reflect_result.args().length > 0) {
         var row = getRow($('.externalActionForm .action.model').last());
         renderForm(reflect_result, path, selection, row);
+        $('.loading', row).addClass('hidden');
       }
     });
   });
@@ -359,7 +360,7 @@ function buildForm(struct_or_value, row, model) {
 
 function renderStruct(struct, row, model) {
   new_el = model.clone();
-  new_el.children('label').text(struct.label());
+  new_el.children('label').text(struct.label() + ":");
   new_el.children('label').addClass('title');
   new_el.children('select').remove();
   $('.externalActionForm .action', row).last().after(new_el);
