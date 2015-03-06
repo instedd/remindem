@@ -9,8 +9,8 @@ class Api::SubscribersController < ApiController
     @subscribers = @schedule.subscribers
 
     respond_to do |format|
-      format.xml   { render :xml => @subscribers }
-      format.json  { render :json => @subscribers }
+      format.xml   { render :xml => @subscribers.map(&:for_api)  }
+      format.json  { render :json => @subscribers.map(&:for_api) }
     end
   end
 
@@ -20,8 +20,8 @@ class Api::SubscribersController < ApiController
     @subscriber = @schedule.subscribers.find(params[:id])
     raise ActiveRecord::RecordNotFound if @subscriber.nil?
     respond_to do |format|
-      format.json { render :json => @subscriber }
-      format.xml  { render :xml => @subscriber }
+      format.json { render :json => @subscriber.for_api }
+      format.xml  { render :xml => @subscriber.for_api  }
     end
   end
 
@@ -31,22 +31,22 @@ class Api::SubscribersController < ApiController
     @subscriber = @schedule.subscribers.where(phone_number: params[:phone_number].ensure_protocol).first
     raise ActiveRecord::RecordNotFound if @subscriber.nil?
     respond_to do |format|
-      format.xml  { render :xml => @subscriber }
-      format.json { render :json => @subscriber }
+      format.xml  { render :xml => @subscriber.for_api  }
+      format.json { render :json => @subscriber.for_api }
     end
   end
 
   # POST /api/reminders/1/subscribers.json
   def create
     @intent = SubscriptionIntent.new owner: current_user,
-      subscriber: params[:phone_number],
+      subscriber: params[:phone_number].ensure_protocol,
       schedule: @schedule,
       offset: params[:offset],
       unique: false
 
     if @intent.valid?
       @subscriber = @intent.find_or_create
-      render :json => @subscriber
+      render :json => @subscriber.for_api
     else
       render :json => @intent.errors, :status => :unprocessable_entity
     end

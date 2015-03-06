@@ -18,7 +18,7 @@
 class SubscribedEvent < Struct.new(:subscriber_id)
   def perform
     subscriber = Subscriber.find(self.subscriber_id)
-    HubClient.current.notify "schedules/#{subscriber.schedule_id}/subscribers/$events/new_subscriber", subscriber.to_json
+    HubClient.current.notify "schedules/#{subscriber.schedule_id}/subscribers/$events/new_subscriber", subscriber.for_api.to_json
   rescue ActiveRecord::RecordNotFound
     #If the record doesn't exist it's because the schedule was deleted, in which case no further messages must be sent.
   end

@@ -37,6 +37,13 @@ class Api::SubscribersControllerTest < ActionController::TestCase
     assert_equal @subscriber, assigns(:subscriber)
   end
 
+  test "should remove protocol from subscriber phone in show" do
+    get :show, :id => @subscriber.id, :schedule_id => @randweeks.id, :format => :json
+    assert_response :success
+    json_response = JSON.parse(response.body)
+    assert_equal @subscriber.phone_number.without_protocol, json_response['phone_number']
+  end
+
   test "should not show subscriber from another user" do
     create_user_and_sign_in
     assert_raise { get :show, :id => @subscriber.id, :schedule_id => @randweeks.id, :format => :json }
@@ -45,6 +52,12 @@ class Api::SubscribersControllerTest < ActionController::TestCase
 
   test "should find subscriber by phone" do
     get :find, :phone_number => @subscriber.phone_number, :schedule_id => @randweeks.id, :format => :json
+    assert_response :success
+    assert_equal @subscriber, assigns(:subscriber)
+  end
+
+  test "should find subscriber by phone without specifying protocol" do
+    get :find, :phone_number => @subscriber.phone_number.without_protocol, :schedule_id => @randweeks.id, :format => :json
     assert_response :success
     assert_equal @subscriber, assigns(:subscriber)
   end
