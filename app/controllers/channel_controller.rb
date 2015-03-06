@@ -36,7 +36,7 @@ class ChannelController < AuthenticatedController
   # DELETE /channels/1
   # DELETE /channels/1.xml
   def destroy
-    @channel = current_user.channels.find(params[:id])
+    @channel = Channel.where(user_id: current_user.id).find(params[:id])
     @channel.destroy
 
     respond_to do |format|
