@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150224154017) do
+ActiveRecord::Schema.define(:version => 20150306201350) do
 
   create_table "channels", :force => true do |t|
     t.integer  "user_id"
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(:version => 20150224154017) do
     t.string   "welcome_message"
     t.string   "type"
     t.string   "title"
-    t.boolean  "paused"
+    t.boolean  "paused",          :default => false
   end
 
   add_index "schedules", ["user_id"], :name => "fk_schedules_users"
