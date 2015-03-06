@@ -1,0 +1,36 @@
+# Copyright (C) 2011-2012, InSTEDD
+#
+# This file is part of Remindem.
+#
+# Remindem is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# Remindem is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Remindem.  If not, see <http://www.gnu.org/licenses/>.
+
+require 'test_helper'
+
+class ExternalActionTest < ActiveSupport::TestCase
+
+  test "should replace blanks for Verboice structure" do
+    mapping = {"channel"=>"callcentric", "phone_number"=>"subscriber_phone", "vars"=>{}}
+    subscriber = Subscriber.make
+    action = ExternalAction.make
+    assert_equal({"channel"=>"callcentric", "phone_number"=>subscriber.phone_number, "vars"=>{}}, action.data(mapping, subscriber))
+  end
+
+  test "should replace blanks for ResourceMap structure" do
+    mapping = {"properties"=>{"id"=>"subscriber_phone", "name"=>"subscriber_phone", "lat"=>"days_since_registration", "long"=>"days_since_registration", "layers"=>{"652"=>{"_seen_heroku_4_"=>"", "_master_site_id_heroku_4_"=>""}, "653"=>{"id"=>"subscriber_phone", "type"=>"", "location"=>"", "date"=>""}}}}
+    subscriber = Subscriber.make
+    action = ExternalAction.make schedule_id: subscriber.schedule_id
+    assert_equal({"properties"=>{"id"=>subscriber.phone_number, "name"=>subscriber.phone_number, "lat"=>subscriber.days_since_registration, "long"=>subscriber.days_since_registration, "layers"=>{"652"=>{"_seen_heroku_4_"=>"", "_master_site_id_heroku_4_"=>""}, "653"=>{"id"=>subscriber.phone_number, "type"=>"", "location"=>"", "date"=>""}}}}, action.data(mapping, subscriber))
+  end
+
+end

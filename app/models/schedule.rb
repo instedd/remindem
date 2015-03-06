@@ -122,11 +122,7 @@ class Schedule < ActiveRecord::Base
 
   def send_message to, msg
     nuntium = Nuntium.new_from_config
-    # if msg.is_a?(Message)
-      message = self.build_message to, msg.description
-    # else
-    #   message = self.build_message to, msg
-    # end
+    message = self.build_message to, msg.description
     nuntium.send_ao message
     log_message_sent msg, to
   end
@@ -161,7 +157,8 @@ class Schedule < ActiveRecord::Base
   end
 
   def log_message_created message
-    create_information_log_described_by _("Message created: %{message}") % {message: message.text}
+    text = message.text || message.description
+    create_information_log_described_by _("Message created: %{message}") % {message: text}
   end
 
   def initialize_messages

@@ -10,16 +10,17 @@ class ExternalAction < Message
   end
 
   def execute subscriber
-    HubClient.current.invoke external_actions['path'], data(external_actions['mapping'], subscriber)
+    hub_api = HubClient::Api.trusted(schedule.user.email)
+    hub_api.action(external_actions['path']).invoke(data(external_actions['mapping'], subscriber))
   end
 
   def data(mapping, subscriber)
     Hash[mapping.map do |key, value|
-      if value === Hash
-        Hash[data(value, subscriber)]
-      elsif value === :subscriber_phone_number
+      if value.is_a?(Hash)
+        [key, Hash[data(value, subscriber)]]
+      elsif value === "subscriber_phone"
         [key, subscriber.phone_number]
-      elsif value === :days_since_registration
+      elsif value === "days_since_registration"
         [key, subscriber.days_since_registration]
       else
         [key, value]

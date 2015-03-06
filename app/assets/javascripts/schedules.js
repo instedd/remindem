@@ -376,13 +376,12 @@ function renderValue(value, row) {
     select = new_el.children('select');
     select.empty();
     $.each(value.enumOptions(), function(i,e) {
-      var opt = new Option(e);
+      var opt = new Option(e.label);
+      opt.value = e.value;
       select.get(0).options.add(opt);
     });
   }
-  else {
-    new_el.children('select').attr('data-name', value.name());
-  }
+  new_el.children('select').attr('data-name', value.name());
   $('.externalActionForm .action', row).last().after(new_el);
   new_el.removeClass('hidden model');
 }
@@ -416,6 +415,5 @@ function eaFormToObject(src) {
 }
 
 function setExternalActionsToHiddenField(row, actions) {
-  debugger;
   $('.external_actions', row).val(JSON.stringify(actions));
 }
