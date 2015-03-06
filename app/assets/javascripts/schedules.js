@@ -114,10 +114,6 @@ function assignMessageValues(dest, source) {
 	dest.setText(source.getText());
 }
 
-function showUnsavedChangesAlert(){
-	$.status.showError(unsaved_changes)
-}
-
 function toggleOffset(){
 	if ($('#fixed_schedule_option').is(':checked'))
 		$('div.offset').css('visibility', 'visible');
@@ -128,30 +124,27 @@ function toggleOffset(){
 var timescale;
 
 $(function() {
-  $('#fixed_schedule_option').change(function(){
+  var form = $('form.edit_schedule, form.new_schedule');
+  if (form.length > 0) {
+    $('#fixed_schedule_option').change(function(){
+      toggleOffset();
+    });
+
+    $('#random_schedule_option').change(function(){
+      toggleOffset();
+    });
+
+    timescale = $('#schedule_timescale');
+
+    timescale.change(function(){
+      updateTimescaleLabels($(this).val());
+    });
+  	timescale.change();
+
+    form.areYouSure({message: unsaved_changes, addRemoveFieldsMarksDirty: true});
+
     toggleOffset();
-  });
-
-  $('#random_schedule_option').change(function(){
-    toggleOffset();
-  });
-
-  timescale = $('#schedule_timescale');
-
-  timescale.change(function(){
-    updateTimescaleLabels($(this).val());
-  });
-	timescale.change();
-
-  $('.causesPendingSaveNoticeOnChange').change(function(){
-    showUnsavedChangesAlert();
-  });
-
-  $('.causesPendingSaveNoticeOnClick').click(function(){
-    showUnsavedChangesAlert();
-  });
-
-  toggleOffset();
+  };
 });
 
 function updateTimescaleLabels(new_value){
@@ -188,6 +181,7 @@ function caseTimescale(value, minute, hour, day, week, month, year, defaultCase)
 function remove_fields(link) {
   $(link).prev("input[type=hidden]").attr("value", '1');
   getRow(link).hide();
+  $('form').trigger('rescan.areYouSure');
 }
 
 function edit_fields(link, content) {
@@ -236,7 +230,6 @@ function confirm_changes(buttonOk) {
   	hiddenRow.show();
   	currentRow.remove();
 
-  	showUnsavedChangesAlert();
 		return true;
 	}
 	return false;

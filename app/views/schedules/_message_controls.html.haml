@@ -2,7 +2,7 @@
 - cancel_onclick ||= 'revert_changes(this);'
 %li.fields
   .box.w60.reminderMessageBox
-    = link_to_remove_fields '', f, :class => "fdelete causesPendingSaveNoticeOnClick"
+    = link_to_remove_fields '', f, :class => "fdelete"
     .offset.left
       .ux-nstep
         = tag :input, :name => "edit_offset", :size => "2", :type => "text", :value => f.object.offset, :onblur => "validate_onblur(this);", :'data-min' => "0"

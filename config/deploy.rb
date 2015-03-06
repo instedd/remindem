@@ -18,10 +18,10 @@
 require 'bundler/capistrano'
 require 'rvm/capistrano'
 
-set :rvm_ruby_string, '1.9.3'
+set :rvm_ruby_string, '2.0.0-p598'
 
 set :application, "remindem"
-set :repository,  "https://bitbucket.org/instedd/remindem.git"
+set :repository,  "https://github.com/instedd/remindem.git"
 set :scm, :git
 set :deploy_via, :remote_cache
 set :user, 'ubuntu'
@@ -35,7 +35,7 @@ namespace :deploy do
   end
 
   task :symlink_configs, :roles => :app do
-    %W(database nuntium).each do |file|
+    %W(database nuntium guisso hub).each do |file|
       run "ln -nfs #{shared_path}/#{file}.yml #{release_path}/config/"
     end
   end
@@ -69,6 +69,7 @@ end
 
 before "deploy:start", "deploy:migrate"
 before "deploy:restart", "deploy:migrate"
-after "deploy:update_code", "deploy:symlink_configs"
+before "deploy:assets:precompile", "deploy:symlink_configs"
+
 after "deploy:update", "foreman:export"
 after "deploy:restart", "foreman:restart"

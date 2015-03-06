@@ -68,19 +68,19 @@ RememberMe::Application.configure do
 
   # Compress JavaScripts and CSS
   config.assets.compress = true
-   
+
   # Don't fallback to assets pipeline if a precompiled asset is missed
   config.assets.compile = false
-   
+
   # Generate digests for assets URLs
   config.assets.digest = true
-   
+
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
-   
+
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )
-   
+
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
 end

@@ -1,28 +1,26 @@
-- content_for :head do
-  = javascript_include_tag 'schedules'
 = form_for @schedule, :validate => true do |f|
   = errors_for @schedule, :as => :reminder
   .field.w60
     = f.label :titleapp, _("Title")
-    = f.text_field :title, :class => "causesPendingSaveNoticeOnChange"
+    = f.text_field :title
   .field.w60
     = f.label :keyword, _("Keyword")
     %p Users will register with this keyword
-    = f.text_field :keyword, :class => "causesPendingSaveNoticeOnChange"
+    = f.text_field :keyword
   .field
     = f.label :welcome_message, _("Welcome message")
     %p This is the message users will get after they successfully registered
     .w60
       = f.text_area :welcome_message,                          |
         :rows => 3,                                            |
-        :class => "causesPendingSaveNoticeOnChange ux-wajbar", |
+        :class => "ux-wajbar", |
         :placeholder => _('Write your welcome message here'),  |
         :maxlength => 160                                      |
   .field
     = f.label :timescale, _("Timescale")
     %p Choose timescale reference to use
     .ux-dropdown.w20.inline
-      = f.select :timescale, Schedule.time_scale_options, {}, :class => "causesPendingSaveNoticeOnChange"
+      = f.select :timescale, Schedule.time_scale_options
   .field
     %label Mode
     %p
@@ -31,7 +29,7 @@
     = f.radio_button :type,                               |
       "FixedSchedule",                                    |
       :id => "fixed_schedule_option",                     |
-      :class => "causesPendingSaveNoticeOnChange styled", |
+      :class => "styled", |
       :disabled => !@schedule.subscribers.empty?          |
 
     = f.label :type, FixedSchedule.mode_in_words, :class => 'radio'
@@ -39,7 +37,7 @@
     = f.radio_button :type,                               |
       "RandomSchedule",                                   |
       :id => "random_schedule_option",                    |
-      :class => "causesPendingSaveNoticeOnChange styled", |
+      :class => "styled", |
       :disabled => !@schedule.subscribers.empty?,         |
       'data-message' => _("Random Once")                  |
     = f.label :type, RandomSchedule.mode_in_words, :class => 'radio'
@@ -51,9 +49,9 @@
       = render "message_fields", :f => message_form
     %li.fields
       .box.grey.w60.reminderMessageBox
-        = link_to_add_fields _("Add message"), f, :messages, :class => "add_fields causesPendingSaveNoticeOnClick"
+        = link_to_add_fields _("Add message"), f, :messages, :class => "add_fields"
         %button.cadd.right{:onclick => "$('.add_fields', $(this).closest('.box')).click();", :type => "button"}
   %hr/
   .actions
-    %button.white{:type => "submit"} Save
-    = link_to _('Cancel'), :back
+    %button.white{:type => "submit", :onclick => "$('form').removeClass('dirty');"} Save
+    = link_to _('Cancel'), :back, :onclick => "$('form').removeClass('dirty');"

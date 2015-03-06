@@ -21,6 +21,9 @@ require 'rails/test_help'
 require 'mocha'
 require File.expand_path('../blueprints', __FILE__)
 
+# Initialize hub client with mock values
+HubClient.current url: 'http://example.com', connector_guid: 'CONNECTOR', token: 'TOKEN', enabled: true
+
 class ActiveSupport::TestCase
 
   include Mocha::API
@@ -63,6 +66,14 @@ class ActiveSupport::TestCase
 
   def current_user
     @user ||= User.make
+  end
+
+  def disable_hub
+    HubClient.current.stubs(:enabled?).returns(false)
+  end
+
+  def reenable_hub
+    HubClient.current.unstub(:enabled?)
   end
 
   # Sets current time as a stub on Time.now

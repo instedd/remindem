@@ -1,7 +1,7 @@
 %li.fields
   = errors_for f.object, :as => :message
   .box.grey.w60.reminderMessageBox.closed
-    = link_to_remove_fields '', f, :class => "fdelete causesPendingSaveNoticeOnClick"
+    = link_to_remove_fields '', f, :class => "fdelete"
     .left.offset
       = f.hidden_field :offset, :class => "offset"
       After
