@@ -8,7 +8,13 @@
         = tag :input, :name => "edit_offset", :size => "2", :type => "text", :value => f.object.offset, :onblur => "validate_onblur(this);", :'data-min' => "0"
       %span.timescale= @schedule.timescale
     .text
-      = content_tag :textarea, f.object.text, :rows => 4, :class => "ux-wajbar w60", :placeholder => _('Add message here'), |
+      - if f.object.type == 'ExternalAction'
+        .externalActionForm{"data-meta" => f.object.external_actions.to_json}
+          .action.model.hidden
+            %label Label
+            = select_tag 'remindem_data', options_for_select({'No action' => nil, 'Subscriber phone' => :subscriber_phone, 'Days since registration' => :days_since_registration})
+      - else
+        = content_tag :textarea, f.object.text, :rows => 4, :class => "ux-wajbar w60", :placeholder => _('Add message here'), |
         :name => "edit_text" , :maxlength => 160, :onblur => "validate_onblur(this);"                                    |
     %hr/
     .actions

@@ -35,11 +35,14 @@ class Schedule < ActiveRecord::Base
   validates_presence_of :user
 
   has_many :messages, :dependent => :destroy
+  has_many :external_actions, :dependent => :destroy
   has_many :subscribers, :dependent => :destroy
   has_many :logs, :dependent => :destroy
 
   accepts_nested_attributes_for :messages, :allow_destroy => true
+  accepts_nested_attributes_for :external_actions, :allow_destroy => true
   validates_associated :messages
+  validates_associated :external_actions
   before_validation :initialize_messages
 
   scope :paused, where(paused: true)
@@ -93,7 +96,7 @@ class Schedule < ActiveRecord::Base
   def send_or_reschedule message, subscriber
     if !paused?
       if subscriber.can_receive_message
-        send_message subscriber.phone_number, message.text
+        send_message subscriber.phone_number, message
       else
         #TODO-LOW build a better estimate for when to reschedule, although thanks to the
         # timewindow restriction, this will be pushed many times until it is able to go out
@@ -101,6 +104,14 @@ class Schedule < ActiveRecord::Base
         schedule_message message, subscriber, try_to_send_it_at
         create_warning_log_described_by "The message '#{message.text}' was delayed due to #{subscriber.phone_number.without_protocol} localtime"
       end
+    else
+      create_warning_log_described_by "The message '#{message.text}' was not sent to #{subscriber.phone_number.without_protocol} since schedule is paused"
+    end
+  end
+
+  def send_or_execute message, subscriber
+    if !paused?
+      execute_message message, subscriber
     else
       create_warning_log_described_by "The message '#{message.text}' was not sent to #{subscriber.phone_number.without_protocol} since schedule is paused"
     end
@@ -115,15 +126,20 @@ class Schedule < ActiveRecord::Base
     Delayed::Job.order('run_at DESC').where(:subscriber_id => subscriber.id).first
   end
 
-  def send_message to, body
+  def send_message to, msg
     nuntium = Nuntium.new_from_config
-    message = self.build_message to, body
+    message = self.build_message to, msg.description
     nuntium.send_ao message
-    log_message_sent body, to
+    log_message_sent msg, to
   end
 
-  def log_message_sent body, recipient_number
-    create_information_log_described_by (_("The message '%{body}' was sent to %{recipient}") % {body: body, recipient: recipient_number.without_protocol})
+  def execute_message message, subscriber
+    message.execute(subscriber)
+    log_message_sent message, subscriber.phone_number
+  end
+
+  def log_message_sent message, recipient_number
+    create_information_log_described_by (_("The message '%{body}' was sent to %{recipient}") % {body: message.description, recipient: recipient_number.without_protocol})
   end
 
   def log_new_subscription_of recipient_number
@@ -147,7 +163,8 @@ class Schedule < ActiveRecord::Base
   end
 
   def log_message_created message
-    create_information_log_described_by _("Message created: %{message}") % {message: message.text}
+    text = message.text || message.description
+    create_information_log_described_by _("Message created: %{message}") % {message: text}
   end
 
   def initialize_messages
@@ -157,8 +174,9 @@ class Schedule < ActiveRecord::Base
   def notify_deletion_to_subscribers
     if notifySubscribers
       subscribers.each do |subscriber|
-        self.send_message(subscriber.phone_number,
-          (_("The schedule %{keyword} has been deleted. You will no longer receive messages from this schedule.") % {keyword: self.keyword}))
+        text = _("The schedule %{keyword} has been deleted. You will no longer receive messages from this schedule.") % {keyword: self.keyword}
+        message = Message.new text: text
+        self.send_message(subscriber.phone_number, message)
       end
     end
   end

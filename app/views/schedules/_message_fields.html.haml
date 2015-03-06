@@ -1,5 +1,6 @@
+- type = (f.object.type ||= 'message').underscore
 %li.fields
-  = errors_for f.object, :as => :message
+  = errors_for f.object, :as => type.to_sym
   .box.grey.w60.reminderMessageBox.closed
     = link_to_remove_fields '', f, :class => "fdelete"
     .left.offset
@@ -7,8 +8,13 @@
       After
       %span.offset= f.object.offset
       %span.timescale= @schedule.timescale
-    = f.hidden_field :text, :class => "hidden text"
-    %pre.aleft.text.w55= f.object.text
+    - if type == 'message'
+      = f.hidden_field :text, :class => "hidden text"
+      %pre.aleft.text.w55= f.object.text
+    - else
+      = f.hidden_field :external_actions, class: "hidden external_actions"
+      %pre.aleft.text.w55= f.object.selection_description
+
     %span.aleft
       = link_to_edit_fields "Edit", f, :messages
     .clear

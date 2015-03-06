@@ -92,6 +92,8 @@ class SchedulesController < AuthenticatedController
     #Type needs to be manually set because it's protected, thus update_attributes doesn't affect it
     @schedule.type = params[:schedule][:type] unless params[:schedule][:type].blank?
 
+    parse_nested_attributes_for_actions(params[:schedule])
+
     respond_to do |format|
       if @schedule.update_attributes(params[:schedule])
         format.html { redirect_to(schedule_url(@schedule), :notice => _('Schedule was successfully updated.')) }
@@ -133,4 +135,15 @@ class SchedulesController < AuthenticatedController
     @schedule = current_user.schedules.find(params[:id])
   end
 
+  def parse_nested_attributes_for_actions(attributes)
+    modified_attrs = {}
+    unified = {}.merge(attributes[:messages_attributes] || {}).merge(attributes[:external_actions_attributes] || {})
+    unified.each do |key, attrs|
+      modified_attrs[key] = attrs
+      if modified_attrs[key][:external_actions] && modified_attrs[key][:external_actions].is_a?(String)
+        modified_attrs[key][:external_actions] = JSON.parse(modified_attrs[key][:external_actions].gsub('=>', ':'))
+      end
+    end
+    {messages_attributes: modified_attrs}
+  end
 end

@@ -1,0 +1,14 @@
+%li.fields
+  = errors_for f.object, :as => :external_action
+  .box.grey.w60.reminderMessageBox.closed
+    = link_to_remove_fields '', f, :class => "fdelete causesPendingSaveNoticeOnClick"
+    .left.offset
+      = f.hidden_field :offset, :class => "offset"
+      After
+      %span.offset= f.object.offset
+      %span.timescale= @schedule.timescale
+    = f.hidden_field :external_actions, class: "hidden external_actions"
+    %pre.aleft.text.w55= f.object.text
+    %span.aleft
+      = link_to_edit_fields "Edit", f, :external_actions
+    .clear

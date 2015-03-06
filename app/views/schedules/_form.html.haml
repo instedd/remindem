@@ -1,3 +1,7 @@
+- content_for :head do
+  :javascript
+    window.hub_url = "#{HubClient.current.url}"
+
 = form_for @schedule, :validate => true do |f|
   = errors_for @schedule, :as => :reminder
   .field.w60
@@ -50,8 +54,13 @@
     %li.fields
       .box.grey.w60.reminderMessageBox
         = link_to_add_fields _("Add message"), f, :messages, :class => "add_fields"
-        %button.cadd.right{:onclick => "$('.add_fields', $(this).closest('.box')).click();", :type => "button"}
-  %hr/
+        %button.cadd.right{:type => "button", 'data-dropdown' => "#dropdown-actions", 'data-vertical-offset' => 5}
+        #dropdown-actions.dropdown.dropdown-relative
+          %ul.dropdown-menu
+            %li
+              %a{onclick: "$('.add_fields', $(this).closest('.box')).click();", href: "javascript:void(0);"}= _("Add message")
+            %li
+              = link_to_add_fields _("External action"), f, :messages, builder_name: "external_actions", :class => "add_fields", onclick: "chooseHubAction();"
   .actions
     %button.white{:type => "submit", :onclick => "$('form').removeClass('dirty');"} Save
     = link_to _('Cancel'), :back, :onclick => "$('form').removeClass('dirty');"

@@ -61,6 +61,7 @@ RememberMe::Application.routes.draw do
 
   end
 
+  match '/hub/*path' => 'hub#api', format: false
   root :to => 'home#index'
 
   # The priority is based upon order of creation:

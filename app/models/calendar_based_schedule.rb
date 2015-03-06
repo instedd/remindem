@@ -1,17 +1,17 @@
 # Copyright (C) 2011-2012, InSTEDD
-# 
+#
 # This file is part of Remindem.
-# 
+#
 # Remindem is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
-# 
+#
 # Remindem is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with Remindem.  If not, see <http://www.gnu.org/licenses/>.
 
@@ -22,16 +22,16 @@ class CalendarBasedSchedule < Schedule
       message.next_occurrence_date_from Time.now
     end
   end
-  
+
   def generate_reminders_for subscriber
     schedule_reminder_for subscriber, next_message_occurrence_from(Time.now)
   end
-  
+
   def send_message_if_should_to subscriber, options = {}
     message_timestamp_cursor = options[:starting_at]
     if !paused? && between_two_hours_of(message_timestamp_cursor)
       messages_to_be_sent_on(message_timestamp_cursor).each do |message_to_send|
-        send_message subscriber.phone_number, message_to_send.text
+        send_message subscriber.phone_number, message_to_send
       end
       schedule_reminder_for subscriber, next_message_occurrence_from(message_timestamp_cursor)
     else
@@ -40,14 +40,14 @@ class CalendarBasedSchedule < Schedule
         message_timestamp_cursor + ((Time.now.getutc.yday - message_timestamp_cursor.getutc.yday + 1) * one_day)
     end
   end
-  
+
   def schedule_reminder_for subscriber, message_timestamp_cursor, run_at=nil
     run_at ||= message_timestamp_cursor
     Delayed::Job.enqueue WakeUpEvent.new(subscriber.id, self.id, message_timestamp_cursor),
       :subscriber_id => subscriber.id,
       :run_at => run_at
   end
-  
+
   def next_message_occurrence_from timestamp
     ice_cube_schedule = IceCube::Schedule.new(timestamp)
     messages.each do |message|
@@ -56,13 +56,13 @@ class CalendarBasedSchedule < Schedule
     #Returns the next event occurrence, with the same time and localization than the original date of the schedule
     ice_cube_schedule.next_occurrence timestamp
   end
-  
+
   def messages_to_be_sent_on occurrence
     messages.select do |message|
       message.rule.validate_single_date occurrence
     end
   end
-  
+
   def message_has_been_updated message
     # I don't search only for the scheduled jobs of that message
     # because of the new rule the message could now stand before any other message scheduled for any subscriber
@@ -74,7 +74,7 @@ class CalendarBasedSchedule < Schedule
     end
     log_message_updated message
   end
-  
+
   def message_has_been_destroyed message
     deleted_message_next_occurrence_date = message.next_occurrence_date_from(Time.now)
     self.subscribers.each do |subscriber|
@@ -88,10 +88,10 @@ class CalendarBasedSchedule < Schedule
     end
     log_message_deleted message
   end
-  
+
   def new_message_has_been_created message
     new_message_next_occurrence_date = message.next_occurrence_date_from(Time.now)
-    
+
     self.subscribers.each do |subscriber|
       delayed_job = Delayed::Job.where(:subscriber_id => subscriber.id).first
       if delayed_job.run_at > new_message_next_occurrence_date
@@ -101,26 +101,26 @@ class CalendarBasedSchedule < Schedule
     end
     log_message_created message
   end
-  
+
   def between_two_hours_of timestamp
     timestamp_at_today = today_at_the_same_time_than timestamp
-    
+
     Time.now.between?(timestamp_at_today - two_hours, timestamp_at_today + two_hours)
   end
-  
+
   def two_hours
-    #messages + and - from Time adds and subtracts a measure in seconds 
+    #messages + and - from Time adds and subtracts a measure in seconds
     60 * 60 * 2
   end
-  
+
   def one_day
     60 * 60 * 24
   end
-  
+
   def today_at_the_same_time_than timestamp
     timestamp + (Time.now.getutc.yday - timestamp.getutc.yday) * one_day
   end
-  
+
   def self.mode_in_words
     _("Calendar")
   end

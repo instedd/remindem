@@ -73,6 +73,10 @@ class Subscriber < ActiveRecord::Base
     (Time.now.utc.seconds_since_midnight - self.subscribed_at.seconds_since_midnight).abs.seconds < 2.hours
   end
 
+  def days_since_registration
+    (Date.today - subscribed_at.to_date).to_i
+  end
+
   def self.no_schedule_message keyword
     "Sorry, there's no reminder program named #{keyword} :(."
   end

@@ -421,3 +421,39 @@ h3+p {
 .wizardSteps {
   width: 693px;
 }
+
+.externalActionForm {
+  clear:both;
+  line-height:25px;
+
+  label {
+    width:260px;
+    display:inline-block;
+  }
+
+  .title {
+    font-weight:bold;
+  }
+
+  ul {
+    padding-left:15px;
+  }
+
+  .selection {
+    color:#888888;
+  }
+}
+
+.hidden {
+  display:none !important;
+}
+
+.loading {
+  background: image-url('loading_white.gif');
+  width: 100%;
+  height: 20px;
+  margin-top: 3px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position-x: center;
+}

@@ -8,6 +8,7 @@ function MessageFields(row) {
 	this._offsetText = $('span.offset', this._row);
 	this._text = $('input.text', this._row);
 	this._textText = $('pre.text', this._row);
+  this._externalActions = eaFormToObject($('.externalActionForm'), this._row);
 }
 
 MessageFields.prototype.setOffset = function(value) {
@@ -25,10 +26,19 @@ MessageFields.prototype.getText = function() {
 	return this._text.val();
 }
 
+MessageFields.prototype.setExternalActions = function(value) {
+  this._externalActions = value;
+}
+
+MessageFields.prototype.getExternalActions = function() {
+  this._externalActions;
+}
+
 function MessageControls(row) {
 	this._row = $(row);
 	this._offset = $('input[name="edit_offset"]', this._row);
 	this._text = $('textarea[name="edit_text"]', this._row);
+  this._externalActions = eaFormToObject($('.externalActionForm'), this._row);
 }
 
 MessageControls.prototype.setOffset = function(value) {
@@ -47,13 +57,30 @@ MessageControls.prototype.getText = function() {
 	return this._text.val();
 }
 
+MessageControls.prototype.setExternalActions = function(value) {
+  this._externalActions = value;
+}
+
+MessageControls.prototype.getExternalActions = function() {
+  return this._externalActions;
+}
+
+MessageControls.prototype.isText = function() {
+  return this._externalActions == null;
+}
+
 MessageControls.prototype.show_errors = function() {
   this.show_offset_errors_if_must();
   this.show_text_errors_if_must();
 }
 
 MessageControls.prototype.is_valid = function(){
-  return this.is_offset_valid() && this.is_text_valid();
+  offsetValid = this.is_offset_valid();
+  textValid = true;
+  if(this.isText()) {
+    textValid = this.is_text_valid();
+  }
+  return offsetValid && textValid;
 }
 
 MessageControls.prototype.is_offset_valid = function(){
@@ -61,11 +88,11 @@ MessageControls.prototype.is_offset_valid = function(){
 }
 
 MessageControls.prototype.is_text_valid = function(){
-  return this.is_text_present();
+  return !this.isText() || this.is_text_present();
 }
 
 MessageControls.prototype.show_text_errors_if_must = function(){
-  this.show_text_error_if(cant_be_blank, !this.is_text_present());
+  this.show_text_error_if(cant_be_blank, this.is_text_valid());
 }
 
 MessageControls.prototype.show_offset_errors_if_must = function(){
@@ -94,7 +121,7 @@ MessageControls.prototype.offset_fits_inside_an_integer = function(){
 }
 
 MessageControls.prototype.must_check_offset = function(){
-  return $('input[name=schedule[type]]:radio:checked').val() == 'FixedSchedule';
+  return $('input[name="schedule[type]"]:radio:checked').val() == 'FixedSchedule';
 }
 
 MessageControls.prototype.is_text_present = function(){
@@ -112,6 +139,7 @@ MessageControls.prototype.show_text_error_if = function(message, condition){
 function assignMessageValues(dest, source) {
 	dest.setOffset(source.getOffset());
 	dest.setText(source.getText());
+  dest.setExternalActions(source.getExternalActions());
 }
 
 function toggleOffset(){
@@ -190,6 +218,9 @@ function edit_fields(link, content) {
 	var controlsRow = getRow(link).next();
 	fieldsRow.hide();
 
+  if(isExternalAction(controlsRow)) {
+    renderExternalActionForm(controlsRow);
+  }
 	assignMessageValues(new MessageControls(controlsRow), new MessageFields(fieldsRow));
 
 	$.instedd.init_components(controlsRow);
@@ -197,6 +228,10 @@ function edit_fields(link, content) {
   //Hide offset control if user is editing a random schedule
   toggleOffset();
 	timescale.change();
+}
+
+function isExternalAction(controlsRow) {
+  return $('.externalActionForm',controlsRow).length > 0;
 }
 
 function add_fields(link, association, content) {
@@ -221,11 +256,11 @@ function add_fields(link, association, content) {
 
 function confirm_changes(buttonOk) {
   if (validate_fields(buttonOk)) {
-
   	var currentRow = getRow(buttonOk);
-  	var hiddenRow = $(currentRow).prev();
-
-  	assignMessageValues(new MessageFields(hiddenRow), new MessageControls(currentRow));
+    var hiddenRow = $(currentRow).prev();
+    var currentRowControls = new MessageControls(currentRow);
+  	assignMessageValues(new MessageFields(hiddenRow), currentRowControls);
+    setExternalActionsToHiddenField(hiddenRow, currentRowControls.getExternalActions());
 
   	hiddenRow.show();
   	currentRow.remove();
@@ -285,4 +320,107 @@ function validate_onblur (element) {
   var currentRow = getRow(element);
   var controls = new MessageControls(currentRow);
   controls.show_errors();
+}
+
+function chooseHubAction() {
+  hubApi = new HubApi(window.hub_url, '/hub');
+  hubApi.openPicker('action').then(function(path, selection) {
+    return hubApi.reflect(path).then(function(reflect_result) {
+      if(reflect_result.args().length > 0) {
+        var row = getRow($('.externalActionForm .action.model').last());
+        renderForm(reflect_result, path, selection, row);
+        $('.loading', row).addClass('hidden');
+      }
+    });
+  });
+};
+
+function renderForm(reflect_result, path, selection, row) {
+  model = $('.action.model', row);
+  var container = $('.externalActionForm', row);
+  renderSelectionPath(selection, container);
+  $.each(reflect_result.args(), function(i, value) {
+    buildForm(value, container, model);
+  });
+  model.remove();
+  new_el.parents('.externalActionForm').data('meta', {path: path, result: reflect_result.toJson(), selection: selection});
+};
+
+function buildForm(struct_or_value, row, model) {
+  if(struct_or_value.isStruct())
+    renderStruct(struct_or_value, row, model);
+  else
+    renderValue(struct_or_value, row, model);
+}
+
+function renderStruct(struct, row, model) {
+  var new_el = model.clone();
+  new_el.children('label').text(struct.label() + ":");
+  new_el.children('label').addClass('title');
+  new_el.children('select').remove();
+  row.append(new_el);
+  var new_list = $('<ul></ul>');
+  new_el.append(new_list);
+  new_el.removeClass('hidden model');
+  $.each(struct.fields(), function(index, value){
+    buildForm(value, new_list, model);
+  })
+}
+
+function renderValue(value, row) {
+  new_el = model.clone();
+  new_el.children('label').text(value.label());
+  if(value.isEnum()){
+    select = new_el.children('select');
+    select.empty();
+    $.each(value.enumOptions(), function(i,e) {
+      var opt = new Option(e.label);
+      opt.value = e.value;
+      select.get(0).options.add(opt);
+    });
+  }
+  new_el.children('select').attr('data-name', value.name());
+  row.append(new_el);
+  new_el.removeClass('hidden model');
+}
+
+function renderMapping(row, mappings) {
+  for(mapping in mappings) {
+    $(".action select[data-name="+mapping+"]", row).val(mappings[mapping]);
+  }
+}
+
+function renderExternalActionForm(controlsRow) {
+  var hubApi = new HubApi(window.hub_url, '/hub');
+  var data = $('.externalActionForm', controlsRow).data('meta');
+  var result = hubApi.reflectResult(data.result);
+  renderForm(result, data.path, data.selection, controlsRow);
+  renderMapping(controlsRow, data.mapping);
+}
+
+function renderSelectionPath(selection, container) {
+  var array = [];
+  $.each(selection.parents, function(i,e) {
+    array.push(e.label);
+  })
+  var selectionText = array.join(' → ');
+  container.append($('<span class="selection">' + selectionText + '</span>'));
+}
+
+function eaFormToObject(src) {
+  if(src.length == 0) { return null; }
+  var hubApi = new HubApi(window.hub_url, '/hub');
+  var data = src.data('meta');
+  var result = hubApi.reflectResult(data.result);
+  externalActions = {};
+  struct = result.visitArgs(function(arg){
+    if (!arg.isStruct()) {
+      return $('.action select[data-name=' + arg.name() + ']', src).val();
+    }
+  });
+  return $.extend(data, {mapping: struct});
+}
+
+function setExternalActionsToHiddenField(row, actions) {
+  $('.external_actions', row).val(JSON.stringify(actions));
 }
