@@ -344,8 +344,10 @@ function chooseHubAction() {
 
 function renderForm(reflect_result, path, selection, row) {
   model = $('.action.model', row);
+  var container = $('.externalActionForm', row);
+  renderSelectionPath(selection, container);
   $.each(reflect_result.args(), function(i, value) {
-    buildForm(value, row, model);
+    buildForm(value, container, model);
   });
   model.remove();
   new_el.parents('.externalActionForm').data('meta', {path: path, result: reflect_result.toJson(), selection: selection});
@@ -359,14 +361,16 @@ function buildForm(struct_or_value, row, model) {
 }
 
 function renderStruct(struct, row, model) {
-  new_el = model.clone();
+  var new_el = model.clone();
   new_el.children('label').text(struct.label() + ":");
   new_el.children('label').addClass('title');
   new_el.children('select').remove();
-  $('.externalActionForm .action', row).last().after(new_el);
+  row.append(new_el);
+  var new_list = $('<ul></ul>');
+  new_el.append(new_list);
   new_el.removeClass('hidden model');
   $.each(struct.fields(), function(index, value){
-    buildForm(value, row, model);
+    buildForm(value, new_list, model);
   })
 }
 
@@ -383,7 +387,7 @@ function renderValue(value, row) {
     });
   }
   new_el.children('select').attr('data-name', value.name());
-  $('.externalActionForm .action', row).last().after(new_el);
+  row.append(new_el);
   new_el.removeClass('hidden model');
 }
 
@@ -399,6 +403,15 @@ function renderExternalActionForm(controlsRow) {
   var result = hubApi.reflectResult(data.result);
   renderForm(result, data.path, data.selection, controlsRow);
   renderMapping(controlsRow, data.mapping);
+}
+
+function renderSelectionPath(selection, container) {
+  var array = [];
+  $.each(selection.parents, function(i,e) {
+    array.push(e.label);
+  })
+  var selectionText = array.join(' → ');
+  container.append($('<span class="selection">' + selectionText + '</span>'));
 }
 
 function eaFormToObject(src) {

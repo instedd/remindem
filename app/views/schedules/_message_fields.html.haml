@@ -13,7 +13,7 @@
       %pre.aleft.text.w55= f.object.text
     - else
       = f.hidden_field :external_actions, class: "hidden external_actions"
-      %pre.aleft.text.w55 External action
+      %pre.aleft.text.w55= f.object.selection_description
 
     %span.aleft
       = link_to_edit_fields "Edit", f, :messages

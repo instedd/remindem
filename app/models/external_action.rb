@@ -5,6 +5,10 @@ class ExternalAction < Message
     external_actions['path']
   end
 
+  def selection_description
+    external_actions['selection']['parents'].map{|step| step["label"]}.join(" → ")
+  end
+
   def run(schedule, subscriber)
     schedule.send_or_execute self, subscriber
   end
