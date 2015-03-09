@@ -41,7 +41,12 @@ module ApplicationHelper
     fields = f.fields_for(builder_name, new_object, :child_index => "new_#{builder_name}") do |builder|
       render(builder_name.to_s.singularize + "_add", :f => builder)
     end
-    link_to_function(name, "add_fields(this, \"#{builder_name}\", \"#{escape_javascript(fields)}\")", options)
+    if options[:no_onclick]
+      options.delete(:no_onclick)
+      link_to name, '#', options.merge("data-fields" => "#{fields.to_s}")
+    else
+      link_to_function(name, "add_fields(this, \"#{builder_name}\", \"#{escape_javascript(fields)}\")", options)
+    end
   end
 
   def link_button_to(body, url, html_options = {})

@@ -325,6 +325,8 @@ function validate_onblur (element) {
 function chooseHubAction() {
   hubApi = new HubApi(window.hub_url, '/hub');
   hubApi.openPicker('action').then(function(path, selection) {
+    var externalActionsLink = $('#externalActionsPicker');
+    add_fields(externalActionsLink.get(0), 'external_actions', externalActionsLink.data('fields'));
     return hubApi.reflect(path).then(function(reflect_result) {
       if(reflect_result.args().length > 0) {
         var row = getRow($('.externalActionForm .action.model').last());
@@ -355,9 +357,9 @@ function buildForm(struct_or_value, row, model) {
 
 function renderStruct(struct, row, model) {
   var new_el = model.clone();
-  new_el.children('label').text(struct.label() + ":");
-  new_el.children('label').addClass('title');
-  new_el.children('select').remove();
+  $('label',new_el).text(struct.label() + ":");
+  $('label',new_el).addClass('title');
+  $('select', new_el).remove();
   row.append(new_el);
   var new_list = $('<ul></ul>');
   new_el.append(new_list);
@@ -369,9 +371,9 @@ function renderStruct(struct, row, model) {
 
 function renderValue(value, row) {
   new_el = model.clone();
-  new_el.children('label').text(value.label());
+  $('label', new_el).text(value.label());
   if(value.isEnum()){
-    select = new_el.children('select');
+    select = $('select', new_el);
     select.empty();
     $.each(value.enumOptions(), function(i,e) {
       var opt = new Option(e.label);
@@ -379,7 +381,7 @@ function renderValue(value, row) {
       select.get(0).options.add(opt);
     });
   }
-  new_el.children('select').attr('data-name', value.name());
+  $('select', new_el).attr('data-name', value.name());
   row.append(new_el);
   new_el.removeClass('hidden model');
 }
