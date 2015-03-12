@@ -53,6 +53,71 @@ class SchedulesControllerTest < ActionController::TestCase
     assert_redirected_to schedule_path(assigns(:schedule))
   end
 
+  test "should create schedule with new message" do
+    assert_difference('Schedule.count') do
+      assert_difference('Message.count') do
+        schedule = {
+          :title => "Weekly Schedule",
+          :keyword => "new",
+          :timescale => "weeks",
+          :type => "RandomSchedule",
+          :welcome_message => "foo",
+          :messages_attributes=> {"1426107993968"=>{"_destroy"=>"false", "offset"=>"1", "text"=>"Welcome x 2"}}
+        }
+
+        post :create, :schedule => schedule
+      end
+    end
+
+    assert_redirected_to schedule_path(assigns(:schedule))
+  end
+
+  test "should create schedule with new external actions" do
+    assert_difference('Schedule.count') do
+      assert_difference('ExternalAction.count') do
+        schedule = {
+          :title => "Weekly Schedule",
+          :keyword => "new",
+          :timescale => "weeks",
+          :type => "RandomSchedule",
+          :welcome_message => "foo",
+          :external_actions_attributes => {"1426108009723"=>{"_destroy"=>"false",
+                                            "offset"=>"2",
+                                            "external_actions"=>"{\"path\":\"connectors/101f29a2-38f9-05f9-d690-446655c0ffcc/projects/585/phone_book/$actions/insert\",
+                                            \"result\":{\"label\":\"Insert\",
+                                            \"args\":{\"properties\":{\"type\":{\"kind\":\"struct\",
+                                            \"members\":{\"id\":{\"label\":\"Id\",
+                                            \"type\":\"integer\"},
+                                            \"address\":{\"label\":\"Address\",
+                                            \"type\":\"integer\"}}}}}},
+                                            \"selection\":{\"item\":{\"connector\":\"101f29a2-38f9-05f9-d690-446655c0ffcc\",
+                                            \"path\":\"projects/585/phone_book/$actions/insert\",
+                                            \"type\":\"action\"},
+                                            \"parents\":[{\"label\":\"InSTEDD Verboice (stg)\",
+                                            \"type\":\"connector\"},
+                                            {\"label\":\"Projects\",
+                                            \"path\":\"projects\",
+                                            \"type\":\"entity_set\"},
+                                            {\"label\":\"HubTest\",
+                                            \"path\":\"projects/585\",
+                                            \"type\":\"entity\"},
+                                            {\"label\":\"Phone Book\",
+                                            \"path\":\"projects/585/phone_book\",
+                                            \"type\":\"entity_set\"},
+                                            {\"label\":\"Insert\",
+                                            \"path\":\"projects/585/phone_book/$actions/insert\",
+                                            \"type\":\"action\"}]},
+                                            \"mapping\":{\"properties\":{\"id\":\"\",
+                                            \"address\":\"subscriber_phone\"}}}"}}
+        }
+
+        post :create, :schedule => schedule
+      end
+    end
+
+    assert_redirected_to schedule_path(assigns(:schedule))
+  end
+
   test "should view schedule" do
     get :show, :id => @schedule.to_param, :locale => I18n.locale
     assert_response :success

@@ -71,6 +71,7 @@ class SchedulesController < AuthenticatedController
   # POST /schedules
   # POST /schedules.xml
   def create
+    parse_nested_attributes_for_actions(params[:schedule])
     @schedule = params[:schedule][:type].constantize.new(params[:schedule])
     @schedule.user_id = current_user.id
 

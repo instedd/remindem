@@ -35,7 +35,7 @@ class Schedule < ActiveRecord::Base
   validates_presence_of :user
 
   has_many :messages, :dependent => :destroy
-  has_many :external_actions, :dependent => :destroy
+  has_many :external_actions, dependent: :destroy, inverse_of: :schedule
   has_many :subscribers, :dependent => :destroy
   has_many :logs, :dependent => :destroy
 

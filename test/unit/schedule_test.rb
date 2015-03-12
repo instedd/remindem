@@ -330,5 +330,4 @@ class ScheduleTest < ActiveSupport::TestCase
     assert_equal "The message 'pregnant2' was sent to 1234", log.description
     assert_equal pregnant, log.schedule
   end
-
 end
