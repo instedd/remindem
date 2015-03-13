@@ -106,7 +106,11 @@ class Subscriber < ActiveRecord::Base
   end
 
   def for_api
-    self.as_json.merge("phone_number" => phone_number.without_protocol.gsub(/^\+/, ''))
+    self.as_json.merge("phone_number" => phone_number_for_api)
+  end
+
+  def phone_number_for_api
+    phone_number.without_protocol.gsub(/^\+/, '')
   end
 
   private

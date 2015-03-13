@@ -23,7 +23,7 @@ class ExternalAction < Message
       if value.is_a?(Hash)
         [key, Hash[data(value, subscriber)]]
       elsif value === "subscriber_phone"
-        [key, subscriber.phone_number]
+        [key, subscriber.phone_number_for_api]
       elsif value === "days_since_registration"
         [key, subscriber.days_since_registration]
       else

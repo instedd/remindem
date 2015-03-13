@@ -22,15 +22,15 @@ class ExternalActionTest < ActiveSupport::TestCase
   test "should replace blanks for Verboice structure" do
     mapping = {"channel"=>"callcentric", "phone_number"=>"subscriber_phone", "vars"=>{}}
     action = ExternalAction.make
-    subscriber = Subscriber.make schedule_id: action.schedule_id
-    assert_equal({"channel"=>"callcentric", "phone_number"=>subscriber.phone_number, "vars"=>{}}, action.data(mapping, subscriber))
+    subscriber = Subscriber.make schedule_id: action.schedule_id, phone_number: 'sms://9991000'
+    assert_equal({"channel"=>"callcentric", "phone_number"=>"9991000", "vars"=>{}}, action.data(mapping, subscriber))
   end
 
   test "should replace blanks for ResourceMap structure" do
     mapping = {"properties"=>{"id"=>"subscriber_phone", "name"=>"subscriber_phone", "lat"=>"days_since_registration", "long"=>"days_since_registration", "layers"=>{"652"=>{"_seen_heroku_4_"=>"", "_master_site_id_heroku_4_"=>""}, "653"=>{"id"=>"subscriber_phone", "type"=>"", "location"=>"", "date"=>""}}}}
     action = ExternalAction.make
-    subscriber = Subscriber.make schedule_id: action.schedule_id
-    assert_equal({"properties"=>{"id"=>subscriber.phone_number, "name"=>subscriber.phone_number, "lat"=>subscriber.days_since_registration, "long"=>subscriber.days_since_registration, "layers"=>{"652"=>{"_seen_heroku_4_"=>"", "_master_site_id_heroku_4_"=>""}, "653"=>{"id"=>subscriber.phone_number, "type"=>"", "location"=>"", "date"=>""}}}}, action.data(mapping, subscriber))
+    subscriber = Subscriber.make schedule_id: action.schedule_id, phone_number: 'sms://+9991000'
+    assert_equal({"properties"=>{"id"=>"9991000", "name"=>"9991000", "lat"=>subscriber.days_since_registration, "long"=>subscriber.days_since_registration, "layers"=>{"652"=>{"_seen_heroku_4_"=>"", "_master_site_id_heroku_4_"=>""}, "653"=>{"id"=>"9991000", "type"=>"", "location"=>"", "date"=>""}}}}, action.data(mapping, subscriber))
   end
 
 end
