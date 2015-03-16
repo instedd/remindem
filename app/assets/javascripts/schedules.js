@@ -348,15 +348,22 @@ function renderForm(reflect_result, path, selection, row) {
   container.data('meta', {path: path, result: reflect_result.toJson(), selection: selection});
 };
 
-function buildForm(struct_or_value, row, model) {
-  if(struct_or_value.isStruct())
-    renderStruct(struct_or_value, row, model);
-  else
-    renderValue(struct_or_value, row, model);
+function buildForm(struct_or_value, row, model, path) {
+  if(struct_or_value.isStruct()) {
+    renderStruct(struct_or_value, row, model, path);
+  }
+  else {
+    renderValue(struct_or_value, row, model, path);
+  }
 }
 
-function renderStruct(struct, row, model) {
+function renderStruct(struct, row, model, path) {
   var new_el = model.clone();
+  if(path == undefined){
+    var new_path = struct.name();
+  } else {
+    var new_path = path+"_"+struct.name();
+  }
   $('label',new_el).text(struct.label() + ":");
   $('label',new_el).addClass('title');
   $('select', new_el).remove();
@@ -365,11 +372,11 @@ function renderStruct(struct, row, model) {
   new_el.append(new_list);
   new_el.removeClass('hidden model');
   $.each(struct.fields(), function(index, value){
-    buildForm(value, new_list, model);
+    buildForm(value, new_list, model, new_path);
   })
 }
 
-function renderValue(value, row) {
+function renderValue(value, row, model, path) {
   new_el = model.clone();
   $('label', new_el).text(value.label());
   if(value.isEnum()){
@@ -381,18 +388,28 @@ function renderValue(value, row) {
       select.get(0).options.add(opt);
     });
   }
-  $('select', new_el).attr('data-name', value.name());
+  if(path == undefined){
+    var new_path = value.name();
+  } else {
+    var new_path = path+"_"+value.name();
+  }
+  $('select', new_el).attr('data-name', new_path);
   row.append(new_el);
   new_el.removeClass('hidden model');
 }
 
-function renderMapping(row, mappings) {
+function renderMapping(row, mappings, path) {
   for(mapping in mappings) {
+    if(path == undefined){
+      var new_path = mapping;
+    } else {
+      var new_path = path+"_"+mapping;
+    }
     if(typeof(mappings[mapping]) != "string") {
-      renderMapping(row, mappings[mapping]);
+      renderMapping(row, mappings[mapping], new_path);
     }
     else {
-      $(".action select[data-name="+mapping+"]", row).val(mappings[mapping]);
+      $(".action select[data-name="+new_path+"]", row).val(mappings[mapping]);
     }
   }
 }
@@ -424,7 +441,7 @@ function eaFormToObject(src) {
   externalActions = {};
   struct = result.visitArgs(function(arg){
     if (!arg.isStruct()) {
-      return $('.action select[data-name=' + arg.name() + ']', src).val();
+      return $('.action select[data-name=' + arg.path().join("_") + ']', src).val();
     }
   });
   return $.extend(data, {mapping: struct});
