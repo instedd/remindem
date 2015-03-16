@@ -399,7 +399,8 @@ function renderMapping(row, mappings) {
 
 function renderExternalActionForm(fieldsRow, controlsRow) {
   var hubApi = new HubApi(window.hub_url, '/hub');
-  var data = JSON.parse($('.external_actions', fieldsRow)[0].value);
+  var data = $('.externalActionForm', controlsRow).data('meta');
+  if(data == undefined){ data = JSON.parse($('.external_actions', fieldsRow)[0].value); }
   var result = hubApi.reflectResult(data.result);
   $('.loading', controlsRow).addClass('hidden');
   renderForm(result, data.path, data.selection, controlsRow);
