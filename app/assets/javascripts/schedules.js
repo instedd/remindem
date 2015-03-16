@@ -219,7 +219,7 @@ function edit_fields(link, content) {
 	fieldsRow.hide();
 
   if(isExternalAction(controlsRow)) {
-    renderExternalActionForm(controlsRow);
+    renderExternalActionForm(fieldsRow, controlsRow);
   }
 	assignMessageValues(new MessageControls(controlsRow), new MessageFields(fieldsRow));
 
@@ -345,7 +345,7 @@ function renderForm(reflect_result, path, selection, row) {
     buildForm(value, container, model);
   });
   model.remove();
-  new_el.parents('.externalActionForm').data('meta', {path: path, result: reflect_result.toJson(), selection: selection});
+  container.data('meta', {path: path, result: reflect_result.toJson(), selection: selection});
 };
 
 function buildForm(struct_or_value, row, model) {
@@ -388,14 +388,20 @@ function renderValue(value, row) {
 
 function renderMapping(row, mappings) {
   for(mapping in mappings) {
-    $(".action select[data-name="+mapping+"]", row).val(mappings[mapping]);
+    if(typeof(mappings[mapping]) != "string") {
+      renderMapping(row, mappings[mapping]);
+    }
+    else {
+      $(".action select[data-name="+mapping+"]", row).val(mappings[mapping]);
+    }
   }
 }
 
-function renderExternalActionForm(controlsRow) {
+function renderExternalActionForm(fieldsRow, controlsRow) {
   var hubApi = new HubApi(window.hub_url, '/hub');
-  var data = $('.externalActionForm', controlsRow).data('meta');
+  var data = JSON.parse($('.external_actions', fieldsRow)[0].value);
   var result = hubApi.reflectResult(data.result);
+  $('.loading', controlsRow).addClass('hidden');
   renderForm(result, data.path, data.selection, controlsRow);
   renderMapping(controlsRow, data.mapping);
 }
