@@ -59,8 +59,9 @@
           %ul.dropdown-menu
             %li
               %a{onclick: "$('#add_message', $(this).closest('.box')).click();", href: "javascript:void(0);"}= _("Add message")
-            %li
-              = link_to_add_fields _("External action"), f, :messages, builder_name: "external_actions", :class => "add_fields", id: 'externalActionsPicker', onclick: "chooseHubAction();", no_onclick: true
+            - if HubClient.current.enabled?
+              %li
+                = link_to_add_fields _("External action"), f, :messages, builder_name: "external_actions", :class => "add_fields", id: 'externalActionsPicker', onclick: "chooseHubAction();", no_onclick: true
   .actions
     %button.white{:type => "submit", :onclick => "$('form').removeClass('dirty');"} Save
     = link_to _('Cancel'), :back, :onclick => "$('form').removeClass('dirty');"
