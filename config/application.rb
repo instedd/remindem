@@ -78,7 +78,7 @@ module RememberMe
 
     config.google_analytics = 'UA-XXXXXXX-XX'
 
-    config.version_name = '1.6.2'
+    config.version_name = '1.7.0'
 
     # Enable asset pipeline
     config.assets.enabled = true
