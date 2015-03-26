@@ -80,4 +80,9 @@ module ApplicationHelper
     sort_direction == "asc" ? "up" : "down"
   end
 
+  def instedd_theme_url_for(path)
+    url = RememberMe::Application.config.theme_url
+    File.join url, path
+  end
+
 end

@@ -2,10 +2,10 @@
 %html
   %head
     %title Remindem
-    = stylesheet_link_tag 'http://theme.instedd.org/theme/stylesheets/theme.css'
+    = stylesheet_link_tag instedd_theme_url_for('theme/stylesheets/theme.css')
     = stylesheet_link_tag 'application'
     = javascript_include_tag 'application'
-    = javascript_include_tag 'http://theme.instedd.org/theme/javascripts/theme.js'
+    = javascript_include_tag instedd_theme_url_for('theme/javascripts/theme.js')
     = csrf_meta_tag
     = yield(:head)
     :javascript
