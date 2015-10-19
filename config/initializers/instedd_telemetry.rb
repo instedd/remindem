@@ -12,6 +12,7 @@ InsteddTelemetry.setup do |config|
      config.process_run_interval = custom_config[:run_interval_minutes].minutes if custom_config.include? :run_interval_minutes
    end
 
+   config.add_collector Telemetry::AccountsCollector
    config.add_collector Telemetry::RemindersCollector
    config.add_collector Telemetry::SubscribersCollector
 end
