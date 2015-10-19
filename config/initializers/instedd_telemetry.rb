@@ -13,4 +13,5 @@ InsteddTelemetry.setup do |config|
    end
 
    config.add_collector Telemetry::RemindersCollector
+   config.add_collector Telemetry::SubscribersCollector
 end
