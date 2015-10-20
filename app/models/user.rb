@@ -39,6 +39,8 @@ class User < ActiveRecord::Base
 
   serialize :features, Hash
 
+  after_save :telemetry_track_activity
+
   def register_channel(code)
     raise Nuntium::Exception.new("There were problems creating the channel", "Ticket code" => "Mustn't be blank") if code.blank?
     remove_old_channel
@@ -90,4 +92,7 @@ class User < ActiveRecord::Base
     save!
   end
 
+  def telemetry_track_activity
+    InsteddTelemetry.timespan_since_creation_update(:account_lifespan, {account_id: self.id}, self)
+  end
 end

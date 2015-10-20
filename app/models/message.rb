@@ -32,7 +32,10 @@ class Message < ActiveRecord::Base
   before_destroy :alert_schedule_from_message_destroy
   after_update :alert_schedule_from_message_update
   after_create :alert_schedule_from_message_creation
-
+  
+  after_save    { schedule.telemetry_track_activity }
+  after_destroy { schedule.telemetry_track_activity }
+  
   serialize :occurrence_rule
 
   #toDo: move this behavior to the schedule and remove the if's after merge
