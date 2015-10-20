@@ -309,25 +309,29 @@ class ScheduleTest < ActiveSupport::TestCase
     end
   end
 
-  test "not enqueue message for reminder in the past" do
-    pregnant = FixedSchedule.make
-    pregnant.messages.create! :text => 'pregnant1', :offset => 1
-    pregnant.messages.create! :text => 'pregnant2', :offset => 3
-    subscriber = Subscriber.make :schedule => pregnant, :phone_number => 'sms://1234', :offset => 2
+  Schedule.time_scale_options.each do |label, key|
+    test "not enqueue message for reminder in the past with offset in #{key}" do
+      Timecop.freeze(DateTime.new(2015, 1, 1, 12, 0, 0))
 
-    pregnant.subscribe subscriber
+      pregnant = FixedSchedule.make timescale: key
+      pregnant.messages.create! :text => 'pregnant1', :offset => 1
+      pregnant.messages.create! :text => 'pregnant2', :offset => 3
+      subscriber = Subscriber.make :schedule => pregnant, :phone_number => 'sms://1234', :offset => 2
 
-    assert_equal 1, Delayed::Job.of_kind(ReminderJob).count
+      pregnant.subscribe subscriber
 
-    job = Delayed::Job.of_kind(ReminderJob).first
-    scheduled_job = YAML.load(job.handler)
+      assert_equal 1, Delayed::Job.of_kind(ReminderJob).count
 
-    scheduled_job.perform
+      job = Delayed::Job.of_kind(ReminderJob).first
+      scheduled_job = YAML.load(job.handler)
 
-    log = Log.last
+      scheduled_job.perform
 
-    assert_equal :information, log.severity
-    assert_equal "The message 'pregnant2' was sent to 1234", log.description
-    assert_equal pregnant, log.schedule
+      log = Log.last
+
+      assert_equal :information, log.severity
+      assert_equal "The message 'pregnant2' was sent to 1234", log.description
+      assert_equal pregnant, log.schedule
+    end
   end
 end
