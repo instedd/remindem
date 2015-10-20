@@ -13,6 +13,7 @@ InsteddTelemetry.setup do |config|
    end
 
    config.add_collector Telemetry::AccountsCollector
+   config.add_collector Telemetry::PhoneNumbersCollector
    config.add_collector Telemetry::RemindersCollector
    config.add_collector Telemetry::SubscribersCollector
 end
