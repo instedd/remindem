@@ -20,13 +20,13 @@ class RemindersCollectorTest < ActiveSupport::TestCase
   end
 
   test "takes into account period date" do
-    d0 = Date.today
+    d0 = Time.now
     
     Timecop.freeze d0
     3.times { RandomSchedule.make }
     p0 = InsteddTelemetry::Period.current
 
-    Timecop.freeze (d0 + 1.week)
+    Timecop.freeze (d0 + InsteddTelemetry::Period.span)
     2.times { RandomSchedule.make }
     p1 = InsteddTelemetry::Period.current
 

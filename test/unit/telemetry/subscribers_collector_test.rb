@@ -28,15 +28,16 @@ class SubscribersCollectorTest < ActiveSupport::TestCase
 
   test "takes into account period date" do
     schedule = RandomSchedule.make
-    d0 = Date.today
+    d0 = Time.now
 
     Timecop.freeze d0
     p0 = InsteddTelemetry::Period.current
     schedule.subscribers.make
 
-    Timecop.freeze (d0 + 1.week)
+    Timecop.freeze (d0 + InsteddTelemetry::Period.span)
     p1 = InsteddTelemetry::Period.current
     schedule.subscribers.make
+
 
     assert_equal Telemetry::SubscribersCollector.collect_stats(p0), {
       "counters" => [

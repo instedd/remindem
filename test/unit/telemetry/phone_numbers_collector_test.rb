@@ -47,13 +47,13 @@ class PhoneNumbersCollectorTest < ActiveSupport::TestCase
   end
 
   test "takes into account period date" do
-    d0 = Date.today
+    d0 = Time.now
 
     Timecop.freeze d0
     (1..2).each { |i| @schedule.subscribers.make phone_number: "54 11 4444 555#{i}" }
     p0 = InsteddTelemetry::Period.current
 
-    Timecop.freeze (d0 + 1.week)
+    Timecop.freeze (d0 + InsteddTelemetry::Period.span)
     (3..9).each { |i| @schedule.subscribers.make phone_number: "54 11 4444 555#{i}" }
     p1 = InsteddTelemetry::Period.current
 
