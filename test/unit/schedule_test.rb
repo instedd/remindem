@@ -311,7 +311,7 @@ class ScheduleTest < ActiveSupport::TestCase
 
   Schedule.time_scale_options.each do |label, key|
     test "not enqueue message for reminder in the past with offset in #{key}" do
-      Timecop.freeze(DateTime.new(2015, 1, 1, 12, 0, 0))
+      set_current_time Time.new(2015,1,1,12,0,0).utc
 
       pregnant = FixedSchedule.make timescale: key
       pregnant.messages.create! :text => 'pregnant1', :offset => 1

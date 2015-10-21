@@ -4,7 +4,7 @@ include InsteddTelemetry
 class AccountLifespanTrackingTest < ActiveSupport::TestCase
 
   setup do
-    Timecop.freeze(Time.now)
+    set_current_time
     @user = User.make
   end
 
@@ -55,7 +55,7 @@ class AccountLifespanTrackingTest < ActiveSupport::TestCase
  end
 
  def updates_lifespan(&block)
-   Timecop.freeze(Time.now + 3.seconds)
+   time_advance 3.seconds
    block.call
    verify_lifespan(Time.now)
  end

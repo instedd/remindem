@@ -2,7 +2,10 @@ require 'test_helper'
 
 class PhoneNumbersCollectorTest < ActiveSupport::TestCase
 
-  setup { @schedule = RandomSchedule.make }
+  setup do
+    set_current_time
+    @schedule = RandomSchedule.make
+  end
 
   test "counts numbers by country code for current period" do
     (1..3).each { |i| @schedule.subscribers.make phone_number: "54 11 4444 555#{i}" }
@@ -47,15 +50,13 @@ class PhoneNumbersCollectorTest < ActiveSupport::TestCase
   end
 
   test "takes into account period date" do
-    d0 = Time.now
-
-    Timecop.freeze d0
     (1..2).each { |i| @schedule.subscribers.make phone_number: "54 11 4444 555#{i}" }
     p0 = InsteddTelemetry::Period.current
 
-    Timecop.freeze (d0 + InsteddTelemetry::Period.span)
+    time_advance InsteddTelemetry::Period.span
     (3..9).each { |i| @schedule.subscribers.make phone_number: "54 11 4444 555#{i}" }
     p1 = InsteddTelemetry::Period.current
+
 
     assert_equal Telemetry::PhoneNumbersCollector.collect_stats(p0), {
       "counters" => [

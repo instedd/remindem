@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: git://github.com/instedd/telemetry_rails.git
-  revision: 3769408a2ee0f75be3e646e08ba963befcdc9090
+  revision: f4dbe4ba3320e5934a66c84b3bfb028c32878008
   branch: master
   specs:
     instedd_telemetry (0.0.1)
@@ -246,7 +246,6 @@ GEM
     test-unit (2.4.5)
     thor (0.19.1)
     tilt (1.4.1)
-    timecop (0.8.0)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -299,7 +298,6 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   symbolize
   test-unit
-  timecop
   uglifier (>= 1.0.3)
 
 BUNDLED WITH

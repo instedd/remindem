@@ -27,14 +27,12 @@ class SubscribersCollectorTest < ActiveSupport::TestCase
   end
 
   test "takes into account period date" do
+    set_current_time
     schedule = RandomSchedule.make
-    d0 = Time.now
-
-    Timecop.freeze d0
     p0 = InsteddTelemetry::Period.current
     schedule.subscribers.make
 
-    Timecop.freeze (d0 + InsteddTelemetry::Period.span)
+    time_advance InsteddTelemetry::Period.span
     p1 = InsteddTelemetry::Period.current
     schedule.subscribers.make
 

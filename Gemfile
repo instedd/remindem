@@ -55,7 +55,3 @@ group :development do
   gem 'rvm'
   gem 'licit'
 end
-
-group :test do
-  gem 'timecop'
-end

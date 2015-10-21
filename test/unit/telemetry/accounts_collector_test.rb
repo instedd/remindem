@@ -20,13 +20,11 @@ class AccountsCollectorTest < ActiveSupport::TestCase
   end
 
   test "takes into account period date" do
-    d0 = Time.now
-
-    Timecop.freeze d0
+    set_current_time
     3.times { User.make }
     p0 = InsteddTelemetry::Period.current
 
-    Timecop.freeze (d0 + InsteddTelemetry::Period.span)
+    time_advance InsteddTelemetry::Period.span
     2.times { User.make }
     p1 = InsteddTelemetry::Period.current
 
