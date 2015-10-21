@@ -135,6 +135,7 @@ class Schedule < ActiveRecord::Base
     message = self.build_message to, msg.description
     nuntium.send_ao message
     log_message_sent msg, to
+    telemetry_track_activity
   end
 
   def execute_message message, subscriber

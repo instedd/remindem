@@ -47,6 +47,13 @@ class AccountLifespanTrackingTest < ActiveSupport::TestCase
    updates_lifespan { @channel.destroy }
  end
 
+ test "it tracks messages sent" do
+   @schedule = RandomSchedule.make user: @user
+   msg = @schedule.messages.create! :text => 'msg', :offset => 1
+
+   updates_lifespan { @schedule.send_message "1111", msg }
+ end
+
  def updates_lifespan(&block)
    Timecop.freeze(Time.now + 3.seconds)
    block.call
