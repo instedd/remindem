@@ -8,8 +8,8 @@ class PhoneNumbersCollectorTest < ActiveSupport::TestCase
   end
 
   test "counts numbers by country code for current period" do
-    (1..3).each { |i| @schedule.subscribers.make phone_number: "54 11 4444 555#{i}" }
-    (1..4).each { |i| @schedule.subscribers.make phone_number: "855 23 686 036#{i}" }
+    (1..3).each { |i| @schedule.subscribers.make phone_number: "sms://54 11 4444 555#{i}" }
+    (1..4).each { |i| @schedule.subscribers.make phone_number: "sms://855 23 686 036#{i}" }
 
     period = InsteddTelemetry::Period.current
 
@@ -32,8 +32,8 @@ class PhoneNumbersCollectorTest < ActiveSupport::TestCase
   end
 
   test "it ignores undetermined country codes" do
-    @schedule.subscribers.make phone_number: "54 11 4444 5555"
-    @schedule.subscribers.make phone_number: "123"
+    @schedule.subscribers.make phone_number: "sms://54 11 4444 5555"
+    @schedule.subscribers.make phone_number: "sms://123"
 
     period = InsteddTelemetry::Period.current
     stats = Telemetry::PhoneNumbersCollector.collect_stats(period)
@@ -50,11 +50,11 @@ class PhoneNumbersCollectorTest < ActiveSupport::TestCase
   end
 
   test "takes into account period date" do
-    (1..2).each { |i| @schedule.subscribers.make phone_number: "54 11 4444 555#{i}" }
+    (1..2).each { |i| @schedule.subscribers.make phone_number: "sms://54 11 4444 555#{i}" }
     p0 = InsteddTelemetry::Period.current
 
     time_advance InsteddTelemetry::Period.span
-    (3..9).each { |i| @schedule.subscribers.make phone_number: "54 11 4444 555#{i}" }
+    (3..9).each { |i| @schedule.subscribers.make phone_number: "sms://54 11 4444 555#{i}" }
     p1 = InsteddTelemetry::Period.current
 
 

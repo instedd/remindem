@@ -10,7 +10,7 @@ module Telemetry::PhoneNumbersCollector
 
     counts = Hash.new(0)
     results.each do |number, count|
-      country_code = InsteddTelemetry::Util.country_code(number) rescue nil
+      country_code = InsteddTelemetry::Util.country_code(number.without_protocol) rescue nil
       if country_code
         counts[country_code] += 1
       end
