@@ -58,4 +58,34 @@ class SubscribersCollectorTest < ActiveSupport::TestCase
     }
   end
 
+  test "counts schedules with 0 subscribers" do
+    period = InsteddTelemetry::Period.current
+
+    schedule_1 = RandomSchedule.make created_at: period.end - 5.days
+    schedule_2 = CalendarBasedSchedule.make created_at: period.end - 1.day
+    schedule_3 = RandomSchedule.make created_at: period.end + 1.day
+
+    Subscriber.make schedule: schedule_2, created_at: period.end + 1.day
+    Subscriber.make schedule: schedule_3, created_at: period.end + 3.days
+
+    stats = Telemetry::SubscribersCollector.collect_stats(period)
+    counters = stats['counters']
+
+    assert_equal 2, counters.size
+
+    schedule_1_stat = counters.find{|x| x['key']['schedule_id'] == schedule_1.id}
+    schedule_2_stat = counters.find{|x| x['key']['schedule_id'] == schedule_2.id}
+
+    assert_equal schedule_1_stat, {
+      "metric" => "subscribers",
+      "key" => { "schedule_id" => schedule_1.id },
+      "value" => 0
+    }
+
+    assert_equal schedule_2_stat, {
+      "metric" => "subscribers",
+      "key" => { "schedule_id" => schedule_2.id },
+      "value" => 0
+    }
+  end
 end
