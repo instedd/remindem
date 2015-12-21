@@ -45,6 +45,10 @@ class Schedule < ActiveRecord::Base
   validates_associated :external_actions
   before_validation :initialize_messages
 
+  delegate      :telemetry_track_activity, to: :user
+  after_save    :telemetry_track_activity
+  after_destroy :telemetry_track_activity
+
   scope :paused, where(paused: true)
 
 
@@ -131,6 +135,7 @@ class Schedule < ActiveRecord::Base
     message = self.build_message to, msg.description
     nuntium.send_ao message
     log_message_sent msg, to
+    telemetry_track_activity
   end
 
   def execute_message message, subscriber

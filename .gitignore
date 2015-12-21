@@ -8,3 +8,4 @@ remindem.tmproj
 test/reports/
 .sass-cache
 config/guisso.yml
+config/telemetry.yml

@@ -17,6 +17,8 @@
 
 RememberMe::Application.routes.draw do
 
+  mount InsteddTelemetry::Engine => '/instedd_telemetry'
+
   namespace "api" do
     resources :schedules, :only => [:index, :show], :path => 'reminders' do
       resources :subscribers, :only => [:index, :show, :create] do

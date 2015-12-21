@@ -40,7 +40,7 @@ class FixedSchedule < Schedule
   end
 
   def past?(time)
-    time < Time.now - 1.minute
+    time < Time.now - 1.second
   end
 
   def duration

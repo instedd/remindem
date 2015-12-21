@@ -27,6 +27,7 @@ Sham.body { "Message" + rand(265**1).to_s }
 Sham.severity { [:information, :error, :warning].pick }
 Sham.description { Faker::Lorem.sentence }
 Sham.title { Faker::Lorem.words(2) }
+Sham.text { Faker::Lorem.words(6) }
 
 Log.blueprint do
   severity
@@ -67,4 +68,16 @@ end
 ExternalAction.blueprint do
   schedule_id { FixedSchedule.make.id }
   offset { 1 }
+end
+
+Identity.blueprint do
+  user
+  provider { :instedd }
+  token { "http://login-stg.instedd.org/openid/#{object.user.email}" }
+end
+
+Message.blueprint do
+  schedule
+  text
+  offset { 0 }
 end

@@ -8,6 +8,7 @@ gem 'devise', '~> 1.5.4'
 gem 'delayed_job_active_record'
 gem 'nuntium_api', '>=0.12'
 gem 'hub_client', github: 'instedd/ruby-hub_client', branch: 'master'
+gem 'instedd_telemetry', github: "instedd/telemetry_rails", branch: 'master'
 gem 'jquery-rails', '~> 2.1.0'
 gem 'client_side_validations'
 
