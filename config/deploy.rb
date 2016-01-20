@@ -39,6 +39,10 @@ namespace :deploy do
       run "ln -nfs #{shared_path}/#{file}.yml #{release_path}/config/"
     end
   end
+
+  task :generate_version, :roles => :app do
+    run "cd #{release_path} && git describe --always > #{release_path}/VERSION"
+  end
 end
 
 namespace :foreman do
@@ -70,6 +74,8 @@ end
 before "deploy:start", "deploy:migrate"
 before "deploy:restart", "deploy:migrate"
 before "deploy:assets:precompile", "deploy:symlink_configs"
+
+after "deploy:update_code", "deploy:generate_version"
 
 after "deploy:update", "foreman:export"
 after "deploy:restart", "foreman:restart"
