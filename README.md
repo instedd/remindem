@@ -42,3 +42,24 @@ It is required to setup the action mailer and config.action_mailer.default_url_o
 ### Delayed jobs
 
 Run delayed jobs via `rake jobs:work`.
+
+## Development
+
+### Docker development
+
+`docker-compose.yml` file build a development environment mounting the current folder and running rails in development environment.
+
+Run the following commands to have a stable development environment.
+
+```
+$ docker-compose run --rm --no-deps web bundle install
+$ docker-compose run --rm web rake db:setup
+$ docker-compose up
+```
+
+To setup and run test, once the web container is running:
+
+```
+$ docker-compose exec web bash
+root@web_1 $ rake
+```
