@@ -55,3 +55,7 @@ group :development do
   gem 'rvm'
   gem 'licit'
 end
+
+group :webserver do
+  gem 'puma', '~> 3.0.2'
+end
