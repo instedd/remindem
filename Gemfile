@@ -42,7 +42,8 @@ end
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
+  gem 'uglifier',     '>= 1.0.3'
+  gem 'execjs',       '~> 2.0.2'
 end
 
 group :development do
@@ -52,7 +53,9 @@ group :development do
 end
 
 group :development do
-  gem 'capistrano'
+  gem 'capistrano',         '~> 3.6', :require => false
+  gem 'capistrano-rails',   '~> 1.2', :require => false
+  gem 'capistrano-bundler', '~> 1.2', :require => false
   gem 'rvm'
   gem 'licit'
 end

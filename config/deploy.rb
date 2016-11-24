@@ -15,67 +15,79 @@
 # You should have received a copy of the GNU General Public License
 # along with Remindem.  If not, see <http://www.gnu.org/licenses/>.
 
-require 'bundler/capistrano'
-require 'rvm/capistrano'
+# config valid only for current version of Capistrano
+lock '3.6.1'
 
-set :rvm_ruby_string, '2.0.0-p598'
+set :application, 'remindem'
+set :repo_url, 'git@github.com:instedd/remindem.git'
 
-set :application, "remindem"
-set :repository,  "https://github.com/instedd/remindem.git"
+ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
+
+set :deploy_to, "/u/apps/#{fetch(:application)}"
 set :scm, :git
-set :deploy_via, :remote_cache
-set :user, 'ubuntu'
-default_environment['TERM'] = ENV['TERM']
+set :format, :airbrussh
+set :pty, true
+set :keep_releases, 5
+set :rails_env, :production
+set :migration_role, :app
 
-namespace :deploy do
-  task :start do ; end
-  task :stop do ; end
-  task :restart, :roles => :app, :except => { :no_release => true } do
-    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-  end
+# Default value for :linked_files is []
+append :linked_files, 'config/database.yml', 'config/guisso.yml', 'config/hub.yml', 'config/nuntium.yml'
 
-  task :symlink_configs, :roles => :app do
-    %W(database nuntium guisso hub telemetry).each do |file|
-      run "ln -nfs #{shared_path}/#{file}.yml #{release_path}/config/"
+# Default value for linked_dirs is []
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache'
+
+# Name for the exported service
+set :service_name, fetch(:application)
+
+namespace :service do
+  task :export do
+    on roles(:app) do
+      opts = {
+        app: fetch(:service_name),
+        log: File.join(shared_path, 'log'),
+        user: fetch(:deploy_user),
+        concurrency: "puma=1,worker=1"
+      }
+
+      execute(:mkdir, "-p", opts[:log])
+
+      within release_path do
+        execute :sudo, '/usr/local/bin/bundle', 'exec', 'foreman', 'export',
+                'upstart', '/etc/init', '-t', "etc/upstart",
+                opts.map { |opt, value| "--#{opt}=\"#{value}\"" }.join(' ')
+      end
     end
   end
 
-  task :generate_version, :roles => :app do
-    run "cd #{release_path} && git describe --always > #{release_path}/VERSION"
+  # Capture the environment variables for Foreman
+  before :export, :set_env do
+    on roles(:app) do
+      within release_path do
+        with rails_env: fetch(:rails_env) do
+          execute :bundle, :exec, "env | grep '^\\(PATH\\|GEM_PATH\\|GEM_HOME\\|RAILS_ENV\\|PUMA_OPTS\\|INSTEDD_THEME\\)'", "> .env"
+        end
+      end
+    end
+  end
+
+  task :safe_restart do
+    on roles(:app) do
+      execute "sudo stop #{fetch(:service_name)} ; sudo start #{fetch(:service_name)}"
+    end
   end
 end
 
-namespace :foreman do
-  desc 'Export the Procfile to Ubuntu upstart scripts'
-  task :export, :roles => :app do
-    env = {"PATH" => "$PATH", "GEM_HOME" => "$GEM_HOME", "GEM_PATH" => "$GEM_PATH", "RAILS_ENV" => "production"}
-    concurrency = "worker=1"
-    procfile = "Procfile"
-    run "echo -e \"#{env.map{|k,v| "#{k}=#{v}"}.join("\\n")}\" >  #{current_path}/.env"
-    run "cd #{current_path} && rvmsudo bundle exec foreman export upstart /etc/init -l #{shared_path}/log -f #{current_path}/#{procfile} -a #{application} -u #{user} --concurrency=\"#{concurrency}\""
+namespace :deploy do
+  task :generate_version do
+    on roles(:app) do
+      within release_path do
+        execute :echo, "#{capture("cd #{repo_path} && git describe --always")} > VERSION"
+      end
+    end
   end
 
-  desc "Start the application services"
-  task :start, :roles => :app do
-    sudo "start #{application}"
-  end
-
-  desc "Stop the application services"
-  task :stop, :roles => :app do
-    sudo "stop #{application}"
-  end
-
-  desc "Restart the application services"
-  task :restart, :roles => :app do
-    run "sudo start #{application} || sudo restart #{application}"
-  end
+  after :updated, "deploy:generate_version"
+  after :updated, "service:export"         # Export foreman scripts
+  after :restart, "service:safe_restart"   # Restart background services
 end
-
-before "deploy:start", "deploy:migrate"
-before "deploy:restart", "deploy:migrate"
-before "deploy:assets:precompile", "deploy:symlink_configs"
-
-after "deploy:update_code", "deploy:generate_version"
-
-after "deploy:update", "foreman:export"
-after "deploy:restart", "foreman:restart"
