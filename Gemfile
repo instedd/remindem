@@ -27,6 +27,7 @@ gem 'alto_guisso_rails', git: "https://github.com/instedd/alto_guisso_rails.git"
 gem 'breadcrumbs_on_rails'
 gem 'fast_gettext'
 gem 'gettext_i18n_rails'
+gem 'io-console'
 
 group :development, :test do
   gem "rand", "~> 0.9.1"

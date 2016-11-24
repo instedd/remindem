@@ -137,6 +137,7 @@ GEM
     httpclient (2.6.0.1)
     i18n (0.7.0)
     ice_cube (0.6.14)
+    io-console (0.4.2)
     journey (1.0.4)
     jquery-rails (2.1.4)
       railties (>= 3.0, < 5.0)
@@ -279,6 +280,7 @@ DEPENDENCIES
   hub_client!
   ice_cube (~> 0.6.13)
   instedd_telemetry!
+  io-console
   jquery-rails (~> 2.1.0)
   kaminari
   licit
