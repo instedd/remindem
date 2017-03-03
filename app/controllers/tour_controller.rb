@@ -21,6 +21,6 @@ class TourController < ApplicationController
   end
   
   def show
-    render params[:page]
+    render params[:page].try(:to_s)
   end
 end
