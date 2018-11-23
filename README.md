@@ -64,3 +64,10 @@ To setup and run test, once the web container is running:
 $ docker-compose exec web bash
 root@web_1 $ rake
 ```
+
+## Intercom
+
+Remindem supports Intercom as its CRM platform. To load the Intercom chat widget, simply start Remindem with the env variable `INTERCOM_APP_ID` set to your Intercom app id (https://www.intercom.com/help/faqs-and-troubleshooting/getting-set-up/where-can-i-find-my-workspace-id-app-id).
+Remindem will forward any conversation with a logged user identifying them through their email address. Anonymous, unlogged users will also be able to communicate.
+If you don't want to use Intercom, you can simply omit `INTERCOM_APP_ID` or set it to `''`.
+To test the feature in development, add the `INTERCOM_APP_ID` variable and its value to the `environment` object inside the `web` service in `docker-compose.yml`.
