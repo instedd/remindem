@@ -29,7 +29,10 @@ RememberMe::Application.routes.draw do
 
   scope "(:locale)", :locale => /#{Locales.available.keys.join('|')}/ do
 
-    devise_for :users, :controllers => {:registrations => 'users/registrations', omniauth_callbacks: "omniauth_callbacks" } do
+    devise_for :users, :controllers => {
+      :registrations => 'users/registrations',
+      omniauth_callbacks: "omniauth_callbacks",
+      :sessions => "sessions"} do
       get 'users/registrations/success', :to => 'users/registrations#success'
     end
 

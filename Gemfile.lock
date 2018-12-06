@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: git://github.com/instedd/telemetry_rails.git
-  revision: b361d4cf3167a7184f77c678d77c517f5680f032
+  revision: db0ef5c0e72b8a944befb7b9b88beedb876b296c
   branch: master
   specs:
     instedd_telemetry (0.0.1)
@@ -145,6 +145,8 @@ GEM
     httpclient (2.6.0.1)
     i18n (0.7.0)
     ice_cube (0.6.14)
+    intercom-rails (0.4.0)
+      activesupport (> 3.0)
     io-console (0.4.2)
     journey (1.0.4)
     jquery-rails (2.1.4)
@@ -290,6 +292,7 @@ DEPENDENCIES
   hub_client!
   ice_cube (~> 0.6.13)
   instedd_telemetry!
+  intercom-rails
   io-console
   jquery-rails (~> 2.1.0)
   kaminari
@@ -315,4 +318,4 @@ DEPENDENCIES
   uglifier (>= 1.0.3)
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
