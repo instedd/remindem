@@ -1,24 +1,4 @@
 GIT
-  remote: git://github.com/instedd/ruby-hub_client.git
-  revision: 9a0846193be5c9ff655af5d51de94139897ac4a4
-  branch: master
-  specs:
-    hub_client (0.0.1)
-      alto_guisso
-      rails
-      rest-client
-
-GIT
-  remote: git://github.com/instedd/telemetry_rails.git
-  revision: b361d4cf3167a7184f77c678d77c517f5680f032
-  branch: master
-  specs:
-    instedd_telemetry (0.0.1)
-      global_phone
-      global_phone_dbgen
-      rails
-
-GIT
   remote: https://github.com/instedd/alto_guisso.git
   revision: 6d72573c211f45ff95d36847af733449acdfa04a
   branch: master
@@ -38,6 +18,26 @@ GIT
       rack-oauth2
       rails (>= 3.0)
       ruby-openid
+
+GIT
+  remote: https://github.com/instedd/ruby-hub_client
+  revision: 9a0846193be5c9ff655af5d51de94139897ac4a4
+  branch: master
+  specs:
+    hub_client (0.0.1)
+      alto_guisso
+      rails
+      rest-client
+
+GIT
+  remote: https://github.com/instedd/telemetry_rails
+  revision: b361d4cf3167a7184f77c678d77c517f5680f032
+  branch: master
+  specs:
+    instedd_telemetry (0.0.1)
+      global_phone
+      global_phone_dbgen
+      rails
 
 GEM
   remote: http://rubygems.org/

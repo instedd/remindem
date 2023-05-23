@@ -1,0 +1,5 @@
+#!/bin/bash -x
+docker compose pull
+docker compose up -d db
+docker compose run --rm --no-deps web bundle install
+docker compose run --rm web bundle exec rake db:setup

@@ -49,18 +49,10 @@ Run delayed jobs via `rake jobs:work`.
 
 `docker-compose.yml` file build a development environment mounting the current folder and running rails in development environment.
 
-Run the following commands to have a stable development environment.
-
-```
-$ docker-compose run --rm --no-deps web bundle install
-$ docker-compose up -d db
-$ docker-compose run --rm web rake db:setup
-$ docker-compose up
-```
+You can have a stable development environment by running the `./dev-setup` script.
 
 To setup and run test, once the web container is running:
 
 ```
-$ docker-compose exec web bash
-root@web_1 $ rake
+$ docker compose exec web rake
 ```
